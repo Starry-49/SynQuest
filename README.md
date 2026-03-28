@@ -1,147 +1,129 @@
-![SynQuest Logo](logo.png)
+<p align="center">
+  <img src="logo.png" alt="SynQuest Logo" width="120">
+</p>
 
-# SynQuest: 基于知识库的题目生成与基因组信息学题库系统
+<h1 align="center">SynQuest</h1>
 
-[![License](https://img.shields.io/badge/License-MIT-14532D?style=flat-square)](LICENSE)
-[![Static Site](https://img.shields.io/badge/GitHub%20Pages-ready-CF9E2A?style=flat-square)](#github-pages)
-[![Python](https://img.shields.io/badge/Python-3.10%2B-2F5D50?style=flat-square)](https://www.python.org/)
-[![Skill](https://img.shields.io/badge/Codex-SynQuest-1D6A4F?style=flat-square)](synquest/SKILL.md)
+<p align="center">
+  面向《基因组信息学》的知识库驱动出题系统。<br>
+  支持题库整理、抽题测试、知识库生成新题，以及 GitHub Pages 静态演示。
+</p>
 
-[**Quick Start**](#quick-start) · [**Project Structure**](#project-structure) · [**SynQuest Skill**](#synquest-skill) · [**GitHub Pages**](#github-pages)
+<p align="center">
+  <a href="LICENSE">
+    <img src="https://img.shields.io/badge/License-MIT-14532D?style=flat-square" alt="MIT License">
+  </a>
+  <a href="https://starry-49.github.io/SynQuest/">
+    <img src="https://img.shields.io/badge/GitHub%20Pages-ready-CF9E2A?style=flat-square" alt="GitHub Pages Ready">
+  </a>
+  <a href="https://www.python.org/">
+    <img src="https://img.shields.io/badge/Python-3.10%2B-2F5D50?style=flat-square" alt="Python 3.10+">
+  </a>
+  <a href="synquest/SKILL.md">
+    <img src="https://img.shields.io/badge/Codex-SynQuest-1D6A4F?style=flat-square" alt="Codex SynQuest">
+  </a>
+</p>
 
-README 的组织方式参考了 [HKUDS/DeepTutor](https://github.com/HKUDS/DeepTutor)，但这个仓库聚焦于一个更清晰的单域问题：把《基因组信息学》题目、课程知识库、题目生成逻辑与静态演示页面整理成一个可以持续扩展的项目。
-
-## What This Repo Does
-
-- 整理原本写在 HTML 中的 2022 / 2023 题目，并规范化为 `data/question-bank.json`
-- 提供一个主 skill: [`SynQuest`](synquest/SKILL.md)，用于把知识库转换为题目
-- 提供一个无后端的 GitHub Pages 页面：
-  - 调度与浏览现有题库
-  - 按指定数量抽题测试
-  - 基于知识库合成新题并加入浏览器本地扩展题库
-  - 导出生成题目，方便再合并回仓库
-- 保留原始整理页面作为 `legacy/`，便于追溯与二次迁移
-
-## Key Features
-
-- **Structured Question Bank**: 182 道题从旧版 `index.html` 中提取为可复用 JSON，包含题型、主题、难度、答案、解析、图片与关联知识模块。
-- **SynQuest Skill + CLI**: 同一套仓库内同时提供 skill 说明与命令行工具，便于 Codex/本地脚本复用。
-- **Knowledge-Driven Generation**: `data/knowledge-base/` 中的课程知识库可直接驱动出题，不再依赖把题目硬编码进页面。
-- **Static GitHub Pages Demo**: 页面只依赖静态文件，适合作为 GitHub Pages 示例站点。
-- **Composable but Organized**: `SynQuest` 可以和其他 skill 联用形成放大效果，但仓库结构保持单一主入口、分层清晰。
-
-## Project Structure
-
-```text
-.
-├── assets/
-│   ├── app.js                    # 主页状态管理、筛选、抽题、渲染
-│   ├── reader.js                 # Study Reader 逻辑
-│   ├── styles.css                # GitHub Pages 共用样式
-│   └── synquest-browser.js       # 浏览器端 SynQuest 生成器
-├── data/
-│   ├── generated/                # CLI 或浏览器导出的新增题目样例
-│   ├── knowledge-base/
-│   │   └── genome-informatics-core.json
-│   └── question-bank.json        # 标准化后的正式题库
-├── images/                       # 原始题目图片
-├── legacy/
-│   ├── index.legacy.html         # 原始本地题库页面备份
-│   └── reader.legacy.html        # 原始课件阅读页备份
-├── scripts/
-│   └── build_question_bank.py    # 从 legacy HTML 提取题库 JSON
-├── synquest/
-│   ├── agents/openai.yaml        # skill UI 元数据
-│   ├── references/               # schema 与知识库格式说明
-│   ├── scripts/synquest.py       # inspect / synthesize / merge CLI
-│   └── SKILL.md                  # SynQuest 主 skill
-├── user_data/
-│   ├── answers.json              # 原始答案与人工笔记
-│   └── images/                   # 原始辅助截图
-├── index.html                    # GitHub Pages 首页
-├── reader.html                   # Study Reader
-├── logo.png
-├── LICENSE
-└── README.md
-```
-
-### Directory Roles
-
-- `synquest/` 是主技能目录，负责“如何生成题目”。
-- `scripts/` 是迁移和构建层，负责“如何把旧数据整理出来”。
-- `data/` 是正式数据层，页面和 CLI 都读取这里。
-- `assets/` 是展示层，页面逻辑与样式统一放在这里。
-- `legacy/` 与 `user_data/` 是历史来源层，用于追溯、校验和二次整理。
-
-## Architecture
-
-```mermaid
-flowchart LR
-    A["Legacy HTML / user_data"] --> B["scripts/build_question_bank.py"]
-    B --> C["data/question-bank.json"]
-    D["data/knowledge-base/*.json"] --> E["SynQuest CLI / Browser Generator"]
-    E --> F["data/generated/*.json or localStorage"]
-    C --> G["index.html / reader.html"]
-    F --> G
-    F --> H["Review + Merge back to bank"]
-```
+<p align="center">
+  <a href="#quick-start"><strong>Quick Start</strong></a> ·
+  <a href="#what-you-can-do"><strong>What You Can Do</strong></a> ·
+  <a href="#github-pages"><strong>GitHub Pages</strong></a> ·
+  <a href="#project-structure"><strong>Project Structure</strong></a>
+</p>
 
 ## Quick Start
 
-### 1. Generate the normalized question bank
+### 1. 本地启动
+
+先生成整理后的标准题库：
 
 ```bash
 python3 scripts/build_question_bank.py
 ```
 
-### 2. Start a local static server
-
-直接打开 `index.html` 会受到浏览器对 `fetch()` 的限制，建议使用本地服务器：
+再启动一个静态服务器：
 
 ```bash
 python3 -m http.server 8000
 ```
 
-然后访问：
+打开：
 
 ```text
 http://localhost:8000
 ```
 
-### 3. Open the GitHub Pages style demo
+### 2. 在线体验
 
-- 首页：`index.html`
-- 学习阅读页：`reader.html`
+- GitHub Pages: [https://starry-49.github.io/SynQuest/](https://starry-49.github.io/SynQuest/)
+- 仓库地址: [https://github.com/Starry-49/SynQuest](https://github.com/Starry-49/SynQuest)
+
+## What You Can Do
+
+这个项目不是单纯“放题目的网页”，而是一个完整的小型题库系统。
+
+- 浏览我已经整理好的《基因组信息学》题库
+- 按主题、题型、年份和关键词快速筛题
+- 从当前筛选结果中抽指定数量的题进行测试
+- 基于课程知识库生成新的练习题
+- 把生成的新题先保存在浏览器本地，再导出为 JSON
+- 后续通过仓库内脚本把新题并回正式题库
+
+## Why SynQuest
+
+我希望把原本散落在 HTML、截图和笔记里的内容整理成一个更清晰、可扩展、可复用的仓库。
+
+SynQuest 主要解决了这几件事：
+
+- 把原始题目从旧版 HTML 中抽取成结构化 JSON
+- 把课程知识点单独整理成知识库，而不是继续把题目写死在页面里
+- 把“知识库 -> 出题 -> 题库扩充 -> 静态展示”串成一个闭环
+- 保留原始资料，方便回溯和继续修订
+
+## GitHub Pages
+
+首页是一个纯静态页面，不依赖后端，适合直接放在 GitHub Pages 上。
+
+### 页面支持
+
+- 题库浏览与筛选
+- 抽题测试
+- 基于知识模块生成新题
+- 本地导出生成题目
+- Study Reader 阅读知识模块与题目详情
+
+### 页面入口
+
+- 首页: [`index.html`](index.html)
+- Reader: [`reader.html`](reader.html)
 
 ## SynQuest Skill
 
-主 skill 位于 [`synquest/SKILL.md`](synquest/SKILL.md)。它的设计重点不是把所有逻辑揉成一个大文件，而是保留一个主入口，然后把能力拆成几层：
+主 skill 位于 [`synquest/SKILL.md`](synquest/SKILL.md)。
 
-- `SKILL.md`: 什么时候触发、怎么用
-- `references/`: schema 与知识库格式
-- `scripts/synquest.py`: 可执行 CLI
-- `assets/synquest-browser.js`: 前端静态站点内的轻量生成器
+它是这个仓库的核心入口，但内部不是一团混在一起的实现，而是分层组织：
 
-### Why This Layering Works
+- `SKILL.md`: 说明什么时候用、怎么触发
+- `references/`: 说明题目 schema 和知识库格式
+- `scripts/synquest.py`: 命令行生成、检查、合并
+- `assets/synquest-browser.js`: 浏览器端轻量生成器
 
-- **单一主 skill** 保证入口清晰
-- **多层实现** 允许它与别的 skill 联用，例如：
-  - 先用别的 skill 构建知识库
-  - 再用 `SynQuest` 生成题目
-  - 最后交给前端或 GitHub 工作流发布
+这意味着它可以和别的 skill 联用，但结构上仍然保持清楚：
 
-换句话说，skill 可以多重联用形成放大效果，但目录上仍然坚持“一个主 skill，多个明确子模块”。
+- 一个主 skill
+- 多个清晰子模块
+- 页面、数据、脚本各自独立
 
-### CLI Examples
+### CLI 示例
 
-Inspect a knowledge base:
+检查知识库：
 
 ```bash
 python3 synquest/scripts/synquest.py inspect \
   --kb data/knowledge-base/genome-informatics-core.json
 ```
 
-Generate new questions:
+生成新题：
 
 ```bash
 python3 synquest/scripts/synquest.py synthesize \
@@ -150,7 +132,7 @@ python3 synquest/scripts/synquest.py synthesize \
   --out data/generated/synquest-batch.json
 ```
 
-Merge generated questions into the main bank:
+把新题并回正式题库：
 
 ```bash
 python3 synquest/scripts/synquest.py merge \
@@ -158,32 +140,61 @@ python3 synquest/scripts/synquest.py merge \
   --incoming data/generated/synquest-batch.json
 ```
 
-## GitHub Pages
+## Data Overview
 
-这个仓库的前端是纯静态页面，天然适合 GitHub Pages：
+当前仓库里已经整理出的正式题库位于：
 
-- `index.html` 提供题库浏览、筛选、抽题与本地生成
-- `reader.html` 提供知识模块和题目详情联动阅读
-- 浏览器生成的新题默认写入 `localStorage`
-- 导出后可以再通过 CLI 审核并合并回正式题库
+- [`data/question-bank.json`](data/question-bank.json)
 
-这意味着：
+课程知识库位于：
 
-1. GitHub Pages 负责“展示和交互”
-2. `SynQuest` CLI 负责“批量生成和正式入库”
-3. 仓库本身负责“版本化与可追溯”
+- [`data/knowledge-base/genome-informatics-core.json`](data/knowledge-base/genome-informatics-core.json)
 
-## Data Notes
+浏览器导出或 CLI 生成的新题样例位于：
 
-- `data/question-bank.json` 是正式题库，适合提交到 Git
-- `data/generated/` 是生成样例与中间产物
-- `user_data/` 是历史人工答案与截图，不直接作为页面的核心数据源，但用于迁移和补充
+- [`data/generated/`](data/generated/)
+
+## Project Structure
+
+```text
+.
+├── assets/
+│   ├── app.js
+│   ├── reader.js
+│   ├── styles.css
+│   └── synquest-browser.js
+├── data/
+│   ├── generated/
+│   ├── knowledge-base/
+│   └── question-bank.json
+├── images/
+├── legacy/
+│   ├── index.legacy.html
+│   └── reader.legacy.html
+├── scripts/
+│   └── build_question_bank.py
+├── synquest/
+│   ├── agents/openai.yaml
+│   ├── references/
+│   ├── scripts/synquest.py
+│   └── SKILL.md
+├── user_data/
+├── index.html
+├── reader.html
+├── logo.png
+├── LICENSE
+└── README.md
+```
+
+### 目录职责
+
+- `assets/`: 页面逻辑与样式
+- `data/`: 正式题库、知识库、生成结果
+- `legacy/`: 原始旧页面备份
+- `scripts/`: 数据迁移与构建脚本
+- `synquest/`: 主 skill 与生成工具
+- `user_data/`: 原始答案、笔记和截图来源
 
 ## License
 
 This project uses the [MIT License](LICENSE).
-
-## Acknowledgement
-
-- README 版式灵感参考 [DeepTutor](https://github.com/HKUDS/DeepTutor)
-- 如果你希望把这个项目继续放大成更复杂的研究代理工作流，可以进一步接入其他 skill 或使用 [K-Dense Web](https://www.k-dense.ai)
