@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SynQuest Reader</title>
+  <meta name="description" content="Reader page for the SynQuest example knowledge base and linked questions.">
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <main class="page-shell">
+    <nav class="page-nav">
+      <a class="nav-brand" href="./">
+        <img src="../logo.png" alt="SynQuest logo">
+        <span>SynQuest</span>
+      </a>
+      <div class="nav-links">
+        <a href="./">Demo Home</a>
+        <a href="./practice.html">Practice</a>
+        <a href="./reader.html">Reader</a>
+      </div>
+    </nav>
+
+    <section class="hero glass reader-hero">
+      <div class="hero-inner">
+        <div class="hero-eyebrow">
+          <img src="../logo.png" alt="SynQuest logo">
+          <span>Study Reader</span>
+        </div>
+        <h1 id="readerTitle">Reader</h1>
+        <p class="hero-copy" id="readerSubtitle">按知识模块阅读事实，再查看它关联的示例题目和答案解析。</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="./practice.html">返回答题页</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="reader-layout">
+      <aside class="reader-sidebar">
+        <section class="panel">
+          <div class="panel-title">
+            <div>
+              <h2>知识模块</h2>
+              <p class="panel-subtitle">切换当前阅读模块。</p>
+            </div>
+          </div>
+          <div id="moduleTree" class="tree-list"></div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-title">
+            <div>
+              <h2>关联题目</h2>
+              <p class="panel-subtitle">定位当前模块下的题目详情。</p>
+            </div>
+          </div>
+          <div id="questionTree" class="tree-list"></div>
+        </section>
+      </aside>
+
+      <section class="reader-main">
+        <div id="readerContent"></div>
+      </section>
+    </section>
+  </main>
+
+  <script src="assets/reader.js"></script>
+</body>
+</html>

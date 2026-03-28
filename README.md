@@ -6,7 +6,7 @@
 
 <p align="center">
   一个可复用的 skill / toolchain，用来把任意领域知识库转成结构化题库。<br>
-  本仓库中的《基因组信息学》内容只是示例知识库与示例页面，不是 SynQuest 的能力边界。
+  支持把知识点、题库、网页演示和生成流程组织成一个可复用项目。
 </p>
 
 <p align="center">
@@ -37,15 +37,16 @@
 
 ## Quick Start
 
-### 1. 本地启动
+### 1. 先看在线 demo
 
-先生成整理后的标准题库：
+- Live Demo: [https://starry-49.github.io/SynQuest/](https://starry-49.github.io/SynQuest/)
+- Repo: [https://github.com/Starry-49/SynQuest](https://github.com/Starry-49/SynQuest)
 
-```bash
-python3 scripts/build_question_bank.py
-```
+### 2. 本地预览 demo
 
-再启动一个静态服务器：
+如果你只是想本地打开网页 demo，不需要先“生成题库”。仓库里已经带了示例数据。
+
+直接启动一个静态服务器：
 
 ```bash
 python3 -m http.server 8000
@@ -54,13 +55,16 @@ python3 -m http.server 8000
 打开：
 
 ```text
-http://localhost:8000
+http://localhost:8000/example/
 ```
 
-### 2. 在线体验
+### 3. 可选：重建示例题库
 
-- GitHub Pages: [https://starry-49.github.io/SynQuest/](https://starry-49.github.io/SynQuest/)
-- 仓库地址: [https://github.com/Starry-49/SynQuest](https://github.com/Starry-49/SynQuest)
+只有当你想重新从旧版 HTML 素材提取示例题库时，才需要执行：
+
+```bash
+python3 scripts/build_question_bank.py
+```
 
 ## What You Can Do
 
@@ -111,8 +115,9 @@ SynQuest 主要解决了这几件事：
 ### Demo 地址
 
 - 在线首页: [https://starry-49.github.io/SynQuest/](https://starry-49.github.io/SynQuest/)
-- 本地入口: [`index.html`](index.html)
-- 阅读页: [`reader.html`](reader.html)
+- Demo 首页: [`example/index.html`](example/index.html)
+- 答题页: [`example/practice.html`](example/practice.html)
+- 阅读页: [`example/reader.html`](example/reader.html)
 
 ## SynQuest Skill
 
@@ -125,7 +130,7 @@ SynQuest 主要解决了这几件事：
 - `SKILL.md`: 说明什么时候用、怎么触发
 - `references/`: 说明题目 schema 和知识库格式
 - `scripts/synquest.py`: 命令行生成、检查、合并
-- `assets/synquest-browser.js`: 浏览器端轻量生成器
+- `example/assets/synquest-browser.js`: 浏览器端轻量生成器
 
 这意味着它可以和别的 skill 联用，但结构上仍然保持清楚：
 
@@ -178,15 +183,19 @@ python3 synquest/scripts/synquest.py merge \
 
 ```text
 .
-├── assets/
-│   ├── app.js
-│   ├── reader.js
-│   ├── styles.css
-│   └── synquest-browser.js
 ├── data/
 │   ├── generated/
 │   ├── knowledge-base/
 │   └── question-bank.json
+├── example/
+│   ├── assets/
+│   │   ├── app.js
+│   │   ├── reader.js
+│   │   ├── styles.css
+│   │   └── synquest-browser.js
+│   ├── index.html
+│   ├── practice.html
+│   └── reader.html
 ├── images/
 ├── legacy/
 │   ├── index.legacy.html
@@ -208,8 +217,8 @@ python3 synquest/scripts/synquest.py merge \
 
 ### 目录职责
 
-- `assets/`: 页面逻辑与样式
 - `data/`: 正式题库、知识库、生成结果
+- `example/`: 整个网页 demo，明确标记为 example
 - `legacy/`: 原始旧页面备份
 - `scripts/`: 数据迁移与构建脚本
 - `synquest/`: 主 skill 与生成工具

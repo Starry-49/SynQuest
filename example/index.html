@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SynQuest Demo</title>
+  <meta name="description" content="SynQuest online demo. Skill-first landing page with practice and reader examples.">
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <main class="page-shell">
+    <nav class="page-nav">
+      <a class="nav-brand" href="./">
+        <img src="../logo.png" alt="SynQuest logo">
+        <span>SynQuest</span>
+      </a>
+      <div class="nav-links">
+        <a href="./practice.html">Practice</a>
+        <a href="./reader.html">Reader</a>
+        <a href="https://github.com/Starry-49/SynQuest" target="_blank" rel="noreferrer">GitHub</a>
+      </div>
+    </nav>
+
+    <section class="hero hero-centered glass">
+      <div class="hero-inner">
+        <div class="hero-eyebrow">
+          <img src="../logo.png" alt="SynQuest logo">
+          <span>Skill-First Knowledge-to-Question Demo</span>
+        </div>
+        <h1>SynQuest</h1>
+        <p class="hero-copy">
+          一个可复用的 skill，用来把领域知识库转成结构化题库。
+          这里展示的是它在《基因组信息学》示例知识库上的网页 demo，而不是能力边界本身。
+        </p>
+        <div class="hero-actions hero-actions-centered">
+          <a class="button button-primary" href="./practice.html">打开答题页</a>
+          <a class="button button-secondary" href="./reader.html">打开 Reader</a>
+        </div>
+        <div class="hero-links">
+          <a href="https://starry-49.github.io/SynQuest/" target="_blank" rel="noreferrer">Live Demo</a>
+          <span>·</span>
+          <a href="https://github.com/Starry-49/SynQuest" target="_blank" rel="noreferrer">Repository</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="feature-grid">
+      <article class="feature-card">
+        <h3>Knowledge In</h3>
+        <p class="panel-subtitle">把知识点组织成结构化知识库，作为题目生成的来源，而不是把题目写死在页面里。</p>
+      </article>
+      <article class="feature-card">
+        <h3>Questions Out</h3>
+        <p class="panel-subtitle">生成后的题目可被静态网页、CLI 与后续合并流程共同复用。</p>
+      </article>
+      <article class="feature-card">
+        <h3>Example Demo</h3>
+        <p class="panel-subtitle">当前网页演示基于《基因组信息学》示例数据，支持作答、抽题与阅读。</p>
+      </article>
+    </section>
+
+    <section class="section-panel panel">
+      <div class="section-title">
+        <div>
+          <h2>Choose a Page</h2>
+          <p class="panel-subtitle">把 demo 拆成多个页面，而不是把所有东西塞进一个拥挤首页。</p>
+        </div>
+      </div>
+      <div class="feature-grid">
+        <article class="feature-card">
+          <h3>Practice</h3>
+          <p class="panel-subtitle">浏览题目、直接作答、即时判分，并在浏览器中保存作答记录。</p>
+          <div class="panel-actions">
+            <a class="button button-primary" href="./practice.html">进入答题页</a>
+          </div>
+        </article>
+        <article class="feature-card">
+          <h3>Reader</h3>
+          <p class="panel-subtitle">按知识模块阅读事实、关联题目与答案解析。</p>
+          <div class="panel-actions">
+            <a class="button button-secondary" href="./reader.html">进入阅读页</a>
+          </div>
+        </article>
+        <article class="feature-card">
+          <h3>Skill Source</h3>
+          <p class="panel-subtitle">查看 `synquest/` 中的 skill 说明、schema 与 CLI 入口。</p>
+          <div class="panel-actions">
+            <a class="button button-tertiary" href="../synquest/SKILL.md">查看 SKILL.md</a>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

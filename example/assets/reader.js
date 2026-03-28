@@ -1,5 +1,5 @@
-const READER_BANK_PATH = "data/question-bank.json";
-const READER_KB_PATH = "data/knowledge-base/genome-informatics-core.json";
+const READER_BANK_PATH = "../data/question-bank.json";
+const READER_KB_PATH = "../data/knowledge-base/genome-informatics-core.json";
 
 const readerState = {
   bank: null,
@@ -10,6 +10,12 @@ const readerState = {
 
 function query(name) {
   return new URLSearchParams(window.location.search).get(name);
+}
+
+function resolveAssetPath(path) {
+  if (!path) return "";
+  if (/^(https?:|data:|\/)/.test(path)) return path;
+  return `../${String(path).replace(/^\.?\//, "")}`;
 }
 
 async function readJson(path) {
@@ -105,7 +111,7 @@ function renderQuestionDetail(question) {
         <span class="status-pill">${question.id}</span>
       </div>
       <h3>${question.prompt}</h3>
-      ${question.images?.question ? `<img class="reader-image" src="${question.images.question}" alt="${question.id} image">` : ""}
+      ${question.images?.question ? `<img class="reader-image" src="${resolveAssetPath(question.images.question)}" alt="${question.id} image">` : ""}
       ${(question.options || []).length ? `
         <div class="question-options">
           ${question.options.map((option) => `
@@ -118,7 +124,7 @@ function renderQuestionDetail(question) {
         <p><strong>解析：</strong>${question.analysis || "暂无解析"}</p>
         ${question.pdfPage ? `<p><strong>PPT 页码：</strong>${question.pdfPage}</p>` : ""}
       </div>
-      ${question.images?.note ? `<img class="reader-image" src="${question.images.note}" alt="${question.id} note image">` : ""}
+      ${question.images?.note ? `<img class="reader-image" src="${resolveAssetPath(question.images.note)}" alt="${question.id} note image">` : ""}
       ${module ? `
         <div class="callout">
           <strong>关联知识模块：</strong>${module.title}<br>

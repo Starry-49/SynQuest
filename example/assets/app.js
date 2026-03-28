@@ -1,11 +1,13 @@
-const BANK_PATH = "data/question-bank.json";
-const KB_PATH = "data/knowledge-base/genome-informatics-core.json";
+const BANK_PATH = "../data/question-bank.json";
+const KB_PATH = "../data/knowledge-base/genome-informatics-core.json";
 const GENERATED_STORAGE_KEY = "synquest-generated-bank";
+const ANSWER_STORAGE_KEY = "synquest-answer-records";
 
 const state = {
   bank: null,
   kb: null,
   generatedQuestions: [],
+  answers: {},
   filters: {
     source: "all",
     topic: "all",
@@ -50,6 +52,12 @@ function normalizeText(text) {
   return String(text || "").trim().toLowerCase().replace(/\s+/g, "");
 }
 
+function resolveAssetPath(path) {
+  if (!path) return "";
+  if (/^(https?:|data:|\/)/.test(path)) return path;
+  return `../${String(path).replace(/^\.?\//, "")}`;
+}
+
 function loadGeneratedQuestions() {
   try {
     const raw = window.localStorage.getItem(GENERATED_STORAGE_KEY);
@@ -62,6 +70,20 @@ function loadGeneratedQuestions() {
 
 function persistGeneratedQuestions() {
   window.localStorage.setItem(GENERATED_STORAGE_KEY, JSON.stringify(state.generatedQuestions));
+}
+
+function loadAnswerRecords() {
+  try {
+    const raw = window.localStorage.getItem(ANSWER_STORAGE_KEY);
+    state.answers = raw ? JSON.parse(raw) : {};
+  } catch (error) {
+    console.error("Failed to load answer records:", error);
+    state.answers = {};
+  }
+}
+
+function persistAnswerRecords() {
+  window.localStorage.setItem(ANSWER_STORAGE_KEY, JSON.stringify(state.answers));
 }
 
 async function loadJson(path) {
@@ -164,6 +186,9 @@ function updateStats(filteredQuestions) {
   $("#statGeneratedCount").textContent = state.generatedQuestions.length;
   $("#statFilteredCount").textContent = filteredQuestions.length;
   $("#statImageCount").textContent = getAllQuestions().filter((question) => question.images?.question).length;
+  const records = Object.values(state.answers);
+  $("#statAnsweredCount").textContent = records.filter((record) => record.answer).length;
+  $("#statCorrectCount").textContent = records.filter((record) => record.checked && record.correct).length;
 }
 
 function renderKnowledgeBase(filteredQuestions) {
@@ -231,14 +256,91 @@ function renderQuestionList(filteredQuestions) {
   }
 
   container.innerHTML = filteredQuestions.map(renderQuestionCard).join("");
+  bindQuestionListInteractions();
+}
 
-  container.querySelectorAll("[data-action='toggle-analysis']").forEach((button) => {
-    button.addEventListener("click", () => {
-      const box = document.getElementById(`analysis-${button.dataset.id}`);
-      box.classList.toggle("hidden");
-      button.textContent = box.classList.contains("hidden") ? "查看答案" : "收起答案";
-    });
-  });
+function getStoredAnswerRecord(questionId) {
+  return state.answers[questionId] || { answer: "", checked: false, correct: false };
+}
+
+function escapeHtml(text) {
+  return String(text || "")
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#39;");
+}
+
+function renderQuestionAnswerArea(question) {
+  const record = getStoredAnswerRecord(question.id);
+  const storedAnswer = record.answer || "";
+  const inputName = `answer-${question.id}`;
+
+  if (question.type === "multiple_choice") {
+    const selectedKeys = storedAnswer ? storedAnswer.split("") : [];
+    return `
+      <div class="practice-shell">
+        <div class="practice-title-row">
+          <strong>作答区</strong>
+          <span class="status-pill">${record.checked ? (record.correct ? "已判定 · 正确" : "已判定 · 错误") : "未提交"}</span>
+        </div>
+        <div class="answer-options">
+          ${(question.options || []).map((option) => `
+            <label class="answer-option">
+              <input type="checkbox" data-question-id="${question.id}" value="${option.key}" ${selectedKeys.includes(option.key) ? "checked" : ""}>
+              <span><strong>${option.key}</strong> · ${option.text}</span>
+            </label>
+          `).join("")}
+        </div>
+      </div>
+    `;
+  }
+
+  if (question.type === "short_answer" || question.type === "open_ended") {
+    return `
+      <div class="practice-shell">
+        <div class="practice-title-row">
+          <strong>作答区</strong>
+          <span class="status-pill">${record.checked ? (record.correct ? "已判定 · 正确" : "已判定 · 已提交") : "未提交"}</span>
+        </div>
+        <textarea class="textarea-input card-answer-input" data-question-id="${question.id}" rows="4" placeholder="输入你的答案...">${escapeHtml(storedAnswer)}</textarea>
+      </div>
+    `;
+  }
+
+  return `
+    <div class="practice-shell">
+      <div class="practice-title-row">
+        <strong>作答区</strong>
+        <span class="status-pill">${record.checked ? (record.correct ? "已判定 · 正确" : "已判定 · 错误") : "未提交"}</span>
+      </div>
+      <div class="answer-options">
+        ${(question.options || []).map((option) => `
+          <label class="answer-option">
+            <input type="radio" name="${inputName}" data-question-id="${question.id}" value="${option.key}" ${storedAnswer === option.key ? "checked" : ""}>
+            <span><strong>${option.key}</strong> · ${option.text}</span>
+          </label>
+        `).join("")}
+      </div>
+    </div>
+  `;
+}
+
+function renderAnswerFeedback(question) {
+  const record = getStoredAnswerRecord(question.id);
+  if (!record.checked) return "";
+
+  const resultText = record.correct ? "回答正确" : "回答错误";
+  const resultClass = record.correct ? "practice-feedback correct" : "practice-feedback wrong";
+  return `
+    <div class="${resultClass}">
+      <p><strong>${resultText}</strong></p>
+      <p><strong>你的答案：</strong>${record.answer || "未填写"}</p>
+      <p><strong>标准答案：</strong>${question.answer || "未记录"}</p>
+      <p><strong>解析：</strong>${question.analysis || "暂无解析"}</p>
+    </div>
+  `;
 }
 
 function renderQuestionCard(question) {
@@ -256,10 +358,10 @@ function renderQuestionCard(question) {
   ].join("");
 
   const questionImage = question.images?.question
-    ? `<img class="question-image" src="${question.images.question}" alt="${question.id} question image">`
+    ? `<img class="question-image" src="${resolveAssetPath(question.images.question)}" alt="${question.id} question image">`
     : "";
   const noteImage = question.images?.note
-    ? `<img class="question-image" src="${question.images.note}" alt="${question.id} note image">`
+    ? `<img class="question-image" src="${resolveAssetPath(question.images.note)}" alt="${question.id} note image">`
     : "";
 
   return `
@@ -271,7 +373,11 @@ function renderQuestionCard(question) {
       <h3 class="question-title">${question.prompt}</h3>
       ${questionImage}
       ${options ? `<div class="question-options">${options}</div>` : ""}
+      ${renderQuestionAnswerArea(question)}
+      ${renderAnswerFeedback(question)}
       <div class="panel-actions">
+        <button class="button button-primary" data-action="submit-answer" data-id="${question.id}">提交答案</button>
+        <button class="button button-secondary" data-action="reset-answer" data-id="${question.id}">清空作答</button>
         <button class="button button-secondary" data-action="toggle-analysis" data-id="${question.id}">查看答案</button>
         <a class="button button-secondary" href="reader.html?question=${encodeURIComponent(question.id)}">详细阅读</a>
       </div>
@@ -283,6 +389,95 @@ function renderQuestionCard(question) {
       </div>
     </article>
   `;
+}
+
+function getQuestionById(questionId) {
+  return getAllQuestions().find((question) => question.id === questionId);
+}
+
+function collectCardAnswer(question) {
+  if (question.type === "multiple_choice") {
+    const checked = Array.from(document.querySelectorAll(`input[data-question-id="${question.id}"]:checked`));
+    return checked.map((input) => input.value).sort().join("");
+  }
+  if (question.type === "short_answer" || question.type === "open_ended") {
+    const input = document.querySelector(`.card-answer-input[data-question-id="${question.id}"]`);
+    return input ? input.value.trim() : "";
+  }
+  const selected = document.querySelector(`input[data-question-id="${question.id}"]:checked`);
+  return selected ? selected.value : "";
+}
+
+function saveCardAnswerDraft(questionId) {
+  const question = getQuestionById(questionId);
+  if (!question) return;
+  const answer = collectCardAnswer(question);
+  const previous = getStoredAnswerRecord(questionId);
+  state.answers[questionId] = {
+    ...previous,
+    answer,
+    updatedAt: new Date().toISOString()
+  };
+  persistAnswerRecords();
+  updateStats(getFilteredQuestions());
+}
+
+function submitCardAnswer(questionId) {
+  const question = getQuestionById(questionId);
+  if (!question) return;
+  const answer = collectCardAnswer(question);
+  state.answers[questionId] = {
+    answer,
+    checked: true,
+    correct: isAnswerCorrect(question, answer),
+    updatedAt: new Date().toISOString()
+  };
+  persistAnswerRecords();
+  renderQuestionList(getFilteredQuestions());
+  updateStats(getFilteredQuestions());
+}
+
+function resetCardAnswer(questionId) {
+  delete state.answers[questionId];
+  persistAnswerRecords();
+  renderQuestionList(getFilteredQuestions());
+  updateStats(getFilteredQuestions());
+}
+
+function bindQuestionListInteractions() {
+  const container = $("#questionList");
+
+  container.querySelectorAll("[data-action='toggle-analysis']").forEach((button) => {
+    button.addEventListener("click", () => {
+      const box = document.getElementById(`analysis-${button.dataset.id}`);
+      box.classList.toggle("hidden");
+      button.textContent = box.classList.contains("hidden") ? "查看答案" : "收起答案";
+    });
+  });
+
+  container.querySelectorAll("[data-action='submit-answer']").forEach((button) => {
+    button.addEventListener("click", () => {
+      submitCardAnswer(button.dataset.id);
+    });
+  });
+
+  container.querySelectorAll("[data-action='reset-answer']").forEach((button) => {
+    button.addEventListener("click", () => {
+      resetCardAnswer(button.dataset.id);
+    });
+  });
+
+  container.querySelectorAll("input[data-question-id]").forEach((input) => {
+    input.addEventListener("change", () => {
+      saveCardAnswerDraft(input.dataset.questionId);
+    });
+  });
+
+  container.querySelectorAll(".card-answer-input[data-question-id]").forEach((input) => {
+    input.addEventListener("input", () => {
+      saveCardAnswerDraft(input.dataset.questionId);
+    });
+  });
 }
 
 function collectQuizAnswer(question) {
@@ -370,7 +565,7 @@ function renderQuiz() {
         <span class="tag tag-accent">难度 ${question.difficulty}</span>
       </div>
       <h3>${question.prompt}</h3>
-      ${question.images?.question ? `<img class="reader-image" src="${question.images.question}" alt="${question.id} image">` : ""}
+      ${question.images?.question ? `<img class="reader-image" src="${resolveAssetPath(question.images.question)}" alt="${question.id} image">` : ""}
       ${answerMarkup}
       ${checked ? `
         <div class="quiz-result">
@@ -495,6 +690,16 @@ function clearGeneratedQuestions() {
   render();
 }
 
+function clearAnswerRecords() {
+  const hasAnswers = Object.keys(state.answers).length > 0;
+  if (!hasAnswers) return;
+  const confirmed = window.confirm("确认清空当前浏览器中的所有作答记录吗？");
+  if (!confirmed) return;
+  state.answers = {};
+  persistAnswerRecords();
+  render();
+}
+
 function bindStaticEvents() {
   $("#searchInput").addEventListener("input", (event) => {
     state.filters.search = event.target.value;
@@ -517,13 +722,7 @@ function bindStaticEvents() {
     const sampled = sampleQuestions(getFilteredQuestions(), Number($("#quizCount").value || 10));
     $("#resultHeadline").textContent = `随机预览 · ${sampled.length} 题`;
     $("#questionList").innerHTML = sampled.map(renderQuestionCard).join("");
-    $("#questionList").querySelectorAll("[data-action='toggle-analysis']").forEach((button) => {
-      button.addEventListener("click", () => {
-        const box = document.getElementById(`analysis-${button.dataset.id}`);
-        box.classList.toggle("hidden");
-        button.textContent = box.classList.contains("hidden") ? "查看答案" : "收起答案";
-      });
-    });
+    bindQuestionListInteractions();
   });
 
   $("#generateButton").addEventListener("click", () => {
@@ -534,6 +733,7 @@ function bindStaticEvents() {
 
   $("#exportButton").addEventListener("click", exportGeneratedQuestions);
   $("#clearGeneratedButton").addEventListener("click", clearGeneratedQuestions);
+  $("#clearAnswerButton").addEventListener("click", clearAnswerRecords);
 }
 
 function renderGeneratorModuleOptions() {
@@ -560,6 +760,7 @@ async function init() {
     state.bank = bank;
     state.kb = kb;
     loadGeneratedQuestions();
+    loadAnswerRecords();
     bindStaticEvents();
     render();
   } catch (error) {
