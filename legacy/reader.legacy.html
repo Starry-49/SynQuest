@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>《基因组信息学》参考课件</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #3498db;
+            --bg-color: #f5f7fa;
+            --card-bg: #ffffff;
+            --text-color: #333;
+            --border-color: #e0e0e0;
+            --sidebar-width: 280px;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* 顶部控制栏 */
+        #toolbar {
+            background-color: var(--card-bg);
+            padding: 10px 20px;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            height: 60px;
+            box-sizing: border-box;
+            border-bottom: 3px solid var(--accent-color);
+            flex-shrink: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        /* 主体区域 */
+        #main-area {
+            display: flex;
+            flex: 1;
+            overflow: hidden;
+        }
+
+        /* 左侧侧边栏 */
+        #sidebar {
+            width: var(--sidebar-width);
+            background-color: #fff;
+            border-right: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            flex-shrink: 0;
+            transition: width 0.3s ease;
+        }
+
+        .sidebar-header {
+            padding: 12px;
+            background: #f8f9fa;
+            font-weight: bold;
+            font-size: 14px;
+            border-bottom: 1px solid #eee;
+            color: #555;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 40px;
+            box-sizing: border-box;
+        }
+
+        /* 列表容器 (共用样式) */
+        .list-container {
+            flex: 1;
+            overflow-y: auto;
+            padding: 0;
+        }
+
+        /* 隐藏类 */
+        .hidden {
+            display: none !important;
+        }
+
+        /* 卡片样式 (用于目录和搜索结果) */
+        .nav-item {
+            padding: 12px 15px;
+            border-bottom: 1px solid #f0f0f0;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .nav-item:hover {
+            background-color: #f8f9fa;
+        }
+
+        .nav-item.active {
+            background-color: #e1f0fa;
+            border-left: 4px solid var(--accent-color);
+            padding-left: 11px; /* 补偿边框宽度 */
+        }
+
+        .item-title {
+            font-size: 13px;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .item-preview {
+            font-size: 12px;
+            color: #888;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .highlight {
+            background-color: yellow;
+            color: black;
+            font-weight: bold;
+        }
+
+        /* 右侧 PDF */
+        #pdf-wrapper {
+            flex: 1;
+            background-color: #eef2f5;
+            overflow: auto;
+            display: flex;
+            justify-content: center;
+            padding: 30px;
+            position: relative;
+        }
+
+        canvas {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            background-color: white;
+            max-width: 100%;
+        }
+
+        /* 控件样式 */
+        button {
+            padding: 6px 12px;
+            cursor: pointer;
+            background-color: white;
+            color: var(--text-color);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        button:hover { background-color: #f0f0f0; border-color: var(--accent-color); color: var(--accent-color); }
+        button.primary-btn { background-color: var(--accent-color); color: white; border-color: var(--accent-color); }
+        button.primary-btn:hover { background-color: #2980b9; }
+
+        .search-box-wrapper {
+            position: relative;
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+        }
+
+        input[type="text"] {
+            padding: 6px 25px 6px 8px; /* 右边留空给清除按钮 */
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+            width: 180px;
+        }
+
+        #clear-search {
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: #999;
+            font-size: 14px;
+            display: none; /* 默认隐藏 */
+        }
+        
+        #clear-search:hover { color: #555; }
+    </style>
+</head>
+<body>
+
+    <div id="toolbar">
+        <button id="toggle-sidebar" title="切换侧边栏">☰</button>
+        
+        <div style="display:flex; gap:5px; align-items:center;">
+            <button id="prev">上一页</button>
+            <span style="font-size:14px; font-weight:bold; color:#555;">
+                <span id="page_num">--</span> / <span id="page_count">--</span>
+            </span>
+            <button id="next">下一页</button>
+        </div>
+
+        <div class="search-box-wrapper">
+            <input type="text" id="search-input" placeholder="输入关键词...">
+            <span id="clear-search">✕</span>
+        </div>
+        <button id="search-btn" class="primary-btn">搜索</button>
+    </div>
+
+    <div id="main-area">
+        <div id="sidebar">
+            <div id="catalog-view" style="display:flex; flex-direction:column; height:100%;">
+                <div class="sidebar-header">
+                    <span>📑 全部幻灯片</span>
+                    <span style="font-size:12px; color:#999;" id="catalog-count"></span>
+                </div>
+                <div id="catalog-container" class="list-container">
+                    </div>
+            </div>
+
+            <div id="search-view" class="hidden" style="display:flex; flex-direction:column; height:100%;">
+                <div class="sidebar-header" style="background:#fff3cd;">
+                    <span>🔍 搜索结果</span>
+                    <span id="result-count" style="font-size:12px;"></span>
+                </div>
+                <div id="search-results-container" class="list-container">
+                    </div>
+            </div>
+        </div>
+
+        <div id="pdf-wrapper">
+            <div id="pdf-container"></div>
+        </div>
+    </div>
+
+    <script>
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+        let pdfDoc = null;
+        let pageNum = 1;
+        let pageRendering = false;
+        let pageNumPending = null;
+        let scale = 1.5; 
+        
+        const canvasContainer = document.getElementById('pdf-container');
+        
+        // URL 参数
+        const urlParams = new URLSearchParams(window.location.search);
+        const initialPage = parseInt(urlParams.get('page'));
+
+        // 初始化
+        pdfjsLib.getDocument('sum.pdf').promise.then(function(pdfDoc_) {
+            pdfDoc = pdfDoc_;
+            document.getElementById('page_count').textContent = pdfDoc.numPages;
+            document.getElementById('catalog-count').textContent = `共 ${pdfDoc.numPages} 页`;
+
+            // 1. 初始化目录列表
+            initCatalog();
+
+            // 2. 跳转到初始页
+            if (initialPage && initialPage > 0 && initialPage <= pdfDoc.numPages) {
+                pageNum = initialPage;
+            }
+            renderPage(pageNum);
+
+        }).catch(function(error) {
+            console.error(error);
+            canvasContainer.innerHTML = `<h3 style="color:red; text-align:center; margin-top:50px">无法加载 PDF<br><small>请确保 sum.pdf 存在且 server.py 已运行</small></h3>`;
+        });
+
+        // ================= 核心渲染逻辑 =================
+
+        function renderPage(num) {
+            pageRendering = true;
+            canvasContainer.innerHTML = ''; 
+            
+            pdfDoc.getPage(num).then(function(page) {
+                const viewport = page.getViewport({scale: scale});
+                const canvas = document.createElement('canvas');
+                const ctx = canvas.getContext('2d');
+                canvas.height = viewport.height;
+                canvas.width = viewport.width;
+                canvasContainer.appendChild(canvas);
+
+                const renderContext = { canvasContext: ctx, viewport: viewport };
+                page.render(renderContext).promise.then(() => {
+                    pageRendering = false;
+                    if (pageNumPending !== null) {
+                        renderPage(pageNumPending);
+                        pageNumPending = null;
+                    }
+                });
+            });
+
+            document.getElementById('page_num').textContent = num;
+            
+            // 更新侧边栏高亮 (同时更新目录和搜索结果)
+            highlightActiveSidebarItem(num);
+
+            // 更新 URL
+            const newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?page=' + num;
+            window.history.replaceState({path:newUrl},'',newUrl);
+        }
+
+        function queueRenderPage(num) {
+            if (pageRendering) pageNumPending = num;
+            else renderPage(num);
+        }
+
+        // 高亮侧边栏当前页
+        function highlightActiveSidebarItem(num) {
+            // 移除所有高亮
+            document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
+            
+            // 找到对应的 item (data-page = num)
+            // 注意：因为有两个容器(目录/搜索)，所以可能有两个对应的 item
+            const items = document.querySelectorAll(`.nav-item[data-page="${num}"]`);
+            items.forEach(item => {
+                item.classList.add('active');
+                // 只有当前可见的才滚动
+                if(item.offsetParent !== null) {
+                    item.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            });
+        }
+
+        // ================= 目录功能 (Catalog) =================
+
+        async function initCatalog() {
+            const container = document.getElementById('catalog-container');
+            container.innerHTML = '';
+
+            // 生成占位列表
+            for (let i = 1; i <= pdfDoc.numPages; i++) {
+                const div = document.createElement('div');
+                div.className = 'nav-item';
+                div.dataset.page = i;
+                div.innerHTML = `
+                    <div class="item-title">
+                        <span>Slide ${i}</span>
+                    </div>
+                    <div class="item-preview" id="preview-text-${i}">加载中...</div>
+                `;
+                div.onclick = () => {
+                    pageNum = i;
+                    queueRenderPage(pageNum);
+                };
+                container.appendChild(div);
+                
+                // 懒加载每页的文本作为预览标题 (后台悄悄执行，不卡界面)
+                loadPageTextSummary(i);
+            }
+        }
+
+        async function loadPageTextSummary(i) {
+            try {
+                const page = await pdfDoc.getPage(i);
+                const textContent = await page.getTextContent();
+                const str = textContent.items.map(item => item.str).join(' ');
+                
+                // 取前 30 个字作为标题预览
+                let summary = str.trim().substring(0, 30);
+                if (summary.length === 0) summary = "(无文本内容)";
+                
+                const el = document.getElementById(`preview-text-${i}`);
+                if(el) el.textContent = summary;
+            } catch(e) {
+                // ignore
+            }
+        }
+
+        // ================= 搜索功能 (Search) =================
+
+        async function performGlobalSearch() {
+            const rawKeyword = document.getElementById('search-input').value.trim();
+            if (!rawKeyword) {
+                switchToCatalogMode(); // 没词就回目录
+                return;
+            }
+
+            switchToSearchMode(); // 切换界面
+
+            const container = document.getElementById('search-results-container');
+            const resultCountLabel = document.getElementById('result-count');
+            
+            container.innerHTML = '<div style="padding:20px;text-align:center;color:#999">正在搜索...</div>';
+            
+            const cleanKeyword = rawKeyword.replace(/\s+/g, '').toLowerCase();
+            const results = [];
+
+            try {
+                for (let i = 1; i <= pdfDoc.numPages; i++) {
+                    const page = await pdfDoc.getPage(i);
+                    const textContent = await page.getTextContent();
+                    const fullText = textContent.items.map(item => item.str).join('');
+                    const cleanText = fullText.replace(/\s+/g, '').toLowerCase();
+
+                    if (cleanText.includes(cleanKeyword)) {
+                        // 提取摘要
+                        const index = fullText.toLowerCase().indexOf(rawKeyword.toLowerCase());
+                        let snippet = "";
+                        if (index !== -1) {
+                            snippet = fullText.substring(Math.max(0, index - 10), Math.min(fullText.length, index + 40));
+                        } else {
+                            snippet = fullText.substring(0, 50);
+                        }
+
+                        // 高亮
+                        const highlightRegex = new RegExp(rawKeyword, 'gi');
+                        const highlightedSnippet = snippet.replace(highlightRegex, match => `<span class="highlight">${match}</span>`);
+
+                        results.push({ page: i, snippet: highlightedSnippet });
+                    }
+                }
+
+                // 渲染结果
+                container.innerHTML = '';
+                resultCountLabel.textContent = `找到 ${results.length} 页`;
+                
+                if (results.length === 0) {
+                    container.innerHTML = '<div style="padding:20px;text-align:center;color:#999">未找到相关内容</div>';
+                } else {
+                    results.forEach(res => {
+                        const div = document.createElement('div');
+                        div.className = 'nav-item';
+                        div.dataset.page = res.page; // 用于高亮联动
+                        div.innerHTML = `
+                            <div class="item-title">Slide ${res.page}</div>
+                            <div class="item-preview">...${res.snippet}...</div>
+                        `;
+                        div.onclick = () => {
+                            pageNum = res.page;
+                            queueRenderPage(pageNum);
+                        };
+                        container.appendChild(div);
+                    });
+                }
+
+            } catch (e) {
+                console.error(e);
+            }
+        }
+
+        // ================= 界面切换逻辑 =================
+
+        const catalogView = document.getElementById('catalog-view');
+        const searchView = document.getElementById('search-view');
+        const clearBtn = document.getElementById('clear-search');
+        const searchInput = document.getElementById('search-input');
+
+        function switchToSearchMode() {
+            catalogView.classList.add('hidden');
+            searchView.classList.remove('hidden');
+            clearBtn.style.display = 'block';
+        }
+
+        function switchToCatalogMode() {
+            searchView.classList.add('hidden');
+            catalogView.classList.remove('hidden');
+            clearBtn.style.display = 'none';
+            searchInput.value = '';
+            // 切换回来时，确保高亮正确
+            highlightActiveSidebarItem(pageNum);
+        }
+
+        // 事件绑定
+        document.getElementById('prev').addEventListener('click', () => { if(pageNum > 1) { pageNum--; queueRenderPage(pageNum); } });
+        document.getElementById('next').addEventListener('click', () => { if(pageNum < pdfDoc.numPages) { pageNum++; queueRenderPage(pageNum); } });
+        
+        document.getElementById('toggle-sidebar').addEventListener('click', () => {
+            const sidebar = document.getElementById('sidebar');
+            if(sidebar.style.width === '0px' || sidebar.style.display === 'none') {
+                sidebar.style.display = 'flex';
+                setTimeout(() => sidebar.style.width = '280px', 10); // 动画
+            } else {
+                sidebar.style.width = '0px';
+                setTimeout(() => sidebar.style.display = 'none', 300);
+            }
+        });
+
+        document.getElementById('search-btn').addEventListener('click', performGlobalSearch);
+        searchInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') performGlobalSearch(); });
+        
+        // 监听输入框变空
+        searchInput.addEventListener('input', function() {
+            if (this.value === '') switchToCatalogMode();
+            else clearBtn.style.display = 'block';
+        });
+
+        // 清除按钮
+        clearBtn.addEventListener('click', switchToCatalogMode);
+
+    </script>
+</body>
+</html>

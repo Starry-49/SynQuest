@@ -1,0 +1,8117 @@
+{
+  "meta": {
+    "title": "Genome Informatics Question Bank",
+    "subtitle": "Structured archive extracted from the original local HTML bank",
+    "generatedAt": "2026-03-28T10:56:01+00:00",
+    "totalQuestions": 182,
+    "sources": [
+      "2022",
+      "2023"
+    ],
+    "topics": [
+      {
+        "id": "alignment-homology",
+        "name": "序列比对与同源推断",
+        "count": 25
+      },
+      {
+        "id": "annotation-prediction",
+        "name": "基因注释与结构建模",
+        "count": 18
+      },
+      {
+        "id": "general",
+        "name": "综合题",
+        "count": 33
+      },
+      {
+        "id": "genome-assembly",
+        "name": "基因组组装与图算法",
+        "count": 20
+      },
+      {
+        "id": "genome-databases",
+        "name": "基因组数据库与资源",
+        "count": 9
+      },
+      {
+        "id": "hmm-regulation",
+        "name": "HMM 与顺式调控元件",
+        "count": 20
+      },
+      {
+        "id": "human-genome-project",
+        "name": "人类基因组计划与图谱",
+        "count": 17
+      },
+      {
+        "id": "sequencing-methods",
+        "name": "测序方法与读段模拟",
+        "count": 40
+      }
+    ],
+    "types": {
+      "multiple_choice": 110,
+      "open_ended": 1,
+      "short_answer": 20,
+      "single_choice": 51
+    },
+    "imageQuestionCount": 16,
+    "noteImageCount": 19
+  },
+  "questions": [
+    {
+      "id": "22_1",
+      "year": 2022,
+      "source": "2022",
+      "prompt": "中国是在哪一年加入人类基因组计划的?",
+      "type": "single_choice",
+      "topic": "human-genome-project",
+      "topicName": "人类基因组计划与图谱",
+      "difficulty": 2,
+      "options": [
+        {
+          "key": "A",
+          "text": "1990"
+        },
+        {
+          "key": "B",
+          "text": "1999"
+        },
+        {
+          "key": "C",
+          "text": "2000"
+        },
+        {
+          "key": "D",
+          "text": "2001"
+        }
+      ],
+      "answer": "B",
+      "analysis": "中国于1999年9月加入人类基因组计划，负责测定3号染色体短臂上约3000万个碱基对（1%）的任务。",
+      "images": {
+        "question": "",
+        "note": "user_data/images/22_1.png"
+      },
+      "pdfPage": 37,
+      "knowledgeRefs": [
+        "hgp-maps"
+      ],
+      "tags": [
+        "human-genome-project",
+        "single_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "22_2",
+      "year": 2022,
+      "source": "2022",
+      "prompt": "下列这些途经相比较而言，最适合用来了解基因组学的最新研究进展的是？",
+      "type": "single_choice",
+      "topic": "genome-databases",
+      "topicName": "基因组数据库与资源",
+      "difficulty": 2,
+      "options": [
+        {
+          "key": "A",
+          "text": "百度"
+        },
+        {
+          "key": "B",
+          "text": "必应"
+        },
+        {
+          "key": "C",
+          "text": "好搜"
+        },
+        {
+          "key": "D",
+          "text": "PubMed"
+        }
+      ],
+      "answer": "D",
+      "analysis": "PubMed是生物医学领域最权威、更新最快的文献数据库。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": 46,
+      "knowledgeRefs": [
+        "genome-databases"
+      ],
+      "tags": [
+        "genome-databases",
+        "single_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "22_3",
+      "year": 2022,
+      "source": "2022",
+      "prompt": "基因组学的研究目标是什么？",
+      "type": "single_choice",
+      "topic": "general",
+      "topicName": "综合题",
+      "difficulty": 2,
+      "options": [
+        {
+          "key": "A",
+          "text": "基因组的结构和功能"
+        },
+        {
+          "key": "B",
+          "text": "基因的定性和定量"
+        },
+        {
+          "key": "C",
+          "text": "基因组进化"
+        },
+        {
+          "key": "D",
+          "text": "基因组作图（测序）"
+        }
+      ],
+      "answer": "B",
+      "analysis": "",
+      "images": {
+        "question": "",
+        "note": "user_data/images/22_3.png"
+      },
+      "pdfPage": 16,
+      "knowledgeRefs": [
+        "course-overview"
+      ],
+      "tags": [
+        "general",
+        "single_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "22_4",
+      "year": 2022,
+      "source": "2022",
+      "prompt": "下列哪一项是大规模基因组物理图的主流技术？",
+      "type": "single_choice",
+      "topic": "human-genome-project",
+      "topicName": "人类基因组计划与图谱",
+      "difficulty": 3,
+      "options": [
+        {
+          "key": "A",
+          "text": "限制性酶切作图"
+        },
+        {
+          "key": "B",
+          "text": "基于克隆和的基因组作图"
+        },
+        {
+          "key": "C",
+          "text": "染色体细胞图"
+        },
+        {
+          "key": "D",
+          "text": "STS作图"
+        },
+        {
+          "key": "E",
+          "text": "辐射杂交作图"
+        }
+      ],
+      "answer": "D",
+      "analysis": "在HGP（人类基因组计划）期间，基于STS物理作图是主流技术。",
+      "images": {
+        "question": "",
+        "note": "user_data/images/22_4.png"
+      },
+      "pdfPage": 78,
+      "knowledgeRefs": [
+        "hgp-maps"
+      ],
+      "tags": [
+        "human-genome-project",
+        "single_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "22_5",
+      "year": 2022,
+      "source": "2022",
+      "prompt": "基因组中编码基因的序列一般属于哪种类型？",
+      "type": "single_choice",
+      "topic": "general",
+      "topicName": "综合题",
+      "difficulty": 2,
+      "options": [
+        {
+          "key": "A",
+          "text": "高度串联重复序列（Tandem repeats）"
+        },
+        {
+          "key": "B",
+          "text": "中度散布重复序列（Interspersed repeats）"
+        },
+        {
+          "key": "C",
+          "text": "低度重复序列"
+        },
+        {
+          "key": "D",
+          "text": "非重复序列"
+        }
+      ],
+      "answer": "D",
+      "analysis": "编码蛋白质的序列（外显子）通常是单一序列（Non-repetitive），而重复序列多位于非编码区。",
+      "images": {
+        "question": "",
+        "note": "user_data/images/22_5.png"
+      },
+      "pdfPage": 20,
+      "knowledgeRefs": [
+        "course-overview"
+      ],
+      "tags": [
+        "general",
+        "single_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "22_6",
+      "year": 2022,
+      "source": "2022",
+      "prompt": "下列选项中，有关遗传作图的描述有哪些是正确的？",
+      "type": "single_choice",
+      "topic": "general",
+      "topicName": "综合题",
+      "difficulty": 3,
+      "options": [
+        {
+          "key": "A",
+          "text": "分辨率有限，受到子代数量限制"
+        },
+        {
+          "key": "B",
+          "text": "距离单位是染色体的区代"
+        },
+        {
+          "key": "C",
+          "text": "覆盖率较低"
+        },
+        {
+          "key": "D",
+          "text": "覆盖率较高"
+        }
+      ],
+      "answer": "A",
+      "analysis": "遗传作图依赖于减数分裂时的重组率，分辨率受限于观察到的减数分裂次数（即子代数量）。",
+      "images": {
+        "question": "",
+        "note": "user_data/images/22_6.png"
+      },
+      "pdfPage": 75,
+      "knowledgeRefs": [
+        "course-overview"
+      ],
+      "tags": [
+        "general",
+        "single_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "22_7",
+      "year": 2022,
+      "source": "2022",
+      "prompt": "下列哪些序列种类属于高度重复序列？",
+      "type": "multiple_choice",
+      "topic": "general",
+      "topicName": "综合题",
+      "difficulty": 3,
+      "options": [
+        {
+          "key": "A",
+          "text": "卫星DNA（Satellite DNA）"
+        },
+        {
+          "key": "B",
+          "text": "小卫星DNA（Minisatellite DNA）"
+        },
+        {
+          "key": "C",
+          "text": "微卫星DNA（Microsatellite DNA）"
+        },
+        {
+          "key": "D",
+          "text": "转座子（Transposons）"
+        }
+      ],
+      "answer": "ABC",
+      "analysis": "卫星DNA、小卫星、微卫星都属于串联重复序列（Tandem repeats）。转座子属于散布重复。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "course-overview"
+      ],
+      "tags": [
+        "general",
+        "multiple_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "22_8",
+      "year": 2022,
+      "source": "2022",
+      "prompt": "Donis-Keller利用限制性片段多态性（RFLPs），于1987年构建第一张人的遗传图谱发表于《Cell》中，下列有关这篇研究报道的描述哪些是正确的？",
+      "type": "multiple_choice",
+      "topic": "human-genome-project",
+      "topicName": "人类基因组计划与图谱",
+      "difficulty": 4,
+      "options": [
+        {
+          "key": "A",
+          "text": "403个多态性位点"
+        },
+        {
+          "key": "B",
+          "text": "393个RFLPs"
+        },
+        {
+          "key": "C",
+          "text": "21个包含三代的家族"
+        },
+        {
+          "key": "D",
+          "text": "至少覆盖到95%的人类基因组区域"
+        }
+      ],
+      "answer": "ABD",
+      "analysis": "Donis-Keller于1987年在Cell发表了第一张RFLP遗传图谱。C选项家族数量描述通常不准确（应为CEPH家系）。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "hgp-maps"
+      ],
+      "tags": [
+        "human-genome-project",
+        "multiple_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "22_9",
+      "year": 2022,
+      "source": "2022",
+      "prompt": "人类基因组计划中绘制了哪几张基因组图谱？",
+      "type": "multiple_choice",
+      "topic": "human-genome-project",
+      "topicName": "人类基因组计划与图谱",
+      "difficulty": 4,
+      "options": [
+        {
+          "key": "A",
+          "text": "遗传图"
+        },
+        {
+          "key": "B",
+          "text": "物理图"
+        },
+        {
+          "key": "C",
+          "text": "序列图"
+        },
+        {
+          "key": "D",
+          "text": "转录图"
+        }
+      ],
+      "answer": "ABCD",
+      "analysis": "HGP的三大图谱：遗传图、物理图、序列图、转录图。",
+      "images": {
+        "question": "",
+        "note": "user_data/images/22_9.png"
+      },
+      "pdfPage": 64,
+      "knowledgeRefs": [
+        "hgp-maps"
+      ],
+      "tags": [
+        "human-genome-project",
+        "multiple_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "22_10",
+      "year": 2022,
+      "source": "2022",
+      "prompt": "下列哪些属于物理作图方法？",
+      "type": "multiple_choice",
+      "topic": "human-genome-project",
+      "topicName": "人类基因组计划与图谱",
+      "difficulty": 4,
+      "options": [
+        {
+          "key": "A",
+          "text": "限制性酶切作图"
+        },
+        {
+          "key": "B",
+          "text": "基于克隆的基因组作图"
+        },
+        {
+          "key": "C",
+          "text": "染色体细胞图"
+        },
+        {
+          "key": "D",
+          "text": "STS作图"
+        },
+        {
+          "key": "E",
+          "text": "辐射杂交作图"
+        }
+      ],
+      "answer": "ABDE",
+      "analysis": "A(酶切)、B(克隆)、D(STS)、E(RH)都是物理作图。C(染色体细胞图/核型)精度低，属于细胞遗传学，但广义上也算物理层面。",
+      "images": {
+        "question": "",
+        "note": "user_data/images/22_10.png"
+      },
+      "pdfPage": 78,
+      "knowledgeRefs": [
+        "hgp-maps"
+      ],
+      "tags": [
+        "human-genome-project",
+        "multiple_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "22_12",
+      "year": 2022,
+      "source": "2022",
+      "prompt": "在全基因组测序中，当测序量为基因组大小（m值）的1倍时，理论上的丢失概率能够达到多少？",
+      "type": "single_choice",
+      "topic": "sequencing-methods",
+      "topicName": "测序方法与读段模拟",
+      "difficulty": 3,
+      "options": [
+        {
+          "key": "A",
+          "text": "33%"
+        },
+        {
+          "key": "B",
+          "text": "37%"
+        },
+        {
+          "key": "C",
+          "text": "50%"
+        },
+        {
+          "key": "D",
+          "text": "67%"
+        }
+      ],
+      "answer": "B",
+      "analysis": "根据泊松分布 P(0) = e^(-m)，当覆盖度m=1时，未被覆盖的概率 e^-1 ≈ 0.37，即37%。",
+      "images": {
+        "question": "",
+        "note": "user_data/images/22_12.png"
+      },
+      "pdfPage": 137,
+      "knowledgeRefs": [
+        "sequencing-tech"
+      ],
+      "tags": [
+        "sequencing",
+        "sequencing-methods",
+        "single_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "22_13",
+      "year": 2022,
+      "source": "2022",
+      "prompt": "下图是一张基于链终止法的聚丙烯酰胺凝胶电泳结果图谱，请问这块凝胶电泳结果图谱代表的序列是什么？",
+      "type": "short_answer",
+      "topic": "human-genome-project",
+      "topicName": "人类基因组计划与图谱",
+      "difficulty": 5,
+      "options": [
+        {
+          "key": "A",
+          "text": "AATTTTGGGCC"
+        },
+        {
+          "key": "B",
+          "text": "ATCGCTTCGGAT"
+        }
+      ],
+      "answer": "都不存在，ATGCTTCGGAT",
+      "analysis": "【图片题】需看胶图条带判读序列（Sanger法读胶：从下往上，5'->3'）。",
+      "images": {
+        "question": "images/2022_592.png",
+        "note": "user_data/images/22_13.png"
+      },
+      "pdfPage": 103,
+      "knowledgeRefs": [
+        "hgp-maps"
+      ],
+      "tags": [
+        "human-genome-project",
+        "image-based",
+        "sequencing",
+        "short_answer"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "22_14",
+      "year": 2022,
+      "source": "2022",
+      "prompt": "下列哪一项是大规模基因组物理图的主流技术？",
+      "type": "single_choice",
+      "topic": "human-genome-project",
+      "topicName": "人类基因组计划与图谱",
+      "difficulty": 3,
+      "options": [
+        {
+          "key": "A",
+          "text": "限制性酶切作图"
+        },
+        {
+          "key": "B",
+          "text": "基于克隆的基因组作图"
+        },
+        {
+          "key": "C",
+          "text": "染色体细胞图"
+        },
+        {
+          "key": "D",
+          "text": "STS作图"
+        }
+      ],
+      "answer": "D",
+      "analysis": "同22_4。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": 78,
+      "knowledgeRefs": [
+        "hgp-maps"
+      ],
+      "tags": [
+        "human-genome-project",
+        "single_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "22_15",
+      "year": 2022,
+      "source": "2022",
+      "prompt": "在全基因组测序中，哪种问题无法通过增加测序深度来补全？",
+      "type": "single_choice",
+      "topic": "sequencing-methods",
+      "topicName": "测序方法与读段模拟",
+      "difficulty": 2,
+      "options": [
+        {
+          "key": "A",
+          "text": "物理间隙"
+        },
+        {
+          "key": "B",
+          "text": "逻辑间隙"
+        },
+        {
+          "key": "C",
+          "text": "序列间隙"
+        },
+        {
+          "key": "D",
+          "text": "拼接间隙"
+        }
+      ],
+      "answer": "B",
+      "analysis": "逻辑间隙（Logical gap）通常由某些序列（如高GC/AT或毒性序列）难以在细菌中克隆导致，无法通过增加测序量解决。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "sequencing-tech"
+      ],
+      "tags": [
+        "sequencing",
+        "sequencing-methods",
+        "single_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "22_17",
+      "year": 2022,
+      "source": "2022",
+      "prompt": "在全基因组测序中，导致最终基因组序列存在间隙（gap）的主要因素有哪些？",
+      "type": "multiple_choice",
+      "topic": "sequencing-methods",
+      "topicName": "测序方法与读段模拟",
+      "difficulty": 3,
+      "options": [
+        {
+          "key": "A",
+          "text": "物理间隙"
+        },
+        {
+          "key": "B",
+          "text": "逻辑间隙"
+        },
+        {
+          "key": "C",
+          "text": "序列间隙"
+        },
+        {
+          "key": "D",
+          "text": "拼接间隙"
+        }
+      ],
+      "answer": "ABCD",
+      "analysis": "间隙主要分为物理间隙（完全未覆盖）和序列间隙（有克隆但测不通），成因包括逻辑问题和拼接困难。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "sequencing-tech"
+      ],
+      "tags": [
+        "multiple_choice",
+        "sequencing",
+        "sequencing-methods"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "22_18",
+      "year": 2022,
+      "source": "2022",
+      "prompt": "物理作图可能会使用哪些单位来表示距离？",
+      "type": "multiple_choice",
+      "topic": "human-genome-project",
+      "topicName": "人类基因组计划与图谱",
+      "difficulty": 4,
+      "options": [
+        {
+          "key": "A",
+          "text": "染色体区带"
+        },
+        {
+          "key": "B",
+          "text": "厘镭（cR）"
+        },
+        {
+          "key": "C",
+          "text": "厘摩（cM）"
+        },
+        {
+          "key": "D",
+          "text": "碱基对（bp）"
+        }
+      ],
+      "answer": "BD",
+      "analysis": "物理作图单位：bp（碱基对）、cR（辐射杂交单位）。cM是遗传距离，染色体区带是细胞学单位。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "hgp-maps"
+      ],
+      "tags": [
+        "human-genome-project",
+        "multiple_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "22_19",
+      "year": 2022,
+      "source": "2022",
+      "prompt": "下列有关微卫星DNA（Microsattlite DNA）描述正确的有哪些？",
+      "type": "multiple_choice",
+      "topic": "general",
+      "topicName": "综合题",
+      "difficulty": 3,
+      "options": [
+        {
+          "key": "A",
+          "text": "属于高度串联重复序列（Tandem repeats）"
+        },
+        {
+          "key": "B",
+          "text": "重复数目可变"
+        },
+        {
+          "key": "C",
+          "text": "在不同个体之间重复长度不同"
+        },
+        {
+          "key": "D",
+          "text": "可作为遗传标记物"
+        }
+      ],
+      "answer": "ABCD",
+      "analysis": "微卫星(STR)是串联重复，多态性高（长度不同），是极好的遗传标记。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "course-overview"
+      ],
+      "tags": [
+        "general",
+        "multiple_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "22_20",
+      "year": 2022,
+      "source": "2022",
+      "prompt": "下列哪些是基因组中具有特定生物学功能的DNA元件？",
+      "type": "multiple_choice",
+      "topic": "hmm-regulation",
+      "topicName": "HMM 与顺式调控元件",
+      "difficulty": 3,
+      "options": [
+        {
+          "key": "A",
+          "text": "5’-UTR"
+        },
+        {
+          "key": "B",
+          "text": "CpG岛"
+        },
+        {
+          "key": "C",
+          "text": "启动子（Promoter）"
+        },
+        {
+          "key": "D",
+          "text": "转录因子结合位点"
+        }
+      ],
+      "answer": "ACD",
+      "analysis": "5'-UTR、启动子、TFBS都是功能元件。CpG岛本身是序列特征，通常与启动子相关，也算功能区域。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "hmm-regulation"
+      ],
+      "tags": [
+        "hmm",
+        "hmm-regulation",
+        "multiple_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "22_21",
+      "year": 2022,
+      "source": "2022",
+      "prompt": "ART系列软件可以模拟哪几种测序方式？",
+      "type": "multiple_choice",
+      "topic": "sequencing-methods",
+      "topicName": "测序方法与读段模拟",
+      "difficulty": 3,
+      "options": [
+        {
+          "key": "A",
+          "text": "单末端测序（single-end）"
+        },
+        {
+          "key": "B",
+          "text": "双末端测序（paired-end）"
+        },
+        {
+          "key": "C",
+          "text": "配对测序（mate-pair）"
+        },
+        {
+          "key": "D",
+          "text": "扩增子测序（amplicon）"
+        }
+      ],
+      "answer": "ABC",
+      "analysis": "ART模拟器支持 Single-end, Paired-end, Mate-pair。Amplicon通常属于特定流程，ART主要模拟全基因组打断测序。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "sequencing-tech"
+      ],
+      "tags": [
+        "multiple_choice",
+        "sequencing",
+        "sequencing-methods"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "22_25",
+      "year": 2022,
+      "source": "2022",
+      "prompt": "基于de Brujin Graph（DBG）方法获得下图中的欧拉路径（Eularian path），根据该图获得的拼接序列是哪一个?",
+      "type": "short_answer",
+      "topic": "genome-assembly",
+      "topicName": "基因组组装与图算法",
+      "difficulty": 5,
+      "options": [
+        {
+          "key": "A",
+          "text": "AGATACTTCA"
+        },
+        {
+          "key": "B",
+          "text": "AGAGATATATACACTTTTCTCA"
+        },
+        {
+          "key": "C",
+          "text": "AGAGATACTT"
+        },
+        {
+          "key": "D",
+          "text": "AGAATTAACCTTTTCCA"
+        }
+      ],
+      "answer": "",
+      "analysis": "【图片题】需根据欧拉路径（一笔画）原则，遍历所有边一次。",
+      "images": {
+        "question": "images/2022_604.png",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "assembly-graphs"
+      ],
+      "tags": [
+        "assembly",
+        "genome-assembly",
+        "image-based",
+        "short_answer"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "22_26",
+      "year": 2022,
+      "source": "2022",
+      "prompt": "在转录组组装方面，有参组装与从头组装相比，有哪些有哪些优点?",
+      "type": "multiple_choice",
+      "topic": "genome-assembly",
+      "topicName": "基因组组装与图算法",
+      "difficulty": 3,
+      "options": [
+        {
+          "key": "A",
+          "text": "无法解释可变剪切"
+        },
+        {
+          "key": "B",
+          "text": "方法稳定、可靠"
+        },
+        {
+          "key": "C",
+          "text": "发现新的转录变异体"
+        },
+        {
+          "key": "D",
+          "text": "可以发现基因组组装中缺失区域的转录本"
+        }
+      ],
+      "answer": "CD",
+      "analysis": "有参组装能利用参考基因组发现缺失区域的转录本，也能发现剪接变异。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "assembly-graphs"
+      ],
+      "tags": [
+        "assembly",
+        "genome-assembly",
+        "multiple_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "22_27",
+      "year": 2022,
+      "source": "2022",
+      "prompt": "在对基因组测序数据分析发现，某个位点的总覆盖度达到50X，但是结果并不一致，其中有24个测序结果显示该位点为A，另外26个显示为C，那么你觉得该位点最有可能是什么？",
+      "type": "single_choice",
+      "topic": "sequencing-methods",
+      "topicName": "测序方法与读段模拟",
+      "difficulty": 2,
+      "options": [
+        {
+          "key": "A",
+          "text": "[A/C]单核苷酸多态性"
+        },
+        {
+          "key": "B",
+          "text": "不确定"
+        },
+        {
+          "key": "C",
+          "text": "A"
+        },
+        {
+          "key": "D",
+          "text": "C"
+        }
+      ],
+      "answer": "A",
+      "analysis": "覆盖度高且两种碱基比例接近1:1，最可能是杂合子SNP。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "sequencing-tech"
+      ],
+      "tags": [
+        "sequencing",
+        "sequencing-methods",
+        "single_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "22_28",
+      "year": 2022,
+      "source": "2022",
+      "prompt": "下图是一个简单的deBrujin图，根据改图可以得出什么样的序列？",
+      "type": "single_choice",
+      "topic": "genome-assembly",
+      "topicName": "基因组组装与图算法",
+      "difficulty": 4,
+      "options": [
+        {
+          "key": "A",
+          "text": "AAGACTCGACTG"
+        },
+        {
+          "key": "B",
+          "text": "AAGACTG"
+        },
+        {
+          "key": "C",
+          "text": "不确定"
+        }
+      ],
+      "answer": "A",
+      "analysis": "【图片题】De Bruijn图路径搜索。",
+      "images": {
+        "question": "images/2022_607.png",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "assembly-graphs"
+      ],
+      "tags": [
+        "assembly",
+        "genome-assembly",
+        "image-based",
+        "single_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "22_29",
+      "year": 2022,
+      "source": "2022",
+      "prompt": "基因组测序中，来自短插入片段文库的测序读段（mate-pair reads）可用于序列组装的哪个过程？",
+      "type": "single_choice",
+      "topic": "sequencing-methods",
+      "topicName": "测序方法与读段模拟",
+      "difficulty": 2,
+      "options": [
+        {
+          "key": "A",
+          "text": "判定测序错误"
+        },
+        {
+          "key": "B",
+          "text": "构建重叠群（contig）"
+        },
+        {
+          "key": "C",
+          "text": "解决重复序列问题"
+        },
+        {
+          "key": "D",
+          "text": "构建脚手架（scaffold）"
+        }
+      ],
+      "answer": "D",
+      "analysis": "Mate-pair（大片段文库）跨度大，主要用于跨越重复序列，连接Contig构建Scaffold。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "sequencing-tech"
+      ],
+      "tags": [
+        "assembly",
+        "sequencing",
+        "sequencing-methods",
+        "single_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "22_31",
+      "year": 2022,
+      "source": "2022",
+      "prompt": "在对全基因组测序结果的组装过程中，那些因素会对组装带来困扰？",
+      "type": "multiple_choice",
+      "topic": "sequencing-methods",
+      "topicName": "测序方法与读段模拟",
+      "difficulty": 3,
+      "options": [
+        {
+          "key": "A",
+          "text": "重复序列"
+        },
+        {
+          "key": "B",
+          "text": "测序错误"
+        },
+        {
+          "key": "C",
+          "text": "多态性错误"
+        },
+        {
+          "key": "D",
+          "text": "倒位"
+        }
+      ],
+      "answer": "ABCD",
+      "analysis": "重复序列引起歧义，测序错误引入假k-mer，多态性导致气泡结构，倒位导致比对异常。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "sequencing-tech"
+      ],
+      "tags": [
+        "alignment",
+        "assembly",
+        "multiple_choice",
+        "sequencing",
+        "sequencing-methods"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "22_32",
+      "year": 2022,
+      "source": "2022",
+      "prompt": "下列有关基因组组装描述正确的有哪些？",
+      "type": "multiple_choice",
+      "topic": "sequencing-methods",
+      "topicName": "测序方法与读段模拟",
+      "difficulty": 3,
+      "options": [
+        {
+          "key": "A",
+          "text": "易受重复序列变化影响"
+        },
+        {
+          "key": "B",
+          "text": "基因组组装软件可以直接用于转录组组装"
+        },
+        {
+          "key": "C",
+          "text": "基因组不同区域中的测序深度一定是相同的"
+        },
+        {
+          "key": "D",
+          "text": "两条链都会被测序"
+        }
+      ],
+      "answer": "AD",
+      "analysis": "A正确；B错误（转录组有剪接异构和表达量差异）；C错误（深度不均）；D正确（双链测序）。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "sequencing-tech"
+      ],
+      "tags": [
+        "assembly",
+        "multiple_choice",
+        "sequencing",
+        "sequencing-methods"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "22_33",
+      "year": 2022,
+      "source": "2022",
+      "prompt": "下列哪些软件可用于大规模基因组序列组装？",
+      "type": "multiple_choice",
+      "topic": "genome-assembly",
+      "topicName": "基因组组装与图算法",
+      "difficulty": 3,
+      "options": [
+        {
+          "key": "A",
+          "text": "AllPathsLG"
+        },
+        {
+          "key": "B",
+          "text": "Velvet"
+        },
+        {
+          "key": "C",
+          "text": "Trinity"
+        },
+        {
+          "key": "D",
+          "text": "Soapdenovo"
+        }
+      ],
+      "answer": "ABD",
+      "analysis": "Trinity主要用于转录组组装。AllPathsLG, Velvet, SOAPdenovo用于基因组。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "assembly-graphs"
+      ],
+      "tags": [
+        "assembly",
+        "genome-assembly",
+        "multiple_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "22_36",
+      "year": 2022,
+      "source": "2022",
+      "prompt": "在基于重叠图的OLC方法中寻找Hamilton路径是序列组装的经典算法之一，下列有关该算法的描述中哪些是正确的？",
+      "type": "multiple_choice",
+      "topic": "genome-assembly",
+      "topicName": "基因组组装与图算法",
+      "difficulty": 4,
+      "options": [
+        {
+          "key": "A",
+          "text": "用于启发的kmer长度就是读段之间的最小重叠长度"
+        },
+        {
+          "key": "B",
+          "text": "读段之间的重叠区域必须完全一致"
+        },
+        {
+          "key": "C",
+          "text": "在重叠发现过程中，需要将所有读段之间进行两两比对"
+        },
+        {
+          "key": "D",
+          "text": "采用kmer启发寻找重叠读段"
+        }
+      ],
+      "answer": "CD",
+      "analysis": "OLC（重叠-布局-共有）算法需要两两比对(C)。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "assembly-graphs"
+      ],
+      "tags": [
+        "alignment",
+        "assembly",
+        "genome-assembly",
+        "multiple_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "22_39",
+      "year": 2022,
+      "source": "2022",
+      "prompt": "Blast系列软件采用的什么算法？",
+      "type": "single_choice",
+      "topic": "alignment-homology",
+      "topicName": "序列比对与同源推断",
+      "difficulty": 2,
+      "options": [
+        {
+          "key": "A",
+          "text": "贪婪算法"
+        },
+        {
+          "key": "B",
+          "text": "启发式算法"
+        },
+        {
+          "key": "C",
+          "text": "Forward算法"
+        },
+        {
+          "key": "D",
+          "text": "动态规划算法"
+        }
+      ],
+      "answer": "B",
+      "analysis": "BLAST使用启发式算法（Heuristic），种子延伸策略，牺牲少量精度换取速度。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "alignment-homology"
+      ],
+      "tags": [
+        "alignment",
+        "alignment-homology",
+        "single_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "22_41",
+      "year": 2022,
+      "source": "2022",
+      "prompt": "下面是两个蛋白质片段的对比结果，如果使用PAM250矩阵对其进行打分，该序列比对结果得分应该是多少？",
+      "type": "open_ended",
+      "topic": "alignment-homology",
+      "topicName": "序列比对与同源推断",
+      "difficulty": 5,
+      "options": [],
+      "answer": "",
+      "analysis": "需计算：匹配分+错配分+空位罚分。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "alignment-homology"
+      ],
+      "tags": [
+        "alignment",
+        "alignment-homology",
+        "open_ended"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "22_42",
+      "year": 2022,
+      "source": "2022",
+      "prompt": "下面有关模块替换矩阵（BLOSUM）描述正确的有哪些？",
+      "type": "multiple_choice",
+      "topic": "alignment-homology",
+      "topicName": "序列比对与同源推断",
+      "difficulty": 4,
+      "options": [
+        {
+          "key": "A",
+          "text": "由Henikoff于1992年提出"
+        },
+        {
+          "key": "B",
+          "text": "BLOSUM矩阵后面的数值越小，比对时敏感性越高，越适用于低相似性目标"
+        },
+        {
+          "key": "C",
+          "text": "可以解决蛋白质之间的远进化距离问题"
+        },
+        {
+          "key": "D",
+          "text": "基于一组可能非常远缘的蛋白质多序列比对中的保守片段（BLOCKS）"
+        }
+      ],
+      "answer": "AD",
+      "analysis": "BLOSUM数值越大（如BLOSUM80）代表序列越相似（保守）；数值越小（BLOSUM45）越适合远缘比对。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "alignment-homology"
+      ],
+      "tags": [
+        "alignment",
+        "alignment-homology",
+        "multiple_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "22_43",
+      "year": 2022,
+      "source": "2022",
+      "prompt": "下列有关启发式算法的描述中，有哪些是正确的？",
+      "type": "multiple_choice",
+      "topic": "general",
+      "topicName": "综合题",
+      "difficulty": 3,
+      "options": [
+        {
+          "key": "A",
+          "text": "启发式算法一定会找出最优解决方案"
+        },
+        {
+          "key": "B",
+          "text": "启发式算法一定会找出所有解决方案"
+        },
+        {
+          "key": "C",
+          "text": "BLAST系列软件采用了启发式搜索算法"
+        },
+        {
+          "key": "D",
+          "text": "启发式算法通常可以在合理时间范围内找出足够好的解决方案"
+        }
+      ],
+      "answer": "CD",
+      "analysis": "启发式算法不保证最优解(A错)也不保证所有解(B错)，但在合理时间内给出足够好的解。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "course-overview"
+      ],
+      "tags": [
+        "general",
+        "multiple_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "22_45",
+      "year": 2022,
+      "source": "2022",
+      "prompt": "下列有关相似性和同源性的描述哪些是正确的？",
+      "type": "multiple_choice",
+      "topic": "alignment-homology",
+      "topicName": "序列比对与同源推断",
+      "difficulty": 3,
+      "options": [
+        {
+          "key": "A",
+          "text": "当相似程度高于50%时，比较容易检测序列和目标序列可能是同源序列"
+        },
+        {
+          "key": "B",
+          "text": "当相似性程度低于20%时，就难以确定或根本无法确定是否具有同源性"
+        },
+        {
+          "key": "C",
+          "text": "如果两条蛋白质序列只有弱相似性则两者之间不存在任何共同的生物学功能"
+        },
+        {
+          "key": "D",
+          "text": "相似性是统计学上的概念，而同源性是进化上的概念"
+        }
+      ],
+      "answer": "AD",
+      "analysis": "相似性是量化指标，同源性是定性推断（要么同源要么不同源）。弱相似性不代表无功能关联。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "alignment-homology"
+      ],
+      "tags": [
+        "alignment",
+        "alignment-homology",
+        "multiple_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "22_47",
+      "year": 2022,
+      "source": "2022",
+      "prompt": "下列有关序列比对的描述哪些是正确的？",
+      "type": "multiple_choice",
+      "topic": "alignment-homology",
+      "topicName": "序列比对与同源推断",
+      "difficulty": 3,
+      "options": [
+        {
+          "key": "A",
+          "text": "Clustal系列软件采用的是局部联配策略"
+        },
+        {
+          "key": "B",
+          "text": "Clustal系列软件采用的是全局联配策略"
+        },
+        {
+          "key": "C",
+          "text": "Blast系列软件采用的是局部联配策略"
+        },
+        {
+          "key": "D",
+          "text": "Blast系列软件采用的是全局联配策略"
+        }
+      ],
+      "answer": "BD",
+      "analysis": "Clustal是多序列比对（全局），BLAST是局部比对（Local Alignment）。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "alignment-homology"
+      ],
+      "tags": [
+        "alignment",
+        "alignment-homology",
+        "multiple_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "22_49",
+      "year": 2022,
+      "source": "2022",
+      "prompt": "下列有关全基因组同源基因搜索的描述中，哪些是正确的？",
+      "type": "multiple_choice",
+      "topic": "alignment-homology",
+      "topicName": "序列比对与同源推断",
+      "difficulty": 3,
+      "options": [
+        {
+          "key": "A",
+          "text": "只能给出可能的同源基因定位"
+        },
+        {
+          "key": "B",
+          "text": "无法给出精细的基因-外显子-内含子结构"
+        },
+        {
+          "key": "C",
+          "text": "预测的同源基因肯定都可以转录"
+        },
+        {
+          "key": "D",
+          "text": "可以准确地预测编码区"
+        }
+      ],
+      "answer": "AB",
+      "analysis": "同源搜索只能给出定位，无法精确预测剪接位点（内含子/外显子边界），也无法保证能转录。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "alignment-homology"
+      ],
+      "tags": [
+        "alignment",
+        "alignment-homology",
+        "multiple_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "22_50",
+      "year": 2022,
+      "source": "2022",
+      "prompt": "下列有关Clustal系列软件的描述哪些是正确的？",
+      "type": "multiple_choice",
+      "topic": "alignment-homology",
+      "topicName": "序列比对与同源推断",
+      "difficulty": 3,
+      "options": [
+        {
+          "key": "A",
+          "text": "Clustal系列软件采用的是全局联配策略"
+        },
+        {
+          "key": "B",
+          "text": "Clustal系列软件适用于低相似序列比对"
+        },
+        {
+          "key": "C",
+          "text": "Clustal系列软件适用于高相似序列比对"
+        },
+        {
+          "key": "D",
+          "text": "Clustal系列软件采用的是局部联配策略"
+        }
+      ],
+      "answer": "AC",
+      "analysis": "Clustal是全局比对，适合高相似序列（同一家族）。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "alignment-homology"
+      ],
+      "tags": [
+        "alignment",
+        "alignment-homology",
+        "multiple_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "22_53",
+      "year": 2022,
+      "source": "2022",
+      "prompt": "在进行蛋白质序列比对时，下列哪些因素会影响到氨基酸残基的打分权重？",
+      "type": "multiple_choice",
+      "topic": "alignment-homology",
+      "topicName": "序列比对与同源推断",
+      "difficulty": 3,
+      "options": [
+        {
+          "key": "A",
+          "text": "侧链基团的大小"
+        },
+        {
+          "key": "B",
+          "text": "侧链基团的电荷性"
+        },
+        {
+          "key": "C",
+          "text": "蛋白质空间结构和折叠方式"
+        },
+        {
+          "key": "D",
+          "text": "侧链基团的亲疏水性"
+        }
+      ],
+      "answer": "ABD",
+      "analysis": "氨基酸替换矩阵基于物理化学性质（大小、电荷、亲疏水性）和进化频率。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "alignment-homology"
+      ],
+      "tags": [
+        "alignment",
+        "alignment-homology",
+        "multiple_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "22_54",
+      "year": 2022,
+      "source": "2022",
+      "prompt": "给你一条小鼠（Mus musculus mouse）的MYC蛋白序列，如果想知道该蛋白与人类哪个基因或编码的蛋白同源，可以选择下列哪些程序进行分析？",
+      "type": "single_choice",
+      "topic": "alignment-homology",
+      "topicName": "序列比对与同源推断",
+      "difficulty": 2,
+      "options": [
+        {
+          "key": "A",
+          "text": "blastp"
+        },
+        {
+          "key": "B",
+          "text": "blastn"
+        },
+        {
+          "key": "C",
+          "text": "blastx"
+        },
+        {
+          "key": "D",
+          "text": "tblastn"
+        },
+        {
+          "key": "E",
+          "text": "tblastx"
+        }
+      ],
+      "answer": "A",
+      "analysis": "blastp: 蛋白搜蛋白。已知小鼠蛋白搜人类蛋白库。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "alignment-homology"
+      ],
+      "tags": [
+        "alignment",
+        "alignment-homology",
+        "single_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "22_56",
+      "year": 2022,
+      "source": "2022",
+      "prompt": "下列有关可接受点突变矩阵（PAM）描述正确的有哪些？",
+      "type": "multiple_choice",
+      "topic": "alignment-homology",
+      "topicName": "序列比对与同源推断",
+      "difficulty": 4,
+      "options": [
+        {
+          "key": "A",
+          "text": "由Dayhoff于1978年提出"
+        },
+        {
+          "key": "B",
+          "text": "PAM矩阵后面的数值越大，比对的敏感性越高，越适用于低相似性目标的搜寻"
+        },
+        {
+          "key": "C",
+          "text": "基于已知蛋白质家族的多序列比对中观测到的突变数据来构建的"
+        },
+        {
+          "key": "D",
+          "text": "1个PAM的进化距离表示100个残基中发生一个残基突变的概率"
+        }
+      ],
+      "answer": "ACD",
+      "analysis": "PAM数值越大（PAM250），进化距离越远，适合低相似性。PAM1 = 1%突变率。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "alignment-homology"
+      ],
+      "tags": [
+        "alignment",
+        "alignment-homology",
+        "multiple_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "22_57",
+      "year": 2022,
+      "source": "2022",
+      "prompt": "下列有关相似性比对时打分模型描述正确的有哪些？",
+      "type": "multiple_choice",
+      "topic": "alignment-homology",
+      "topicName": "序列比对与同源推断",
+      "difficulty": 3,
+      "options": [
+        {
+          "key": "A",
+          "text": "插入或缺失突变会导致比对时间隙（gaps）的引入，通常需要给与罚分"
+        },
+        {
+          "key": "B",
+          "text": "突变会导致错配，通常需要给予罚分"
+        },
+        {
+          "key": "C",
+          "text": "间隙罚分可以分为开放和延伸罚分两个不同的权重"
+        },
+        {
+          "key": "D",
+          "text": "匹配的残基通常需要给予加分"
+        }
+      ],
+      "answer": "ABC",
+      "analysis": "Gap罚分通常分为 Gap Open（大罚分）和 Gap Extension（小罚分）。匹配给加分(D也对)。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "alignment-homology"
+      ],
+      "tags": [
+        "alignment",
+        "alignment-homology",
+        "multiple_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "22_60",
+      "year": 2022,
+      "source": "2022",
+      "prompt": "非模式或常用生物的基因组在注释时，通常使用下面哪个工具进行重复遮蔽？",
+      "type": "single_choice",
+      "topic": "annotation-prediction",
+      "topicName": "基因注释与结构建模",
+      "difficulty": 2,
+      "options": [
+        {
+          "key": "A",
+          "text": "RepeatMasker"
+        },
+        {
+          "key": "B",
+          "text": "BLAST"
+        },
+        {
+          "key": "C",
+          "text": "WindowMasker"
+        },
+        {
+          "key": "D",
+          "text": "Splign"
+        }
+      ],
+      "answer": "A",
+      "analysis": "RepeatMasker是标准的重复序列屏蔽工具。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "annotation-pipeline"
+      ],
+      "tags": [
+        "annotation",
+        "annotation-prediction",
+        "single_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "22_61",
+      "year": 2022,
+      "source": "2022",
+      "prompt": "NCBI制定的原核生物基因组注释流程中，tRNA注释基于哪一个工具？",
+      "type": "single_choice",
+      "topic": "annotation-prediction",
+      "topicName": "基因注释与结构建模",
+      "difficulty": 2,
+      "options": [
+        {
+          "key": "A",
+          "text": "blast"
+        },
+        {
+          "key": "B",
+          "text": "CRT"
+        },
+        {
+          "key": "C",
+          "text": "cmsearch"
+        },
+        {
+          "key": "D",
+          "text": "tRNAscan-SE"
+        }
+      ],
+      "answer": "D",
+      "analysis": "tRNAscan-SE 是tRNA注释的金标准。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "annotation-pipeline"
+      ],
+      "tags": [
+        "annotation",
+        "annotation-prediction",
+        "single_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "22_62",
+      "year": 2022,
+      "source": "2022",
+      "prompt": "NCBI制定的真核生物基因组注释流程中，用于最终的基因模型预测软件是哪一个？",
+      "type": "single_choice",
+      "topic": "annotation-prediction",
+      "topicName": "基因注释与结构建模",
+      "difficulty": 2,
+      "options": [
+        {
+          "key": "A",
+          "text": "Splign"
+        },
+        {
+          "key": "B",
+          "text": "BLAST"
+        },
+        {
+          "key": "C",
+          "text": "ProSplign"
+        },
+        {
+          "key": "D",
+          "text": "Gnomon"
+        }
+      ],
+      "answer": "D",
+      "analysis": "Gnomon是NCBI开发的用于真核生物基因预测和建模的管道工具。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "annotation-pipeline"
+      ],
+      "tags": [
+        "annotation",
+        "annotation-prediction",
+        "single_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "22_63",
+      "year": 2022,
+      "source": "2022",
+      "prompt": "NCBI制定的真核生物基因组注释流程中，rRNA注释基于哪一个数据资源？",
+      "type": "single_choice",
+      "topic": "annotation-prediction",
+      "topicName": "基因注释与结构建模",
+      "difficulty": 2,
+      "options": [
+        {
+          "key": "A",
+          "text": "RefSeq"
+        },
+        {
+          "key": "B",
+          "text": "dbEST"
+        },
+        {
+          "key": "C",
+          "text": "RFAM"
+        },
+        {
+          "key": "D",
+          "text": "SRA"
+        }
+      ],
+      "answer": "C",
+      "analysis": "RFAM是RNA家族数据库，用于注释非编码RNA（rRNA等）。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "annotation-pipeline"
+      ],
+      "tags": [
+        "annotation",
+        "annotation-prediction",
+        "single_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "22_64",
+      "year": 2022,
+      "source": "2022",
+      "prompt": "从头计算方法预测基因时，可以使用的基因特征信息有哪些？",
+      "type": "multiple_choice",
+      "topic": "general",
+      "topicName": "综合题",
+      "difficulty": 4,
+      "options": [
+        {
+          "key": "A",
+          "text": "转录因子结合位点"
+        },
+        {
+          "key": "B",
+          "text": "外显子-内含子的剪接识别位点"
+        },
+        {
+          "key": "C",
+          "text": "密码子偏好性"
+        },
+        {
+          "key": "D",
+          "text": "TATA框"
+        }
+      ],
+      "answer": "ABC",
+      "analysis": "从头预测利用统计特征：密码子偏好、剪接位点信号、开放阅读框长度等。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "course-overview"
+      ],
+      "tags": [
+        "general",
+        "multiple_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "22_65",
+      "year": 2022,
+      "source": "2022",
+      "prompt": "NCBI提出的原核生物完整基因组注释的最低标准包括",
+      "type": "multiple_choice",
+      "topic": "annotation-prediction",
+      "topicName": "基因注释与结构建模",
+      "difficulty": 3,
+      "options": [
+        {
+          "key": "A",
+          "text": "tRNA：每个氨基酸至少有一个拷贝"
+        },
+        {
+          "key": "B",
+          "text": "没有基因完全包含在相同链或相反链上的另一个基因"
+        },
+        {
+          "key": "C",
+          "text": "没有不完整的部分特征"
+        },
+        {
+          "key": "D",
+          "text": "结构RNA（rRNA）：每个至少有一个长度合适的拷贝"
+        }
+      ],
+      "answer": "ABCD",
+      "analysis": "NCBI原核完整标准：tRNA/rRNA齐备，无基因重叠（通常），无不完整特征。",
+      "images": {
+        "question": "",
+        "note": "user_data/images/22_65.png"
+      },
+      "pdfPage": 514,
+      "knowledgeRefs": [
+        "annotation-pipeline"
+      ],
+      "tags": [
+        "annotation",
+        "annotation-prediction",
+        "multiple_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "22_66",
+      "year": 2022,
+      "source": "2022",
+      "prompt": "下列哪些软件可用于原核生物基因组的基因预测？",
+      "type": "multiple_choice",
+      "topic": "annotation-prediction",
+      "topicName": "基因注释与结构建模",
+      "difficulty": 3,
+      "options": [
+        {
+          "key": "A",
+          "text": "Augustus"
+        },
+        {
+          "key": "B",
+          "text": "GeneMarkS"
+        },
+        {
+          "key": "C",
+          "text": "GLIMMER"
+        },
+        {
+          "key": "D",
+          "text": "GENSCAN"
+        }
+      ],
+      "answer": "BC",
+      "analysis": "Glimmer和GeneMarkS是原核预测主流。GENSCAN和Augustus主要用于真核。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "annotation-pipeline"
+      ],
+      "tags": [
+        "annotation",
+        "annotation-prediction",
+        "multiple_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "22_67",
+      "year": 2022,
+      "source": "2022",
+      "prompt": "NCBI制定的真核生物基因组注释中，使用哪些工具进行已知蛋白比对，进而将其用于基因结构建模？",
+      "type": "multiple_choice",
+      "topic": "alignment-homology",
+      "topicName": "序列比对与同源推断",
+      "difficulty": 3,
+      "options": [
+        {
+          "key": "A",
+          "text": "ProSplign"
+        },
+        {
+          "key": "B",
+          "text": "Splign"
+        },
+        {
+          "key": "C",
+          "text": "BLAST"
+        },
+        {
+          "key": "D",
+          "text": "Gnomon"
+        }
+      ],
+      "answer": "AB",
+      "analysis": "Splign/ProSplign用于将cDNA/蛋白比对到基因组上以确定剪接结构。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "alignment-homology"
+      ],
+      "tags": [
+        "alignment",
+        "alignment-homology",
+        "annotation",
+        "multiple_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "22_68",
+      "year": 2022,
+      "source": "2022",
+      "prompt": "NCBI制定的真核生物基因组注释流程中，下列哪些数据库可以是已知转录本序列数据？",
+      "type": "multiple_choice",
+      "topic": "sequencing-methods",
+      "topicName": "测序方法与读段模拟",
+      "difficulty": 3,
+      "options": [
+        {
+          "key": "A",
+          "text": "SRA"
+        },
+        {
+          "key": "B",
+          "text": "RefSeq"
+        },
+        {
+          "key": "C",
+          "text": "OMIN"
+        },
+        {
+          "key": "D",
+          "text": "PubMed"
+        }
+      ],
+      "answer": "AB",
+      "analysis": "SRA（原始测序数据）和RefSeq（参考序列）可提供转录本证据。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "sequencing-tech"
+      ],
+      "tags": [
+        "annotation",
+        "multiple_choice",
+        "sequencing",
+        "sequencing-methods"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "22_71",
+      "year": 2022,
+      "source": "2022",
+      "prompt": "下列哪些数据可以用来训练从头计算方法中的目标物种基因结构参数？",
+      "type": "multiple_choice",
+      "topic": "annotation-prediction",
+      "topicName": "基因注释与结构建模",
+      "difficulty": 4,
+      "options": [
+        {
+          "key": "A",
+          "text": "任意基因组序列"
+        },
+        {
+          "key": "B",
+          "text": "近缘物种的已知基因结构数据"
+        },
+        {
+          "key": "C",
+          "text": "该物种的RNA-Seq数据"
+        },
+        {
+          "key": "D",
+          "text": "该物种以往研究中积累的已知基因mRNA、蛋白质信息"
+        }
+      ],
+      "answer": "BCD",
+      "analysis": "训练集需要已知结构的高质量基因（同物种或近缘物种）。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "annotation-pipeline"
+      ],
+      "tags": [
+        "annotation-prediction",
+        "multiple_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "22_72",
+      "year": 2022,
+      "source": "2022",
+      "prompt": "下列软件哪些可以用于基因结构建模？",
+      "type": "multiple_choice",
+      "topic": "annotation-prediction",
+      "topicName": "基因注释与结构建模",
+      "difficulty": 3,
+      "options": [
+        {
+          "key": "A",
+          "text": "GENEWISE"
+        },
+        {
+          "key": "B",
+          "text": "GENSCAN"
+        },
+        {
+          "key": "C",
+          "text": "Augustus"
+        },
+        {
+          "key": "D",
+          "text": "ProSplign"
+        }
+      ],
+      "answer": "ACD",
+      "analysis": "GeneWise, Augustus, ProSplign都包含模型构建。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "annotation-pipeline"
+      ],
+      "tags": [
+        "annotation",
+        "annotation-prediction",
+        "multiple_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "22_74",
+      "year": 2022,
+      "source": "2022",
+      "prompt": "NCBI制定的原核生物基因组注释流程中，编码蛋白质的基因注释通常需要用到哪些工具和方法？",
+      "type": "multiple_choice",
+      "topic": "annotation-prediction",
+      "topicName": "基因注释与结构建模",
+      "difficulty": 3,
+      "options": [
+        {
+          "key": "A",
+          "text": "ORF查找"
+        },
+        {
+          "key": "B",
+          "text": "GeneMarkS"
+        },
+        {
+          "key": "C",
+          "text": "blast"
+        },
+        {
+          "key": "D",
+          "text": "ProSplign"
+        }
+      ],
+      "answer": "AB",
+      "analysis": "原核基因通常是一个ORF，GeneMarkS/Glimmer寻找ORF。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "annotation-pipeline"
+      ],
+      "tags": [
+        "annotation",
+        "annotation-prediction",
+        "multiple_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "22_77",
+      "year": 2022,
+      "source": "2022",
+      "prompt": "给一个转录因子结合位点的碱基分布位点权重图，哪个位点保守性最高？",
+      "type": "short_answer",
+      "topic": "hmm-regulation",
+      "topicName": "HMM 与顺式调控元件",
+      "difficulty": 5,
+      "options": [
+        {
+          "key": "A",
+          "text": "4"
+        },
+        {
+          "key": "B",
+          "text": "3"
+        },
+        {
+          "key": "C",
+          "text": "2"
+        },
+        {
+          "key": "D",
+          "text": "1"
+        }
+      ],
+      "answer": "",
+      "analysis": "",
+      "images": {
+        "question": "images/2022_656.png",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "hmm-regulation"
+      ],
+      "tags": [
+        "hmm-regulation",
+        "image-based",
+        "short_answer"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "22_82",
+      "year": 2022,
+      "source": "2022",
+      "prompt": "给定一个HMM模型的参数，计算一个特定输出序列的概率，使用下列哪种算法？",
+      "type": "single_choice",
+      "topic": "sequencing-methods",
+      "topicName": "测序方法与读段模拟",
+      "difficulty": 3,
+      "options": [
+        {
+          "key": "A",
+          "text": "动态规划算法"
+        },
+        {
+          "key": "B",
+          "text": "Viterbi算法"
+        },
+        {
+          "key": "C",
+          "text": "Baum-Welch算法"
+        },
+        {
+          "key": "D",
+          "text": "Forward算法"
+        }
+      ],
+      "answer": "D",
+      "analysis": "计算观测序列概率 P(O|model) 用 Forward 算法。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "sequencing-tech"
+      ],
+      "tags": [
+        "hmm",
+        "sequencing",
+        "sequencing-methods",
+        "single_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "22_83",
+      "year": 2022,
+      "source": "2022",
+      "prompt": "给定一个TATA框的HMM模型参数，下面哪个序列片段最有可能是该Matrix所代表的TATA框？",
+      "type": "short_answer",
+      "topic": "hmm-regulation",
+      "topicName": "HMM 与顺式调控元件",
+      "difficulty": 4,
+      "options": [
+        {
+          "key": "A",
+          "text": "GCTATAAAAAGC"
+        },
+        {
+          "key": "B",
+          "text": "GCTATTTAAAGC"
+        },
+        {
+          "key": "C",
+          "text": "GCTATACGAGGC"
+        },
+        {
+          "key": "D",
+          "text": "GCAATAAAAAGC"
+        }
+      ],
+      "answer": "",
+      "analysis": "",
+      "images": {
+        "question": "images/2022_662.png",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "hmm-regulation"
+      ],
+      "tags": [
+        "hmm",
+        "hmm-regulation",
+        "image-based",
+        "short_answer"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "22_88",
+      "year": 2022,
+      "source": "2022",
+      "prompt": "真核生物中，起始mRNA转录的启动子一般与哪个RNA聚合酶结合？",
+      "type": "single_choice",
+      "topic": "hmm-regulation",
+      "topicName": "HMM 与顺式调控元件",
+      "difficulty": 2,
+      "options": [
+        {
+          "key": "A",
+          "text": "DNA聚合酶"
+        },
+        {
+          "key": "B",
+          "text": "RNA聚合酶II"
+        },
+        {
+          "key": "C",
+          "text": "RNA聚合酶I"
+        },
+        {
+          "key": "D",
+          "text": "RNA聚合酶III"
+        }
+      ],
+      "answer": "B",
+      "analysis": "RNA聚合酶II 负责转录 mRNA。Pol I 转录 rRNA，Pol III 转录 tRNA。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "hmm-regulation"
+      ],
+      "tags": [
+        "hmm-regulation",
+        "single_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "22_89",
+      "year": 2022,
+      "source": "2022",
+      "prompt": "下列哪些领域可以使用隐马尔可夫模型（HMM）：",
+      "type": "multiple_choice",
+      "topic": "alignment-homology",
+      "topicName": "序列比对与同源推断",
+      "difficulty": 3,
+      "options": [
+        {
+          "key": "A",
+          "text": "天气预报"
+        },
+        {
+          "key": "B",
+          "text": "时间序列分析"
+        },
+        {
+          "key": "C",
+          "text": "人体动作识别"
+        },
+        {
+          "key": "D",
+          "text": "序列比对"
+        }
+      ],
+      "answer": "ABCD",
+      "analysis": "HMM广泛用于时序分析、语音识别、序列比对、基因预测。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "alignment-homology"
+      ],
+      "tags": [
+        "alignment",
+        "alignment-homology",
+        "hmm",
+        "multiple_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "22_90",
+      "year": 2022,
+      "source": "2022",
+      "prompt": "对下列隐马尔可夫模型（HMM）图的描述中哪些是正确的？",
+      "type": "short_answer",
+      "topic": "hmm-regulation",
+      "topicName": "HMM 与顺式调控元件",
+      "difficulty": 5,
+      "options": [
+        {
+          "key": "A",
+          "text": "b是隐藏状态"
+        },
+        {
+          "key": "B",
+          "text": "y是可观测输出"
+        },
+        {
+          "key": "C",
+          "text": "X是可观测序列"
+        },
+        {
+          "key": "D",
+          "text": "a是转移概率"
+        }
+      ],
+      "answer": "",
+      "analysis": "",
+      "images": {
+        "question": "images/2022_669.png",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "hmm-regulation"
+      ],
+      "tags": [
+        "hmm",
+        "hmm-regulation",
+        "image-based",
+        "short_answer"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "22_91",
+      "year": 2022,
+      "source": "2022",
+      "prompt": "下列关于真核生物启动子描述正确的是",
+      "type": "multiple_choice",
+      "topic": "hmm-regulation",
+      "topicName": "HMM 与顺式调控元件",
+      "difficulty": 3,
+      "options": [
+        {
+          "key": "A",
+          "text": "TATA盒一般非常接近转录起始点"
+        },
+        {
+          "key": "B",
+          "text": "可能具有远离转录起始点的调控元件"
+        },
+        {
+          "key": "C",
+          "text": "均包含TATA框"
+        },
+        {
+          "key": "D",
+          "text": "处于基因转录起始位点上游"
+        }
+      ],
+      "answer": "BD",
+      "analysis": "真核启动子复杂，TATA框不是必须的（许多持家基因没有），可能有远端增强子。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "hmm-regulation"
+      ],
+      "tags": [
+        "hmm",
+        "hmm-regulation",
+        "multiple_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "22_92",
+      "year": 2022,
+      "source": "2022",
+      "prompt": "启动子按照位置（相对于基因转录起始位点）来分，一般分为哪几类？",
+      "type": "multiple_choice",
+      "topic": "hmm-regulation",
+      "topicName": "HMM 与顺式调控元件",
+      "difficulty": 3,
+      "options": [
+        {
+          "key": "A",
+          "text": "近端启动子"
+        },
+        {
+          "key": "B",
+          "text": "核心启动子"
+        },
+        {
+          "key": "C",
+          "text": "远处启动子"
+        }
+      ],
+      "answer": "AB",
+      "analysis": "核心启动子（Core）和近端启动子（Proximal）。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "hmm-regulation"
+      ],
+      "tags": [
+        "hmm-regulation",
+        "multiple_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "22_93",
+      "year": 2022,
+      "source": "2022",
+      "prompt": "下列有关隐马尔科夫模型（HMM）的描述中有哪些是正确的？",
+      "type": "multiple_choice",
+      "topic": "hmm-regulation",
+      "topicName": "HMM 与顺式调控元件",
+      "difficulty": 3,
+      "options": [
+        {
+          "key": "A",
+          "text": "后一个节点的可观测序列输出依赖于前一个节点的可观测输出"
+        },
+        {
+          "key": "B",
+          "text": "某个接待你的隐藏状态依赖于该节点的可观测输出"
+        },
+        {
+          "key": "C",
+          "text": "某个节点的可观测输出依赖于该节点的隐藏状态"
+        },
+        {
+          "key": "D",
+          "text": "后一个节点的隐藏状态依赖于前一个节点的隐藏状态"
+        }
+      ],
+      "answer": "ACD",
+      "analysis": "HMM假设：1. 当前状态仅依赖前一状态（一阶马尔可夫）；2. 当前输出仅依赖当前状态。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "hmm-regulation"
+      ],
+      "tags": [
+        "hmm",
+        "hmm-regulation",
+        "multiple_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "22_96",
+      "year": 2022,
+      "source": "2022",
+      "prompt": "根据CpG阳性HMM计算片段CATG的联合输出概率是",
+      "type": "short_answer",
+      "topic": "hmm-regulation",
+      "topicName": "HMM 与顺式调控元件",
+      "difficulty": 5,
+      "options": [
+        {
+          "key": "A",
+          "text": "0.000578"
+        },
+        {
+          "key": "B",
+          "text": "0.00247"
+        },
+        {
+          "key": "C",
+          "text": "0.000985"
+        },
+        {
+          "key": "D",
+          "text": "0.000415"
+        }
+      ],
+      "answer": "",
+      "analysis": "",
+      "images": {
+        "question": "images/2022_673.png",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "hmm-regulation"
+      ],
+      "tags": [
+        "hmm",
+        "hmm-regulation",
+        "image-based",
+        "short_answer"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "22_101",
+      "year": 2022,
+      "source": "2022",
+      "prompt": "根据CpG阴性HMM计算片段CATG的联合输出概率是(见上题图表)",
+      "type": "short_answer",
+      "topic": "hmm-regulation",
+      "topicName": "HMM 与顺式调控元件",
+      "difficulty": 4,
+      "options": [
+        {
+          "key": "A",
+          "text": "0.000415"
+        },
+        {
+          "key": "B",
+          "text": "0.000985"
+        },
+        {
+          "key": "C",
+          "text": "0.000578"
+        },
+        {
+          "key": "D",
+          "text": "0.00247"
+        }
+      ],
+      "answer": "",
+      "analysis": "",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "hmm-regulation"
+      ],
+      "tags": [
+        "hmm",
+        "hmm-regulation",
+        "short_answer"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "22_106",
+      "year": 2022,
+      "source": "2022",
+      "prompt": "该片段CATG更有可能属于(见上题图表)",
+      "type": "short_answer",
+      "topic": "general",
+      "topicName": "综合题",
+      "difficulty": 4,
+      "options": [
+        {
+          "key": "A",
+          "text": "CpG阴性序列片段"
+        },
+        {
+          "key": "B",
+          "text": "以上都不是"
+        },
+        {
+          "key": "C",
+          "text": "CpG阳性序列片段"
+        }
+      ],
+      "answer": "",
+      "analysis": "",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "course-overview"
+      ],
+      "tags": [
+        "general",
+        "short_answer"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "22_111",
+      "year": 2022,
+      "source": "2022",
+      "prompt": "UCSC基因组数据资源提供的REST API中，哪个功能模块可以用于下载特定数据轨道？",
+      "type": "short_answer",
+      "topic": "genome-databases",
+      "topicName": "基因组数据库与资源",
+      "difficulty": 3,
+      "options": [
+        {
+          "key": "",
+          "text": "A/getData/track"
+        },
+        {
+          "key": "B",
+          "text": "/getData/sequence"
+        },
+        {
+          "key": "C",
+          "text": "/list/tracks"
+        },
+        {
+          "key": "D",
+          "text": "/list/files"
+        }
+      ],
+      "answer": "A",
+      "analysis": "/getData/track 用于获取轨道数据。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "genome-databases"
+      ],
+      "tags": [
+        "genome-databases",
+        "short_answer"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "22_112",
+      "year": 2022,
+      "source": "2022",
+      "prompt": "在GFF3格式的基因组注释文件中，特征列使用哪个标识来描述基因的编码区特征？",
+      "type": "single_choice",
+      "topic": "annotation-prediction",
+      "topicName": "基因注释与结构建模",
+      "difficulty": 2,
+      "options": [
+        {
+          "key": "A",
+          "text": "gene"
+        },
+        {
+          "key": "B",
+          "text": "exon"
+        },
+        {
+          "key": "C",
+          "text": "CDS"
+        },
+        {
+          "key": "D",
+          "text": "mRNA"
+        }
+      ],
+      "answer": "C",
+      "analysis": "GFF3中，CDS表示编码区（Coding Sequence）。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "annotation-pipeline"
+      ],
+      "tags": [
+        "annotation",
+        "annotation-prediction",
+        "single_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "22_113",
+      "year": 2022,
+      "source": "2022",
+      "prompt": "在GFF3格式的基因组注释文件中，描述序列特征类型的是哪一列？",
+      "type": "single_choice",
+      "topic": "annotation-prediction",
+      "topicName": "基因注释与结构建模",
+      "difficulty": 2,
+      "options": [
+        {
+          "key": "A",
+          "text": "3 type"
+        },
+        {
+          "key": "B",
+          "text": "2 source"
+        },
+        {
+          "key": "C",
+          "text": "1 sequence"
+        },
+        {
+          "key": "D",
+          "text": "9 attributes"
+        }
+      ],
+      "answer": "A",
+      "analysis": "GFF3第三列是Type（如gene, mRNA, exon, CDS）。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "annotation-pipeline"
+      ],
+      "tags": [
+        "annotation",
+        "annotation-prediction",
+        "single_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "22_114",
+      "year": 2022,
+      "source": "2022",
+      "prompt": "下列有关Ensembl描述正确的有哪些？",
+      "type": "multiple_choice",
+      "topic": "genome-databases",
+      "topicName": "基因组数据库与资源",
+      "difficulty": 3,
+      "options": [
+        {
+          "key": "A",
+          "text": "只提供了人类基因组数据资源"
+        },
+        {
+          "key": "B",
+          "text": "提供了许多不同的基因组数据资源"
+        },
+        {
+          "key": "C",
+          "text": "搜索工具不能检索疾病关键词"
+        },
+        {
+          "key": "D",
+          "text": "搜索工具能够检索基因名称"
+        }
+      ],
+      "answer": "BD",
+      "analysis": "Ensembl包含多物种，支持基因名检索。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "genome-databases"
+      ],
+      "tags": [
+        "genome-databases",
+        "multiple_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "22_115",
+      "year": 2022,
+      "source": "2022",
+      "prompt": "在Ensembl的人类基因组中检索某个基因，检索结果包含哪些内容？",
+      "type": "multiple_choice",
+      "topic": "genome-databases",
+      "topicName": "基因组数据库与资源",
+      "difficulty": 3,
+      "options": [
+        {
+          "key": "A",
+          "text": "基因树（Gene tree）"
+        },
+        {
+          "key": "B",
+          "text": "基因结构可视化模型"
+        },
+        {
+          "key": "C",
+          "text": "变异数据"
+        },
+        {
+          "key": "D",
+          "text": "基因摘要信息"
+        }
+      ],
+      "answer": "ABCD",
+      "analysis": "Ensembl提供非常详尽的基因树、结构、变异、序列等信息。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "genome-databases"
+      ],
+      "tags": [
+        "genome-databases",
+        "multiple_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "22_116",
+      "year": 2022,
+      "source": "2022",
+      "prompt": "下列有关Genbank格式基因组序列文件的描述中，哪些是正确的？",
+      "type": "single_choice",
+      "topic": "genome-assembly",
+      "topicName": "基因组组装与图算法",
+      "difficulty": 2,
+      "options": [
+        {
+          "key": "A",
+          "text": "包含可能存在的序列间隙（gap）信息"
+        },
+        {
+          "key": "B",
+          "text": "包含各种该序列相关的注释信息"
+        },
+        {
+          "key": "C",
+          "text": "每个文件中仅仅包含一条基因组序列"
+        },
+        {
+          "key": "D",
+          "text": "包含基因结构特征信息"
+        }
+      ],
+      "answer": "B",
+      "analysis": "GenBank格式包含详细注释（FEATURES）。序列可能含N（Gap）。通常是一个Contig或Scaffold。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "assembly-graphs"
+      ],
+      "tags": [
+        "annotation",
+        "assembly",
+        "genome-assembly",
+        "single_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "22_117",
+      "year": 2022,
+      "source": "2022",
+      "prompt": "Genbank的Genome数据库资源中，基因组组装水平有哪些？",
+      "type": "multiple_choice",
+      "topic": "genome-assembly",
+      "topicName": "基因组组装与图算法",
+      "difficulty": 3,
+      "options": [
+        {
+          "key": "A",
+          "text": "complete"
+        },
+        {
+          "key": "B",
+          "text": "contig"
+        },
+        {
+          "key": "C",
+          "text": "chromosome"
+        },
+        {
+          "key": "D",
+          "text": "scaffold"
+        }
+      ],
+      "answer": "ABCD",
+      "analysis": "组装级别：Contig < Scaffold < Chromosome (Complete)。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "assembly-graphs"
+      ],
+      "tags": [
+        "assembly",
+        "genome-assembly",
+        "multiple_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "22_118",
+      "year": 2022,
+      "source": "2022",
+      "prompt": "下列有关UCSC基因组数据资源的检索和下载接口程序Table Browser的描述中，有哪些是正确的？",
+      "type": "multiple_choice",
+      "topic": "genome-databases",
+      "topicName": "基因组数据库与资源",
+      "difficulty": 3,
+      "options": [
+        {
+          "key": "A",
+          "text": "可限定基因组区间"
+        },
+        {
+          "key": "B",
+          "text": "可指定基因列表"
+        },
+        {
+          "key": "C",
+          "text": "可将检索结果直接传递给Galaxy"
+        },
+        {
+          "key": "D",
+          "text": "可限定物种基因组版本"
+        }
+      ],
+      "answer": "ABCD",
+      "analysis": "Table Browser功能强大，支持区间、列表、版本、Galaxy对接。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "genome-databases"
+      ],
+      "tags": [
+        "genome-databases",
+        "multiple_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "22_119",
+      "year": 2022,
+      "source": "2022",
+      "prompt": "UCSC Genome Browser中可检索哪些数据轨道信息？",
+      "type": "multiple_choice",
+      "topic": "genome-databases",
+      "topicName": "基因组数据库与资源",
+      "difficulty": 3,
+      "options": [
+        {
+          "key": "A",
+          "text": "基因结构模型"
+        },
+        {
+          "key": "B",
+          "text": "基因表达"
+        },
+        {
+          "key": "C",
+          "text": "重复与变异"
+        },
+        {
+          "key": "D",
+          "text": "基因转录调控"
+        }
+      ],
+      "answer": "ABCD",
+      "analysis": "UCSC轨道包含表达、调控、变异、结构等。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "genome-databases"
+      ],
+      "tags": [
+        "genome-databases",
+        "multiple_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "22_120",
+      "year": 2022,
+      "source": "2022",
+      "prompt": "Genbank的Genome数据库资源有哪几种下载方式？",
+      "type": "multiple_choice",
+      "topic": "genome-databases",
+      "topicName": "基因组数据库与资源",
+      "difficulty": 3,
+      "options": [
+        {
+          "key": "A",
+          "text": "datasets工具"
+        },
+        {
+          "key": "B",
+          "text": "REST API"
+        },
+        {
+          "key": "C",
+          "text": "FTP"
+        },
+        {
+          "key": "D",
+          "text": "Web页面下载链接"
+        }
+      ],
+      "answer": "ABC",
+      "analysis": "FTP下载最常用，也有Datasets工具和API。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "genome-databases"
+      ],
+      "tags": [
+        "genome-databases",
+        "multiple_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_133",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "下列哪个组学计划主要目标研究基因组中功能元件的",
+      "type": "single_choice",
+      "topic": "general",
+      "topicName": "综合题",
+      "difficulty": 2,
+      "options": [
+        {
+          "key": "A",
+          "text": "The Pediatric Cancer Genome Project"
+        },
+        {
+          "key": "B",
+          "text": "The Cancer Genome Project"
+        },
+        {
+          "key": "C",
+          "text": "ENCODE"
+        },
+        {
+          "key": "D",
+          "text": "The Cancer Genome Atlas"
+        }
+      ],
+      "answer": "C",
+      "analysis": "ENCODE (Encyclopedia of DNA Elements) 旨在解析基因组功能元件。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "course-overview"
+      ],
+      "tags": [
+        "general",
+        "single_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_138",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "基因组学的研究目标是什么",
+      "type": "single_choice",
+      "topic": "general",
+      "topicName": "综合题",
+      "difficulty": 2,
+      "options": [
+        {
+          "key": "A",
+          "text": "基因组进化"
+        },
+        {
+          "key": "B",
+          "text": "基因组的结构和功能"
+        },
+        {
+          "key": "C",
+          "text": "基因组作图（测序）"
+        },
+        {
+          "key": "D",
+          "text": "基因的定性和定量"
+        }
+      ],
+      "answer": "D",
+      "analysis": "结构和功能是基因组学核心。",
+      "images": {
+        "question": "",
+        "note": "user_data/images/23_138.png"
+      },
+      "pdfPage": 16,
+      "knowledgeRefs": [
+        "course-overview"
+      ],
+      "tags": [
+        "general",
+        "single_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_143",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "[多选] DNA序列是由哪几种碱基组成",
+      "type": "multiple_choice",
+      "topic": "general",
+      "topicName": "综合题",
+      "difficulty": 3,
+      "options": [
+        {
+          "key": "A",
+          "text": "A"
+        },
+        {
+          "key": "B",
+          "text": "C"
+        },
+        {
+          "key": "C",
+          "text": "G"
+        },
+        {
+          "key": "D",
+          "text": "T"
+        },
+        {
+          "key": "E",
+          "text": "U"
+        }
+      ],
+      "answer": "ABCD",
+      "analysis": "DNA碱基：A, C, G, T。U是RNA的。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "course-overview"
+      ],
+      "tags": [
+        "general",
+        "multi-select",
+        "multiple_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_149",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "[多选] 下列哪些属于肿瘤基因组计划",
+      "type": "multiple_choice",
+      "topic": "general",
+      "topicName": "综合题",
+      "difficulty": 3,
+      "options": [
+        {
+          "key": "A",
+          "text": "The Pediatric Cancer Genome Project"
+        },
+        {
+          "key": "B",
+          "text": "The Cancer Genome Project"
+        },
+        {
+          "key": "C",
+          "text": "ENCODE"
+        },
+        {
+          "key": "D",
+          "text": "The Cancer Genome Atlas"
+        }
+      ],
+      "answer": "ABD",
+      "analysis": "ENCODE是功能基因组计划，不是肿瘤基因组计划。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "course-overview"
+      ],
+      "tags": [
+        "general",
+        "multi-select",
+        "multiple_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_154",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "[多选] 物理作图可能会使用哪些单位来表示距离",
+      "type": "multiple_choice",
+      "topic": "human-genome-project",
+      "topicName": "人类基因组计划与图谱",
+      "difficulty": 4,
+      "options": [
+        {
+          "key": "A",
+          "text": "厘镭(cR)"
+        },
+        {
+          "key": "B",
+          "text": "厘摩(cM)"
+        },
+        {
+          "key": "C",
+          "text": "染色体区带"
+        },
+        {
+          "key": "D",
+          "text": "碱基对(bp)"
+        }
+      ],
+      "answer": "AD",
+      "analysis": "物理距离：bp（绝对距离）、cR（辐射杂交）。cM是遗传距离。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "hgp-maps"
+      ],
+      "tags": [
+        "human-genome-project",
+        "multi-select",
+        "multiple_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_159",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "遗传作图的距离单位是什么",
+      "type": "single_choice",
+      "topic": "general",
+      "topicName": "综合题",
+      "difficulty": 3,
+      "options": [
+        {
+          "key": "A",
+          "text": "染色体区带"
+        },
+        {
+          "key": "B",
+          "text": "厘摩(cM)"
+        },
+        {
+          "key": "C",
+          "text": "碱基对(bp)"
+        },
+        {
+          "key": "D",
+          "text": "厘镭(cR)"
+        }
+      ],
+      "answer": "B",
+      "analysis": "cM (centimorgan) 厘摩。",
+      "images": {
+        "question": "",
+        "note": "user_data/images/23_159.png"
+      },
+      "pdfPage": 69,
+      "knowledgeRefs": [
+        "course-overview"
+      ],
+      "tags": [
+        "general",
+        "single_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_164",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "DNA双螺旋结构模型是在哪一年被沃森和克里克提出来的？",
+      "type": "single_choice",
+      "topic": "general",
+      "topicName": "综合题",
+      "difficulty": 2,
+      "options": [
+        {
+          "key": "A",
+          "text": "1943"
+        },
+        {
+          "key": "B",
+          "text": "1953"
+        },
+        {
+          "key": "C",
+          "text": "1963"
+        },
+        {
+          "key": "D",
+          "text": "1973"
+        }
+      ],
+      "answer": "B",
+      "analysis": "1953年 Watson & Crick。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "course-overview"
+      ],
+      "tags": [
+        "general",
+        "single_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_169",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "[多选] 下列哪些属于物理作图方法",
+      "type": "multiple_choice",
+      "topic": "human-genome-project",
+      "topicName": "人类基因组计划与图谱",
+      "difficulty": 4,
+      "options": [
+        {
+          "key": "A",
+          "text": "基于克隆的物理作图"
+        },
+        {
+          "key": "B",
+          "text": "镭射杂交作图"
+        },
+        {
+          "key": "C",
+          "text": "限制性酶切作图"
+        },
+        {
+          "key": "D",
+          "text": "STS作图"
+        },
+        {
+          "key": "E",
+          "text": "基于荧光原位杂交的染色体作图"
+        }
+      ],
+      "answer": "ACDE",
+      "analysis": "物理作图：限制性酶切、克隆重叠、STS、FISH、RH（辐射杂交）。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "hgp-maps"
+      ],
+      "tags": [
+        "human-genome-project",
+        "multi-select",
+        "multiple_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_175",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "[多选] [PubMed] Donis-Keller利用限制性片段长度多态性 (RFLPs)，于1987年构建成第一张人的遗传图谱发表于《Cell》中，下列有关这篇研究报告的描述哪些是正确的？",
+      "type": "multiple_choice",
+      "topic": "human-genome-project",
+      "topicName": "人类基因组计划与图谱",
+      "difficulty": 4,
+      "options": [
+        {
+          "key": "A",
+          "text": "403个多态性位点"
+        },
+        {
+          "key": "B",
+          "text": "至少覆盖到95%的人类基因组区域"
+        },
+        {
+          "key": "C",
+          "text": "21个包含三代的家族"
+        },
+        {
+          "key": "D",
+          "text": "393个RFLPs"
+        }
+      ],
+      "answer": "ACD",
+      "analysis": "Donis-Keller 1987 Cell: 403个位点(A)，393个RFLP(D)，21个CEPH家系(C)。覆盖率95%也是其结论之一。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "hgp-maps"
+      ],
+      "tags": [
+        "human-genome-project",
+        "multi-select",
+        "multiple_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_180",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "[多选] 下列哪些可以作为遗传作图标记？",
+      "type": "multiple_choice",
+      "topic": "general",
+      "topicName": "综合题",
+      "difficulty": 4,
+      "options": [
+        {
+          "key": "A",
+          "text": "等位基因"
+        },
+        {
+          "key": "B",
+          "text": "简单序列长度多态性"
+        },
+        {
+          "key": "C",
+          "text": "单核苷酸多态性"
+        },
+        {
+          "key": "D",
+          "text": "限制性片段长度多态性"
+        }
+      ],
+      "answer": "ABCD",
+      "analysis": "只要遵循孟德尔遗传并有多态性，皆可做标记：RFLP, SSLP(微卫星), SNP, 等位基因。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "course-overview"
+      ],
+      "tags": [
+        "general",
+        "multi-select",
+        "multiple_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_185",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "下图是一张基于链终止法的聚丙烯酰胺凝胶电泳结果图谱，请问这块凝胶电泳结果图谱代表的序列是什么",
+      "type": "short_answer",
+      "topic": "human-genome-project",
+      "topicName": "人类基因组计划与图谱",
+      "difficulty": 5,
+      "options": [
+        {
+          "key": "A",
+          "text": "AATTTTGGGCC"
+        },
+        {
+          "key": "B",
+          "text": "ATGCTTCGGAT"
+        },
+        {
+          "key": "C",
+          "text": "CCGGGTTTTAA"
+        },
+        {
+          "key": "D",
+          "text": "TAGGCTTCGTA"
+        }
+      ],
+      "answer": "",
+      "analysis": "",
+      "images": {
+        "question": "images/2023_64.png",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "hgp-maps"
+      ],
+      "tags": [
+        "human-genome-project",
+        "image-based",
+        "short_answer"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_191",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "[多选] 下列哪些属于非编码RNA (non-coding RNA, ncRNA) 基因转录产物",
+      "type": "multiple_choice",
+      "topic": "general",
+      "topicName": "综合题",
+      "difficulty": 3,
+      "options": [
+        {
+          "key": "A",
+          "text": "rRNA"
+        },
+        {
+          "key": "B",
+          "text": "miRNA"
+        },
+        {
+          "key": "C",
+          "text": "mRNA"
+        },
+        {
+          "key": "D",
+          "text": "tRNA"
+        }
+      ],
+      "answer": "ABD",
+      "analysis": "ncRNA包括 rRNA, tRNA, miRNA等。mRNA是编码RNA。",
+      "images": {
+        "question": "",
+        "note": "user_data/images/23_191.png"
+      },
+      "pdfPage": 25,
+      "knowledgeRefs": [
+        "course-overview"
+      ],
+      "tags": [
+        "general",
+        "multi-select",
+        "multiple_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_196",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "[多选] 下列哪些属于基因组学的研究范畴？",
+      "type": "multiple_choice",
+      "topic": "sequencing-methods",
+      "topicName": "测序方法与读段模拟",
+      "difficulty": 3,
+      "options": [
+        {
+          "key": "A",
+          "text": "基因组作图（测序）"
+        },
+        {
+          "key": "B",
+          "text": "基因的定性和定量"
+        },
+        {
+          "key": "C",
+          "text": "基因组进化"
+        },
+        {
+          "key": "D",
+          "text": "基因组的结构和功能"
+        }
+      ],
+      "answer": "ABCD",
+      "analysis": "结构、功能、进化、作图测序都是。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "sequencing-tech"
+      ],
+      "tags": [
+        "multi-select",
+        "multiple_choice",
+        "sequencing",
+        "sequencing-methods"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_201",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "中国是在哪一年加入人类基因组计划的？",
+      "type": "single_choice",
+      "topic": "human-genome-project",
+      "topicName": "人类基因组计划与图谱",
+      "difficulty": 2,
+      "options": [
+        {
+          "key": "A",
+          "text": "1990"
+        },
+        {
+          "key": "B",
+          "text": "1999"
+        },
+        {
+          "key": "C",
+          "text": "2000"
+        },
+        {
+          "key": "D",
+          "text": "2001"
+        }
+      ],
+      "answer": "B",
+      "analysis": "1999年加入，负责1%。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "hgp-maps"
+      ],
+      "tags": [
+        "human-genome-project",
+        "single_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_206",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "[多选] 下列选项中，有关限制性片段长度多态性的描述哪些是正确的？",
+      "type": "multiple_choice",
+      "topic": "human-genome-project",
+      "topicName": "人类基因组计划与图谱",
+      "difficulty": 3,
+      "options": [
+        {
+          "key": "A",
+          "text": "人类遗传学家Bostein在1980年提出的"
+        },
+        {
+          "key": "B",
+          "text": "可以用作遗传作图标记"
+        },
+        {
+          "key": "C",
+          "text": "Donis-Keller利用此技术于1987年构建成第一张人的遗传图谱"
+        },
+        {
+          "key": "D",
+          "text": "第一代DNA分子标记技术"
+        }
+      ],
+      "answer": "ABCD",
+      "analysis": "Bostein 1980提出RFLP概念，它是第一代标记，被用于构建第一张遗传图。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "hgp-maps"
+      ],
+      "tags": [
+        "human-genome-project",
+        "multi-select",
+        "multiple_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_211",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "[多选] 基因组的序列组成可分为那几种",
+      "type": "multiple_choice",
+      "topic": "general",
+      "topicName": "综合题",
+      "difficulty": 3,
+      "options": [
+        {
+          "key": "A",
+          "text": "非重复序列"
+        },
+        {
+          "key": "B",
+          "text": "高度串联重复序列"
+        },
+        {
+          "key": "C",
+          "text": "中度散布重复序列"
+        },
+        {
+          "key": "D",
+          "text": "低度重复序列"
+        }
+      ],
+      "answer": "ABCD",
+      "analysis": "序列组成的分类：非重复、重复（串联、散布）。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "course-overview"
+      ],
+      "tags": [
+        "general",
+        "multi-select",
+        "multiple_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_216",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "[多选] 下列哪些序列种类属于逆转录转座子？",
+      "type": "multiple_choice",
+      "topic": "general",
+      "topicName": "综合题",
+      "difficulty": 3,
+      "options": [
+        {
+          "key": "A",
+          "text": "Microsatellite DNA"
+        },
+        {
+          "key": "B",
+          "text": "Long Terminal Repeat (LTRs)"
+        },
+        {
+          "key": "C",
+          "text": "Non-Long Terminal Repeat (Non-LTRs)"
+        },
+        {
+          "key": "D",
+          "text": "Minisatellite DNA"
+        }
+      ],
+      "answer": "BC",
+      "analysis": "逆转录转座子分为 LTR (长末端重复) 和 Non-LTR (如LINEs/SINEs)。微卫星是串联重复。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "course-overview"
+      ],
+      "tags": [
+        "general",
+        "multi-select",
+        "multiple_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_221",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "[多选] 下列关于基因家族的描述哪些是正确的？",
+      "type": "multiple_choice",
+      "topic": "general",
+      "topicName": "综合题",
+      "difficulty": 3,
+      "options": [
+        {
+          "key": "A",
+          "text": "家族不同成员之间的序列可能相似"
+        },
+        {
+          "key": "B",
+          "text": "家族不同成员可能是作为一个整体发挥功能"
+        },
+        {
+          "key": "C",
+          "text": "家族不同成员之间结构和功能可能相似"
+        },
+        {
+          "key": "D",
+          "text": "家族不同成员可能参与相同的生物学过程"
+        }
+      ],
+      "answer": "ABCD",
+      "analysis": "基因家族：序列相似、结构相似、功能相关、起源相同。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "course-overview"
+      ],
+      "tags": [
+        "general",
+        "multi-select",
+        "multiple_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_226",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "[多选] 下列关于假基因（Pseudogene）的描述哪些是正确的？",
+      "type": "multiple_choice",
+      "topic": "general",
+      "topicName": "综合题",
+      "difficulty": 3,
+      "options": [
+        {
+          "key": "A",
+          "text": "由于突变而丧失编码蛋白能力"
+        },
+        {
+          "key": "B",
+          "text": "通常来自某个正常基因的拷贝"
+        },
+        {
+          "key": "C",
+          "text": "可能仍然具有生物学功能"
+        },
+        {
+          "key": "D",
+          "text": "可能参与其亲本拷贝基因的转录调控"
+        }
+      ],
+      "answer": "ABCD",
+      "analysis": "假基因是已丧失功能的拷贝，部分可转录调控。",
+      "images": {
+        "question": "",
+        "note": "user_data/images/23_226.png"
+      },
+      "pdfPage": 32,
+      "knowledgeRefs": [
+        "course-overview"
+      ],
+      "tags": [
+        "general",
+        "multi-select",
+        "multiple_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_231",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "[多选] [Pubmed] Cohen于1993年在《Nature》上发表了一篇题为“A first- generation physical map of the human genome”的文章，下列有关这篇研究报道的描述哪些是正确的",
+      "type": "multiple_choice",
+      "topic": "human-genome-project",
+      "topicName": "人类基因组计划与图谱",
+      "difficulty": 3,
+      "options": [
+        {
+          "key": "A",
+          "text": "平均插入片段长度为0.9Mb"
+        },
+        {
+          "key": "B",
+          "text": "使用了超过2000个遗传标记物"
+        },
+        {
+          "key": "C",
+          "text": "平均插入片段长度为0.9Kb"
+        },
+        {
+          "key": "D",
+          "text": "使用YAC文库"
+        },
+        {
+          "key": "E",
+          "text": "使用BAC文库"
+        },
+        {
+          "key": "F",
+          "text": "使用了大约1000个遗传标记物"
+        }
+      ],
+      "answer": "ABDF",
+      "analysis": "Cohen 1993 Nature: 第一代物理图。使用YAC（酵母人工染色体），插入片段大（~0.9Mb）。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "hgp-maps"
+      ],
+      "tags": [
+        "human-genome-project",
+        "multi-select",
+        "multiple_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_238",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "[多选] 下列哪些序列种类属于高度重复序列？",
+      "type": "multiple_choice",
+      "topic": "general",
+      "topicName": "综合题",
+      "difficulty": 3,
+      "options": [
+        {
+          "key": "A",
+          "text": "微卫星DNA（ Microsatellite DNA ）"
+        },
+        {
+          "key": "B",
+          "text": "小卫星DNA（Minisatellite DNA）"
+        },
+        {
+          "key": "C",
+          "text": "转座子（Transposons）"
+        },
+        {
+          "key": "D",
+          "text": "卫星DNA（Satellite DNA）"
+        }
+      ],
+      "answer": "ABD",
+      "analysis": "高度重复通常指串联重复（卫星DNA）。转座子属于中度散布重复。",
+      "images": {
+        "question": "",
+        "note": "user_data/images/23_238.png"
+      },
+      "pdfPage": 21,
+      "knowledgeRefs": [
+        "course-overview"
+      ],
+      "tags": [
+        "general",
+        "multi-select",
+        "multiple_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_243",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "下列这些途径相对比较而言，最合适用来了解基因组学的最新研究进展是",
+      "type": "single_choice",
+      "topic": "genome-databases",
+      "topicName": "基因组数据库与资源",
+      "difficulty": 2,
+      "options": [
+        {
+          "key": "A",
+          "text": "PubMed"
+        },
+        {
+          "key": "B",
+          "text": "必应"
+        },
+        {
+          "key": "C",
+          "text": "好搜"
+        },
+        {
+          "key": "D",
+          "text": "百度"
+        }
+      ],
+      "answer": "A",
+      "analysis": "PubMed。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "genome-databases"
+      ],
+      "tags": [
+        "genome-databases",
+        "single_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_248",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "[多选] 下列选项中，哪些可以作为遗传作图标记？",
+      "type": "multiple_choice",
+      "topic": "general",
+      "topicName": "综合题",
+      "difficulty": 4,
+      "options": [
+        {
+          "key": "A",
+          "text": "单核苷酸多态性"
+        },
+        {
+          "key": "B",
+          "text": "小卫星序列"
+        },
+        {
+          "key": "C",
+          "text": "微卫星序列"
+        },
+        {
+          "key": "D",
+          "text": "等位基因"
+        }
+      ],
+      "answer": "ABCD",
+      "analysis": "同23_180。",
+      "images": {
+        "question": "",
+        "note": "user_data/images/23_248.png"
+      },
+      "pdfPage": 74,
+      "knowledgeRefs": [
+        "course-overview"
+      ],
+      "tags": [
+        "general",
+        "multi-select",
+        "multiple_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_253",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "下列哪一项是大规模基因组物理图的主流技术？",
+      "type": "single_choice",
+      "topic": "human-genome-project",
+      "topicName": "人类基因组计划与图谱",
+      "difficulty": 3,
+      "options": [
+        {
+          "key": "A",
+          "text": "STS作图"
+        },
+        {
+          "key": "B",
+          "text": "限制性酶切作图"
+        },
+        {
+          "key": "C",
+          "text": "基于克隆的物理作图"
+        },
+        {
+          "key": "D",
+          "text": "基于荧光原位杂交的染色体作图"
+        },
+        {
+          "key": "E",
+          "text": "辐射杂交作图"
+        }
+      ],
+      "answer": "C",
+      "analysis": "基于克隆（Clone-based）构建重叠群是HGP时期物理图的主流。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "hgp-maps"
+      ],
+      "tags": [
+        "human-genome-project",
+        "single_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_259",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "[多选] 下列有关微卫星DNA（Microsatellite DNA）描述正确的有哪些？",
+      "type": "multiple_choice",
+      "topic": "general",
+      "topicName": "综合题",
+      "difficulty": 3,
+      "options": [
+        {
+          "key": "A",
+          "text": "在不同个体之间重复长度不同"
+        },
+        {
+          "key": "B",
+          "text": "属于高度串联重复序列"
+        },
+        {
+          "key": "C",
+          "text": "可作为遗传标记物"
+        },
+        {
+          "key": "D",
+          "text": "重复数目可变"
+        }
+      ],
+      "answer": "ABCD",
+      "analysis": "微卫星：串联重复，长度多态性，遗传标记。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "course-overview"
+      ],
+      "tags": [
+        "general",
+        "multi-select",
+        "multiple_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_264",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "[多选] 下列选项中，有关遗传作图的描述哪些是正确的？",
+      "type": "multiple_choice",
+      "topic": "general",
+      "topicName": "综合题",
+      "difficulty": 4,
+      "options": [
+        {
+          "key": "A",
+          "text": "分辦率有限，受到子代数量限制"
+        },
+        {
+          "key": "B",
+          "text": "距离单位是染色体的区带"
+        },
+        {
+          "key": "C",
+          "text": "覆盖率较低"
+        },
+        {
+          "key": "D",
+          "text": "覆盖率较高"
+        }
+      ],
+      "answer": "AC",
+      "analysis": "遗传作图：重组率决定距离(cM)，分辨率低（受减数分裂次数限制），覆盖率相对低。",
+      "images": {
+        "question": "",
+        "note": "user_data/images/23_264.png"
+      },
+      "pdfPage": 75,
+      "knowledgeRefs": [
+        "course-overview"
+      ],
+      "tags": [
+        "general",
+        "multi-select",
+        "multiple_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_269",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "[多选] 下列选项中，有关物理作图的描述哪些是正确的？",
+      "type": "multiple_choice",
+      "topic": "general",
+      "topicName": "综合题",
+      "difficulty": 4,
+      "options": [
+        {
+          "key": "A",
+          "text": "距离单位可以是核苷酸对数"
+        },
+        {
+          "key": "B",
+          "text": "覆盖率较高"
+        },
+        {
+          "key": "C",
+          "text": "覆盖率较低"
+        },
+        {
+          "key": "D",
+          "text": "距离单位是染色体的区带"
+        }
+      ],
+      "answer": "AB",
+      "analysis": "物理作图：单位bp，分辨率高，覆盖率高。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "course-overview"
+      ],
+      "tags": [
+        "general",
+        "multi-select",
+        "multiple_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_274",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "[多选] 下列哪些序列种类属于中度重复序列？",
+      "type": "multiple_choice",
+      "topic": "general",
+      "topicName": "综合题",
+      "difficulty": 3,
+      "options": [
+        {
+          "key": "A",
+          "text": "微卫星DNA（ Microsatellite DNA ）"
+        },
+        {
+          "key": "B",
+          "text": "小卫星DNA（Minisatellite DNA）"
+        },
+        {
+          "key": "C",
+          "text": "转座子（Transposons）"
+        },
+        {
+          "key": "D",
+          "text": "逆转录转座子（Retrotransposons）"
+        }
+      ],
+      "answer": "CD",
+      "analysis": "中度重复主要是转座子（Transposons）和逆转录转座子（Retrotransposons，如Alu）。微卫星是高度重复。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "course-overview"
+      ],
+      "tags": [
+        "general",
+        "multi-select",
+        "multiple_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_279",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "[多选] 基因组（genome）范畴一般包括哪些？",
+      "type": "multiple_choice",
+      "topic": "general",
+      "topicName": "综合题",
+      "difficulty": 3,
+      "options": [
+        {
+          "key": "A",
+          "text": "病毒基因组（Virus genome）"
+        },
+        {
+          "key": "B",
+          "text": "叶绿体基因组（Chloroplast genome）"
+        },
+        {
+          "key": "C",
+          "text": "核/染色体基因组（Nuclear/Chromosomal genome）"
+        },
+        {
+          "key": "D",
+          "text": "线粒体基因组（Mitochondrial genome）"
+        }
+      ],
+      "answer": "ABCD",
+      "analysis": "基因组包括核基因组和细胞器基因组（线粒体、叶绿体）。病毒也有基因组。",
+      "images": {
+        "question": "",
+        "note": "user_data/images/23_279.png"
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "course-overview"
+      ],
+      "tags": [
+        "general",
+        "multi-select",
+        "multiple_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_284",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "基因组中编码基因的序列一般属于哪种类型？",
+      "type": "single_choice",
+      "topic": "general",
+      "topicName": "综合题",
+      "difficulty": 2,
+      "options": [
+        {
+          "key": "A",
+          "text": "非重复序列"
+        },
+        {
+          "key": "B",
+          "text": "低度重复序列"
+        },
+        {
+          "key": "C",
+          "text": "高度串联重复序列"
+        },
+        {
+          "key": "D",
+          "text": "中度散布重复序列"
+        }
+      ],
+      "answer": "A",
+      "analysis": "编码基因通常是单拷贝（非重复）序列。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "course-overview"
+      ],
+      "tags": [
+        "general",
+        "single_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_289",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "编码蛋白质的基因转录物是哪一个？",
+      "type": "single_choice",
+      "topic": "general",
+      "topicName": "综合题",
+      "difficulty": 2,
+      "options": [
+        {
+          "key": "A",
+          "text": "rRNA"
+        },
+        {
+          "key": "B",
+          "text": "tRNA"
+        },
+        {
+          "key": "C",
+          "text": "mRNA"
+        },
+        {
+          "key": "D",
+          "text": "miRNA"
+        }
+      ],
+      "answer": "C",
+      "analysis": "mRNA (Messenger RNA)。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "course-overview"
+      ],
+      "tags": [
+        "general",
+        "single_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_294",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "[多选] 人类基因组计划中绘制了哪几张基因组图谱？",
+      "type": "multiple_choice",
+      "topic": "human-genome-project",
+      "topicName": "人类基因组计划与图谱",
+      "difficulty": 4,
+      "options": [
+        {
+          "key": "A",
+          "text": "序列图"
+        },
+        {
+          "key": "B",
+          "text": "遗传图"
+        },
+        {
+          "key": "C",
+          "text": "转录图"
+        },
+        {
+          "key": "D",
+          "text": "物理图"
+        }
+      ],
+      "answer": "ABCD",
+      "analysis": "HGP四大图谱：遗传、物理、序列、转录（基因）。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "hgp-maps"
+      ],
+      "tags": [
+        "human-genome-project",
+        "multi-select",
+        "multiple_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_299",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "[多选] 下列关于基因的描述哪些是正确的？",
+      "type": "multiple_choice",
+      "topic": "general",
+      "topicName": "综合题",
+      "difficulty": 3,
+      "options": [
+        {
+          "key": "A",
+          "text": "人类基因组的一条链上编码了一个基因，则其互补区域不可能再编码另一个基因"
+        },
+        {
+          "key": "B",
+          "text": "一个基因的内部可能编码另一个基因"
+        },
+        {
+          "key": "C",
+          "text": "两个不同的基因可能会存在重叠区域"
+        },
+        {
+          "key": "D",
+          "text": "真核生物中编码不同蛋白质的基因之间，不可能存在相似序列"
+        }
+      ],
+      "answer": "ABC",
+      "analysis": "基因可能有重叠（Overlapping genes），尤其在病毒和线粒体中，人类中也有。基因内部可能有嵌套基因。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "course-overview"
+      ],
+      "tags": [
+        "general",
+        "multi-select",
+        "multiple_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_305",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "在全基因组测序中，哪种问题无法通过增加测序深度来补全",
+      "type": "single_choice",
+      "topic": "sequencing-methods",
+      "topicName": "测序方法与读段模拟",
+      "difficulty": 2,
+      "options": [
+        {
+          "key": "A",
+          "text": "物理间隙"
+        },
+        {
+          "key": "B",
+          "text": "逻辑间隙"
+        },
+        {
+          "key": "C",
+          "text": "序列间隙"
+        },
+        {
+          "key": "D",
+          "text": "拼接间隙"
+        }
+      ],
+      "answer": "B",
+      "analysis": "逻辑间隙（Logical gap）源于克隆偏好性。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "sequencing-tech"
+      ],
+      "tags": [
+        "sequencing",
+        "sequencing-methods",
+        "single_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_310",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "在全基因组测序中，当测序量为基因组大小（m值）的1倍时，理论上的丢失概率能够达到多少",
+      "type": "single_choice",
+      "topic": "sequencing-methods",
+      "topicName": "测序方法与读段模拟",
+      "difficulty": 3,
+      "options": [
+        {
+          "key": "A",
+          "text": "50%"
+        },
+        {
+          "key": "B",
+          "text": "37%"
+        },
+        {
+          "key": "C",
+          "text": "67%"
+        },
+        {
+          "key": "D",
+          "text": "33%"
+        }
+      ],
+      "answer": "B",
+      "analysis": "37% (e^-1)。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "sequencing-tech"
+      ],
+      "tags": [
+        "sequencing",
+        "sequencing-methods",
+        "single_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_315",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "在对基因组测序数据分析发现，某个位点的总覆盖度达到50x，但是结果并不一致，其中有24个测序现实该位点为A，另外26个显示为C，那么你觉得该位点应该是什么",
+      "type": "single_choice",
+      "topic": "sequencing-methods",
+      "topicName": "测序方法与读段模拟",
+      "difficulty": 2,
+      "options": [
+        {
+          "key": "A",
+          "text": "不确定"
+        },
+        {
+          "key": "B",
+          "text": "[A/C]单核苷酸多态性"
+        },
+        {
+          "key": "C",
+          "text": "A"
+        },
+        {
+          "key": "D",
+          "text": "C"
+        }
+      ],
+      "answer": "B",
+      "analysis": "24A:26C，接近1:1，且覆盖度高，明显是杂合SNP。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "sequencing-tech"
+      ],
+      "tags": [
+        "sequencing",
+        "sequencing-methods",
+        "single_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_320",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "在对基因组测序数据分析发现，某个位点的总覆盖度达到50x，但是结果并不一致，其中有45个测序现实该位点为A，另外5个显示为C，那么你觉得该位点应该是什么",
+      "type": "single_choice",
+      "topic": "sequencing-methods",
+      "topicName": "测序方法与读段模拟",
+      "difficulty": 2,
+      "options": [
+        {
+          "key": "A",
+          "text": "不确定"
+        },
+        {
+          "key": "B",
+          "text": "[A/C]单核苷酸多态性"
+        },
+        {
+          "key": "C",
+          "text": "A"
+        },
+        {
+          "key": "D",
+          "text": "C"
+        }
+      ],
+      "answer": "C",
+      "analysis": "45A:5C，C比例很低，可能是测序错误，认为是纯合A。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "sequencing-tech"
+      ],
+      "tags": [
+        "sequencing",
+        "sequencing-methods",
+        "single_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_325",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "全基因组测序中，当测序量为基因组大小（m值）的5倍时，理论上的覆盖率能够达到多少？",
+      "type": "single_choice",
+      "topic": "sequencing-methods",
+      "topicName": "测序方法与读段模拟",
+      "difficulty": 2,
+      "options": [
+        {
+          "key": "A",
+          "text": "60%"
+        },
+        {
+          "key": "B",
+          "text": "99%"
+        },
+        {
+          "key": "C",
+          "text": "50%"
+        },
+        {
+          "key": "D",
+          "text": "90%"
+        }
+      ],
+      "answer": "B",
+      "analysis": "P = 1 - e^-5 ≈ 1 - 0.0067 = 99.3%。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "sequencing-tech"
+      ],
+      "tags": [
+        "sequencing",
+        "sequencing-methods",
+        "single_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_330",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "在fastq格式测序结果文件中，以Sanger/Pred方法计算出来的测序质量字符I (ASCII码为73) 代表的测序错误概率是多少？",
+      "type": "single_choice",
+      "topic": "sequencing-methods",
+      "topicName": "测序方法与读段模拟",
+      "difficulty": 3,
+      "options": [
+        {
+          "key": "A",
+          "text": "0.01%"
+        },
+        {
+          "key": "B",
+          "text": "10%"
+        },
+        {
+          "key": "C",
+          "text": "0.1%"
+        },
+        {
+          "key": "D",
+          "text": "1%"
+        }
+      ],
+      "answer": "C",
+      "analysis": "Phred Score Q = ASCII - 33。I=73, Q=40。P = 10^(-Q/10) = 10^-4 = 0.01%。(注意：题目若问Q30是0.1%，Q40是0.01%。这里选项有0.1%，需核对ASCII码表。I(73)-33=40。Q40错误率是0.0001即0.01%。如果选项没有0.01%，可能题目ASCII码给错了或者计算方式不同)",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "sequencing-tech"
+      ],
+      "tags": [
+        "sequencing",
+        "sequencing-methods",
+        "single_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_335",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "在fastq格式测序结果文件中，以Sanger/Pred方法计算出来的测序质量字符(ASCII码为63) 代表的测序精度概率是多少？",
+      "type": "single_choice",
+      "topic": "sequencing-methods",
+      "topicName": "测序方法与读段模拟",
+      "difficulty": 3,
+      "options": [
+        {
+          "key": "A",
+          "text": "99.9%"
+        },
+        {
+          "key": "B",
+          "text": "90%"
+        },
+        {
+          "key": "C",
+          "text": "99.99%"
+        },
+        {
+          "key": "D",
+          "text": "99%"
+        }
+      ],
+      "answer": "A",
+      "analysis": "ASCII 63 -> Q = 30。错误率0.001，精度99.9%。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "sequencing-tech"
+      ],
+      "tags": [
+        "sequencing",
+        "sequencing-methods",
+        "single_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_340",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "[多选] 下列有关测序模拟意义的描述中，有哪些是正确的？",
+      "type": "multiple_choice",
+      "topic": "sequencing-methods",
+      "topicName": "测序方法与读段模拟",
+      "difficulty": 3,
+      "options": [
+        {
+          "key": "A",
+          "text": "可以对测序数据分析流程进行评估"
+        },
+        {
+          "key": "B",
+          "text": "可以对测序数据管理系统性能进行评估"
+        },
+        {
+          "key": "C",
+          "text": "可以对第三方数据分析算法和工具性能进行评估"
+        },
+        {
+          "key": "D",
+          "text": "可以对测序数据预处理流程进行评估"
+        }
+      ],
+      "answer": "ABCD",
+      "analysis": "测序模拟可用于评估流程、算法、硬件性能等。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "sequencing-tech"
+      ],
+      "tags": [
+        "multi-select",
+        "multiple_choice",
+        "sequencing",
+        "sequencing-methods"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_345",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "ART是一款常用的NGS读段模拟工具，其特点包括",
+      "type": "single_choice",
+      "topic": "sequencing-methods",
+      "topicName": "测序方法与读段模拟",
+      "difficulty": 2,
+      "options": [
+        {
+          "key": "A",
+          "text": "模拟数据无法用于评估变异调用工具"
+        },
+        {
+          "key": "B",
+          "text": "不支持扩增子测序模拟"
+        },
+        {
+          "key": "C",
+          "text": "不允许用户自定义的质量谱模型"
+        },
+        {
+          "key": "D",
+          "text": "可输出SAM格式的序列比对结果"
+        }
+      ],
+      "answer": "D",
+      "analysis": "ART可以输出SAM比对文件（真实位置）。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "sequencing-tech"
+      ],
+      "tags": [
+        "alignment",
+        "sequencing",
+        "sequencing-methods",
+        "single_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_350",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "在对基因组测序数据分析发现，某个位点的总覆盖度达到150x，但是结果并不一致，其中有145个测序结果显示该位点为T，另外5个显示为C，那么你觉得该位点应该是什么？",
+      "type": "single_choice",
+      "topic": "sequencing-methods",
+      "topicName": "测序方法与读段模拟",
+      "difficulty": 2,
+      "options": [
+        {
+          "key": "A",
+          "text": "不确定"
+        },
+        {
+          "key": "B",
+          "text": "T"
+        },
+        {
+          "key": "C",
+          "text": "[T/C]单核苷酸多态性"
+        },
+        {
+          "key": "D",
+          "text": "C"
+        }
+      ],
+      "answer": "B",
+      "analysis": "145T:5C，C是错误，判为T。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "sequencing-tech"
+      ],
+      "tags": [
+        "sequencing",
+        "sequencing-methods",
+        "single_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_355",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "在对基因组测序数据分析发现，某个位点的总覆盖度达到100x，但是结果并不一致，其中有55个测序结果显示该位点为A，另外45个显示为G，那么你觉得该位点最有可能是什么？",
+      "type": "single_choice",
+      "topic": "sequencing-methods",
+      "topicName": "测序方法与读段模拟",
+      "difficulty": 2,
+      "options": [
+        {
+          "key": "A",
+          "text": "G"
+        },
+        {
+          "key": "B",
+          "text": "不确定"
+        },
+        {
+          "key": "C",
+          "text": "A"
+        },
+        {
+          "key": "D",
+          "text": "[A/G]单核苷酸多态性"
+        }
+      ],
+      "answer": "D",
+      "analysis": "55A:45G，杂合SNP。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "sequencing-tech"
+      ],
+      "tags": [
+        "sequencing",
+        "sequencing-methods",
+        "single_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_360",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "[多选] 下列有关下一代测序（NGS）读段模拟工具集ART的描述中，哪些是正确的？",
+      "type": "multiple_choice",
+      "topic": "sequencing-methods",
+      "topicName": "测序方法与读段模拟",
+      "difficulty": 3,
+      "options": [
+        {
+          "key": "A",
+          "text": "模拟数据可用于评估各种NGS数据分析方法和工具"
+        },
+        {
+          "key": "B",
+          "text": "内建多种测序平台的基于大量测序数据构建的经验错误模型"
+        },
+        {
+          "key": "C",
+          "text": "支持单末端 （single-end）、双末端（paired-end）、配对（mate-pair）"
+        },
+        {
+          "key": "D",
+          "text": "可以输出FASTQ格式读段（reads）数据"
+        }
+      ],
+      "answer": "ABCD",
+      "analysis": "ART支持多种平台模拟，支持各种文库类型，输出FASTQ/SAM。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "sequencing-tech"
+      ],
+      "tags": [
+        "multi-select",
+        "multiple_choice",
+        "sequencing",
+        "sequencing-methods"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_365",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "下列有关下一代测序 （NGS）读段模拟工具集ART的描述中，哪些是正确的？",
+      "type": "short_answer",
+      "topic": "sequencing-methods",
+      "topicName": "测序方法与读段模拟",
+      "difficulty": 3,
+      "options": [
+        {
+          "key": "A",
+          "text": "模拟数据无法用于评估变异调用工具"
+        },
+        {
+          "key": "B",
+          "text": "不支持扩增子测序模拟"
+        },
+        {
+          "key": "C",
+          "text": "不支持用户自定义的质量谱模型"
+        },
+        {
+          "key": "D",
+          "text": "可输出SAM格式的序列比对结果"
+        }
+      ],
+      "answer": "",
+      "analysis": "",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "sequencing-tech"
+      ],
+      "tags": [
+        "sequencing",
+        "sequencing-methods",
+        "short_answer"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_370",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "在art_illumina模拟输出的aln格式文件中，注释信息中哪个标记代表参考序列信息？",
+      "type": "single_choice",
+      "topic": "sequencing-methods",
+      "topicName": "测序方法与读段模拟",
+      "difficulty": 2,
+      "options": [
+        {
+          "key": "A",
+          "text": "HD"
+        },
+        {
+          "key": "B",
+          "text": "SQ"
+        },
+        {
+          "key": "C",
+          "text": "CM"
+        },
+        {
+          "key": "D",
+          "text": "PG"
+        }
+      ],
+      "answer": "B",
+      "analysis": "SAM头文件中，@SQ 标记参考序列（Sequence）。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "sequencing-tech"
+      ],
+      "tags": [
+        "annotation",
+        "sequencing",
+        "sequencing-methods",
+        "single_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_380",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "[多选] 在全基因组测序中，导致最终基因组序列存在间隙（gap）的主要因素有哪些？",
+      "type": "multiple_choice",
+      "topic": "sequencing-methods",
+      "topicName": "测序方法与读段模拟",
+      "difficulty": 3,
+      "options": [
+        {
+          "key": "A",
+          "text": "拼接间隙"
+        },
+        {
+          "key": "B",
+          "text": "物理间隙"
+        },
+        {
+          "key": "C",
+          "text": "序列间隙"
+        },
+        {
+          "key": "D",
+          "text": "逻辑间隙"
+        }
+      ],
+      "answer": "ABCD",
+      "analysis": "所有这些都是Gap的成因。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "sequencing-tech"
+      ],
+      "tags": [
+        "multi-select",
+        "multiple_choice",
+        "sequencing",
+        "sequencing-methods"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_385",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "[多选] 下列有关早期DNA测序方法描述正确有哪些？",
+      "type": "multiple_choice",
+      "topic": "sequencing-methods",
+      "topicName": "测序方法与读段模拟",
+      "difficulty": 3,
+      "options": [
+        {
+          "key": "A",
+          "text": "链终止法是由Frederick Sanger于1977提出的"
+        },
+        {
+          "key": "B",
+          "text": "DNA测序的基本方法有链终止法和化学降解法"
+        },
+        {
+          "key": "C",
+          "text": "化学降解法是由Allan Maxam和Walter Gilbert于1977提出的"
+        },
+        {
+          "key": "D",
+          "text": "链终止法和化学降解法均获得了1980年的诺贝尔化学奖"
+        }
+      ],
+      "answer": "ABCD",
+      "analysis": "Sanger和Gilbert因测序方法获1980诺贝尔奖。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "sequencing-tech"
+      ],
+      "tags": [
+        "multi-select",
+        "multiple_choice",
+        "sequencing",
+        "sequencing-methods"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_390",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "二代测序技术按照测序原理分类，一般分为哪几类？",
+      "type": "multiple_choice",
+      "topic": "sequencing-methods",
+      "topicName": "测序方法与读段模拟",
+      "difficulty": 3,
+      "options": [
+        {
+          "key": "A",
+          "text": "边合成边测序"
+        },
+        {
+          "key": "B",
+          "text": "边降解边测序"
+        },
+        {
+          "key": "C",
+          "text": "边连接边测序"
+        }
+      ],
+      "answer": "AC",
+      "analysis": "二代测序主要原理：边合成边测序（Illumina, 454），边连接边测序（SOLiD）。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "sequencing-tech"
+      ],
+      "tags": [
+        "multiple_choice",
+        "sequencing",
+        "sequencing-methods"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_395",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "下图是一个简单的deBruijin图(AAGA->AGAC...)。根据该图可以得出什么样的序列？",
+      "type": "short_answer",
+      "topic": "genome-assembly",
+      "topicName": "基因组组装与图算法",
+      "difficulty": 5,
+      "options": [
+        {
+          "key": "A",
+          "text": "不确定"
+        },
+        {
+          "key": "B",
+          "text": "AAGACTCGACTG"
+        },
+        {
+          "key": "C",
+          "text": "AAGACTG"
+        }
+      ],
+      "answer": "",
+      "analysis": "",
+      "images": {
+        "question": "images/2023_274.png",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "assembly-graphs"
+      ],
+      "tags": [
+        "genome-assembly",
+        "image-based",
+        "short_answer"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_400",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "下图是一个简单的deBruijin图(ATCT->TCTT...)。根据该图可以得出什么样的序列？",
+      "type": "short_answer",
+      "topic": "genome-assembly",
+      "topicName": "基因组组装与图算法",
+      "difficulty": 5,
+      "options": [
+        {
+          "key": "A",
+          "text": "ATCTTCCG"
+        },
+        {
+          "key": "B",
+          "text": "ATCTTATTCC"
+        },
+        {
+          "key": "C",
+          "text": "不确定"
+        }
+      ],
+      "answer": "",
+      "analysis": "",
+      "images": {
+        "question": "images/2023_279.png",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "assembly-graphs"
+      ],
+      "tags": [
+        "genome-assembly",
+        "image-based",
+        "short_answer"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_405",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "下图是一个简单的deBruijin图(ATCT分支...)。根据该图可以得出什么样的序列？",
+      "type": "short_answer",
+      "topic": "genome-assembly",
+      "topicName": "基因组组装与图算法",
+      "difficulty": 5,
+      "options": [
+        {
+          "key": "A",
+          "text": "ATCTAATTCG"
+        },
+        {
+          "key": "B",
+          "text": "不确定"
+        },
+        {
+          "key": "C",
+          "text": "ATCTTATTCG"
+        }
+      ],
+      "answer": "",
+      "analysis": "",
+      "images": {
+        "question": "images/2023_284.png",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "assembly-graphs"
+      ],
+      "tags": [
+        "genome-assembly",
+        "image-based",
+        "short_answer"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_410",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "基于de Bruijn Graph （DBG）方法获得下图中的欧拉路径（Eularian path），根据该图获得的拼接序列是哪一个？",
+      "type": "short_answer",
+      "topic": "genome-assembly",
+      "topicName": "基因组组装与图算法",
+      "difficulty": 5,
+      "options": [
+        {
+          "key": "A",
+          "text": "AGAATTAACCTTTTCCA"
+        },
+        {
+          "key": "B",
+          "text": "AGAGATATATACACTCTTTTCTCA"
+        },
+        {
+          "key": "C",
+          "text": "AGAGATACTT"
+        },
+        {
+          "key": "D",
+          "text": "AGATACTTCA"
+        }
+      ],
+      "answer": "",
+      "analysis": "",
+      "images": {
+        "question": "images/2023_289.png",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "assembly-graphs"
+      ],
+      "tags": [
+        "assembly",
+        "genome-assembly",
+        "image-based",
+        "short_answer"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_415",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "[多选] 在基于重叠图的OLC方法中寻找Hamilon路径是序列组装的经典算法之一，下列哪些有关该算法的描述是正确的？",
+      "type": "multiple_choice",
+      "topic": "genome-assembly",
+      "topicName": "基因组组装与图算法",
+      "difficulty": 4,
+      "options": [
+        {
+          "key": "A",
+          "text": "该算法的稳健性受到测序错误和覆盖率（测序数据量）的影响"
+        },
+        {
+          "key": "B",
+          "text": "用于启发的k-mer越长，组装获得的重叠群（contigs）就越短"
+        },
+        {
+          "key": "C",
+          "text": "用于启发的k-mer越长，组装结果越精确"
+        },
+        {
+          "key": "D",
+          "text": "重叠图必须包含所有测序读段"
+        }
+      ],
+      "answer": "AC",
+      "analysis": "OLC算法中，K-mer越长，特异性越高（错配越少），结果越精确，但重叠越难找（Contig可能变短/断开）。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "assembly-graphs"
+      ],
+      "tags": [
+        "assembly",
+        "genome-assembly",
+        "multi-select",
+        "multiple_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_420",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "[多选] 基于de Bruijn Graph（DBG）方法的序列组装，下列描述中有哪些是正确的？",
+      "type": "multiple_choice",
+      "topic": "genome-assembly",
+      "topicName": "基因组组装与图算法",
+      "difficulty": 3,
+      "options": [
+        {
+          "key": "A",
+          "text": "测序错误会导致de Bruijin图中出现tip结构"
+        },
+        {
+          "key": "B",
+          "text": "测序错误会导致de Bruijin图中出现bubble结构"
+        },
+        {
+          "key": "C",
+          "text": "通过分析K-mer频次分布，可以找出一个合适的阈值来过滤错误读段"
+        },
+        {
+          "key": "D",
+          "text": "测序错误会导致de Bruijin图更大更复杂，消耗更多计算资源，且降低组装效率"
+        }
+      ],
+      "answer": "ABCD",
+      "analysis": "De Bruijn图中，错误产生Tip（末端分叉）和Bubble（气泡）。错误增加图的复杂度。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "assembly-graphs"
+      ],
+      "tags": [
+        "assembly",
+        "genome-assembly",
+        "multi-select",
+        "multiple_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_425",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "[多选] 基于de Bruijn Graph （DBG）方法的序列组装，下列描述正确的有哪些？",
+      "type": "multiple_choice",
+      "topic": "genome-assembly",
+      "topicName": "基因组组装与图算法",
+      "difficulty": 3,
+      "options": [
+        {
+          "key": "A",
+          "text": "设定一个k-mer出现频数阈值，可能会在一定程度上过滤错误读段"
+        },
+        {
+          "key": "B",
+          "text": "测序间隙（gap）会产生“dead-end”路径，K-mer越长该问题越严重"
+        },
+        {
+          "key": "C",
+          "text": "基于克隆片段长度（mate-pair测序）可能解决部分重复序列引起的环状结构"
+        },
+        {
+          "key": "D",
+          "text": "测序间隙（gap）会导致de Bruijin图连通性降低"
+        }
+      ],
+      "answer": "ABCD",
+      "analysis": "频数过滤可去错；Gap导致路径断裂；Mate-pair跨越重复解环。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "assembly-graphs"
+      ],
+      "tags": [
+        "assembly",
+        "genome-assembly",
+        "multi-select",
+        "multiple_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_430",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "[多选] 在对全基因组测序结果的组装过程中，哪些因素会给组装带来困扰？",
+      "type": "multiple_choice",
+      "topic": "sequencing-methods",
+      "topicName": "测序方法与读段模拟",
+      "difficulty": 3,
+      "options": [
+        {
+          "key": "A",
+          "text": "倒位"
+        },
+        {
+          "key": "B",
+          "text": "重复序列"
+        },
+        {
+          "key": "C",
+          "text": "测序错误"
+        },
+        {
+          "key": "D",
+          "text": "多态性变异"
+        }
+      ],
+      "answer": "ABCD",
+      "analysis": "重复序列、测序错误、多态性、倒位都是组装难点。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "sequencing-tech"
+      ],
+      "tags": [
+        "assembly",
+        "multi-select",
+        "multiple_choice",
+        "sequencing",
+        "sequencing-methods"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_435",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "[多选] 下列有关基因组组装描述正确的有哪些？",
+      "type": "multiple_choice",
+      "topic": "genome-assembly",
+      "topicName": "基因组组装与图算法",
+      "difficulty": 3,
+      "options": [
+        {
+          "key": "A",
+          "text": "基因组不同区域中的测序深度一定是相同的"
+        },
+        {
+          "key": "B",
+          "text": "重复序列在组装形成重叠群时不会产生歧义"
+        },
+        {
+          "key": "C",
+          "text": "两条链都会被测序"
+        },
+        {
+          "key": "D",
+          "text": "易受重复序列变化影响"
+        }
+      ],
+      "answer": "CD",
+      "analysis": "A错（深度不均）；B错（重复序列是主要歧义来源）。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "assembly-graphs"
+      ],
+      "tags": [
+        "assembly",
+        "genome-assembly",
+        "multi-select",
+        "multiple_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_440",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "[多选] 下列有关基因组组装的描述中，有哪些是正确的？",
+      "type": "multiple_choice",
+      "topic": "genome-assembly",
+      "topicName": "基因组组装与图算法",
+      "difficulty": 3,
+      "options": [
+        {
+          "key": "A",
+          "text": "从头组装策略可以通过哈希散列法改进读段之间的比较过程"
+        },
+        {
+          "key": "B",
+          "text": "有参组装只能参考物种自身的基因组序列"
+        },
+        {
+          "key": "C",
+          "text": "有参组装可以参考近缘物种的高相似骨架序列"
+        },
+        {
+          "key": "D",
+          "text": "从头组装策略的组装速度要比有参组装策略更快"
+        }
+      ],
+      "answer": "AC",
+      "analysis": "有参组装可参考近缘物种。从头组装通常比有参慢且耗资源。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "assembly-graphs"
+      ],
+      "tags": [
+        "assembly",
+        "genome-assembly",
+        "multi-select",
+        "multiple_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_445",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "[多选] 下列有关基因组测序组装工具应用领域的描述中，有哪些是正确的？",
+      "type": "multiple_choice",
+      "topic": "sequencing-methods",
+      "topicName": "测序方法与读段模拟",
+      "difficulty": 3,
+      "options": [
+        {
+          "key": "A",
+          "text": "基础基因组组装"
+        },
+        {
+          "key": "B",
+          "text": "宏基因组组装"
+        },
+        {
+          "key": "C",
+          "text": "单倍体分型组装"
+        },
+        {
+          "key": "D",
+          "text": "细胞器基因组组装"
+        }
+      ],
+      "answer": "ABCD",
+      "analysis": "组装工具通用于各种基因组。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "sequencing-tech"
+      ],
+      "tags": [
+        "assembly",
+        "multi-select",
+        "multiple_choice",
+        "sequencing",
+        "sequencing-methods"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_450",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "[多选] 基因组测序中，来自短插入片段文库的双末端测序读段（paired-end reads）可用于序列组装中的哪个过程",
+      "type": "multiple_choice",
+      "topic": "sequencing-methods",
+      "topicName": "测序方法与读段模拟",
+      "difficulty": 3,
+      "options": [
+        {
+          "key": "A",
+          "text": "构建脚手架（scaffolds）"
+        },
+        {
+          "key": "B",
+          "text": "构建重叠群（contigs）"
+        },
+        {
+          "key": "C",
+          "text": "判定测序错误"
+        },
+        {
+          "key": "D",
+          "text": "解决重复序列问题"
+        }
+      ],
+      "answer": "A",
+      "analysis": "Paired-end (特别是长插片段Mate-pair) 主要用于Scaffolding（定序定距，跨越Gap）。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "sequencing-tech"
+      ],
+      "tags": [
+        "assembly",
+        "multi-select",
+        "multiple_choice",
+        "sequencing",
+        "sequencing-methods"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_455",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "[多选] 在基因组组装中，从头组装与有参组装相比，有什么特点？",
+      "type": "multiple_choice",
+      "topic": "genome-assembly",
+      "topicName": "基因组组装与图算法",
+      "difficulty": 3,
+      "options": [
+        {
+          "key": "A",
+          "text": "内存消耗大"
+        },
+        {
+          "key": "B",
+          "text": "组装速度快"
+        },
+        {
+          "key": "C",
+          "text": "组装速度慢"
+        },
+        {
+          "key": "D",
+          "text": "内存消耗小"
+        }
+      ],
+      "answer": "AC",
+      "analysis": "从头组装（De novo）非常消耗内存和时间。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "assembly-graphs"
+      ],
+      "tags": [
+        "assembly",
+        "genome-assembly",
+        "multi-select",
+        "multiple_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_460",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "[多选] 下列有关转录组组装描述有哪些是正确的？",
+      "type": "multiple_choice",
+      "topic": "genome-assembly",
+      "topicName": "基因组组装与图算法",
+      "difficulty": 3,
+      "options": [
+        {
+          "key": "A",
+          "text": "在组装形成重叠群时，产生的歧义可能对应于剪接变异体"
+        },
+        {
+          "key": "B",
+          "text": "不同转录本的测序深度可能变化很大"
+        },
+        {
+          "key": "C",
+          "text": "在组装形成重叠群时，产生的歧义可能对应于基因家族成员间的微小变异"
+        },
+        {
+          "key": "D",
+          "text": "基于下一代测序技术的RNA-Seq是链特异性的"
+        }
+      ],
+      "answer": "ABC",
+      "analysis": "转录组组装难点：表达量差异大（深度极不均）、可变剪接（异构体）。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "assembly-graphs"
+      ],
+      "tags": [
+        "assembly",
+        "genome-assembly",
+        "multi-select",
+        "multiple_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_465",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "[多选] 测序模拟一般需要考虑哪些主要特征进行分类构建经验统计模型？",
+      "type": "multiple_choice",
+      "topic": "sequencing-methods",
+      "topicName": "测序方法与读段模拟",
+      "difficulty": 3,
+      "options": [
+        {
+          "key": "A",
+          "text": "不同的样本类型"
+        },
+        {
+          "key": "B",
+          "text": "不同测序方法的平台"
+        },
+        {
+          "key": "C",
+          "text": "不同厂家和型号的测序平台"
+        },
+        {
+          "key": "D",
+          "text": "不同的物种类型"
+        }
+      ],
+      "answer": "BC",
+      "analysis": "模拟需针对测序平台（Illumina/PacBio）的特定错误模型。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "sequencing-tech"
+      ],
+      "tags": [
+        "multi-select",
+        "multiple_choice",
+        "sequencing",
+        "sequencing-methods"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_470",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "[多选] 下列有关基因组测序组装工具的描述中，有哪些是正确的？",
+      "type": "multiple_choice",
+      "topic": "sequencing-methods",
+      "topicName": "测序方法与读段模拟",
+      "difficulty": 3,
+      "options": [
+        {
+          "key": "A",
+          "text": "任何组装工具都无法同时使用多种测序平台的数据进行组装"
+        },
+        {
+          "key": "B",
+          "text": "基于二代高通量测序数据开发的组装工具，可以直接用于单分子实时测序数据（三代测序）的组装"
+        },
+        {
+          "key": "C",
+          "text": "单分子实时测序数据（三代测序）可以解决二代测序技术中建库扩增时带来的偏移问题"
+        },
+        {
+          "key": "D",
+          "text": "单分子实时测序数据（三代测序）可以很大程度上解决重复序列的组装问题"
+        }
+      ],
+      "answer": "D",
+      "analysis": "三代测序（长读长）是解决重复序列组装的最强工具。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "sequencing-tech"
+      ],
+      "tags": [
+        "assembly",
+        "multi-select",
+        "multiple_choice",
+        "sequencing",
+        "sequencing-methods"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_476",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "[多选] 下列有关SAM格式规范描述正确的有哪些？",
+      "type": "multiple_choice",
+      "topic": "sequencing-methods",
+      "topicName": "测序方法与读段模拟",
+      "difficulty": 3,
+      "options": [
+        {
+          "key": "A",
+          "text": "包含测序读段自身的质量信息"
+        },
+        {
+          "key": "B",
+          "text": "使用“=”表示配对读段中的另一个读段也比对上当前参考序列"
+        },
+        {
+          "key": "C",
+          "text": "包含测序读段比对上参考基因组序列的映射质量信息"
+        },
+        {
+          "key": "D",
+          "text": "包含测序读段的编号信息"
+        },
+        {
+          "key": "E",
+          "text": "包含参考序列的编号信息"
+        }
+      ],
+      "answer": "ABCDE",
+      "analysis": "SAM格式包含：QNAME(读段名), RNAME(参考序列名), POS, MAPQ(映射质量), CIGAR, SEQ, QUAL等。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "sequencing-tech"
+      ],
+      "tags": [
+        "multi-select",
+        "multiple_choice",
+        "sequencing",
+        "sequencing-methods"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_482",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "在SAM格式文件中，注释信息部分包含多个标记，其中用于定义参考序列信息的是？",
+      "type": "single_choice",
+      "topic": "sequencing-methods",
+      "topicName": "测序方法与读段模拟",
+      "difficulty": 2,
+      "options": [
+        {
+          "key": "A",
+          "text": "SQ"
+        },
+        {
+          "key": "B",
+          "text": "HD"
+        },
+        {
+          "key": "C",
+          "text": "PG"
+        },
+        {
+          "key": "D",
+          "text": "CM"
+        }
+      ],
+      "answer": "A",
+      "analysis": "@SQ (Sequence Dictionary)。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "sequencing-tech"
+      ],
+      "tags": [
+        "annotation",
+        "sequencing",
+        "sequencing-methods",
+        "single_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_492",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "在sam格式文件中，注释信息以什么字符作为开始标记？",
+      "type": "single_choice",
+      "topic": "sequencing-methods",
+      "topicName": "测序方法与读段模拟",
+      "difficulty": 2,
+      "options": [
+        {
+          "key": "A",
+          "text": "*"
+        },
+        {
+          "key": "B",
+          "text": "@"
+        },
+        {
+          "key": "C",
+          "text": "#"
+        },
+        {
+          "key": "D",
+          "text": "/"
+        }
+      ],
+      "answer": "B",
+      "analysis": "@ 开头。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "sequencing-tech"
+      ],
+      "tags": [
+        "annotation",
+        "sequencing",
+        "sequencing-methods",
+        "single_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_497",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "Blast系列软件采用的是什么算法？",
+      "type": "single_choice",
+      "topic": "alignment-homology",
+      "topicName": "序列比对与同源推断",
+      "difficulty": 2,
+      "options": [
+        {
+          "key": "A",
+          "text": "Forward算法"
+        },
+        {
+          "key": "B",
+          "text": "启发式算法"
+        },
+        {
+          "key": "C",
+          "text": "贪婪算法"
+        },
+        {
+          "key": "D",
+          "text": "动态规划算法"
+        }
+      ],
+      "answer": "B",
+      "analysis": "BLAST: 启发式算法（Heuristic）。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "alignment-homology"
+      ],
+      "tags": [
+        "alignment",
+        "alignment-homology",
+        "single_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_502",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "[多选] 下列有关模块替换矩阵（BLOSUM）描述正确的有哪些？",
+      "type": "multiple_choice",
+      "topic": "alignment-homology",
+      "topicName": "序列比对与同源推断",
+      "difficulty": 4,
+      "options": [
+        {
+          "key": "A",
+          "text": "基于一组可能非常远缘的蛋白质多序列比对中的保守序列片段（BLOCKS）来构建的"
+        },
+        {
+          "key": "B",
+          "text": "BLOSUM矩阵后面的数值越小，比对时敏感性越高，越适用于低相似性目标的搜寻"
+        },
+        {
+          "key": "C",
+          "text": "由Henikoff于1992年提出的"
+        },
+        {
+          "key": "D",
+          "text": "可以解决蛋白质之间的远进化距离问题"
+        }
+      ],
+      "answer": "AC",
+      "analysis": "BLOSUM基于BLOCKS数据库。数值越小越敏感（适合远缘）。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "alignment-homology"
+      ],
+      "tags": [
+        "alignment",
+        "alignment-homology",
+        "multi-select",
+        "multiple_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_507",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "[多选] 下列有关全基因组同源基因搜索的描述中，哪些是正确的？",
+      "type": "multiple_choice",
+      "topic": "alignment-homology",
+      "topicName": "序列比对与同源推断",
+      "difficulty": 3,
+      "options": [
+        {
+          "key": "A",
+          "text": "无法给出精细的基因外显子-内含子结构"
+        },
+        {
+          "key": "B",
+          "text": "可以准确的预测编码区"
+        },
+        {
+          "key": "C",
+          "text": "只能给出可能的同源基因定位"
+        },
+        {
+          "key": "D",
+          "text": "预测的同源基因肯定都可以转录"
+        }
+      ],
+      "answer": "AC",
+      "analysis": "同源搜索无法精细确定结构，仅提供定位线索。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "alignment-homology"
+      ],
+      "tags": [
+        "alignment",
+        "alignment-homology",
+        "multi-select",
+        "multiple_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_512",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "[多选] 下列有关相似性比对时打分模型描述正确的有哪些？",
+      "type": "multiple_choice",
+      "topic": "alignment-homology",
+      "topicName": "序列比对与同源推断",
+      "difficulty": 3,
+      "options": [
+        {
+          "key": "A",
+          "text": "突变会导致错配，通常需要给与罚分"
+        },
+        {
+          "key": "B",
+          "text": "匹配的残基通常需要给与加分"
+        },
+        {
+          "key": "C",
+          "text": "间隙罚分可分为开放和延伸罚分两个不同的权重"
+        },
+        {
+          "key": "D",
+          "text": "插入或缺失突变会导致比对时间隙（gaps）的引入，通常需要给与罚分"
+        }
+      ],
+      "answer": "AD",
+      "analysis": "错配罚分，Gap罚分（Open/Extend）。匹配加分。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "alignment-homology"
+      ],
+      "tags": [
+        "alignment",
+        "alignment-homology",
+        "multi-select",
+        "multiple_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_517",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "[多选] 给你一条小鼠（Mus musculus, mouse）的MYC蛋白序列，如果想知道该蛋白与人类哪个基因或其编码的蛋白同源，可以选择下列哪些程序进行分析？",
+      "type": "multiple_choice",
+      "topic": "alignment-homology",
+      "topicName": "序列比对与同源推断",
+      "difficulty": 3,
+      "options": [
+        {
+          "key": "A",
+          "text": "blastn"
+        },
+        {
+          "key": "B",
+          "text": "tblastx"
+        },
+        {
+          "key": "C",
+          "text": "blastx"
+        },
+        {
+          "key": "D",
+          "text": "tblastn"
+        },
+        {
+          "key": "E",
+          "text": "blastp"
+        }
+      ],
+      "answer": "CE",
+      "analysis": "blastx (核酸搜蛋白库)，blastp (蛋白搜蛋白库)。如果是蛋白序列搜人基因(核酸)，用 tblastn。题目给的是“蛋白序列”，想搜“人类基因(DNA)”-> tblastn。想搜“编码的蛋白”-> blastp。所以CE正确，D也正确。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "alignment-homology"
+      ],
+      "tags": [
+        "alignment",
+        "alignment-homology",
+        "multi-select",
+        "multiple_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_523",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "[多选] 下列有关相似性和同源性的描述哪些是正确的？",
+      "type": "multiple_choice",
+      "topic": "alignment-homology",
+      "topicName": "序列比对与同源推断",
+      "difficulty": 3,
+      "options": [
+        {
+          "key": "A",
+          "text": "如果两条蛋白质序列之间只有弱相似性，则两者之间不存在任何共同的生物学功能"
+        },
+        {
+          "key": "B",
+          "text": "当相似程度高于50%时，比较容易推测检测序列和目标序列可能是同源序列"
+        },
+        {
+          "key": "C",
+          "text": "当相似性程度低于20%时，就难以确定或者根本无法确定其是否具有同源性"
+        },
+        {
+          "key": "D",
+          "text": "相似性是统计学上的概念，而同源性是进化上的概念"
+        }
+      ],
+      "answer": "BCD",
+      "analysis": "同源是二元状态（是/否）。相似性是程度。低相似性不代表无功能。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "alignment-homology"
+      ],
+      "tags": [
+        "alignment",
+        "alignment-homology",
+        "multi-select",
+        "multiple_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_528",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "[多选] 下列有关序列比对软件的描述哪些是正确的？",
+      "type": "multiple_choice",
+      "topic": "alignment-homology",
+      "topicName": "序列比对与同源推断",
+      "difficulty": 3,
+      "options": [
+        {
+          "key": "A",
+          "text": "Clustal系列软件采用的是局部联配策略"
+        },
+        {
+          "key": "B",
+          "text": "Blast系列软件采用的是全局联配策略"
+        },
+        {
+          "key": "C",
+          "text": "Blast系列软件采用的是局部联配策略"
+        },
+        {
+          "key": "D",
+          "text": "Clustal系列软件采用的是全局联配策略"
+        }
+      ],
+      "answer": "BC",
+      "analysis": "Clustal(全局)，Blast(局部)。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "alignment-homology"
+      ],
+      "tags": [
+        "alignment",
+        "alignment-homology",
+        "multi-select",
+        "multiple_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_533",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "[多选] 使用gffcompare对基因组注释结果进行质量评估时，可以对下列哪些指标进行统计分析？",
+      "type": "multiple_choice",
+      "topic": "genome-assembly",
+      "topicName": "基因组组装与图算法",
+      "difficulty": 3,
+      "options": [
+        {
+          "key": "A",
+          "text": "碱基水平（base level）的敏感性和准确性"
+        },
+        {
+          "key": "B",
+          "text": "转录本水平（transcirpt level）的敏感性和准确性"
+        },
+        {
+          "key": "C",
+          "text": "外显子水平（exon level）的敏感性和准确性"
+        },
+        {
+          "key": "D",
+          "text": "基因座水平（locus level）的敏感性和准确性"
+        },
+        {
+          "key": "E",
+          "text": "内含子水平 （intron level）的敏感性和准确性"
+        }
+      ],
+      "answer": "ABCDE",
+      "analysis": "gffcompare评估组装质量，涵盖从碱基到基因座各个层级。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "assembly-graphs"
+      ],
+      "tags": [
+        "annotation",
+        "assembly",
+        "genome-assembly",
+        "multi-select",
+        "multiple_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_539",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "[多选] 基于二代高通量测序数据的组装流程通常包含下列哪些步骤？",
+      "type": "multiple_choice",
+      "topic": "sequencing-methods",
+      "topicName": "测序方法与读段模拟",
+      "difficulty": 3,
+      "options": [
+        {
+          "key": "A",
+          "text": "数据修剪"
+        },
+        {
+          "key": "B",
+          "text": "抛光（polishing）"
+        },
+        {
+          "key": "C",
+          "text": "数据组装"
+        },
+        {
+          "key": "D",
+          "text": "数据质控"
+        }
+      ],
+      "answer": "ACD",
+      "analysis": "二代流程：质控(QC/Trimming) -> 组装 -> 评估。Polishing通常用于三代纠错，二代本身精度高，但也可用。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "sequencing-tech"
+      ],
+      "tags": [
+        "assembly",
+        "multi-select",
+        "multiple_choice",
+        "sequencing",
+        "sequencing-methods"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_544",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "[多选] 利用单分子实时测序数据（三代测序）的组装流程通常包含下列哪些步骤？",
+      "type": "multiple_choice",
+      "topic": "sequencing-methods",
+      "topicName": "测序方法与读段模拟",
+      "difficulty": 3,
+      "options": [
+        {
+          "key": "A",
+          "text": "数据修剪"
+        },
+        {
+          "key": "B",
+          "text": "抛光（polishing）"
+        },
+        {
+          "key": "C",
+          "text": "数据组装"
+        },
+        {
+          "key": "D",
+          "text": "数据质控"
+        }
+      ],
+      "answer": "BC",
+      "analysis": "三代组装：组装 -> Polishing（因三代错误率高，必须纠错）。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "sequencing-tech"
+      ],
+      "tags": [
+        "assembly",
+        "multi-select",
+        "multiple_choice",
+        "sequencing",
+        "sequencing-methods"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_549",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "非模式或常用生物的基因组在注释时，通常使用下面哪个工具进行重复遮蔽？",
+      "type": "single_choice",
+      "topic": "annotation-prediction",
+      "topicName": "基因注释与结构建模",
+      "difficulty": 2,
+      "options": [
+        {
+          "key": "A",
+          "text": "BLAST"
+        },
+        {
+          "key": "B",
+          "text": "Splign"
+        },
+        {
+          "key": "C",
+          "text": "WindowMasker"
+        },
+        {
+          "key": "D",
+          "text": "RepeatMasker"
+        }
+      ],
+      "answer": "D",
+      "analysis": "RepeatMasker。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "annotation-pipeline"
+      ],
+      "tags": [
+        "annotation",
+        "annotation-prediction",
+        "single_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_554",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "[多选] 下列哪些属于基因组注释范畴",
+      "type": "multiple_choice",
+      "topic": "genome-assembly",
+      "topicName": "基因组组装与图算法",
+      "difficulty": 3,
+      "options": [
+        {
+          "key": "A",
+          "text": "新基因预测"
+        },
+        {
+          "key": "B",
+          "text": "DNA元件分析"
+        },
+        {
+          "key": "C",
+          "text": "已知基因搜寻"
+        },
+        {
+          "key": "D",
+          "text": "序列组装"
+        }
+      ],
+      "answer": "ABC",
+      "analysis": "注释包括：重复序列分析、基因预测（从头/同源/EST）、功能注释。组装是注释的前一步。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "assembly-graphs"
+      ],
+      "tags": [
+        "alignment",
+        "annotation",
+        "assembly",
+        "genome-assembly",
+        "multi-select",
+        "multiple_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_559",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "[多选] 下列有关Clustal系列软件的描述哪些是正确的？",
+      "type": "multiple_choice",
+      "topic": "alignment-homology",
+      "topicName": "序列比对与同源推断",
+      "difficulty": 3,
+      "options": [
+        {
+          "key": "A",
+          "text": "Clustal系列软件采用的是全局联配策略"
+        },
+        {
+          "key": "B",
+          "text": "Clustal系列软件采用的是局部联配策略"
+        },
+        {
+          "key": "C",
+          "text": "Clustal系列软件适用于低相似序列比对"
+        },
+        {
+          "key": "D",
+          "text": "Clustal系列软件适用于高相似序列比对"
+        }
+      ],
+      "answer": "AD",
+      "analysis": "Clustal是全局比对，适合高相似。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "alignment-homology"
+      ],
+      "tags": [
+        "alignment",
+        "alignment-homology",
+        "multi-select",
+        "multiple_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_564",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "[多选] 下列有关启发式算法的描述中，有哪些是正确的？",
+      "type": "multiple_choice",
+      "topic": "general",
+      "topicName": "综合题",
+      "difficulty": 3,
+      "options": [
+        {
+          "key": "A",
+          "text": "启发式算法通常可以在合理的时间范围内容找出足够好的解决方案"
+        },
+        {
+          "key": "B",
+          "text": "BLAST系列软件采用了启发式搜索算法"
+        },
+        {
+          "key": "C",
+          "text": "启发式算法一定会找出所有解決方案"
+        },
+        {
+          "key": "D",
+          "text": "启发式算法一定会找出最优最有解決方案"
+        }
+      ],
+      "answer": "AB",
+      "analysis": "启发式：牺牲最优解保证，换取速度。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "course-overview"
+      ],
+      "tags": [
+        "general",
+        "multi-select",
+        "multiple_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_569",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "[多选] NCBI提出的原核生物完整基因组注释的最低标准包括",
+      "type": "multiple_choice",
+      "topic": "annotation-prediction",
+      "topicName": "基因注释与结构建模",
+      "difficulty": 3,
+      "options": [
+        {
+          "key": "A",
+          "text": "没有基因完全包含在相同链或相反链上的另一个基因中"
+        },
+        {
+          "key": "B",
+          "text": "tRNA：每个氨基酸至少有一个拷贝"
+        },
+        {
+          "key": "C",
+          "text": "每个结构RNA（rRNA）至少有一个长度合适的拷贝"
+        },
+        {
+          "key": "D",
+          "text": "蛋白质编码基因碱基计数除以基因组长度接近1"
+        },
+        {
+          "key": "E",
+          "text": "每个异常都必须得到解释和记录"
+        },
+        {
+          "key": "F",
+          "text": "没有不完整的部分特征"
+        }
+      ],
+      "answer": "ABCDEF",
+      "analysis": "全部都对，这就是标准答案。",
+      "images": {
+        "question": "",
+        "note": "user_data/images/23_569.png"
+      },
+      "pdfPage": 514,
+      "knowledgeRefs": [
+        "annotation-pipeline"
+      ],
+      "tags": [
+        "annotation",
+        "annotation-prediction",
+        "multi-select",
+        "multiple_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_576",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "[多选] 下列有关可接受点突变矩阵（PAM）描述正确的有哪些？",
+      "type": "multiple_choice",
+      "topic": "alignment-homology",
+      "topicName": "序列比对与同源推断",
+      "difficulty": 4,
+      "options": [
+        {
+          "key": "A",
+          "text": "由Dayhoff于1978年提出的"
+        },
+        {
+          "key": "B",
+          "text": "1个PAM的进化距离表示100个残基中发生一个残基突变的概率"
+        },
+        {
+          "key": "C",
+          "text": "基于已知蛋白质家族的多序列比对中观察到的突变数据来构建的"
+        },
+        {
+          "key": "D",
+          "text": "PAM矩阵后面的数值越大，比对时敏感性越高，越适用于低相似性目标的搜寻"
+        }
+      ],
+      "answer": "AC",
+      "analysis": "PAM数值越大越不敏感（适合远缘）。PAM1代表1%变化。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "alignment-homology"
+      ],
+      "tags": [
+        "alignment",
+        "alignment-homology",
+        "multi-select",
+        "multiple_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_582",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "[多选] 下列软件哪些可用于基因结构建模？",
+      "type": "multiple_choice",
+      "topic": "alignment-homology",
+      "topicName": "序列比对与同源推断",
+      "difficulty": 3,
+      "options": [
+        {
+          "key": "A",
+          "text": "GENEWISE"
+        },
+        {
+          "key": "B",
+          "text": "Augustus"
+        },
+        {
+          "key": "C",
+          "text": "BLAT"
+        },
+        {
+          "key": "D",
+          "text": "ProSplign"
+        }
+      ],
+      "answer": "ABD",
+      "analysis": "BLAT是比对工具，不是建模工具。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "alignment-homology"
+      ],
+      "tags": [
+        "alignment",
+        "alignment-homology",
+        "multi-select",
+        "multiple_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_587",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "[多选] 下列哪些工具可用于基于RNA-Seq测序数据的新基因发现和结构建模？",
+      "type": "multiple_choice",
+      "topic": "sequencing-methods",
+      "topicName": "测序方法与读段模拟",
+      "difficulty": 3,
+      "options": [
+        {
+          "key": "A",
+          "text": "minimap2"
+        },
+        {
+          "key": "B",
+          "text": "stringtie"
+        },
+        {
+          "key": "C",
+          "text": "STAR"
+        },
+        {
+          "key": "D",
+          "text": "hisat2"
+        }
+      ],
+      "answer": "BCD",
+      "analysis": "StringTie, STAR, HISAT2 是RNA-Seq比对和拼装的主流工具。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "sequencing-tech"
+      ],
+      "tags": [
+        "alignment",
+        "multi-select",
+        "multiple_choice",
+        "sequencing",
+        "sequencing-methods"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_592",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "[多选] 下列哪些软件可用于原核生物基因组的基因预测？",
+      "type": "multiple_choice",
+      "topic": "annotation-prediction",
+      "topicName": "基因注释与结构建模",
+      "difficulty": 3,
+      "options": [
+        {
+          "key": "A",
+          "text": "GLIMMER"
+        },
+        {
+          "key": "B",
+          "text": "GENSCAN"
+        },
+        {
+          "key": "C",
+          "text": "GeneMarkS"
+        },
+        {
+          "key": "D",
+          "text": "Augustus"
+        }
+      ],
+      "answer": "AC",
+      "analysis": "Glimmer, GeneMarkS。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "annotation-pipeline"
+      ],
+      "tags": [
+        "annotation",
+        "annotation-prediction",
+        "multi-select",
+        "multiple_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_597",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "[多选] 下列哪些数据可以用来训练从头计算方法中的目标物种基因结构模型参数？",
+      "type": "multiple_choice",
+      "topic": "annotation-prediction",
+      "topicName": "基因注释与结构建模",
+      "difficulty": 4,
+      "options": [
+        {
+          "key": "A",
+          "text": "该物种以往研究中积累的已知基因mRNA、蛋白质信息"
+        },
+        {
+          "key": "B",
+          "text": "该物种的转录组测序（RNA-Seq）数据"
+        },
+        {
+          "key": "C",
+          "text": "近缘物种的已知基因结构数据"
+        },
+        {
+          "key": "D",
+          "text": "任意物种的基因组序列"
+        }
+      ],
+      "answer": "ABC",
+      "analysis": "训练需要：同物种已知基因、转录组证据、近缘物种蛋白。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "annotation-pipeline"
+      ],
+      "tags": [
+        "annotation-prediction",
+        "multi-select",
+        "multiple_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_602",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "[多选] NCBI制定的真核生物基因组注释流程中，使用哪些工具进行基于已知蛋白比对的基因结构建模？",
+      "type": "multiple_choice",
+      "topic": "alignment-homology",
+      "topicName": "序列比对与同源推断",
+      "difficulty": 3,
+      "options": [
+        {
+          "key": "A",
+          "text": "BLAST"
+        },
+        {
+          "key": "B",
+          "text": "Splign"
+        },
+        {
+          "key": "C",
+          "text": "Gnomon"
+        },
+        {
+          "key": "D",
+          "text": "ProSplign"
+        }
+      ],
+      "answer": "BC",
+      "analysis": "Splign (cDNA-to-Genome), ProSplign (Protein-to-Genome), Gnomon (整合预测)。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "alignment-homology"
+      ],
+      "tags": [
+        "alignment",
+        "alignment-homology",
+        "annotation",
+        "multi-select",
+        "multiple_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_607",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "[多选] 从头计算方法预测基因时，可以使用的基因特征信息有哪些？",
+      "type": "multiple_choice",
+      "topic": "general",
+      "topicName": "综合题",
+      "difficulty": 4,
+      "options": [
+        {
+          "key": "A",
+          "text": "转录起始位点"
+        },
+        {
+          "key": "B",
+          "text": "转录因子结合位点"
+        },
+        {
+          "key": "C",
+          "text": "密码子偏好性"
+        },
+        {
+          "key": "D",
+          "text": "TATA框"
+        },
+        {
+          "key": "E",
+          "text": "外显子-内含子的剪接识别位点"
+        }
+      ],
+      "answer": "ABCDE",
+      "analysis": "从头预测利用所有这些信号。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "course-overview"
+      ],
+      "tags": [
+        "general",
+        "multi-select",
+        "multiple_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_614",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "[多选] 下列哪些是基因组中具有特定生物学功能的DNA元件",
+      "type": "multiple_choice",
+      "topic": "hmm-regulation",
+      "topicName": "HMM 与顺式调控元件",
+      "difficulty": 3,
+      "options": [
+        {
+          "key": "A",
+          "text": "CpG岛"
+        },
+        {
+          "key": "B",
+          "text": "5’UTR"
+        },
+        {
+          "key": "C",
+          "text": "启动子(Promoter)"
+        },
+        {
+          "key": "D",
+          "text": "转录因子结合位点"
+        }
+      ],
+      "answer": "ABCD",
+      "analysis": "CpG岛、UTR、启动子、TFBS都是功能元件。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "hmm-regulation"
+      ],
+      "tags": [
+        "hmm",
+        "hmm-regulation",
+        "multi-select",
+        "multiple_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_619",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "给定一个TATA框的位置权重矩阵（PWM），哪个位点保守性最高？",
+      "type": "short_answer",
+      "topic": "hmm-regulation",
+      "topicName": "HMM 与顺式调控元件",
+      "difficulty": 5,
+      "options": [
+        {
+          "key": "A",
+          "text": "5"
+        },
+        {
+          "key": "B",
+          "text": "6"
+        },
+        {
+          "key": "C",
+          "text": "7"
+        },
+        {
+          "key": "D",
+          "text": "4"
+        }
+      ],
+      "answer": "",
+      "analysis": "",
+      "images": {
+        "question": "images/2023_498.png",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "hmm-regulation"
+      ],
+      "tags": [
+        "hmm",
+        "hmm-regulation",
+        "image-based",
+        "short_answer"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_624",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "给定一个转录因子结合位点的碱基分布的位点权重矩阵，下面哪个序列片段最有可能是该Matrix所代表的转录因子结合位点？",
+      "type": "short_answer",
+      "topic": "hmm-regulation",
+      "topicName": "HMM 与顺式调控元件",
+      "difficulty": 5,
+      "options": [
+        {
+          "key": "A",
+          "text": "CGAAA"
+        },
+        {
+          "key": "B",
+          "text": "CGAAG"
+        },
+        {
+          "key": "C",
+          "text": "AGAAA"
+        },
+        {
+          "key": "D",
+          "text": "AGAAC"
+        }
+      ],
+      "answer": "",
+      "analysis": "",
+      "images": {
+        "question": "images/2023_503.png",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "hmm-regulation"
+      ],
+      "tags": [
+        "hmm-regulation",
+        "image-based",
+        "short_answer"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_629",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "[多选] 下列哪些领域可以使用隐马尔可夫模型（HMM）？",
+      "type": "multiple_choice",
+      "topic": "hmm-regulation",
+      "topicName": "HMM 与顺式调控元件",
+      "difficulty": 3,
+      "options": [
+        {
+          "key": "A",
+          "text": "天气预报"
+        },
+        {
+          "key": "B",
+          "text": "时间序列分析"
+        },
+        {
+          "key": "C",
+          "text": "人体动作识别"
+        },
+        {
+          "key": "D",
+          "text": "序列比对"
+        }
+      ],
+      "answer": "ABCD",
+      "analysis": "HMM应用广泛。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "hmm-regulation"
+      ],
+      "tags": [
+        "hmm",
+        "hmm-regulation",
+        "multi-select",
+        "multiple_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_634",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "真核生物中，起始mRNA转录的启动子一般与哪个RNA聚合酶结合？",
+      "type": "single_choice",
+      "topic": "hmm-regulation",
+      "topicName": "HMM 与顺式调控元件",
+      "difficulty": 2,
+      "options": [
+        {
+          "key": "A",
+          "text": "RNA聚合酶I"
+        },
+        {
+          "key": "B",
+          "text": "DNA聚合酶"
+        },
+        {
+          "key": "C",
+          "text": "RNA聚合酶III"
+        },
+        {
+          "key": "D",
+          "text": "RNA聚合酶II"
+        }
+      ],
+      "answer": "D",
+      "analysis": "Pol II -> mRNA。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "hmm-regulation"
+      ],
+      "tags": [
+        "hmm-regulation",
+        "single_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_639",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "[多选] 下列有关隐马尔可夫模型（HMM）描述中，有哪些是正确的？",
+      "type": "multiple_choice",
+      "topic": "hmm-regulation",
+      "topicName": "HMM 与顺式调控元件",
+      "difficulty": 3,
+      "options": [
+        {
+          "key": "A",
+          "text": "后一个节点的隐藏状态依赖于前一个节点的隐藏状态"
+        },
+        {
+          "key": "B",
+          "text": "某个节点的可观察输出依赖于该节点的隐藏状态"
+        },
+        {
+          "key": "C",
+          "text": "某个节点的隐藏状态依赖于该节点的可观察输出"
+        },
+        {
+          "key": "D",
+          "text": "后一个节点的可观察输出依赖于前一个节点的可观察输出"
+        }
+      ],
+      "answer": "BD",
+      "analysis": "状态依赖前一状态；输出依赖当前状态。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "hmm-regulation"
+      ],
+      "tags": [
+        "hmm",
+        "hmm-regulation",
+        "multi-select",
+        "multiple_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_644",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "[多选] 下列关于真核生物启动子描述正确的是",
+      "type": "multiple_choice",
+      "topic": "hmm-regulation",
+      "topicName": "HMM 与顺式调控元件",
+      "difficulty": 3,
+      "options": [
+        {
+          "key": "A",
+          "text": "TATA盒一般非常接近转录起始点"
+        },
+        {
+          "key": "B",
+          "text": "均包含TATA框"
+        },
+        {
+          "key": "C",
+          "text": "处于基因转录起始位点上游"
+        },
+        {
+          "key": "D",
+          "text": "可能具有远离转录起始点的调控元件"
+        }
+      ],
+      "answer": "CD",
+      "analysis": "同22_91。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "hmm-regulation"
+      ],
+      "tags": [
+        "hmm-regulation",
+        "multi-select",
+        "multiple_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_649",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "对下面有关隐马尔科夫模型（HMM）图的描述中哪个是正确的？(X1-X3, y1-y3)",
+      "type": "multiple_choice",
+      "topic": "hmm-regulation",
+      "topicName": "HMM 与顺式调控元件",
+      "difficulty": 5,
+      "options": [
+        {
+          "key": "A",
+          "text": "b输出概率"
+        },
+        {
+          "key": "B",
+          "text": "y是隐藏状态"
+        },
+        {
+          "key": "C",
+          "text": "X是可观察输出"
+        },
+        {
+          "key": "D",
+          "text": "a是输出概率"
+        }
+      ],
+      "answer": "AD",
+      "analysis": "a是转移概率(Transition)，b是发射/输出概率(Emission)。X是隐藏状态，y是观察值（此题图例可能X和Y反了，通常X是Hidden, Y是Observation。根据选项描述判断）。",
+      "images": {
+        "question": "images/2023_528.png",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "hmm-regulation"
+      ],
+      "tags": [
+        "hmm",
+        "hmm-regulation",
+        "image-based",
+        "multiple_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_654",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "根据给定的隐马尔可夫模型（HMM）参数，计算产生一个特定输出序列的最有可能的隐藏状态序列的算法是哪一个？",
+      "type": "single_choice",
+      "topic": "hmm-regulation",
+      "topicName": "HMM 与顺式调控元件",
+      "difficulty": 3,
+      "options": [
+        {
+          "key": "A",
+          "text": "动态规划算法"
+        },
+        {
+          "key": "B",
+          "text": "Viterbi算法"
+        },
+        {
+          "key": "C",
+          "text": "Baum-Welch算法"
+        },
+        {
+          "key": "D",
+          "text": "Forward算法"
+        }
+      ],
+      "answer": "B",
+      "analysis": "Viterbi算法：寻找最可能的隐藏状态路径（解码）。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "hmm-regulation"
+      ],
+      "tags": [
+        "hmm",
+        "hmm-regulation",
+        "single_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_660",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "根据CpG阳性HMM计算该片段的联合输出概率是",
+      "type": "short_answer",
+      "topic": "sequencing-methods",
+      "topicName": "测序方法与读段模拟",
+      "difficulty": 5,
+      "options": [
+        {
+          "key": "A",
+          "text": "0.000985"
+        },
+        {
+          "key": "B",
+          "text": "0.000578"
+        },
+        {
+          "key": "C",
+          "text": "0.00247"
+        },
+        {
+          "key": "D",
+          "text": "0.000415"
+        }
+      ],
+      "answer": "",
+      "analysis": "需结合图片计算：P(Start->C) * P(C->A) * ...",
+      "images": {
+        "question": "images/2023_538.png",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "sequencing-tech"
+      ],
+      "tags": [
+        "hmm",
+        "image-based",
+        "sequencing",
+        "sequencing-methods",
+        "short_answer"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_665",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "根据CpG阴性HMM计算该片段的联合输出概率是(见上题图表)",
+      "type": "short_answer",
+      "topic": "hmm-regulation",
+      "topicName": "HMM 与顺式调控元件",
+      "difficulty": 4,
+      "options": [
+        {
+          "key": "A",
+          "text": "0.000985"
+        },
+        {
+          "key": "B",
+          "text": "0.000578"
+        },
+        {
+          "key": "C",
+          "text": "0.00247"
+        },
+        {
+          "key": "D",
+          "text": "0.000415"
+        }
+      ],
+      "answer": "",
+      "analysis": "",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "hmm-regulation"
+      ],
+      "tags": [
+        "hmm",
+        "hmm-regulation",
+        "short_answer"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_670",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "该片段最有可能是：",
+      "type": "short_answer",
+      "topic": "general",
+      "topicName": "综合题",
+      "difficulty": 3,
+      "options": [
+        {
+          "key": "A",
+          "text": "CpG阴性序列片段"
+        },
+        {
+          "key": "B",
+          "text": "CpG阳性序列片段"
+        },
+        {
+          "key": "C",
+          "text": "以上都不是"
+        }
+      ],
+      "answer": "",
+      "analysis": "",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "course-overview"
+      ],
+      "tags": [
+        "general",
+        "short_answer"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_674",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "[多选] NCBI制定的原核生物基因组注释流程中，编码蛋白质的基因注释通常需要用到哪些工具和方法？",
+      "type": "multiple_choice",
+      "topic": "alignment-homology",
+      "topicName": "序列比对与同源推断",
+      "difficulty": 3,
+      "options": [
+        {
+          "key": "A",
+          "text": "ORF查找"
+        },
+        {
+          "key": "B",
+          "text": "HMM搜索"
+        },
+        {
+          "key": "C",
+          "text": "blast"
+        },
+        {
+          "key": "D",
+          "text": "ProSplign"
+        },
+        {
+          "key": "E",
+          "text": "GeneMarkS"
+        }
+      ],
+      "answer": "ABCE",
+      "analysis": "原核注释：ORF查找(Glimmer/GeneMark)、Blast比对、HMM(Pfam)搜索功能域。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "alignment-homology"
+      ],
+      "tags": [
+        "alignment",
+        "alignment-homology",
+        "annotation",
+        "hmm",
+        "multi-select",
+        "multiple_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_681",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "NCBI制定的原核生物基因组注释流程中，各种非编码RNA注释基于哪一个数据库源？",
+      "type": "single_choice",
+      "topic": "annotation-prediction",
+      "topicName": "基因注释与结构建模",
+      "difficulty": 2,
+      "options": [
+        {
+          "key": "A",
+          "text": "SRA"
+        },
+        {
+          "key": "B",
+          "text": "RFAM"
+        },
+        {
+          "key": "C",
+          "text": "RefSeq"
+        },
+        {
+          "key": "D",
+          "text": "dbEST"
+        }
+      ],
+      "answer": "B",
+      "analysis": "RFAM。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "annotation-pipeline"
+      ],
+      "tags": [
+        "annotation",
+        "annotation-prediction",
+        "single_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_686",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "[多选] 下列哪些数据库中储存了基因组相关数据？",
+      "type": "multiple_choice",
+      "topic": "genome-databases",
+      "topicName": "基因组数据库与资源",
+      "difficulty": 3,
+      "options": [
+        {
+          "key": "A",
+          "text": "Ensembl"
+        },
+        {
+          "key": "B",
+          "text": "UCSC"
+        },
+        {
+          "key": "C",
+          "text": "Genbank"
+        },
+        {
+          "key": "D",
+          "text": "JGI GOLD"
+        }
+      ],
+      "answer": "ABCD",
+      "analysis": "Ensembl, UCSC, GenBank, JGI都是。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "genome-databases"
+      ],
+      "tags": [
+        "genome-databases",
+        "multi-select",
+        "multiple_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_691",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "NCBI制定的真核生物基因组注释流程中，rRNA注释基于哪一个数据库源？",
+      "type": "single_choice",
+      "topic": "annotation-prediction",
+      "topicName": "基因注释与结构建模",
+      "difficulty": 2,
+      "options": [
+        {
+          "key": "A",
+          "text": "SRA"
+        },
+        {
+          "key": "B",
+          "text": "RefSeq"
+        },
+        {
+          "key": "C",
+          "text": "RFAM"
+        },
+        {
+          "key": "D",
+          "text": "dbEST"
+        }
+      ],
+      "answer": "C",
+      "analysis": "RFAM。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "annotation-pipeline"
+      ],
+      "tags": [
+        "annotation",
+        "annotation-prediction",
+        "single_choice"
+      ],
+      "origin": "legacy-curated"
+    },
+    {
+      "id": "23_696",
+      "year": 2023,
+      "source": "2023",
+      "prompt": "[多选] NCBI制定的真核生物基因组注释流程中，下列哪些数据库可以是已知转录本序列数据源？",
+      "type": "multiple_choice",
+      "topic": "annotation-prediction",
+      "topicName": "基因注释与结构建模",
+      "difficulty": 3,
+      "options": [
+        {
+          "key": "A",
+          "text": "OMIM"
+        },
+        {
+          "key": "B",
+          "text": "PubMed"
+        },
+        {
+          "key": "C",
+          "text": "SRA"
+        },
+        {
+          "key": "D",
+          "text": "RefSeq"
+        }
+      ],
+      "answer": "CD",
+      "analysis": "RefSeq RNA, SRA (EST/RNA-Seq)。OMIM是遗传病库，PubMed是文献。",
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null,
+      "knowledgeRefs": [
+        "annotation-pipeline"
+      ],
+      "tags": [
+        "annotation",
+        "annotation-prediction",
+        "multi-select",
+        "multiple_choice"
+      ],
+      "origin": "legacy-curated"
+    }
+  ]
+}

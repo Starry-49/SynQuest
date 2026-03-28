@@ -1,0 +1,8 @@
+interface:
+  display_name: "SynQuest"
+  short_description: "Generate and merge domain quiz banks"
+  brand_color: "#14532D"
+  default_prompt: "Use $SynQuest to turn my domain knowledge base into a reusable question bank."
+
+policy:
+  allow_implicit_invocation: true

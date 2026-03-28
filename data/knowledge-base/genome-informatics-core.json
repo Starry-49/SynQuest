@@ -1,0 +1,299 @@
+{
+  "meta": {
+    "title": "Genome Informatics Core Knowledge Base",
+    "language": "zh-CN",
+    "domain": "基因组信息学"
+  },
+  "entries": [
+    {
+      "id": "course-overview",
+      "module": "课程总览",
+      "title": "基因组信息学课程总览",
+      "summary": "覆盖基因组计划、测序、组装、比对、注释和 HMM 等核心模块。",
+      "keywords": ["课程总览", "基因组信息学"],
+      "distractors": ["代谢通路分析", "临床给药决策", "化学生产工艺"],
+      "facts": [
+        {
+          "question": "基因组信息学课程通常不会脱离下列哪一类任务？",
+          "answer": "对 DNA 或 RNA 序列进行计算分析",
+          "explanation": "基因组信息学的核心是围绕序列数据进行存储、分析、解释和推断。",
+          "distractors": ["只研究蛋白质晶体结构", "只关注临床试验统计", "只进行化学反应设计"],
+          "difficulty": 1
+        },
+        {
+          "question": "下列哪项最能概括基因组信息学的目标？",
+          "answer": "理解基因组结构、功能与演化规律",
+          "explanation": "课程会贯穿结构、功能、变异、注释和进化等多个层面。",
+          "distractors": ["只测量蛋白浓度", "只绘制代谢网络", "只进行显微图像标注"],
+          "difficulty": 1
+        }
+      ]
+    },
+    {
+      "id": "hgp-maps",
+      "module": "基因组学基础",
+      "title": "人类基因组计划与图谱",
+      "summary": "介绍 HGP、遗传图、物理图和序列图的基本概念及其联系。",
+      "keywords": ["HGP", "图谱", "遗传图", "物理图"],
+      "distractors": ["化学降解法", "RNA聚合酶III", "临床双盲试验"],
+      "facts": [
+        {
+          "question": "中国是在哪一年加入人类基因组计划的？",
+          "answer": "1999年",
+          "explanation": "中国于 1999 年加入 HGP，并承担了 1% 左右的人类基因组测序任务。",
+          "distractors": ["1990年", "2000年", "2001年"],
+          "difficulty": 2
+        },
+        {
+          "question": "遗传图常用什么单位表示遗传距离？",
+          "answer": "cM",
+          "explanation": "遗传图以重组率为基础，距离单位通常为厘摩 cM。",
+          "distractors": ["bp", "cR", "kb/s"],
+          "difficulty": 2
+        },
+        {
+          "question": "物理图常用哪些单位描述距离？",
+          "answer": "bp 或 cR",
+          "explanation": "物理图关注实际 DNA 片段距离，因此常用 bp 或辐射杂交单位 cR。",
+          "distractors": ["cM 或 mmol", "秒或分钟", "摄氏度或华氏度"],
+          "difficulty": 2
+        },
+        {
+          "question": "在人类基因组计划早期，大规模物理图构建的主流技术之一是什么？",
+          "answer": "STS 作图",
+          "explanation": "HGP 早期的物理图构建广泛使用 STS 标记进行克隆定位与连锁。",
+          "distractors": ["Western blot", "单细胞转录组聚类", "代谢流分析"],
+          "difficulty": 3
+        }
+      ]
+    },
+    {
+      "id": "sequencing-tech",
+      "module": "测序技术",
+      "title": "DNA 测序技术与读段模拟",
+      "summary": "涵盖 Sanger、二代测序、读段模拟和 SAM 等常见基础概念。",
+      "keywords": ["测序", "Sanger", "ART", "SAM"],
+      "distractors": ["酶联免疫吸附实验", "代谢通量平衡", "组织学染色"],
+      "facts": [
+        {
+          "question": "链终止法由谁提出？",
+          "answer": "Frederick Sanger",
+          "explanation": "Sanger 于 1977 年提出链终止法，成为经典 DNA 测序方法。",
+          "distractors": ["Walter Gilbert", "Henikoff", "Dayhoff"],
+          "difficulty": 2
+        },
+        {
+          "question": "ART 工具集最适合用来做什么？",
+          "answer": "模拟 NGS 读段并评估分析流程",
+          "explanation": "ART 能模拟多种测序平台的经验错误模型，常用于方法评估。",
+          "distractors": ["建立蛋白质三级结构", "执行序列组装图可视化", "直接预测转录因子结合位点"],
+          "difficulty": 2
+        },
+        {
+          "question": "SAM 文件头中用于定义参考序列信息的标记是哪一个？",
+          "answer": "SQ",
+          "explanation": "SAM 头部中的 @SQ 记录参考序列名称和长度等信息。",
+          "distractors": ["HD", "PG", "CM"],
+          "difficulty": 2
+        },
+        {
+          "question": "二代测序技术按照原理最常见的一大类是什么？",
+          "answer": "边合成边测序",
+          "explanation": "Illumina 等平台代表的边合成边测序是二代测序的主流路线。",
+          "distractors": ["边翻译边测序", "边折叠边测序", "边表达边测序"],
+          "difficulty": 2
+        }
+      ]
+    },
+    {
+      "id": "assembly-graphs",
+      "module": "序列组装",
+      "title": "基因组组装与图算法",
+      "summary": "包含 de Bruijn 图、OLC、contig/scaffold、覆盖度与重复序列问题。",
+      "keywords": ["组装", "de Bruijn", "OLC", "contig", "scaffold"],
+      "distractors": ["PCR 引物退火", "酶活曲线拟合", "流式门控策略"],
+      "facts": [
+        {
+          "question": "在 de Bruijn 图组装中，测序错误常导致哪类噪声结构？",
+          "answer": "tip 或 bubble 结构",
+          "explanation": "错误 k-mer 会破坏图结构，常表现为末端分支或错误气泡。",
+          "distractors": ["只会增加测序深度", "只会降低碱基质量值", "不会影响图结构"],
+          "difficulty": 3
+        },
+        {
+          "question": "mate-pair 或 paired-end 信息在组装中最常用于什么环节？",
+          "answer": "连接 contig 构建 scaffold",
+          "explanation": "成对读段提供跨越重复序列的跨度信息，常用于脚手架构建。",
+          "distractors": ["直接替代质控", "消除所有测序错误", "计算 BLOSUM 分数"],
+          "difficulty": 2
+        },
+        {
+          "question": "OLC 方法中的 O 指的是什么？",
+          "answer": "Overlap",
+          "explanation": "OLC 依次表示 Overlap、Layout、Consensus。",
+          "distractors": ["Output", "Ontology", "Ordering-only"],
+          "difficulty": 2
+        },
+        {
+          "question": "重复序列会给组装带来什么典型问题？",
+          "answer": "引入路径歧义并降低 contig 连续性",
+          "explanation": "重复片段让多个读段共享同样的局部结构，从而造成图分叉或重叠歧义。",
+          "distractors": ["让所有覆盖度变得完全一致", "自动提高组装精度", "消除插入缺失变异"],
+          "difficulty": 3
+        }
+      ]
+    },
+    {
+      "id": "alignment-homology",
+      "module": "序列比对",
+      "title": "序列比对、打分矩阵与同源推断",
+      "summary": "涉及 BLAST、Clustal、PAM、BLOSUM 和相似性/同源性的区别。",
+      "keywords": ["BLAST", "Clustal", "BLOSUM", "PAM", "同源"],
+      "distractors": ["泊松回归", "流式补偿矩阵", "隐变量贝叶斯网络"],
+      "facts": [
+        {
+          "question": "BLAST 系列软件采用的核心搜索策略是什么？",
+          "answer": "启发式搜索",
+          "explanation": "BLAST 通过种子和延伸等启发式步骤提高速度，不保证全局最优。",
+          "distractors": ["穷举搜索", "纯蒙特卡洛采样", "梯度下降优化"],
+          "difficulty": 2
+        },
+        {
+          "question": "Clustal 更偏向哪一种序列比对策略？",
+          "answer": "全局多序列比对",
+          "explanation": "Clustal 常用于高相似序列的全局多序列比对。",
+          "distractors": ["局部同源搜索", "结构折叠预测", "单细胞降维投影"],
+          "difficulty": 2
+        },
+        {
+          "question": "相似性与同源性之间最关键的区别是什么？",
+          "answer": "相似性是可量化指标，同源性是进化关系判断",
+          "explanation": "相似性可以高低变化，而同源性通常是有或无的进化推断。",
+          "distractors": ["两者完全同义", "同源性只在 DNA 中存在", "相似性只能用于蛋白质结构"],
+          "difficulty": 3
+        },
+        {
+          "question": "BLOSUM 数值越小通常意味着什么？",
+          "answer": "更适合检测远缘同源序列",
+          "explanation": "较小编号的 BLOSUM 矩阵对低相似度目标更敏感。",
+          "distractors": ["更适合超高相似序列", "不能用于蛋白质比对", "只用于核酸比对"],
+          "difficulty": 3
+        }
+      ]
+    },
+    {
+      "id": "annotation-pipeline",
+      "module": "基因组注释",
+      "title": "基因注释、结构建模与功能元件",
+      "summary": "涉及重复遮蔽、从头预测、证据整合、RNA-Seq 与功能元件识别。",
+      "keywords": ["注释", "RepeatMasker", "GeneMarkS", "Gnomon", "RNA-Seq"],
+      "distractors": ["液相色谱", "酶动力学", "蛋白纯化层析"],
+      "facts": [
+        {
+          "question": "非模式生物基因组注释前常用哪个工具进行重复遮蔽？",
+          "answer": "RepeatMasker",
+          "explanation": "RepeatMasker 是基因组注释前最常见的重复序列识别与遮蔽工具之一。",
+          "distractors": ["BLASTP", "Clustal Omega", "FastQC"],
+          "difficulty": 2
+        },
+        {
+          "question": "原核生物基因预测中常见的工具是哪一个？",
+          "answer": "GeneMarkS",
+          "explanation": "GeneMarkS 和 GLIMMER 是原核基因组基因预测的经典工具。",
+          "distractors": ["Bowtie2", "DESeq2", "AlphaFold"],
+          "difficulty": 2
+        },
+        {
+          "question": "真核注释中将已知蛋白比对结果整合到基因模型的一类工具是什么？",
+          "answer": "ProSplign 或 Gnomon",
+          "explanation": "真核注释常用 ProSplign 进行蛋白比对，再由 Gnomon 等工具完成模型整合。",
+          "distractors": ["FastTree 或 IQ-TREE", "RSEM 或 Salmon", "Minimap2 或 Samtools sort"],
+          "difficulty": 3
+        },
+        {
+          "question": "下列哪类信息常被用于从头基因预测？",
+          "answer": "密码子偏好性和剪接位点信号",
+          "explanation": "从头预测依赖统计特征，如密码子偏好性、外显子-内含子边界等。",
+          "distractors": ["显微镜曝光时间", "培养基成分", "蛋白质晶体对称性"],
+          "difficulty": 3
+        }
+      ]
+    },
+    {
+      "id": "hmm-regulation",
+      "module": "概率模型",
+      "title": "隐马尔可夫模型与顺式调控元件",
+      "summary": "用于描述状态转移、输出概率以及 CpG 岛、启动子等序列信号。",
+      "keywords": ["HMM", "CpG", "Viterbi", "Forward", "启动子"],
+      "distractors": ["最小生成树", "主成分分析", "随机森林回归"],
+      "facts": [
+        {
+          "question": "计算特定观测序列总体概率时，HMM 中常用哪种算法？",
+          "answer": "Forward 算法",
+          "explanation": "Forward 算法累计所有可能隐藏状态路径的概率。",
+          "distractors": ["Viterbi 算法", "Needleman-Wunsch", "Baum-Welch 初始化"],
+          "difficulty": 3
+        },
+        {
+          "question": "寻找最可能隐藏状态路径时常用哪种算法？",
+          "answer": "Viterbi 算法",
+          "explanation": "Viterbi 通过动态规划寻找最大概率路径。",
+          "distractors": ["Forward 算法", "Floyd 算法", "k-means 聚类"],
+          "difficulty": 3
+        },
+        {
+          "question": "在 HMM 中，观测输出通常依赖于什么？",
+          "answer": "当前隐藏状态",
+          "explanation": "HMM 的核心假设是观测变量由当前隐藏状态发射产生。",
+          "distractors": ["未来两个隐藏状态", "前一个观测值本身", "随机初始化种子"],
+          "difficulty": 2
+        },
+        {
+          "question": "CpG 岛或启动子模型为什么适合用 HMM 描述？",
+          "answer": "它们可看作具有局部状态转移规律的序列信号",
+          "explanation": "HMM 擅长建模状态转移和发射概率，非常适合序列信号检测。",
+          "distractors": ["因为 HMM 只适用于图像分类", "因为 HMM 不需要训练数据", "因为 HMM 只能处理蛋白结构"],
+          "difficulty": 3
+        }
+      ]
+    },
+    {
+      "id": "genome-databases",
+      "module": "数据库资源",
+      "title": "基因组数据库与公共资源",
+      "summary": "介绍常见数据库以及它们在检索、注释和比较分析中的用途。",
+      "keywords": ["Ensembl", "UCSC", "GenBank", "RefSeq", "PubMed"],
+      "distractors": ["Photoshop", "AutoCAD", "GraphPad Prism"],
+      "facts": [
+        {
+          "question": "了解基因组学最新研究进展时，最常用的文献数据库之一是什么？",
+          "answer": "PubMed",
+          "explanation": "PubMed 收录大量生物医学与基因组学相关文献，是课程中常见的首选入口。",
+          "distractors": ["Excel 模板库", "普通图片搜索引擎", "地理信息系统数据库"],
+          "difficulty": 1
+        },
+        {
+          "question": "下列哪一项是常见的基因组浏览器资源？",
+          "answer": "UCSC",
+          "explanation": "UCSC Genome Browser 和 Ensembl 都是常见的基因组浏览器与注释资源。",
+          "distractors": ["Mendeley", "Sci-Hub", "Docker Hub"],
+          "difficulty": 1
+        },
+        {
+          "question": "RefSeq 在基因组分析中的典型价值是什么？",
+          "answer": "提供经过整理的参考序列与注释",
+          "explanation": "RefSeq 由 NCBI 维护，常作为标准参考序列和注释来源。",
+          "distractors": ["只提供显微图片", "只提供药物审批文件", "只提供质谱原始数据"],
+          "difficulty": 2
+        },
+        {
+          "question": "GenBank 最核心的角色之一是什么？",
+          "answer": "存储和公开提交的核酸序列数据",
+          "explanation": "GenBank 是公开核酸序列数据库，也是许多下游资源的基础来源。",
+          "distractors": ["执行 DNA 合成实验", "自动训练隐马尔可夫模型", "完成临床样本招募"],
+          "difficulty": 2
+        }
+      ]
+    }
+  ]
+}

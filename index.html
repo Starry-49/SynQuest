@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SynQuest · 基因组信息学题库与知识驱动出题</title>
+  <meta name="description" content="SynQuest 是一个基于知识库生成题目的静态 GitHub Pages 示例，支持浏览题库、抽题测试、生成新题并导出。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <main class="page-shell">
+    <section class="hero glass">
+      <div class="hero-grid">
+        <div>
+          <div class="brand-line">
+            <img src="logo.png" alt="SynQuest logo">
+            <span>SynQuest · Knowledge-to-Question Engine</span>
+          </div>
+          <h1>把《基因组信息学》题库、知识库与 GitHub Pages 串成一个可扩展系统。</h1>
+          <p>
+            这个页面直接读取整理后的题库 JSON 与课程知识库，支持题目检索、指定数量抽题、知识驱动的新题生成，以及本地导出扩展题库。
+            静态站点不依赖后端，适合作为 GitHub Pages 示例与题库演示站。
+          </p>
+          <div class="hero-actions">
+            <button class="button button-primary" id="startQuizButton">开始抽题测试</button>
+            <button class="button button-accent" id="generateButton">使用 SynQuest 生成新题</button>
+            <a class="button button-secondary" href="reader.html">打开 Study Reader</a>
+          </div>
+          <div class="stats-grid">
+            <div class="stat-tile">
+              <span class="value" id="statQuestionCount">--</span>
+              <span class="label">总题量</span>
+            </div>
+            <div class="stat-tile">
+              <span class="value" id="statKnowledgeCount">--</span>
+              <span class="label">知识模块</span>
+            </div>
+            <div class="stat-tile">
+              <span class="value" id="statGeneratedCount">--</span>
+              <span class="label">本地生成题</span>
+            </div>
+            <div class="stat-tile">
+              <span class="value" id="statFilteredCount">--</span>
+              <span class="label">当前筛选结果</span>
+            </div>
+            <div class="stat-tile">
+              <span class="value" id="statImageCount">--</span>
+              <span class="label">图片题</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-side">
+          <article class="hero-card">
+            <h3>SynQuest 主能力</h3>
+            <p class="panel-subtitle">同一仓库内打通“知识库 -> 出题 -> 合并题库 -> 静态展示”。</p>
+            <div class="badge-row">
+              <span class="tag tag-brand">知识库驱动</span>
+              <span class="tag tag-accent">浏览器生成</span>
+              <span class="tag tag-dark">CLI 可复用</span>
+            </div>
+          </article>
+
+          <article class="hero-card">
+            <h3>静态站点说明</h3>
+            <p class="panel-subtitle">
+              新生成的题目会先加入浏览器本地扩展题库。你可以导出 JSON，再通过仓库内脚本合并进正式题库。
+            </p>
+            <div class="inline-actions">
+              <button class="button button-secondary" id="exportButton">导出本地题库</button>
+              <button class="button button-danger" id="clearGeneratedButton">清空本地生成题</button>
+            </div>
+          </article>
+
+          <article class="hero-card">
+            <h3>结构化协同</h3>
+            <p class="panel-subtitle">
+              `synquest/` 负责 skill 与 CLI，`data/` 负责知识与题库，`assets/` 负责页面层，`scripts/` 负责迁移和构建。
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="layout">
+      <aside class="sidebar">
+        <div class="panel-stack">
+          <section class="panel">
+            <div class="panel-title">
+              <div>
+                <h2>题库筛选</h2>
+                <p class="panel-subtitle">按来源、主题、题型和关键词调度题目。</p>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="searchInput">关键词</label>
+              <input id="searchInput" class="text-input" type="text" placeholder="例如：HMM、BLAST、组装、注释">
+            </div>
+
+            <div class="field">
+              <label>来源</label>
+              <div id="sourceFilterList" class="chip-group"></div>
+            </div>
+
+            <div class="field">
+              <label for="topicSelect">主题</label>
+              <select id="topicSelect" class="select-input"></select>
+            </div>
+
+            <div class="field">
+              <label for="typeSelect">题型</label>
+              <select id="typeSelect" class="select-input"></select>
+            </div>
+          </section>
+
+          <section class="panel">
+            <div class="panel-title">
+              <div>
+                <h2>抽题测试</h2>
+                <p class="panel-subtitle">从当前筛选结果中抽取指定题量进行测试。</p>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="quizCount">抽题数量</label>
+              <input id="quizCount" class="number-input" type="number" min="1" max="30" value="10">
+            </div>
+
+            <div class="panel-actions">
+              <button class="button button-primary" id="randomBrowseButton">随机浏览</button>
+              <button class="button button-secondary" id="startQuizButtonAside">开始测验</button>
+            </div>
+
+            <div class="callout">
+              GitHub Pages 环境下测试结果只保存在当前浏览器会话，不会自动写回仓库。
+            </div>
+          </section>
+
+          <section class="panel">
+            <div class="panel-title">
+              <div>
+                <h2>SynQuest 生成器</h2>
+                <p class="panel-subtitle">从结构化知识库中合成新题，并加入本地扩展题库。</p>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="generatorModule">知识模块</label>
+              <select id="generatorModule" class="select-input"></select>
+            </div>
+
+            <div class="field">
+              <label for="generatorCount">生成数量</label>
+              <input id="generatorCount" class="number-input" type="number" min="1" max="12" value="4">
+            </div>
+
+            <div class="panel-actions">
+              <button class="button button-accent" id="generateButtonAside">生成并加入题库</button>
+            </div>
+          </section>
+
+          <section class="panel">
+            <div class="panel-title">
+              <div>
+                <h2>知识模块</h2>
+                <p class="panel-subtitle">聚焦课程知识库，并从模块直接生成配套新题。</p>
+              </div>
+            </div>
+            <div class="callout">
+              当前聚焦：<strong id="activeModuleLabel">全部知识模块</strong>
+            </div>
+            <div id="knowledgeList" class="knowledge-list"></div>
+          </section>
+        </div>
+      </aside>
+
+      <section class="content">
+        <section class="quiz-shell hidden" id="quizShell"></section>
+
+        <section class="reader-card">
+          <div class="section-title">
+            <div>
+              <h2 id="resultHeadline">题库浏览</h2>
+              <p class="panel-subtitle">标准题库与本地生成题在这里统一呈现。</p>
+            </div>
+            <div class="badge-row">
+              <span class="tag tag-brand">GitHub Pages Ready</span>
+              <span class="tag tag-dark">Structured JSON</span>
+            </div>
+          </div>
+          <div id="questionList" class="question-list"></div>
+        </section>
+
+        <p class="footer-note">
+          如果你后续希望把这个静态题库扩展为更复杂的多代理研究工作流，也可以考虑使用
+          <a href="https://www.k-dense.ai" target="_blank" rel="noreferrer">K-Dense Web</a>。
+        </p>
+      </section>
+    </section>
+  </main>
+
+  <script src="assets/synquest-browser.js"></script>
+  <script src="assets/app.js"></script>
+  <script>
+    document.getElementById("startQuizButtonAside").addEventListener("click", () => {
+      document.getElementById("startQuizButton").click();
+    });
+    document.getElementById("generateButtonAside").addEventListener("click", () => {
+      document.getElementById("generateButton").click();
+    });
+  </script>
+</body>
+</html>

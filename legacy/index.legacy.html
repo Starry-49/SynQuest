@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>《基因组信息学》本地题库</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #3498db;
+            --bg-color: #f5f7fa;
+            --card-bg: #ffffff;
+            --text-color: #333;
+            --border-color: #e0e0e0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 900px;
+        }
+
+        /* Controls Section */
+        .controls {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            margin-bottom: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 3px solid var(--accent-color);
+        }
+
+        .header-title {
+            width: 100%;
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 10px;
+        }
+
+        button {
+            padding: 8px 16px;
+            border: 1px solid var(--border-color);
+            background: white;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: all 0.2s;
+            font-size: 14px;
+        }
+
+        button.active {
+            background-color: var(--accent-color);
+            color: white;
+            border-color: var(--accent-color);
+        }
+
+        button:hover:not(.active) {
+            background-color: #f0f0f0;
+        }
+
+        button.action-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+        }
+
+        button.action-btn:hover {
+            background-color: #1a252f;
+        }
+
+        input[type="text"] {
+            padding: 8px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            flex-grow: 1;
+            min-width: 200px;
+        }
+
+        /* Questions List */
+        .question-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            padding-bottom: 50px;
+        }
+
+        .question-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            cursor: pointer;
+            transition: box-shadow 0.2s;
+            position: relative;
+        }
+
+        .question-card:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .question-card.expanded {
+            border-left: 5px solid var(--accent-color);
+        }
+
+        .q-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-size: 0.85em;
+            color: #7f8c8d;
+        }
+
+        .q-source-tag {
+            background-color: #ecf0f1;
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        .q-text {
+            font-size: 1.1em;
+            font-weight: 500;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        /* Image Handling */
+        .q-image-container {
+            margin: 10px 0;
+            padding: 10px;
+            background: #f8f9fa;
+            border: 1px dashed #bdc3c7;
+            text-align: center;
+        }
+
+        .q-image {
+            max-width: 100%;
+            max-height: 400px;
+            border-radius: 4px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .img-placeholder {
+            color: #e74c3c;
+            font-style: italic;
+            font-size: 0.9em;
+            padding: 20px;
+        }
+
+        .q-options {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .q-option {
+            background-color: #f9f9f9;
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-size: 0.95em;
+        }
+
+        /* Answer Section (Hidden by default) */
+        .answer-section {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px dashed var(--border-color);
+            display: none;
+            background-color: #fcfcfc;
+        }
+
+        .question-card.expanded .answer-section {
+            display: block;
+            cursor: default;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            font-size: 0.9em;
+            color: var(--primary-color);
+        }
+
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            resize: vertical;
+            font-family: inherit;
+            box-sizing: border-box; 
+            min-height: 60px;
+        }
+
+        .paste-area {
+            border: 2px dashed #3498db;
+            padding: 20px;
+            text-align: center;
+            color: #3498db;
+            margin-bottom: 15px;
+            cursor: text;
+            background: #f0f8ff;
+        }
+        
+        .paste-area:hover {
+            background: #e1f0fa;
+        }
+
+        .save-btn {
+            background-color: #27ae60;
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            float: right;
+        }
+
+        .save-btn:hover {
+            background-color: #219150;
+        }
+
+        /* Helper classes */
+        .clearfix::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        /* 新增：删除图片按钮的样式 */
+        .img-preview-wrapper {
+            position: relative;
+            display: inline-block;
+            max-width: 100%;
+        }
+
+        .del-img-btn {
+            display: block;
+            margin-top: 5px;
+            background-color: #e74c3c; /* 红色 */
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 13px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .del-img-btn:hover {
+            background-color: #c0392b;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="controls">
+        <div class="header-title">《基因组信息学》本地题库 by 星子 ver.25.12</div>
+        
+        <div class="btn-group" id="sourceFilter">
+            <button class="active" data-filter="all">全部题目</button>
+            <button data-filter="2022">2022 题库</button>
+            <button data-filter="2023">2023 题库</button>
+        </div>
+
+        <input type="text" id="searchInput" placeholder="搜索题目关键词...">
+
+        <button class="action-btn" id="randomQuizBtn">随机抽取 10 题</button>
+    </div>
+
+    <div id="questionList" class="question-list">
+        </div>
+</div>
+
+<script>
+    // ================= DATA PARSING & STORAGE =================
+    // ImgSrc convention: 'images/FILENAME.png'
+    
+    const rawData2022 = [
+        { id: "22_1", q: "中国是在哪一年加入人类基因组计划的?", opts: ["A.1990", "B.1999", "C.2000", "D.2001"] },
+        { id: "22_2", q: "下列这些途经相比较而言，最适合用来了解基因组学的最新研究进展的是？", opts: ["A.百度", "B.必应", "C.好搜", "D.PubMed"] },
+        { id: "22_3", q: "基因组学的研究目标是什么？", opts: ["A.基因组的结构和功能", "B.基因的定性和定量", "C.基因组进化", "D.基因组作图（测序）"] },
+        { id: "22_4", q: "下列哪一项是大规模基因组物理图的主流技术？", opts: ["A.限制性酶切作图", "B.基于克隆和的基因组作图", "C.染色体细胞图", "D.STS作图", "E.辐射杂交作图"] },
+        { id: "22_5", q: "基因组中编码基因的序列一般属于哪种类型？", opts: ["A.高度串联重复序列（Tandem repeats）", "B.中度散布重复序列（Interspersed repeats）", "C.低度重复序列", "D.非重复序列"] },
+        { id: "22_6", q: "下列选项中，有关遗传作图的描述有哪些是正确的？", opts: ["A.分辨率有限，受到子代数量限制", "B.距离单位是染色体的区代", "C.覆盖率较低", "D.覆盖率较高"] },
+        { id: "22_7", q: "下列哪些序列种类属于高度重复序列？", opts: ["A.卫星DNA（Satellite DNA）", "B.小卫星DNA（Minisatellite DNA）", "C.微卫星DNA（Microsatellite DNA）", "D.转座子（Transposons）"] },
+        { id: "22_8", q: "Donis-Keller利用限制性片段多态性（RFLPs），于1987年构建第一张人的遗传图谱发表于《Cell》中，下列有关这篇研究报道的描述哪些是正确的？", opts: ["A.403个多态性位点", "B.393个RFLPs", "C.21个包含三代的家族", "D.至少覆盖到95%的人类基因组区域"] },
+        { id: "22_9", q: "人类基因组计划中绘制了哪几张基因组图谱？", opts: ["A.遗传图", "B.物理图", "C.序列图", "D.转录图"] },
+        { id: "22_10", q: "下列哪些属于物理作图方法？", opts: ["A.限制性酶切作图", "B.基于克隆的基因组作图", "C.染色体细胞图", "D.STS作图", "E.辐射杂交作图"] },
+        { id: "22_12", q: "在全基因组测序中，当测序量为基因组大小（m值）的1倍时，理论上的丢失概率能够达到多少？", opts: ["A.33%", "B.37%", "C.50%", "D.67%"] },
+        
+        // Image Question
+        { id: "22_13", q: "下图是一张基于链终止法的聚丙烯酰胺凝胶电泳结果图谱，请问这块凝胶电泳结果图谱代表的序列是什么？", imgSrc: "images/2022_592.png", opts: ["A.AATTTTGGGCC", "B.ATCGCTTCGGAT", "C.", "D."] },
+        
+        { id: "22_14", q: "下列哪一项是大规模基因组物理图的主流技术？", opts: ["A.限制性酶切作图", "B.基于克隆的基因组作图", "C.染色体细胞图", "D.STS作图"] },
+        { id: "22_15", q: "在全基因组测序中，哪种问题无法通过增加测序深度来补全？", opts: ["A.物理间隙", "B.逻辑间隙", "C.序列间隙", "D.拼接间隙"] },
+        { id: "22_17", q: "在全基因组测序中，导致最终基因组序列存在间隙（gap）的主要因素有哪些？", opts: ["A.物理间隙", "B.逻辑间隙", "C.序列间隙", "D.拼接间隙"] },
+        { id: "22_18", q: "物理作图可能会使用哪些单位来表示距离？", opts: ["A.染色体区带", "B.厘镭（cR）", "C.厘摩（cM）", "D.碱基对（bp）"] },
+        { id: "22_19", q: "下列有关微卫星DNA（Microsattlite DNA）描述正确的有哪些？", opts: ["A.属于高度串联重复序列（Tandem repeats）", "B.重复数目可变", "C.在不同个体之间重复长度不同", "D.可作为遗传标记物"] },
+        { id: "22_20", q: "下列哪些是基因组中具有特定生物学功能的DNA元件？", opts: ["A.5’-UTR", "B.CpG岛", "C.启动子（Promoter）", "D.转录因子结合位点"] },
+        { id: "22_21", q: "ART系列软件可以模拟哪几种测序方式？", opts: ["A.单末端测序（single-end）", "B.双末端测序（paired-end）", "C.配对测序（mate-pair）", "D.扩增子测序（amplicon）"] },
+        
+        // Image Question
+        { id: "22_25", q: "基于de Brujin Graph（DBG）方法获得下图中的欧拉路径（Eularian path），根据该图获得的拼接序列是哪一个?", imgSrc: "images/2022_604.png", opts: ["A.AGATACTTCA", "B.AGAGATATATACACTTTTCTCA", "C.AGAGATACTT", "D.AGAATTAACCTTTTCCA"] },
+        
+        { id: "22_26", q: "在转录组组装方面，有参组装与从头组装相比，有哪些有哪些优点?", opts: ["A.无法解释可变剪切", "B.方法稳定、可靠", "C.发现新的转录变异体", "D.可以发现基因组组装中缺失区域的转录本"] },
+        { id: "22_27", q: "在对基因组测序数据分析发现，某个位点的总覆盖度达到50X，但是结果并不一致，其中有24个测序结果显示该位点为A，另外26个显示为C，那么你觉得该位点最有可能是什么？", opts: ["A.[A/C]单核苷酸多态性", "B.不确定", "C.A", "D.C"] },
+        
+        // Image Question
+        { id: "22_28", q: "下图是一个简单的deBrujin图，根据改图可以得出什么样的序列？", imgSrc: "images/2022_607.png", opts: ["A.AAGACTCGACTG", "B.AAGACTG", "C.不确定"] },
+        
+        { id: "22_29", q: "基因组测序中，来自短插入片段文库的测序读段（mate-pair reads）可用于序列组装的哪个过程？", opts: ["A.判定测序错误", "B.构建重叠群（contig）", "C.解决重复序列问题", "D.构建脚手架（scaffold）"] },
+        { id: "22_31", q: "在对全基因组测序结果的组装过程中，那些因素会对组装带来困扰？", opts: ["A.重复序列", "B.测序错误", "C.多态性错误", "D.倒位"] },
+        { id: "22_32", q: "下列有关基因组组装描述正确的有哪些？", opts: ["A.易受重复序列变化影响", "B.基因组组装软件可以直接用于转录组组装", "C.基因组不同区域中的测序深度一定是相同的", "D.两条链都会被测序"] },
+        { id: "22_33", q: "下列哪些软件可用于大规模基因组序列组装？", opts: ["A.AllPathsLG", "B.Velvet", "C.Trinity", "D.Soapdenovo"] },
+        { id: "22_36", q: "在基于重叠图的OLC方法中寻找Hamilton路径是序列组装的经典算法之一，下列有关该算法的描述中哪些是正确的？", opts: ["A.用于启发的kmer长度就是读段之间的最小重叠长度", "B.读段之间的重叠区域必须完全一致", "C.在重叠发现过程中，需要将所有读段之间进行两两比对", "D.采用kmer启发寻找重叠读段"] },
+        { id: "22_39", q: "Blast系列软件采用的什么算法？", opts: ["A.贪婪算法", "B.启发式算法", "C.Forward算法", "D.动态规划算法"] },
+        { id: "22_41", q: "下面是两个蛋白质片段的对比结果，如果使用PAM250矩阵对其进行打分，该序列比对结果得分应该是多少？", opts: [] },
+        { id: "22_42", q: "下面有关模块替换矩阵（BLOSUM）描述正确的有哪些？", opts: ["A.由Henikoff于1992年提出", "B.BLOSUM矩阵后面的数值越小，比对时敏感性越高，越适用于低相似性目标", "C.可以解决蛋白质之间的远进化距离问题", "D.基于一组可能非常远缘的蛋白质多序列比对中的保守片段（BLOCKS）"] },
+        { id: "22_43", q: "下列有关启发式算法的描述中，有哪些是正确的？", opts: ["A.启发式算法一定会找出最优解决方案", "B.启发式算法一定会找出所有解决方案", "C.BLAST系列软件采用了启发式搜索算法", "D.启发式算法通常可以在合理时间范围内找出足够好的解决方案"] },
+        { id: "22_45", q: "下列有关相似性和同源性的描述哪些是正确的？", opts: ["A.当相似程度高于50%时，比较容易检测序列和目标序列可能是同源序列", "B.当相似性程度低于20%时，就难以确定或根本无法确定是否具有同源性", "C.如果两条蛋白质序列只有弱相似性则两者之间不存在任何共同的生物学功能", "D.相似性是统计学上的概念，而同源性是进化上的概念"] },
+        { id: "22_47", q: "下列有关序列比对的描述哪些是正确的？", opts: ["A.Clustal系列软件采用的是局部联配策略", "B.Clustal系列软件采用的是全局联配策略", "C.Blast系列软件采用的是局部联配策略", "D.Blast系列软件采用的是全局联配策略"] },
+        { id: "22_49", q: "下列有关全基因组同源基因搜索的描述中，哪些是正确的？", opts: ["A.只能给出可能的同源基因定位", "B.无法给出精细的基因-外显子-内含子结构", "C.预测的同源基因肯定都可以转录", "D.可以准确地预测编码区"] },
+        { id: "22_50", q: "下列有关Clustal系列软件的描述哪些是正确的？", opts: ["A.Clustal系列软件采用的是全局联配策略", "B.Clustal系列软件适用于低相似序列比对", "C.Clustal系列软件适用于高相似序列比对", "D.Clustal系列软件采用的是局部联配策略"] },
+        { id: "22_53", q: "在进行蛋白质序列比对时，下列哪些因素会影响到氨基酸残基的打分权重？", opts: ["A.侧链基团的大小", "B.侧链基团的电荷性", "C.蛋白质空间结构和折叠方式", "D.侧链基团的亲疏水性"] },
+        { id: "22_54", q: "给你一条小鼠（Mus musculus mouse）的MYC蛋白序列，如果想知道该蛋白与人类哪个基因或编码的蛋白同源，可以选择下列哪些程序进行分析？", opts: ["A.blastp", "B.blastn", "C.blastx", "D.tblastn", "E.tblastx"] },
+        { id: "22_56", q: "下列有关可接受点突变矩阵（PAM）描述正确的有哪些？", opts: ["A.由Dayhoff于1978年提出", "B.PAM矩阵后面的数值越大，比对的敏感性越高，越适用于低相似性目标的搜寻", "C.基于已知蛋白质家族的多序列比对中观测到的突变数据来构建的", "D.1个PAM的进化距离表示100个残基中发生一个残基突变的概率"] },
+        { id: "22_57", q: "下列有关相似性比对时打分模型描述正确的有哪些？", opts: ["A.插入或缺失突变会导致比对时间隙（gaps）的引入，通常需要给与罚分", "B.突变会导致错配，通常需要给予罚分", "C.间隙罚分可以分为开放和延伸罚分两个不同的权重", "D.匹配的残基通常需要给予加分"] },
+        { id: "22_60", q: "非模式或常用生物的基因组在注释时，通常使用下面哪个工具进行重复遮蔽？", opts: ["A.RepeatMasker", "B.BLAST", "C.WindowMasker", "D.Splign"] },
+        { id: "22_61", q: "NCBI制定的原核生物基因组注释流程中，tRNA注释基于哪一个工具？", opts: ["A.blast", "B.CRT", "C.cmsearch", "D.tRNAscan-SE"] },
+        { id: "22_62", q: "NCBI制定的真核生物基因组注释流程中，用于最终的基因模型预测软件是哪一个？", opts: ["A.Splign", "B.BLAST", "C.ProSplign", "D.Gnomon"] },
+        { id: "22_63", q: "NCBI制定的真核生物基因组注释流程中，rRNA注释基于哪一个数据资源？", opts: ["A.RefSeq", "B.dbEST", "C.RFAM", "D.SRA"] },
+        { id: "22_64", q: "从头计算方法预测基因时，可以使用的基因特征信息有哪些？", opts: ["A.转录因子结合位点", "B.外显子-内含子的剪接识别位点", "C.密码子偏好性", "D.TATA框"] },
+        { id: "22_65", q: "NCBI提出的原核生物完整基因组注释的最低标准包括", opts: ["A.tRNA：每个氨基酸至少有一个拷贝", "B.没有基因完全包含在相同链或相反链上的另一个基因", "C.没有不完整的部分特征", "D.结构RNA（rRNA）：每个至少有一个长度合适的拷贝"] },
+        { id: "22_66", q: "下列哪些软件可用于原核生物基因组的基因预测？", opts: ["A.Augustus", "B.GeneMarkS", "C.GLIMMER", "D.GENSCAN"] },
+        { id: "22_67", q: "NCBI制定的真核生物基因组注释中，使用哪些工具进行已知蛋白比对，进而将其用于基因结构建模？", opts: ["A.ProSplign", "B.Splign", "C.BLAST", "D.Gnomon"] },
+        { id: "22_68", q: "NCBI制定的真核生物基因组注释流程中，下列哪些数据库可以是已知转录本序列数据？", opts: ["A.SRA", "B.RefSeq", "C.OMIN", "D.PubMed"] },
+        { id: "22_71", q: "下列哪些数据可以用来训练从头计算方法中的目标物种基因结构参数？", opts: ["A.任意基因组序列", "B.近缘物种的已知基因结构数据", "C.该物种的RNA-Seq数据", "D.该物种以往研究中积累的已知基因mRNA、蛋白质信息"] },
+        { id: "22_72", q: "下列软件哪些可以用于基因结构建模？", opts: ["A.GENEWISE", "B.GENSCAN", "C.Augustus", "D.ProSplign"] },
+        { id: "22_74", q: "NCBI制定的原核生物基因组注释流程中，编码蛋白质的基因注释通常需要用到哪些工具和方法？", opts: ["A.ORF查找", "B.GeneMarkS", "C.blast", "D.ProSplign"] },
+        
+        // Image/Table Question
+        { id: "22_77", q: "给一个转录因子结合位点的碱基分布位点权重图，哪个位点保守性最高？", imgSrc: "images/2022_656.png", opts: ["A.4", "B.3", "C.2", "D.1"] },
+        
+        { id: "22_82", q: "给定一个HMM模型的参数，计算一个特定输出序列的概率，使用下列哪种算法？", opts: ["A.动态规划算法", "B.Viterbi算法", "C.Baum-Welch算法", "D.Forward算法"] },
+        
+        // Image/Table Question
+        { id: "22_83", q: "给定一个TATA框的HMM模型参数，下面哪个序列片段最有可能是该Matrix所代表的TATA框？", imgSrc: "images/2022_662.png", opts: ["A.GCTATAAAAAGC", "B.GCTATTTAAAGC", "C.GCTATACGAGGC", "D.GCAATAAAAAGC"] },
+        
+        { id: "22_88", q: "真核生物中，起始mRNA转录的启动子一般与哪个RNA聚合酶结合？", opts: ["A.DNA聚合酶", "B.RNA聚合酶II", "C.RNA聚合酶I", "D.RNA聚合酶III"] },
+        { id: "22_89", q: "下列哪些领域可以使用隐马尔可夫模型（HMM）：", opts: ["A.天气预报", "B.时间序列分析", "C.人体动作识别", "D.序列比对"] },
+        
+        // Image Question
+        { id: "22_90", q: "对下列隐马尔可夫模型（HMM）图的描述中哪些是正确的？", imgSrc: "images/2022_669.png", opts: ["A.b是隐藏状态", "B.y是可观测输出", "C.X是可观测序列", "D.a是转移概率"] },
+        
+        { id: "22_91", q: "下列关于真核生物启动子描述正确的是", opts: ["A.TATA盒一般非常接近转录起始点", "B.可能具有远离转录起始点的调控元件", "C.均包含TATA框", "D.处于基因转录起始位点上游"] },
+        { id: "22_92", q: "启动子按照位置（相对于基因转录起始位点）来分，一般分为哪几类？", opts: ["A.近端启动子", "B.核心启动子", "C.远处启动子"] },
+        { id: "22_93", q: "下列有关隐马尔科夫模型（HMM）的描述中有哪些是正确的？", opts: ["A.后一个节点的可观测序列输出依赖于前一个节点的可观测输出", "B.某个接待你的隐藏状态依赖于该节点的可观测输出", "C.某个节点的可观测输出依赖于该节点的隐藏状态", "D.后一个节点的隐藏状态依赖于前一个节点的隐藏状态"] },
+        
+        // Image/Table Question
+        { id: "22_96", q: "根据CpG阳性HMM计算片段CATG的联合输出概率是", imgSrc: "images/2022_673.png", opts: ["A.0.000578", "B.0.00247", "C.0.000985", "D.0.000415"] },
+        
+        { id: "22_101", q: "根据CpG阴性HMM计算片段CATG的联合输出概率是(见上题图表)", opts: ["A.0.000415", "B.0.000985", "C.0.000578", "D.0.00247"] },
+        { id: "22_106", q: "该片段CATG更有可能属于(见上题图表)", opts: ["A.CpG阴性序列片段", "B.以上都不是", "C.CpG阳性序列片段"] },
+        { id: "22_111", q: "UCSC基因组数据资源提供的REST API中，哪个功能模块可以用于下载特定数据轨道？", opts: ["A/getData/track", "B./getData/sequence", "C./list/tracks", "D./list/files"] },
+        { id: "22_112", q: "在GFF3格式的基因组注释文件中，特征列使用哪个标识来描述基因的编码区特征？", opts: ["A.gene", "B.exon", "C.CDS", "D.mRNA"] },
+        { id: "22_113", q: "在GFF3格式的基因组注释文件中，描述序列特征类型的是哪一列？", opts: ["A.3 type", "B.2 source", "C.1 sequence", "D.9 attributes"] },
+        { id: "22_114", q: "下列有关Ensembl描述正确的有哪些？", opts: ["A.只提供了人类基因组数据资源", "B.提供了许多不同的基因组数据资源", "C.搜索工具不能检索疾病关键词", "D.搜索工具能够检索基因名称"] },
+        { id: "22_115", q: "在Ensembl的人类基因组中检索某个基因，检索结果包含哪些内容？", opts: ["A.基因树（Gene tree）", "B.基因结构可视化模型", "C.变异数据", "D.基因摘要信息"] },
+        { id: "22_116", q: "下列有关Genbank格式基因组序列文件的描述中，哪些是正确的？", opts: ["A.包含可能存在的序列间隙（gap）信息", "B.包含各种该序列相关的注释信息", "C.每个文件中仅仅包含一条基因组序列", "D.包含基因结构特征信息"] },
+        { id: "22_117", q: "Genbank的Genome数据库资源中，基因组组装水平有哪些？", opts: ["A.complete", "B.contig", "C.chromosome", "D.scaffold"] },
+        { id: "22_118", q: "下列有关UCSC基因组数据资源的检索和下载接口程序Table Browser的描述中，有哪些是正确的？", opts: ["A.可限定基因组区间", "B.可指定基因列表", "C.可将检索结果直接传递给Galaxy", "D.可限定物种基因组版本"] },
+        { id: "22_119", q: "UCSC Genome Browser中可检索哪些数据轨道信息？", opts: ["A.基因结构模型", "B.基因表达", "C.重复与变异", "D.基因转录调控"] },
+        { id: "22_120", q: "Genbank的Genome数据库资源有哪几种下载方式？", opts: ["A.datasets工具", "B.REST API", "C.FTP", "D.Web页面下载链接"] }
+    ];
+
+    const rawData2023 = [
+        { id: "23_133", q: "下列哪个组学计划主要目标研究基因组中功能元件的", opts: ["A.The Pediatric Cancer Genome Project", "B.The Cancer Genome Project", "C.ENCODE", "D.The Cancer Genome Atlas"] },
+        { id: "23_138", q: "基因组学的研究目标是什么", opts: ["A.基因组进化", "B.基因组的结构和功能", "C.基因组作图（测序）", "D.基因的定性和定量"] },
+        { id: "23_143", q: "[多选] DNA序列是由哪几种碱基组成", opts: ["A.A", "B.C", "C.G", "D.T", "E.U"] },
+        { id: "23_149", q: "[多选] 下列哪些属于肿瘤基因组计划", opts: ["A.The Pediatric Cancer Genome Project", "B.The Cancer Genome Project", "C.ENCODE", "D.The Cancer Genome Atlas"] },
+        { id: "23_154", q: "[多选] 物理作图可能会使用哪些单位来表示距离", opts: ["A.厘镭(cR)", "B.厘摩(cM)", "C.染色体区带", "D.碱基对(bp)"] },
+        { id: "23_159", q: "遗传作图的距离单位是什么", opts: ["A.染色体区带", "B.厘摩(cM)", "C.碱基对(bp)", "D.厘镭(cR)"] },
+        { id: "23_164", q: "DNA双螺旋结构模型是在哪一年被沃森和克里克提出来的？", opts: ["A.1943", "B.1953", "C.1963", "D.1973"] },
+        { id: "23_169", q: "[多选] 下列哪些属于物理作图方法", opts: ["A.基于克隆的物理作图", "B.镭射杂交作图", "C.限制性酶切作图", "D.STS作图", "E.基于荧光原位杂交的染色体作图"] },
+        { id: "23_175", q: "[多选] [PubMed] Donis-Keller利用限制性片段长度多态性 (RFLPs)，于1987年构建成第一张人的遗传图谱发表于《Cell》中，下列有关这篇研究报告的描述哪些是正确的？", opts: ["A.403个多态性位点", "B.至少覆盖到95%的人类基因组区域", "C.21个包含三代的家族", "D.393个RFLPs"] },
+        { id: "23_180", q: "[多选] 下列哪些可以作为遗传作图标记？", opts: ["A.等位基因", "B.简单序列长度多态性", "C.单核苷酸多态性", "D.限制性片段长度多态性"] },
+        
+        // Image Question
+        { id: "23_185", q: "下图是一张基于链终止法的聚丙烯酰胺凝胶电泳结果图谱，请问这块凝胶电泳结果图谱代表的序列是什么", imgSrc: "images/2023_64.png", opts: ["A.AATTTTGGGCC", "B.ATGCTTCGGAT", "C.CCGGGTTTTAA", "D.TAGGCTTCGTA"] },
+        
+        { id: "23_191", q: "[多选] 下列哪些属于非编码RNA (non-coding RNA, ncRNA) 基因转录产物", opts: ["A.rRNA", "B.miRNA", "C.mRNA", "D.tRNA"] },
+        { id: "23_196", q: "[多选] 下列哪些属于基因组学的研究范畴？", opts: ["A.基因组作图（测序）", "B.基因的定性和定量", "C.基因组进化", "D.基因组的结构和功能"] },
+        { id: "23_201", q: "中国是在哪一年加入人类基因组计划的？", opts: ["A.1990", "B.1999", "C.2000", "D.2001"] },
+        { id: "23_206", q: "[多选] 下列选项中，有关限制性片段长度多态性的描述哪些是正确的？", opts: ["A.人类遗传学家Bostein在1980年提出的", "B.可以用作遗传作图标记", "C.Donis-Keller利用此技术于1987年构建成第一张人的遗传图谱", "D.第一代DNA分子标记技术"] },
+        { id: "23_211", q: "[多选] 基因组的序列组成可分为那几种", opts: ["A.非重复序列", "B.高度串联重复序列", "C.中度散布重复序列", "D.低度重复序列"] },
+        { id: "23_216", q: "[多选] 下列哪些序列种类属于逆转录转座子？", opts: ["A.Microsatellite DNA", "B.Long Terminal Repeat (LTRs)", "C.Non-Long Terminal Repeat (Non-LTRs)", "D.Minisatellite DNA"] },
+        { id: "23_221", q: "[多选] 下列关于基因家族的描述哪些是正确的？", opts: ["A.家族不同成员之间的序列可能相似", "B.家族不同成员可能是作为一个整体发挥功能", "C.家族不同成员之间结构和功能可能相似", "D.家族不同成员可能参与相同的生物学过程"] },
+        { id: "23_226", q: "[多选] 下列关于假基因（Pseudogene）的描述哪些是正确的？", opts: ["A.由于突变而丧失编码蛋白能力", "B.通常来自某个正常基因的拷贝", "C.可能仍然具有生物学功能", "D.可能参与其亲本拷贝基因的转录调控"] },
+        { id: "23_231", q: "[多选] [Pubmed] Cohen于1993年在《Nature》上发表了一篇题为“A first- generation physical map of the human genome”的文章，下列有关这篇研究报道的描述哪些是正确的", opts: ["A.平均插入片段长度为0.9Mb", "B.使用了超过2000个遗传标记物", "C.平均插入片段长度为0.9Kb", "D.使用YAC文库", "E.使用BAC文库", "F.使用了大约1000个遗传标记物"] },
+        { id: "23_238", q: "[多选] 下列哪些序列种类属于高度重复序列？", opts: ["A.微卫星DNA（ Microsatellite DNA ）", "B.小卫星DNA（Minisatellite DNA）", "C.转座子（Transposons）", "D.卫星DNA（Satellite DNA）"] },
+        { id: "23_243", q: "下列这些途径相对比较而言，最合适用来了解基因组学的最新研究进展是", opts: ["A.PubMed", "B.必应", "C.好搜", "D.百度"] },
+        { id: "23_248", q: "[多选] 下列选项中，哪些可以作为遗传作图标记？", opts: ["A.单核苷酸多态性", "B.小卫星序列", "C.微卫星序列", "D.等位基因"] },
+        { id: "23_253", q: "下列哪一项是大规模基因组物理图的主流技术？", opts: ["A.STS作图", "B.限制性酶切作图", "C.基于克隆的物理作图", "D.基于荧光原位杂交的染色体作图", "E.辐射杂交作图"] },
+        { id: "23_259", q: "[多选] 下列有关微卫星DNA（Microsatellite DNA）描述正确的有哪些？", opts: ["A.在不同个体之间重复长度不同", "B.属于高度串联重复序列", "C.可作为遗传标记物", "D.重复数目可变"] },
+        { id: "23_264", q: "[多选] 下列选项中，有关遗传作图的描述哪些是正确的？", opts: ["A.分辦率有限，受到子代数量限制", "B.距离单位是染色体的区带", "C.覆盖率较低", "D.覆盖率较高"] },
+        { id: "23_269", q: "[多选] 下列选项中，有关物理作图的描述哪些是正确的？", opts: ["A.距离单位可以是核苷酸对数", "B.覆盖率较高", "C.覆盖率较低", "D.距离单位是染色体的区带"] },
+        { id: "23_274", q: "[多选] 下列哪些序列种类属于中度重复序列？", opts: ["A.微卫星DNA（ Microsatellite DNA ）", "B.小卫星DNA（Minisatellite DNA）", "C.转座子（Transposons）", "D.逆转录转座子（Retrotransposons）"] },
+        { id: "23_279", q: "[多选] 基因组（genome）范畴一般包括哪些？", opts: ["A.病毒基因组（Virus genome）", "B.叶绿体基因组（Chloroplast genome）", "C.核/染色体基因组（Nuclear/Chromosomal genome）", "D.线粒体基因组（Mitochondrial genome）"] },
+        { id: "23_284", q: "基因组中编码基因的序列一般属于哪种类型？", opts: ["A.非重复序列", "B.低度重复序列", "C.高度串联重复序列", "D.中度散布重复序列"] },
+        { id: "23_289", q: "编码蛋白质的基因转录物是哪一个？", opts: ["A.rRNA", "B.tRNA", "C.mRNA", "D.miRNA"] },
+        { id: "23_294", q: "[多选] 人类基因组计划中绘制了哪几张基因组图谱？", opts: ["A.序列图", "B.遗传图", "C.转录图", "D.物理图"] },
+        { id: "23_299", q: "[多选] 下列关于基因的描述哪些是正确的？", opts: ["A.人类基因组的一条链上编码了一个基因，则其互补区域不可能再编码另一个基因", "B.一个基因的内部可能编码另一个基因", "C.两个不同的基因可能会存在重叠区域", "D.真核生物中编码不同蛋白质的基因之间，不可能存在相似序列"] },
+        { id: "23_305", q: "在全基因组测序中，哪种问题无法通过增加测序深度来补全", opts: ["A.物理间隙", "B.逻辑间隙", "C.序列间隙", "D.拼接间隙"] },
+        { id: "23_310", q: "在全基因组测序中，当测序量为基因组大小（m值）的1倍时，理论上的丢失概率能够达到多少", opts: ["A.50%", "B.37%", "C.67%", "D.33%"] },
+        { id: "23_315", q: "在对基因组测序数据分析发现，某个位点的总覆盖度达到50x，但是结果并不一致，其中有24个测序现实该位点为A，另外26个显示为C，那么你觉得该位点应该是什么", opts: ["A.不确定", "B.[A/C]单核苷酸多态性", "C.A", "D.C"] },
+        { id: "23_320", q: "在对基因组测序数据分析发现，某个位点的总覆盖度达到50x，但是结果并不一致，其中有45个测序现实该位点为A，另外5个显示为C，那么你觉得该位点应该是什么", opts: ["A.不确定", "B.[A/C]单核苷酸多态性", "C.A", "D.C"] },
+        { id: "23_325", q: "全基因组测序中，当测序量为基因组大小（m值）的5倍时，理论上的覆盖率能够达到多少？", opts: ["A.60%", "B.99%", "C.50%", "D.90%"] },
+        { id: "23_330", q: "在fastq格式测序结果文件中，以Sanger/Pred方法计算出来的测序质量字符I (ASCII码为73) 代表的测序错误概率是多少？", opts: ["A.0.01%", "B.10%", "C.0.1%", "D.1%"] },
+        { id: "23_335", q: "在fastq格式测序结果文件中，以Sanger/Pred方法计算出来的测序质量字符(ASCII码为63) 代表的测序精度概率是多少？", opts: ["A.99.9%", "B.90%", "C.99.99%", "D.99%"] },
+        { id: "23_340", q: "[多选] 下列有关测序模拟意义的描述中，有哪些是正确的？", opts: ["A.可以对测序数据分析流程进行评估", "B.可以对测序数据管理系统性能进行评估", "C.可以对第三方数据分析算法和工具性能进行评估", "D.可以对测序数据预处理流程进行评估"] },
+        { id: "23_345", q: "ART是一款常用的NGS读段模拟工具，其特点包括", opts: ["A.模拟数据无法用于评估变异调用工具", "B.不支持扩增子测序模拟", "C.不允许用户自定义的质量谱模型", "D.可输出SAM格式的序列比对结果"] },
+        { id: "23_350", q: "在对基因组测序数据分析发现，某个位点的总覆盖度达到150x，但是结果并不一致，其中有145个测序结果显示该位点为T，另外5个显示为C，那么你觉得该位点应该是什么？", opts: ["A.不确定", "B.T", "C.[T/C]单核苷酸多态性", "D.C"] },
+        { id: "23_355", q: "在对基因组测序数据分析发现，某个位点的总覆盖度达到100x，但是结果并不一致，其中有55个测序结果显示该位点为A，另外45个显示为G，那么你觉得该位点最有可能是什么？", opts: ["A.G", "B.不确定", "C.A", "D.[A/G]单核苷酸多态性"] },
+        { id: "23_360", q: "[多选] 下列有关下一代测序（NGS）读段模拟工具集ART的描述中，哪些是正确的？", opts: ["A.模拟数据可用于评估各种NGS数据分析方法和工具", "B.内建多种测序平台的基于大量测序数据构建的经验错误模型", "C.支持单末端 （single-end）、双末端（paired-end）、配对（mate-pair）", "D.可以输出FASTQ格式读段（reads）数据"] },
+        { id: "23_365", q: "下列有关下一代测序 （NGS）读段模拟工具集ART的描述中，哪些是正确的？", opts: ["A.模拟数据无法用于评估变异调用工具", "B.不支持扩增子测序模拟", "C.不支持用户自定义的质量谱模型", "D.可输出SAM格式的序列比对结果"] },
+        { id: "23_370", q: "在art_illumina模拟输出的aln格式文件中，注释信息中哪个标记代表参考序列信息？", opts: ["A.HD", "B.SQ", "C.CM", "D.PG"] },
+        { id: "23_380", q: "[多选] 在全基因组测序中，导致最终基因组序列存在间隙（gap）的主要因素有哪些？", opts: ["A.拼接间隙", "B.物理间隙", "C.序列间隙", "D.逻辑间隙"] },
+        { id: "23_385", q: "[多选] 下列有关早期DNA测序方法描述正确有哪些？", opts: ["A.链终止法是由Frederick Sanger于1977提出的", "B.DNA测序的基本方法有链终止法和化学降解法", "C.化学降解法是由Allan Maxam和Walter Gilbert于1977提出的", "D.链终止法和化学降解法均获得了1980年的诺贝尔化学奖"] },
+        { id: "23_390", q: "二代测序技术按照测序原理分类，一般分为哪几类？", opts: ["A.边合成边测序", "B.边降解边测序", "C.边连接边测序"] },
+        
+        // Image Question
+        { id: "23_395", q: "下图是一个简单的deBruijin图(AAGA->AGAC...)。根据该图可以得出什么样的序列？", imgSrc: "images/2023_274.png", opts: ["A.不确定", "B.AAGACTCGACTG", "C.AAGACTG"] },
+        
+        // Image Question
+        { id: "23_400", q: "下图是一个简单的deBruijin图(ATCT->TCTT...)。根据该图可以得出什么样的序列？", imgSrc: "images/2023_279.png", opts: ["A.ATCTTCCG", "B.ATCTTATTCC", "C.不确定"] },
+        
+        // Image Question
+        { id: "23_405", q: "下图是一个简单的deBruijin图(ATCT分支...)。根据该图可以得出什么样的序列？", imgSrc: "images/2023_284.png", opts: ["A.ATCTAATTCG", "B.不确定", "C.ATCTTATTCG"] },
+        
+        // Image Question
+        { id: "23_410", q: "基于de Bruijn Graph （DBG）方法获得下图中的欧拉路径（Eularian path），根据该图获得的拼接序列是哪一个？", imgSrc: "images/2023_289.png", opts: ["A.AGAATTAACCTTTTCCA", "B.AGAGATATATACACTCTTTTCTCA", "C.AGAGATACTT", "D.AGATACTTCA"] },
+        
+        { id: "23_415", q: "[多选] 在基于重叠图的OLC方法中寻找Hamilon路径是序列组装的经典算法之一，下列哪些有关该算法的描述是正确的？", opts: ["A.该算法的稳健性受到测序错误和覆盖率（测序数据量）的影响", "B.用于启发的k-mer越长，组装获得的重叠群（contigs）就越短", "C.用于启发的k-mer越长，组装结果越精确", "D.重叠图必须包含所有测序读段"] },
+        { id: "23_420", q: "[多选] 基于de Bruijn Graph（DBG）方法的序列组装，下列描述中有哪些是正确的？", opts: ["A.测序错误会导致de Bruijin图中出现tip结构", "B.测序错误会导致de Bruijin图中出现bubble结构", "C.通过分析K-mer频次分布，可以找出一个合适的阈值来过滤错误读段", "D.测序错误会导致de Bruijin图更大更复杂，消耗更多计算资源，且降低组装效率"] },
+        { id: "23_425", q: "[多选] 基于de Bruijn Graph （DBG）方法的序列组装，下列描述正确的有哪些？", opts: ["A.设定一个k-mer出现频数阈值，可能会在一定程度上过滤错误读段", "B.测序间隙（gap）会产生“dead-end”路径，K-mer越长该问题越严重", "C.基于克隆片段长度（mate-pair测序）可能解决部分重复序列引起的环状结构", "D.测序间隙（gap）会导致de Bruijin图连通性降低"] },
+        { id: "23_430", q: "[多选] 在对全基因组测序结果的组装过程中，哪些因素会给组装带来困扰？", opts: ["A.倒位", "B.重复序列", "C.测序错误", "D.多态性变异"] },
+        { id: "23_435", q: "[多选] 下列有关基因组组装描述正确的有哪些？", opts: ["A.基因组不同区域中的测序深度一定是相同的", "B.重复序列在组装形成重叠群时不会产生歧义", "C.两条链都会被测序", "D.易受重复序列变化影响"] },
+        { id: "23_440", q: "[多选] 下列有关基因组组装的描述中，有哪些是正确的？", opts: ["A.从头组装策略可以通过哈希散列法改进读段之间的比较过程", "B.有参组装只能参考物种自身的基因组序列", "C.有参组装可以参考近缘物种的高相似骨架序列", "D.从头组装策略的组装速度要比有参组装策略更快"] },
+        { id: "23_445", q: "[多选] 下列有关基因组测序组装工具应用领域的描述中，有哪些是正确的？", opts: ["A.基础基因组组装", "B.宏基因组组装", "C.单倍体分型组装", "D.细胞器基因组组装"] },
+        { id: "23_450", q: "[多选] 基因组测序中，来自短插入片段文库的双末端测序读段（paired-end reads）可用于序列组装中的哪个过程", opts: ["A.构建脚手架（scaffolds）", "B.构建重叠群（contigs）", "C.判定测序错误", "D.解决重复序列问题"] },
+        { id: "23_455", q: "[多选] 在基因组组装中，从头组装与有参组装相比，有什么特点？", opts: ["A.内存消耗大", "B.组装速度快", "C.组装速度慢", "D.内存消耗小"] },
+        { id: "23_460", q: "[多选] 下列有关转录组组装描述有哪些是正确的？", opts: ["A.在组装形成重叠群时，产生的歧义可能对应于剪接变异体", "B.不同转录本的测序深度可能变化很大", "C.在组装形成重叠群时，产生的歧义可能对应于基因家族成员间的微小变异", "D.基于下一代测序技术的RNA-Seq是链特异性的"] },
+        { id: "23_465", q: "[多选] 测序模拟一般需要考虑哪些主要特征进行分类构建经验统计模型？", opts: ["A.不同的样本类型", "B.不同测序方法的平台", "C.不同厂家和型号的测序平台", "D.不同的物种类型"] },
+        { id: "23_470", q: "[多选] 下列有关基因组测序组装工具的描述中，有哪些是正确的？", opts: ["A.任何组装工具都无法同时使用多种测序平台的数据进行组装", "B.基于二代高通量测序数据开发的组装工具，可以直接用于单分子实时测序数据（三代测序）的组装", "C.单分子实时测序数据（三代测序）可以解决二代测序技术中建库扩增时带来的偏移问题", "D.单分子实时测序数据（三代测序）可以很大程度上解决重复序列的组装问题"] },
+        { id: "23_476", q: "[多选] 下列有关SAM格式规范描述正确的有哪些？", opts: ["A.包含测序读段自身的质量信息", "B.使用“=”表示配对读段中的另一个读段也比对上当前参考序列", "C.包含测序读段比对上参考基因组序列的映射质量信息", "D.包含测序读段的编号信息", "E.包含参考序列的编号信息"] },
+        { id: "23_482", q: "在SAM格式文件中，注释信息部分包含多个标记，其中用于定义参考序列信息的是？", opts: ["A.SQ", "B.HD", "C.PG", "D.CM"] },
+        { id: "23_492", q: "在sam格式文件中，注释信息以什么字符作为开始标记？", opts: ["A.*", "B.@", "C.#", "D./"] },
+        { id: "23_497", q: "Blast系列软件采用的是什么算法？", opts: ["A.Forward算法", "B.启发式算法", "C.贪婪算法", "D.动态规划算法"] },
+        { id: "23_502", q: "[多选] 下列有关模块替换矩阵（BLOSUM）描述正确的有哪些？", opts: ["A.基于一组可能非常远缘的蛋白质多序列比对中的保守序列片段（BLOCKS）来构建的", "B.BLOSUM矩阵后面的数值越小，比对时敏感性越高，越适用于低相似性目标的搜寻", "C.由Henikoff于1992年提出的", "D.可以解决蛋白质之间的远进化距离问题"] },
+        { id: "23_507", q: "[多选] 下列有关全基因组同源基因搜索的描述中，哪些是正确的？", opts: ["A.无法给出精细的基因外显子-内含子结构", "B.可以准确的预测编码区", "C.只能给出可能的同源基因定位", "D.预测的同源基因肯定都可以转录"] },
+        { id: "23_512", q: "[多选] 下列有关相似性比对时打分模型描述正确的有哪些？", opts: ["A.突变会导致错配，通常需要给与罚分", "B.匹配的残基通常需要给与加分", "C.间隙罚分可分为开放和延伸罚分两个不同的权重", "D.插入或缺失突变会导致比对时间隙（gaps）的引入，通常需要给与罚分"] },
+        { id: "23_517", q: "[多选] 给你一条小鼠（Mus musculus, mouse）的MYC蛋白序列，如果想知道该蛋白与人类哪个基因或其编码的蛋白同源，可以选择下列哪些程序进行分析？", opts: ["A.blastn", "B.tblastx", "C.blastx", "D.tblastn", "E.blastp"] },
+        { id: "23_523", q: "[多选] 下列有关相似性和同源性的描述哪些是正确的？", opts: ["A.如果两条蛋白质序列之间只有弱相似性，则两者之间不存在任何共同的生物学功能", "B.当相似程度高于50%时，比较容易推测检测序列和目标序列可能是同源序列", "C.当相似性程度低于20%时，就难以确定或者根本无法确定其是否具有同源性", "D.相似性是统计学上的概念，而同源性是进化上的概念"] },
+        { id: "23_528", q: "[多选] 下列有关序列比对软件的描述哪些是正确的？", opts: ["A.Clustal系列软件采用的是局部联配策略", "B.Blast系列软件采用的是全局联配策略", "C.Blast系列软件采用的是局部联配策略", "D.Clustal系列软件采用的是全局联配策略"] },
+        { id: "23_533", q: "[多选] 使用gffcompare对基因组注释结果进行质量评估时，可以对下列哪些指标进行统计分析？", opts: ["A.碱基水平（base level）的敏感性和准确性", "B.转录本水平（transcirpt level）的敏感性和准确性", "C.外显子水平（exon level）的敏感性和准确性", "D.基因座水平（locus level）的敏感性和准确性", "E.内含子水平 （intron level）的敏感性和准确性"] },
+        { id: "23_539", q: "[多选] 基于二代高通量测序数据的组装流程通常包含下列哪些步骤？", opts: ["A.数据修剪", "B.抛光（polishing）", "C.数据组装", "D.数据质控"] },
+        { id: "23_544", q: "[多选] 利用单分子实时测序数据（三代测序）的组装流程通常包含下列哪些步骤？", opts: ["A.数据修剪", "B.抛光（polishing）", "C.数据组装", "D.数据质控"] },
+        { id: "23_549", q: "非模式或常用生物的基因组在注释时，通常使用下面哪个工具进行重复遮蔽？", opts: ["A.BLAST", "B.Splign", "C.WindowMasker", "D.RepeatMasker"] },
+        { id: "23_554", q: "[多选] 下列哪些属于基因组注释范畴", opts: ["A.新基因预测", "B.DNA元件分析", "C.已知基因搜寻", "D.序列组装"] },
+        { id: "23_559", q: "[多选] 下列有关Clustal系列软件的描述哪些是正确的？", opts: ["A.Clustal系列软件采用的是全局联配策略", "B.Clustal系列软件采用的是局部联配策略", "C.Clustal系列软件适用于低相似序列比对", "D.Clustal系列软件适用于高相似序列比对"] },
+        { id: "23_564", q: "[多选] 下列有关启发式算法的描述中，有哪些是正确的？", opts: ["A.启发式算法通常可以在合理的时间范围内容找出足够好的解决方案", "B.BLAST系列软件采用了启发式搜索算法", "C.启发式算法一定会找出所有解決方案", "D.启发式算法一定会找出最优最有解決方案"] },
+        { id: "23_569", q: "[多选] NCBI提出的原核生物完整基因组注释的最低标准包括", opts: ["A.没有基因完全包含在相同链或相反链上的另一个基因中", "B.tRNA：每个氨基酸至少有一个拷贝", "C.每个结构RNA（rRNA）至少有一个长度合适的拷贝", "D.蛋白质编码基因碱基计数除以基因组长度接近1", "E.每个异常都必须得到解释和记录", "F.没有不完整的部分特征"] },
+        { id: "23_576", q: "[多选] 下列有关可接受点突变矩阵（PAM）描述正确的有哪些？", opts: ["A.由Dayhoff于1978年提出的", "B.1个PAM的进化距离表示100个残基中发生一个残基突变的概率", "C.基于已知蛋白质家族的多序列比对中观察到的突变数据来构建的", "D.PAM矩阵后面的数值越大，比对时敏感性越高，越适用于低相似性目标的搜寻"] },
+        { id: "23_582", q: "[多选] 下列软件哪些可用于基因结构建模？", opts: ["A.GENEWISE", "B.Augustus", "C.BLAT", "D.ProSplign"] },
+        { id: "23_587", q: "[多选] 下列哪些工具可用于基于RNA-Seq测序数据的新基因发现和结构建模？", opts: ["A.minimap2", "B.stringtie", "C.STAR", "D.hisat2"] },
+        { id: "23_592", q: "[多选] 下列哪些软件可用于原核生物基因组的基因预测？", opts: ["A.GLIMMER", "B.GENSCAN", "C.GeneMarkS", "D.Augustus"] },
+        { id: "23_597", q: "[多选] 下列哪些数据可以用来训练从头计算方法中的目标物种基因结构模型参数？", opts: ["A.该物种以往研究中积累的已知基因mRNA、蛋白质信息", "B.该物种的转录组测序（RNA-Seq）数据", "C.近缘物种的已知基因结构数据", "D.任意物种的基因组序列"] },
+        { id: "23_602", q: "[多选] NCBI制定的真核生物基因组注释流程中，使用哪些工具进行基于已知蛋白比对的基因结构建模？", opts: ["A.BLAST", "B.Splign", "C.Gnomon", "D.ProSplign"] },
+        { id: "23_607", q: "[多选] 从头计算方法预测基因时，可以使用的基因特征信息有哪些？", opts: ["A.转录起始位点", "B.转录因子结合位点", "C.密码子偏好性", "D.TATA框", "E.外显子-内含子的剪接识别位点"] },
+        { id: "23_614", q: "[多选] 下列哪些是基因组中具有特定生物学功能的DNA元件", opts: ["A.CpG岛", "B.5’UTR", "C.启动子(Promoter)", "D.转录因子结合位点"] },
+        
+        // Image/Table
+        { id: "23_619", q: "给定一个TATA框的位置权重矩阵（PWM），哪个位点保守性最高？", imgSrc: "images/2023_498.png", opts: ["A.5", "B.6", "C.7", "D.4"] },
+        
+        // Image/Table
+        { id: "23_624", q: "给定一个转录因子结合位点的碱基分布的位点权重矩阵，下面哪个序列片段最有可能是该Matrix所代表的转录因子结合位点？", imgSrc: "images/2023_503.png", opts: ["A.CGAAA", "B.CGAAG", "C.AGAAA", "D.AGAAC"] },
+        
+        { id: "23_629", q: "[多选] 下列哪些领域可以使用隐马尔可夫模型（HMM）？", opts: ["A.天气预报", "B.时间序列分析", "C.人体动作识别", "D.序列比对"] },
+        { id: "23_634", q: "真核生物中，起始mRNA转录的启动子一般与哪个RNA聚合酶结合？", opts: ["A.RNA聚合酶I", "B.DNA聚合酶", "C.RNA聚合酶III", "D.RNA聚合酶II"] },
+        { id: "23_639", q: "[多选] 下列有关隐马尔可夫模型（HMM）描述中，有哪些是正确的？", opts: ["A.后一个节点的隐藏状态依赖于前一个节点的隐藏状态", "B.某个节点的可观察输出依赖于该节点的隐藏状态", "C.某个节点的隐藏状态依赖于该节点的可观察输出", "D.后一个节点的可观察输出依赖于前一个节点的可观察输出"] },
+        { id: "23_644", q: "[多选] 下列关于真核生物启动子描述正确的是", opts: ["A.TATA盒一般非常接近转录起始点", "B.均包含TATA框", "C.处于基因转录起始位点上游", "D.可能具有远离转录起始点的调控元件"] },
+        
+        // Image
+        { id: "23_649", q: "对下面有关隐马尔科夫模型（HMM）图的描述中哪个是正确的？(X1-X3, y1-y3)", imgSrc: "images/2023_528.png", opts: ["A.b输出概率", "B.y是隐藏状态", "C.X是可观察输出", "D.a是输出概率"] },
+        
+        { id: "23_654", q: "根据给定的隐马尔可夫模型（HMM）参数，计算产生一个特定输出序列的最有可能的隐藏状态序列的算法是哪一个？", opts: ["A.动态规划算法", "B.Viterbi算法", "C.Baum-Welch算法", "D.Forward算法"] },
+        
+        // Image/Table
+        { id: "23_660", q: "根据CpG阳性HMM计算该片段的联合输出概率是", imgSrc: "images/2023_538.png", opts: ["A.0.000985", "B.0.000578", "C.0.00247", "D.0.000415"] },
+        
+        { id: "23_665", q: "根据CpG阴性HMM计算该片段的联合输出概率是(见上题图表)", opts: ["A.0.000985", "B.0.000578", "C.0.00247", "D.0.000415"] },
+        { id: "23_670", q: "该片段最有可能是：", opts: ["A.CpG阴性序列片段", "B.CpG阳性序列片段", "C.以上都不是"] },
+        { id: "23_674", q: "[多选] NCBI制定的原核生物基因组注释流程中，编码蛋白质的基因注释通常需要用到哪些工具和方法？", opts: ["A.ORF查找", "B.HMM搜索", "C.blast", "D.ProSplign", "E.GeneMarkS"] },
+        { id: "23_681", q: "NCBI制定的原核生物基因组注释流程中，各种非编码RNA注释基于哪一个数据库源？", opts: ["A.SRA", "B.RFAM", "C.RefSeq", "D.dbEST"] },
+        { id: "23_686", q: "[多选] 下列哪些数据库中储存了基因组相关数据？", opts: ["A.Ensembl", "B.UCSC", "C.Genbank", "D.JGI GOLD"] },
+        { id: "23_691", q: "NCBI制定的真核生物基因组注释流程中，rRNA注释基于哪一个数据库源？", opts: ["A.SRA", "B.RefSeq", "C.RFAM", "D.dbEST"] },
+        { id: "23_696", q: "[多选] NCBI制定的真核生物基因组注释流程中，下列哪些数据库可以是已知转录本序列数据源？", opts: ["A.OMIM", "B.PubMed", "C.SRA", "D.RefSeq"] }
+    ];
+
+    // Combine data
+    const allQuestions = [
+        ...rawData2022.map(item => ({...item, source: '2022'})),
+        ...rawData2023.map(item => ({...item, source: '2023'}))
+    ];
+
+    // State
+    let currentFilter = 'all'; 
+    let displayedQuestions = [...allQuestions];
+
+    // DOM Elements
+    const listContainer = document.getElementById('questionList');
+    const searchInput = document.getElementById('searchInput');
+    const filterBtns = document.getElementById('sourceFilter').getElementsByTagName('button');
+    const randomBtn = document.getElementById('randomQuizBtn');
+
+    // ================= FUNCTIONS =================
+
+    // 全局变量存储用户数据
+    let userDataStore = {};
+
+    // 1. 初始化：先从服务器加载所有数据，再渲染页面
+    async function initApp() {
+        try {
+            // 请求 user_data/answers.json (如果第一次运行可能报404，没关系)
+            const response = await fetch('user_data/answers.json?t=' + new Date().getTime());
+            if (response.ok) {
+                userDataStore = await response.json();
+            }
+        } catch (e) {
+            console.log("暂无历史数据或加载失败，将创建新数据");
+        }
+        
+        // 数据加载完毕，开始渲染
+        renderList(allQuestions);
+    }
+
+    // 从内存中获取数据（因为已经预加载了）
+    function getSavedData(id) {
+        // 如果内存里有，就返回；没有就返回空模板
+        return userDataStore[id] || { answer: '', analysis: '', img_path: '' };
+    }
+
+    // 保存数据到服务器 (Python)
+    async function saveDataToServer(id, answer, analysis, pastedImgBase64, pdfPage) {
+        const payload = {
+            id: id,
+            answer: answer,
+            analysis: analysis,
+            pastedImg: pastedImgBase64,
+            pdf_page: pdfPage // 新增：PDF页码字段
+        };
+
+        try {
+            const res = await fetch('/api/save', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+
+            if (res.ok) {
+                const data = await res.json();
+                
+                // 更新内存数据
+                userDataStore[id] = {
+                    answer: answer,
+                    analysis: analysis,
+                    img_path: data.img_path,
+                    pdf_page: pdfPage // 更新内存中的页码
+                };
+                return { success: true, img_path: data.img_path };
+            } else {
+                alert('保存失败：服务器错误');
+                return { success: false };
+            }
+        } catch (e) {
+            alert('保存失败：请确保 python server.py 正在运行');
+            return { success: false };
+        }
+    }
+
+    // --- DOM 操作与渲染逻辑 ---
+
+    // 渲染图片预览
+    function updatePreviewDOM(previewContainer, imgSrc, qId, ansInput, noteInput) {
+        previewContainer.innerHTML = '';
+        if (!imgSrc) return;
+
+        const wrapper = document.createElement('div');
+        wrapper.className = 'img-preview-wrapper';
+
+        // 图片：如果是 base64 (刚粘贴未保存) 直接显示，如果是路径 (已保存) 加上时间戳防缓存
+        const displaySrc = imgSrc.startsWith('data:') ? imgSrc : (imgSrc + '?t=' + new Date().getTime());
+
+        const img = document.createElement('img');
+        img.src = displaySrc;
+        img.className = 'q-image';
+        img.style.maxWidth = '100%';
+        img.style.marginTop = '10px';
+        
+        // 删除按钮
+        const delBtn = document.createElement('button');
+        delBtn.textContent = '删除这张截图';
+        delBtn.className = 'del-img-btn';
+        
+        delBtn.addEventListener('click', async function(e) {
+            e.stopPropagation();
+            if(confirm('确定要从硬盘删除这张截图吗？')) {
+                // 发送 "DELETE" 标记给服务器
+                const result = await saveDataToServer(qId, ansInput.value, noteInput.value, "DELETE");
+                if (result.success) {
+                    previewContainer.innerHTML = '';
+                    alert('图片已删除');
+                }
+            }
+        });
+
+        wrapper.appendChild(img);
+        wrapper.appendChild(delBtn);
+        previewContainer.appendChild(wrapper);
+    }
+
+    function handlePaste(e, id, imgContainer, ansInput, noteInput) {
+        const items = (e.clipboardData || e.originalEvent.clipboardData).items;
+        let hasImage = false;
+        for (let i = 0; i < items.length; i++) {
+            if (items[i].type.indexOf("image") !== -1) {
+                const blob = items[i].getAsFile();
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    const base64 = event.target.result;
+                    // 只是预览，还没保存到服务器
+                    updatePreviewDOM(imgContainer, base64, id, ansInput, noteInput);
+                    // 给图片打一个标记，表示它是新粘贴的 Base64
+                    imgContainer.dataset.newBase64 = base64;
+                };
+                reader.readAsDataURL(blob);
+                hasImage = true;
+                e.preventDefault(); 
+            }
+        }
+    }
+
+    function renderList(questions) {
+        listContainer.innerHTML = '';
+        
+        if(questions.length === 0) {
+            listContainer.innerHTML = '<div style="text-align:center;padding:40px;color:#95a5a6">没有找到匹配的题目</div>';
+            return;
+        }
+
+        questions.forEach(q => {
+            // 获取已保存的数据，增加 pdf_page 默认值
+            const saved = userDataStore[q.id] || { answer: '', analysis: '', img_path: '', pdf_page: '' }; 
+            
+            const card = document.createElement('div');
+            card.className = 'question-card';
+            
+            let optionsHtml = '';
+            if(q.opts && q.opts.length > 0) {
+                optionsHtml = '<ul class="q-options">' + 
+                    q.opts.map(opt => `<li class="q-option">${opt}</li>`).join('') + 
+                    '</ul>';
+            }
+
+            let imageHtml = '';
+            if (q.imgSrc) {
+                imageHtml = `
+                    <div class="q-image-container">
+                        <img src="${q.imgSrc}" class="q-image" alt="题目图片" onerror="this.style.display='none';">
+                    </div>
+                `;
+            }
+
+            // --- HTML 模板改动：新增了 PDF 关联区域 ---
+            card.innerHTML = `
+                <div class="q-header">
+                    <span class="q-source-tag">${q.source}题库</span>
+                    <span>ID: ${q.id}</span>
+                </div>
+                <div class="q-text">${q.q}</div>
+                ${imageHtml}
+                ${optionsHtml}
+                <div class="answer-section">
+                    
+                    <div class="input-group">
+                        <label>我的答案：</label>
+                        <textarea class="ans-input" placeholder="输入答案...">${saved.answer || ''}</textarea>
+                    </div>
+
+                    <div class="input-group" style="background:#f0f8ff; padding:10px; border-radius:4px; border:1px dashed #bcdff1;">
+                        <label style="color:#2980b9; margin-bottom:8px;">课件关联：</label>
+                        <div style="display:flex; gap:10px; align-items:center;">
+                            <span>参考答案在汇总PPT的第</span>
+                            <input type="number" class="pdf-page-input" value="${saved.pdf_page || ''}" placeholder="页码" style="width:60px; padding:5px;">
+                            <span>页</span>
+                            <button class="open-pdf-btn" style="background:#3498db; color:white; border:none; margin-left:10px; font-size:12px;">打开课件并跳转</button>
+                        </div>
+                        <div style="font-size:12px; color:#7f8c8d; margin-top:5px;">* 输入页码并保存，下次点击按钮可直接跳转。</div>
+                    </div>
+
+                    <div class="input-group">
+                        <label>粘贴截图/笔记图片 (点击下方区域后 Ctrl+V)：</label>
+                        <div class="paste-area" contenteditable="true">点击此处后粘贴图片 (Ctrl+V)</div>
+                        <div class="pasted-preview"></div> 
+                    </div>
+                    
+                    <div class="input-group">
+                        <label>解析/文字笔记：</label>
+                        <textarea class="note-input" placeholder="在此记录解析...">${saved.analysis || ''}</textarea>
+                    </div>
+                    
+                    <button class="save-btn">保存修改</button>
+                    <div class="clearfix"></div>
+                </div>
+            `;
+
+            const ansInput = card.querySelector('.ans-input');
+            const noteInput = card.querySelector('.note-input');
+            const pdfPageInput = card.querySelector('.pdf-page-input'); // 获取页码输入框
+            const openPdfBtn = card.querySelector('.open-pdf-btn');    // 获取打开按钮
+            const pasteArea = card.querySelector('.paste-area');
+            const previewArea = card.querySelector('.pasted-preview');
+            const saveBtn = card.querySelector('.save-btn');
+
+            if (saved.img_path) {
+                updatePreviewDOM(previewArea, saved.img_path, q.id, ansInput, noteInput);
+            }
+
+            // 阻止点击内部元素时折叠卡片
+            card.addEventListener('click', function(e) {
+                if (['TEXTAREA', 'BUTTON', 'IMG', 'DIV', 'INPUT'].includes(e.target.tagName) && 
+                   (e.target.classList.contains('paste-area') || 
+                    e.target.classList.contains('img-preview-wrapper') || 
+                    e.target.classList.contains('pdf-page-input') ||
+                    e.target.closest('.del-img-btn'))) return;
+                
+                if (['TEXTAREA', 'BUTTON', 'INPUT'].includes(e.target.tagName)) return;
+                this.classList.toggle('expanded');
+            });
+
+            // --- 新增：打开 PDF 按钮事件 ---
+            openPdfBtn.addEventListener('click', function(e) {
+                e.stopPropagation(); // 防止折叠卡片
+                const p = pdfPageInput.value;
+                let url = 'reader.html';
+                if(p) {
+                    url += '?page=' + p;
+                }
+                // 在新标签页打开
+                window.open(url, '_blank');
+            });
+
+            pasteArea.addEventListener('paste', function(e) {
+                handlePaste(e, q.id, previewArea, ansInput, noteInput);
+            });
+
+            saveBtn.addEventListener('click', async function() {
+                const currentAns = ansInput.value;
+                const currentNote = noteInput.value;
+                const currentPdfPage = pdfPageInput.value; // 获取当前输入的页码
+                
+                const newImg = previewArea.dataset.newBase64 || null;
+
+                saveBtn.textContent = '保存中...';
+                // 传入第 5 个参数：currentPdfPage
+                const result = await saveDataToServer(q.id, currentAns, currentNote, newImg, currentPdfPage);
+                saveBtn.textContent = '保存修改';
+                
+                if(result.success) {
+                    previewArea.dataset.newBase64 = ''; 
+                    updatePreviewDOM(previewArea, result.img_path, q.id, ansInput, noteInput);
+                    alert('保存成功！');
+                }
+            });
+
+            listContainer.appendChild(card);
+        });
+    }
+
+    function applyFilter() {
+        const keyword = searchInput.value.toLowerCase();
+        displayedQuestions = allQuestions.filter(item => {
+            if (currentFilter !== 'all' && item.source !== currentFilter) return false;
+            if (keyword) {
+                return item.q.toLowerCase().includes(keyword) || 
+                       item.opts.some(o => o.toLowerCase().includes(keyword));
+            }
+            return true;
+        });
+        renderList(displayedQuestions);
+    }
+
+    function generateRandomQuiz() {
+        let pool = allQuestions.filter(item => currentFilter === 'all' || item.source === currentFilter);
+        if (pool.length < 10) { alert('题目不足'); return; }
+        const count = 10;
+        const chunkSize = Math.floor(pool.length / count);
+        const selected = [];
+        for (let i = 0; i < count; i++) {
+            const start = i * chunkSize;
+            const end = (i === count - 1) ? pool.length : (i + 1) * chunkSize;
+            selected.push(pool[Math.floor(Math.random() * (end - start)) + start]);
+        }
+        displayedQuestions = selected;
+        renderList(displayedQuestions);
+        alert(`已抽取 ${selected.length} 道题`);
+    }
+
+    // 绑定事件
+    Array.from(filterBtns).forEach(btn => {
+        btn.addEventListener('click', function() {
+            Array.from(filterBtns).forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            currentFilter = this.getAttribute('data-filter');
+            applyFilter();
+        });
+    });
+
+    searchInput.addEventListener('input', applyFilter);
+    randomBtn.addEventListener('click', generateRandomQuiz);
+
+    // 启动应用
+    initApp();
+
+</script>
+
+</body>
+</html>

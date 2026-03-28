@@ -1,0 +1,301 @@
+{
+  "meta": {
+    "title": "SynQuest Generated Questions",
+    "count": 6,
+    "seed": 7
+  },
+  "questions": [
+    {
+      "id": "sq-annotation-pipeline-001",
+      "source": "synquest",
+      "origin": "generated",
+      "year": null,
+      "topic": "annotation-pipeline",
+      "topicName": "基因注释、结构建模与功能元件",
+      "difficulty": 3,
+      "type": "single_choice",
+      "prompt": "下列哪类信息常被用于从头基因预测？",
+      "options": [
+        {
+          "key": "A",
+          "text": "显微镜曝光时间"
+        },
+        {
+          "key": "B",
+          "text": "培养基成分"
+        },
+        {
+          "key": "C",
+          "text": "密码子偏好性和剪接位点信号"
+        },
+        {
+          "key": "D",
+          "text": "蛋白质晶体对称性"
+        }
+      ],
+      "answer": "C",
+      "analysis": "从头预测依赖统计特征，如密码子偏好性、外显子-内含子边界等。",
+      "knowledgeRefs": [
+        "annotation-pipeline"
+      ],
+      "tags": [
+        "GeneMarkS",
+        "Gnomon",
+        "RNA-Seq",
+        "RepeatMasker",
+        "annotation-pipeline",
+        "single_choice",
+        "synquest",
+        "注释"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    },
+    {
+      "id": "sq-hgp-maps-002",
+      "source": "synquest",
+      "origin": "generated",
+      "year": null,
+      "topic": "hgp-maps",
+      "topicName": "人类基因组计划与图谱",
+      "difficulty": 3,
+      "type": "single_choice",
+      "prompt": "在人类基因组计划早期，大规模物理图构建的主流技术之一是什么？",
+      "options": [
+        {
+          "key": "A",
+          "text": "Western blot"
+        },
+        {
+          "key": "B",
+          "text": "代谢流分析"
+        },
+        {
+          "key": "C",
+          "text": "单细胞转录组聚类"
+        },
+        {
+          "key": "D",
+          "text": "STS 作图"
+        }
+      ],
+      "answer": "D",
+      "analysis": "HGP 早期的物理图构建广泛使用 STS 标记进行克隆定位与连锁。",
+      "knowledgeRefs": [
+        "hgp-maps"
+      ],
+      "tags": [
+        "HGP",
+        "hgp-maps",
+        "single_choice",
+        "synquest",
+        "图谱",
+        "物理图",
+        "遗传图"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    },
+    {
+      "id": "sq-alignment-homology-003",
+      "source": "synquest",
+      "origin": "generated",
+      "year": null,
+      "topic": "alignment-homology",
+      "topicName": "序列比对、打分矩阵与同源推断",
+      "difficulty": 2,
+      "type": "single_choice",
+      "prompt": "Clustal 更偏向哪一种序列比对策略？",
+      "options": [
+        {
+          "key": "A",
+          "text": "单细胞降维投影"
+        },
+        {
+          "key": "B",
+          "text": "全局多序列比对"
+        },
+        {
+          "key": "C",
+          "text": "局部同源搜索"
+        },
+        {
+          "key": "D",
+          "text": "结构折叠预测"
+        }
+      ],
+      "answer": "B",
+      "analysis": "Clustal 常用于高相似序列的全局多序列比对。",
+      "knowledgeRefs": [
+        "alignment-homology"
+      ],
+      "tags": [
+        "BLAST",
+        "BLOSUM",
+        "Clustal",
+        "PAM",
+        "alignment-homology",
+        "single_choice",
+        "synquest",
+        "同源"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    },
+    {
+      "id": "sq-genome-databases-004",
+      "source": "synquest",
+      "origin": "generated",
+      "year": null,
+      "topic": "genome-databases",
+      "topicName": "基因组数据库与公共资源",
+      "difficulty": 2,
+      "type": "single_choice",
+      "prompt": "GenBank 最核心的角色之一是什么？",
+      "options": [
+        {
+          "key": "A",
+          "text": "完成临床样本招募"
+        },
+        {
+          "key": "B",
+          "text": "执行 DNA 合成实验"
+        },
+        {
+          "key": "C",
+          "text": "自动训练隐马尔可夫模型"
+        },
+        {
+          "key": "D",
+          "text": "存储和公开提交的核酸序列数据"
+        }
+      ],
+      "answer": "D",
+      "analysis": "GenBank 是公开核酸序列数据库，也是许多下游资源的基础来源。",
+      "knowledgeRefs": [
+        "genome-databases"
+      ],
+      "tags": [
+        "Ensembl",
+        "GenBank",
+        "PubMed",
+        "RefSeq",
+        "UCSC",
+        "genome-databases",
+        "single_choice",
+        "synquest"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    },
+    {
+      "id": "sq-sequencing-tech-005",
+      "source": "synquest",
+      "origin": "generated",
+      "year": null,
+      "topic": "sequencing-tech",
+      "topicName": "DNA 测序技术与读段模拟",
+      "difficulty": 2,
+      "type": "single_choice",
+      "prompt": "ART 工具集最适合用来做什么？",
+      "options": [
+        {
+          "key": "A",
+          "text": "直接预测转录因子结合位点"
+        },
+        {
+          "key": "B",
+          "text": "执行序列组装图可视化"
+        },
+        {
+          "key": "C",
+          "text": "模拟 NGS 读段并评估分析流程"
+        },
+        {
+          "key": "D",
+          "text": "建立蛋白质三级结构"
+        }
+      ],
+      "answer": "C",
+      "analysis": "ART 能模拟多种测序平台的经验错误模型，常用于方法评估。",
+      "knowledgeRefs": [
+        "sequencing-tech"
+      ],
+      "tags": [
+        "ART",
+        "SAM",
+        "Sanger",
+        "sequencing-tech",
+        "single_choice",
+        "synquest",
+        "测序"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    },
+    {
+      "id": "sq-genome-databases-006",
+      "source": "synquest",
+      "origin": "generated",
+      "year": null,
+      "topic": "genome-databases",
+      "topicName": "基因组数据库与公共资源",
+      "difficulty": 2,
+      "type": "single_choice",
+      "prompt": "RefSeq 在基因组分析中的典型价值是什么？",
+      "options": [
+        {
+          "key": "A",
+          "text": "只提供显微图片"
+        },
+        {
+          "key": "B",
+          "text": "只提供质谱原始数据"
+        },
+        {
+          "key": "C",
+          "text": "提供经过整理的参考序列与注释"
+        },
+        {
+          "key": "D",
+          "text": "只提供药物审批文件"
+        }
+      ],
+      "answer": "C",
+      "analysis": "RefSeq 由 NCBI 维护，常作为标准参考序列和注释来源。",
+      "knowledgeRefs": [
+        "genome-databases"
+      ],
+      "tags": [
+        "Ensembl",
+        "GenBank",
+        "PubMed",
+        "RefSeq",
+        "UCSC",
+        "genome-databases",
+        "single_choice",
+        "synquest"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    }
+  ]
+}

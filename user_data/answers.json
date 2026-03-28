@@ -1,0 +1,997 @@
+{
+  "23_279": {
+    "answer": "ABCD",
+    "analysis": "基因组包括核基因组和细胞器基因组（线粒体、叶绿体）。病毒也有基因组。",
+    "img_path": "user_data/images/23_279.png"
+  },
+  "22_1": {
+    "answer": "B",
+    "analysis": "中国于1999年9月加入人类基因组计划，负责测定3号染色体短臂上约3000万个碱基对（1%）的任务。",
+    "img_path": "user_data/images/22_1.png",
+    "pdf_page": "37"
+  },
+  "22_2": {
+    "answer": "D",
+    "analysis": "PubMed是生物医学领域最权威、更新最快的文献数据库。",
+    "img_path": "",
+    "pdf_page": "46"
+  },
+  "22_3": {
+    "answer": "B",
+    "analysis": "",
+    "img_path": "user_data/images/22_3.png",
+    "pdf_page": "16"
+  },
+  "22_4": {
+    "answer": "D",
+    "analysis": "在HGP（人类基因组计划）期间，基于STS物理作图是主流技术。",
+    "img_path": "user_data/images/22_4.png",
+    "pdf_page": "78"
+  },
+  "22_5": {
+    "answer": "D",
+    "analysis": "编码蛋白质的序列（外显子）通常是单一序列（Non-repetitive），而重复序列多位于非编码区。",
+    "img_path": "user_data/images/22_5.png",
+    "pdf_page": "20"
+  },
+  "22_6": {
+    "answer": "A",
+    "analysis": "遗传作图依赖于减数分裂时的重组率，分辨率受限于观察到的减数分裂次数（即子代数量）。",
+    "img_path": "user_data/images/22_6.png",
+    "pdf_page": "75"
+  },
+  "22_7": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "ABC",
+    "analysis": "卫星DNA、小卫星、微卫星都属于串联重复序列（Tandem repeats）。转座子属于散布重复。"
+  },
+  "22_8": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "ABD",
+    "analysis": "Donis-Keller于1987年在Cell发表了第一张RFLP遗传图谱。C选项家族数量描述通常不准确（应为CEPH家系）。"
+  },
+  "22_9": {
+    "answer": "ABCD",
+    "analysis": "HGP的三大图谱：遗传图、物理图、序列图、转录图。",
+    "img_path": "user_data/images/22_9.png",
+    "pdf_page": "64"
+  },
+  "22_10": {
+    "answer": "ABDE",
+    "analysis": "A(酶切)、B(克隆)、D(STS)、E(RH)都是物理作图。C(染色体细胞图/核型)精度低，属于细胞遗传学，但广义上也算物理层面。",
+    "img_path": "user_data/images/22_10.png",
+    "pdf_page": "78"
+  },
+  "22_12": {
+    "answer": "B",
+    "analysis": "根据泊松分布 P(0) = e^(-m)，当覆盖度m=1时，未被覆盖的概率 e^-1 ≈ 0.37，即37%。",
+    "img_path": "user_data/images/22_12.png",
+    "pdf_page": "137"
+  },
+  "22_13": {
+    "answer": "都不存在，ATGCTTCGGAT",
+    "analysis": "【图片题】需看胶图条带判读序列（Sanger法读胶：从下往上，5'->3'）。\n",
+    "img_path": "user_data/images/22_13.png",
+    "pdf_page": "103"
+  },
+  "22_14": {
+    "answer": "D",
+    "analysis": "同22_4。",
+    "img_path": "",
+    "pdf_page": "78"
+  },
+  "22_15": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "B",
+    "analysis": "逻辑间隙（Logical gap）通常由某些序列（如高GC/AT或毒性序列）难以在细菌中克隆导致，无法通过增加测序量解决。"
+  },
+  "22_17": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "ABCD",
+    "analysis": "间隙主要分为物理间隙（完全未覆盖）和序列间隙（有克隆但测不通），成因包括逻辑问题和拼接困难。"
+  },
+  "22_18": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "BD",
+    "analysis": "物理作图单位：bp（碱基对）、cR（辐射杂交单位）。cM是遗传距离，染色体区带是细胞学单位。"
+  },
+  "22_19": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "ABCD",
+    "analysis": "微卫星(STR)是串联重复，多态性高（长度不同），是极好的遗传标记。"
+  },
+  "22_20": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "ACD",
+    "analysis": "5'-UTR、启动子、TFBS都是功能元件。CpG岛本身是序列特征，通常与启动子相关，也算功能区域。"
+  },
+  "22_21": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "ABC",
+    "analysis": "ART模拟器支持 Single-end, Paired-end, Mate-pair。Amplicon通常属于特定流程，ART主要模拟全基因组打断测序。"
+  },
+  "22_25": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "",
+    "analysis": "【图片题】需根据欧拉路径（一笔画）原则，遍历所有边一次。"
+  },
+  "22_26": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "CD",
+    "analysis": "有参组装能利用参考基因组发现缺失区域的转录本，也能发现剪接变异。"
+  },
+  "22_27": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "A",
+    "analysis": "覆盖度高且两种碱基比例接近1:1，最可能是杂合子SNP。"
+  },
+  "22_28": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "A",
+    "analysis": "【图片题】De Bruijn图路径搜索。"
+  },
+  "22_29": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "D",
+    "analysis": "Mate-pair（大片段文库）跨度大，主要用于跨越重复序列，连接Contig构建Scaffold。"
+  },
+  "22_31": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "ABCD",
+    "analysis": "重复序列引起歧义，测序错误引入假k-mer，多态性导致气泡结构，倒位导致比对异常。"
+  },
+  "22_32": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "AD",
+    "analysis": "A正确；B错误（转录组有剪接异构和表达量差异）；C错误（深度不均）；D正确（双链测序）。"
+  },
+  "22_33": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "ABD",
+    "analysis": "Trinity主要用于转录组组装。AllPathsLG, Velvet, SOAPdenovo用于基因组。"
+  },
+  "22_36": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "CD",
+    "analysis": "OLC（重叠-布局-共有）算法需要两两比对(C)。"
+  },
+  "22_39": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "B",
+    "analysis": "BLAST使用启发式算法（Heuristic），种子延伸策略，牺牲少量精度换取速度。"
+  },
+  "22_41": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "",
+    "analysis": "需计算：匹配分+错配分+空位罚分。"
+  },
+  "22_42": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "AD",
+    "analysis": "BLOSUM数值越大（如BLOSUM80）代表序列越相似（保守）；数值越小（BLOSUM45）越适合远缘比对。"
+  },
+  "22_43": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "CD",
+    "analysis": "启发式算法不保证最优解(A错)也不保证所有解(B错)，但在合理时间内给出足够好的解。"
+  },
+  "22_45": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "AD",
+    "analysis": "相似性是量化指标，同源性是定性推断（要么同源要么不同源）。弱相似性不代表无功能关联。"
+  },
+  "22_47": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "BD",
+    "analysis": "Clustal是多序列比对（全局），BLAST是局部比对（Local Alignment）。"
+  },
+  "22_49": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "AB",
+    "analysis": "同源搜索只能给出定位，无法精确预测剪接位点（内含子/外显子边界），也无法保证能转录。"
+  },
+  "22_50": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "AC",
+    "analysis": "Clustal是全局比对，适合高相似序列（同一家族）。"
+  },
+  "22_53": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "ABD",
+    "analysis": "氨基酸替换矩阵基于物理化学性质（大小、电荷、亲疏水性）和进化频率。"
+  },
+  "22_54": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "A",
+    "analysis": "blastp: 蛋白搜蛋白。已知小鼠蛋白搜人类蛋白库。"
+  },
+  "22_56": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "ACD",
+    "analysis": "PAM数值越大（PAM250），进化距离越远，适合低相似性。PAM1 = 1%突变率。"
+  },
+  "22_57": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "ABC",
+    "analysis": "Gap罚分通常分为 Gap Open（大罚分）和 Gap Extension（小罚分）。匹配给加分(D也对)。"
+  },
+  "22_60": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "A",
+    "analysis": "RepeatMasker是标准的重复序列屏蔽工具。"
+  },
+  "22_61": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "D",
+    "analysis": "tRNAscan-SE 是tRNA注释的金标准。"
+  },
+  "22_62": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "D",
+    "analysis": "Gnomon是NCBI开发的用于真核生物基因预测和建模的管道工具。"
+  },
+  "22_63": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "C",
+    "analysis": "RFAM是RNA家族数据库，用于注释非编码RNA（rRNA等）。"
+  },
+  "22_64": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "ABC",
+    "analysis": "从头预测利用统计特征：密码子偏好、剪接位点信号、开放阅读框长度等。"
+  },
+  "22_65": {
+    "answer": "ABCD",
+    "analysis": "NCBI原核完整标准：tRNA/rRNA齐备，无基因重叠（通常），无不完整特征。",
+    "img_path": "user_data/images/22_65.png",
+    "pdf_page": "514"
+  },
+  "22_66": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "BC",
+    "analysis": "Glimmer和GeneMarkS是原核预测主流。GENSCAN和Augustus主要用于真核。"
+  },
+  "22_67": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "AB",
+    "analysis": "Splign/ProSplign用于将cDNA/蛋白比对到基因组上以确定剪接结构。"
+  },
+  "22_68": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "AB",
+    "analysis": "SRA（原始测序数据）和RefSeq（参考序列）可提供转录本证据。"
+  },
+  "22_71": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "BCD",
+    "analysis": "训练集需要已知结构的高质量基因（同物种或近缘物种）。"
+  },
+  "22_72": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "ACD",
+    "analysis": "GeneWise, Augustus, ProSplign都包含模型构建。"
+  },
+  "22_74": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "AB",
+    "analysis": "原核基因通常是一个ORF，GeneMarkS/Glimmer寻找ORF。"
+  },
+  "22_82": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "D",
+    "analysis": "计算观测序列概率 P(O|model) 用 Forward 算法。"
+  },
+  "22_88": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "B",
+    "analysis": "RNA聚合酶II 负责转录 mRNA。Pol I 转录 rRNA，Pol III 转录 tRNA。"
+  },
+  "22_89": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "ABCD",
+    "analysis": "HMM广泛用于时序分析、语音识别、序列比对、基因预测。"
+  },
+  "22_91": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "BD",
+    "analysis": "真核启动子复杂，TATA框不是必须的（许多持家基因没有），可能有远端增强子。"
+  },
+  "22_92": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "AB",
+    "analysis": "核心启动子（Core）和近端启动子（Proximal）。"
+  },
+  "22_93": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "ACD",
+    "analysis": "HMM假设：1. 当前状态仅依赖前一状态（一阶马尔可夫）；2. 当前输出仅依赖当前状态。"
+  },
+  "22_111": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "A",
+    "analysis": "/getData/track 用于获取轨道数据。"
+  },
+  "22_112": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "C",
+    "analysis": "GFF3中，CDS表示编码区（Coding Sequence）。"
+  },
+  "22_113": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "A",
+    "analysis": "GFF3第三列是Type（如gene, mRNA, exon, CDS）。"
+  },
+  "22_114": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "BD",
+    "analysis": "Ensembl包含多物种，支持基因名检索。"
+  },
+  "22_115": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "ABCD",
+    "analysis": "Ensembl提供非常详尽的基因树、结构、变异、序列等信息。"
+  },
+  "22_116": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "B",
+    "analysis": "GenBank格式包含详细注释（FEATURES）。序列可能含N（Gap）。通常是一个Contig或Scaffold。"
+  },
+  "22_117": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "ABCD",
+    "analysis": "组装级别：Contig < Scaffold < Chromosome (Complete)。"
+  },
+  "22_118": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "ABCD",
+    "analysis": "Table Browser功能强大，支持区间、列表、版本、Galaxy对接。"
+  },
+  "22_119": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "ABCD",
+    "analysis": "UCSC轨道包含表达、调控、变异、结构等。"
+  },
+  "22_120": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "ABC",
+    "analysis": "FTP下载最常用，也有Datasets工具和API。"
+  },
+  "23_133": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "C",
+    "analysis": "ENCODE (Encyclopedia of DNA Elements) 旨在解析基因组功能元件。"
+  },
+  "23_138": {
+    "answer": "D",
+    "analysis": "结构和功能是基因组学核心。",
+    "img_path": "user_data/images/23_138.png",
+    "pdf_page": "16"
+  },
+  "23_143": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "ABCD",
+    "analysis": "DNA碱基：A, C, G, T。U是RNA的。"
+  },
+  "23_149": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "ABD",
+    "analysis": "ENCODE是功能基因组计划，不是肿瘤基因组计划。"
+  },
+  "23_154": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "AD",
+    "analysis": "物理距离：bp（绝对距离）、cR（辐射杂交）。cM是遗传距离。"
+  },
+  "23_159": {
+    "answer": "B",
+    "analysis": "cM (centimorgan) 厘摩。",
+    "img_path": "user_data/images/23_159.png",
+    "pdf_page": "69"
+  },
+  "23_164": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "B",
+    "analysis": "1953年 Watson & Crick。"
+  },
+  "23_169": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "ACDE",
+    "analysis": "物理作图：限制性酶切、克隆重叠、STS、FISH、RH（辐射杂交）。"
+  },
+  "23_175": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "ACD",
+    "analysis": "Donis-Keller 1987 Cell: 403个位点(A)，393个RFLP(D)，21个CEPH家系(C)。覆盖率95%也是其结论之一。"
+  },
+  "23_180": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "ABCD",
+    "analysis": "只要遵循孟德尔遗传并有多态性，皆可做标记：RFLP, SSLP(微卫星), SNP, 等位基因。"
+  },
+  "23_191": {
+    "answer": "ABD",
+    "analysis": "ncRNA包括 rRNA, tRNA, miRNA等。mRNA是编码RNA。",
+    "img_path": "user_data/images/23_191.png",
+    "pdf_page": "25"
+  },
+  "23_196": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "ABCD",
+    "analysis": "结构、功能、进化、作图测序都是。"
+  },
+  "23_201": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "B",
+    "analysis": "1999年加入，负责1%。"
+  },
+  "23_206": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "ABCD",
+    "analysis": "Bostein 1980提出RFLP概念，它是第一代标记，被用于构建第一张遗传图。"
+  },
+  "23_211": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "ABCD",
+    "analysis": "序列组成的分类：非重复、重复（串联、散布）。"
+  },
+  "23_216": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "BC",
+    "analysis": "逆转录转座子分为 LTR (长末端重复) 和 Non-LTR (如LINEs/SINEs)。微卫星是串联重复。"
+  },
+  "23_221": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "ABCD",
+    "analysis": "基因家族：序列相似、结构相似、功能相关、起源相同。"
+  },
+  "23_226": {
+    "answer": "ABCD",
+    "analysis": "假基因是已丧失功能的拷贝，部分可转录调控。",
+    "img_path": "user_data/images/23_226.png",
+    "pdf_page": "32"
+  },
+  "23_231": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "ABDF",
+    "analysis": "Cohen 1993 Nature: 第一代物理图。使用YAC（酵母人工染色体），插入片段大（~0.9Mb）。"
+  },
+  "23_238": {
+    "answer": "ABD",
+    "analysis": "高度重复通常指串联重复（卫星DNA）。转座子属于中度散布重复。",
+    "img_path": "user_data/images/23_238.png",
+    "pdf_page": "21"
+  },
+  "23_243": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "A",
+    "analysis": "PubMed。"
+  },
+  "23_248": {
+    "answer": "ABCD",
+    "analysis": "同23_180。",
+    "img_path": "user_data/images/23_248.png",
+    "pdf_page": "74"
+  },
+  "23_253": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "C",
+    "analysis": "基于克隆（Clone-based）构建重叠群是HGP时期物理图的主流。"
+  },
+  "23_259": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "ABCD",
+    "analysis": "微卫星：串联重复，长度多态性，遗传标记。"
+  },
+  "23_264": {
+    "answer": "AC",
+    "analysis": "遗传作图：重组率决定距离(cM)，分辨率低（受减数分裂次数限制），覆盖率相对低。",
+    "img_path": "user_data/images/23_264.png",
+    "pdf_page": "75"
+  },
+  "23_269": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "AB",
+    "analysis": "物理作图：单位bp，分辨率高，覆盖率高。"
+  },
+  "23_274": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "CD",
+    "analysis": "中度重复主要是转座子（Transposons）和逆转录转座子（Retrotransposons，如Alu）。微卫星是高度重复。"
+  },
+  "23_284": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "A",
+    "analysis": "编码基因通常是单拷贝（非重复）序列。"
+  },
+  "23_289": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "C",
+    "analysis": "mRNA (Messenger RNA)。"
+  },
+  "23_294": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "ABCD",
+    "analysis": "HGP四大图谱：遗传、物理、序列、转录（基因）。"
+  },
+  "23_299": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "ABC",
+    "analysis": "基因可能有重叠（Overlapping genes），尤其在病毒和线粒体中，人类中也有。基因内部可能有嵌套基因。"
+  },
+  "23_305": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "B",
+    "analysis": "逻辑间隙（Logical gap）源于克隆偏好性。"
+  },
+  "23_310": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "B",
+    "analysis": "37% (e^-1)。"
+  },
+  "23_315": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "B",
+    "analysis": "24A:26C，接近1:1，且覆盖度高，明显是杂合SNP。"
+  },
+  "23_320": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "C",
+    "analysis": "45A:5C，C比例很低，可能是测序错误，认为是纯合A。"
+  },
+  "23_325": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "B",
+    "analysis": "P = 1 - e^-5 ≈ 1 - 0.0067 = 99.3%。"
+  },
+  "23_330": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "C",
+    "analysis": "Phred Score Q = ASCII - 33。I=73, Q=40。P = 10^(-Q/10) = 10^-4 = 0.01%。(注意：题目若问Q30是0.1%，Q40是0.01%。这里选项有0.1%，需核对ASCII码表。I(73)-33=40。Q40错误率是0.0001即0.01%。如果选项没有0.01%，可能题目ASCII码给错了或者计算方式不同)"
+  },
+  "23_335": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "A",
+    "analysis": "ASCII 63 -> Q = 30。错误率0.001，精度99.9%。"
+  },
+  "23_340": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "ABCD",
+    "analysis": "测序模拟可用于评估流程、算法、硬件性能等。"
+  },
+  "23_345": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "D",
+    "analysis": "ART可以输出SAM比对文件（真实位置）。"
+  },
+  "23_350": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "B",
+    "analysis": "145T:5C，C是错误，判为T。"
+  },
+  "23_355": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "D",
+    "analysis": "55A:45G，杂合SNP。"
+  },
+  "23_360": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "ABCD",
+    "analysis": "ART支持多种平台模拟，支持各种文库类型，输出FASTQ/SAM。"
+  },
+  "23_370": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "B",
+    "analysis": "SAM头文件中，@SQ 标记参考序列（Sequence）。"
+  },
+  "23_380": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "ABCD",
+    "analysis": "所有这些都是Gap的成因。"
+  },
+  "23_385": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "ABCD",
+    "analysis": "Sanger和Gilbert因测序方法获1980诺贝尔奖。"
+  },
+  "23_390": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "AC",
+    "analysis": "二代测序主要原理：边合成边测序（Illumina, 454），边连接边测序（SOLiD）。"
+  },
+  "23_415": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "AC",
+    "analysis": "OLC算法中，K-mer越长，特异性越高（错配越少），结果越精确，但重叠越难找（Contig可能变短/断开）。"
+  },
+  "23_420": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "ABCD",
+    "analysis": "De Bruijn图中，错误产生Tip（末端分叉）和Bubble（气泡）。错误增加图的复杂度。"
+  },
+  "23_425": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "ABCD",
+    "analysis": "频数过滤可去错；Gap导致路径断裂；Mate-pair跨越重复解环。"
+  },
+  "23_430": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "ABCD",
+    "analysis": "重复序列、测序错误、多态性、倒位都是组装难点。"
+  },
+  "23_435": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "CD",
+    "analysis": "A错（深度不均）；B错（重复序列是主要歧义来源）。"
+  },
+  "23_440": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "AC",
+    "analysis": "有参组装可参考近缘物种。从头组装通常比有参慢且耗资源。"
+  },
+  "23_445": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "ABCD",
+    "analysis": "组装工具通用于各种基因组。"
+  },
+  "23_450": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "A",
+    "analysis": "Paired-end (特别是长插片段Mate-pair) 主要用于Scaffolding（定序定距，跨越Gap）。"
+  },
+  "23_455": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "AC",
+    "analysis": "从头组装（De novo）非常消耗内存和时间。"
+  },
+  "23_460": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "ABC",
+    "analysis": "转录组组装难点：表达量差异大（深度极不均）、可变剪接（异构体）。"
+  },
+  "23_465": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "BC",
+    "analysis": "模拟需针对测序平台（Illumina/PacBio）的特定错误模型。"
+  },
+  "23_470": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "D",
+    "analysis": "三代测序（长读长）是解决重复序列组装的最强工具。"
+  },
+  "23_476": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "ABCDE",
+    "analysis": "SAM格式包含：QNAME(读段名), RNAME(参考序列名), POS, MAPQ(映射质量), CIGAR, SEQ, QUAL等。"
+  },
+  "23_482": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "A",
+    "analysis": "@SQ (Sequence Dictionary)。"
+  },
+  "23_492": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "B",
+    "analysis": "@ 开头。"
+  },
+  "23_497": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "B",
+    "analysis": "BLAST: 启发式算法（Heuristic）。"
+  },
+  "23_502": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "AC",
+    "analysis": "BLOSUM基于BLOCKS数据库。数值越小越敏感（适合远缘）。"
+  },
+  "23_507": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "AC",
+    "analysis": "同源搜索无法精细确定结构，仅提供定位线索。"
+  },
+  "23_512": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "AD",
+    "analysis": "错配罚分，Gap罚分（Open/Extend）。匹配加分。"
+  },
+  "23_517": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "CE",
+    "analysis": "blastx (核酸搜蛋白库)，blastp (蛋白搜蛋白库)。如果是蛋白序列搜人基因(核酸)，用 tblastn。题目给的是“蛋白序列”，想搜“人类基因(DNA)”-> tblastn。想搜“编码的蛋白”-> blastp。所以CE正确，D也正确。"
+  },
+  "23_523": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "BCD",
+    "analysis": "同源是二元状态（是/否）。相似性是程度。低相似性不代表无功能。"
+  },
+  "23_528": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "BC",
+    "analysis": "Clustal(全局)，Blast(局部)。"
+  },
+  "23_533": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "ABCDE",
+    "analysis": "gffcompare评估组装质量，涵盖从碱基到基因座各个层级。"
+  },
+  "23_539": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "ACD",
+    "analysis": "二代流程：质控(QC/Trimming) -> 组装 -> 评估。Polishing通常用于三代纠错，二代本身精度高，但也可用。"
+  },
+  "23_544": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "BC",
+    "analysis": "三代组装：组装 -> Polishing（因三代错误率高，必须纠错）。"
+  },
+  "23_549": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "D",
+    "analysis": "RepeatMasker。"
+  },
+  "23_554": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "ABC",
+    "analysis": "注释包括：重复序列分析、基因预测（从头/同源/EST）、功能注释。组装是注释的前一步。"
+  },
+  "23_559": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "AD",
+    "analysis": "Clustal是全局比对，适合高相似。"
+  },
+  "23_564": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "AB",
+    "analysis": "启发式：牺牲最优解保证，换取速度。"
+  },
+  "23_569": {
+    "answer": "ABCDEF",
+    "analysis": "全部都对，这就是标准答案。",
+    "img_path": "user_data/images/23_569.png",
+    "pdf_page": "514"
+  },
+  "23_576": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "AC",
+    "analysis": "PAM数值越大越不敏感（适合远缘）。PAM1代表1%变化。"
+  },
+  "23_582": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "ABD",
+    "analysis": "BLAT是比对工具，不是建模工具。"
+  },
+  "23_587": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "BCD",
+    "analysis": "StringTie, STAR, HISAT2 是RNA-Seq比对和拼装的主流工具。"
+  },
+  "23_592": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "AC",
+    "analysis": "Glimmer, GeneMarkS。"
+  },
+  "23_597": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "ABC",
+    "analysis": "训练需要：同物种已知基因、转录组证据、近缘物种蛋白。"
+  },
+  "23_602": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "BC",
+    "analysis": "Splign (cDNA-to-Genome), ProSplign (Protein-to-Genome), Gnomon (整合预测)。"
+  },
+  "23_607": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "ABCDE",
+    "analysis": "从头预测利用所有这些信号。"
+  },
+  "23_614": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "ABCD",
+    "analysis": "CpG岛、UTR、启动子、TFBS都是功能元件。"
+  },
+  "23_629": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "ABCD",
+    "analysis": "HMM应用广泛。"
+  },
+  "23_634": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "D",
+    "analysis": "Pol II -> mRNA。"
+  },
+  "23_639": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "BD",
+    "analysis": "状态依赖前一状态；输出依赖当前状态。"
+  },
+  "23_644": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "CD",
+    "analysis": "同22_91。"
+  },
+  "23_649": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "AD",
+    "analysis": "a是转移概率(Transition)，b是发射/输出概率(Emission)。X是隐藏状态，y是观察值（此题图例可能X和Y反了，通常X是Hidden, Y是Observation。根据选项描述判断）。"
+  },
+  "23_654": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "B",
+    "analysis": "Viterbi算法：寻找最可能的隐藏状态路径（解码）。"
+  },
+  "23_660": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "",
+    "analysis": "需结合图片计算：P(Start->C) * P(C->A) * ..."
+  },
+  "23_674": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "ABCE",
+    "analysis": "原核注释：ORF查找(Glimmer/GeneMark)、Blast比对、HMM(Pfam)搜索功能域。"
+  },
+  "23_681": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "B",
+    "analysis": "RFAM。"
+  },
+  "23_686": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "ABCD",
+    "analysis": "Ensembl, UCSC, GenBank, JGI都是。"
+  },
+  "23_691": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "C",
+    "analysis": "RFAM。"
+  },
+  "23_696": {
+    "img_path": "",
+    "pdf_page": "",
+    "answer": "CD",
+    "analysis": "RefSeq RNA, SRA (EST/RNA-Seq)。OMIM是遗传病库，PubMed是文献。"
+  }
+}

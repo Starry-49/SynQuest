@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SynQuest Study Reader</title>
+  <meta name="description" content="Study Reader for SynQuest knowledge modules and question detail review.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <main class="page-shell">
+    <section class="hero glass reader-header">
+      <div class="hero-grid">
+        <div>
+          <div class="brand-line">
+            <img src="logo.png" alt="SynQuest logo">
+            <span>SynQuest Study Reader</span>
+          </div>
+          <h1 id="readerTitle">Study Reader</h1>
+          <p id="readerSubtitle">知识模块与题目详情联动浏览。</p>
+          <div class="reader-actions">
+            <a class="button button-secondary" href="index.html">返回主页</a>
+          </div>
+        </div>
+        <div class="hero-side">
+          <article class="hero-card">
+            <h3>Reader 用途</h3>
+            <p class="panel-subtitle">按知识模块阅读课程事实，再回到题目层逐题查看答案与解析。</p>
+          </article>
+          <article class="hero-card">
+            <h3>入口方式</h3>
+            <p class="panel-subtitle">支持通过 `?module=` 或 `?question=` 查询参数直接打开指定模块或题目。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="reader-layout">
+      <aside class="reader-sidebar">
+        <section class="panel">
+          <div class="panel-title">
+            <div>
+              <h2>知识模块</h2>
+              <p class="panel-subtitle">切换知识模块。</p>
+            </div>
+          </div>
+          <div id="moduleTree" class="tree-list"></div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-title">
+            <div>
+              <h2>关联题目</h2>
+              <p class="panel-subtitle">当前模块下的题目索引。</p>
+            </div>
+          </div>
+          <div id="questionTree" class="tree-list"></div>
+        </section>
+      </aside>
+
+      <section class="reader-main">
+        <div id="readerContent"></div>
+      </section>
+    </section>
+  </main>
+
+  <script src="assets/reader.js"></script>
+</body>
+</html>
