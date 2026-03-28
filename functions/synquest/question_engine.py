@@ -8,7 +8,7 @@ import re
 from dataclasses import dataclass
 from functools import lru_cache
 from pathlib import Path
-from typing import Any
+from typing import Any, Optional, Union
 
 try:
     import jieba
@@ -230,7 +230,7 @@ class StyleMatch:
 
 
 class QuestionStyleIndex:
-    def __init__(self, questions: list[dict[str, Any]], *, semantic_model: str | None = None) -> None:
+    def __init__(self, questions: list[dict[str, Any]], *, semantic_model: Optional[str] = None) -> None:
         ensure_style_packages()
         self.questions = questions
         self.documents = [question_to_document(question) for question in questions]
@@ -256,7 +256,7 @@ class QuestionStyleIndex:
                 show_progress_bar=False,
             )
 
-    def search(self, query_text: str, *, top_k: int = 5, desired_type: str | None = None) -> list[StyleMatch]:
+    def search(self, query_text: str, *, top_k: int = 5, desired_type: Optional[str] = None) -> list[StyleMatch]:
         if not self.questions:
             return []
 
@@ -329,7 +329,7 @@ def question_query_text(entry: dict[str, Any], fact: dict[str, Any]) -> str:
     return normalize_text(" ".join(str(segment) for segment in segments if segment))
 
 
-def prompt_from_exemplar(entry: dict[str, Any], fact: dict[str, Any], exemplar: dict[str, Any] | None) -> str:
+def prompt_from_exemplar(entry: dict[str, Any], fact: dict[str, Any], exemplar: Optional[dict[str, Any]]) -> str:
     title = normalize_text(entry.get("title", "该主题"))
     existing = normalize_text(fact.get("question", ""))
     if existing and not is_generic_prompt(existing, title):
@@ -422,7 +422,7 @@ def build_options(
     return [{"key": LETTERS[index], "text": text} for index, text in enumerate(options)]
 
 
-def load_question_bank(path: str | Path) -> list[dict[str, Any]]:
+def load_question_bank(path: Union[str, Path]) -> list[dict[str, Any]]:
     payload = load_json(Path(path))
     return payload.get("questions", []) if isinstance(payload, dict) else payload
 
@@ -432,9 +432,9 @@ def synthesize_questions(
     count: int,
     seed: int,
     *,
-    style_bank_questions: list[dict[str, Any]] | None = None,
+    style_bank_questions: Optional[list[dict[str, Any]]] = None,
     style_top_k: int = 5,
-    semantic_model: str | None = None,
+    semantic_model: Optional[str] = None,
 ) -> dict[str, Any]:
     rng = random.Random(seed)
     style_index = (

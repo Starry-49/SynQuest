@@ -20,7 +20,7 @@ import zipfile
 from collections import Counter, defaultdict
 from html import unescape
 from pathlib import Path
-from typing import Any
+from typing import Any, Union
 from xml.etree import ElementTree
 
 
@@ -685,7 +685,7 @@ def _normalize_pptx_entries(path: Path) -> tuple[list[dict[str, Any]], dict[str,
     return entries, meta, "\n\n".join(text_chunks)
 
 
-def build_knowledge_base(path: str | Path) -> dict[str, Any]:
+def build_knowledge_base(path: Union[str, Path]) -> dict[str, Any]:
     source = Path(path)
     suffix = source.suffix.lower()
 
@@ -726,7 +726,7 @@ def build_knowledge_base(path: str | Path) -> dict[str, Any]:
     raise ValueError(f"Unsupported knowledge source: {suffix}")
 
 
-def read_knowledge_text(path: str | Path) -> str:
+def read_knowledge_text(path: Union[str, Path]) -> str:
     source = Path(path)
     suffix = source.suffix.lower()
     if suffix not in SUPPORTED_SUFFIXES:
@@ -746,11 +746,11 @@ def read_knowledge_text(path: str | Path) -> str:
     raise ValueError(f"Unsupported knowledge source: {suffix}")
 
 
-def load_knowledge_entries(path: str | Path) -> list[dict[str, Any]]:
+def load_knowledge_entries(path: Union[str, Path]) -> list[dict[str, Any]]:
     return build_knowledge_base(path)["entries"]
 
 
-def inspect_knowledge_source(path: str | Path) -> dict[str, Any]:
+def inspect_knowledge_source(path: Union[str, Path]) -> dict[str, Any]:
     source = Path(path)
     text = read_knowledge_text(source)
     payload = build_knowledge_base(source)

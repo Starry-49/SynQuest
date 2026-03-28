@@ -20,6 +20,8 @@ SynQuest is the reusable skill layer for turning knowledge sources into structur
    - Prefer `json` with `entries[].facts[]` when available.
    - For `md`, `txt`, `html`, `docx`, `pdf`, and `pptx`, let the reusable loader normalize it first.
 2. Use the bundled CLI in `functions/`:
+   - If installed as a package: `synquest inspect --kb <path>`
+   - If running from the repo: `python3 functions/synquest/cli.py inspect --kb <path>`
    - `python3 functions/synquest/cli.py inspect --kb <path>`
    - `python3 functions/synquest/cli.py extract --source <path> --out example/data/knowledge-base/extracted.json`
    - `python3 functions/synquest/cli.py synthesize --kb <path> --count 12 --out example/data/generated/synquest.json`

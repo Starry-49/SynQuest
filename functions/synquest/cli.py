@@ -17,7 +17,6 @@ if str(FUNCTIONS_ROOT) not in sys.path:
     sys.path.insert(0, str(FUNCTIONS_ROOT))
 
 from synquest.knowledge_loader import build_knowledge_base, inspect_knowledge_source, load_knowledge_entries  # noqa: E402
-from synquest.question_engine import load_question_bank, synthesize_questions  # noqa: E402
 
 
 def load_json(path: Path) -> Any:
@@ -85,6 +84,8 @@ def cmd_extract(args: argparse.Namespace) -> None:
 
 
 def cmd_synthesize(args: argparse.Namespace) -> None:
+    from synquest.question_engine import load_question_bank, synthesize_questions
+
     entries = load_knowledge_entries(Path(args.kb))
     style_bank_questions = load_question_bank(Path(args.style_bank)) if args.style_bank else None
     payload = synthesize_questions(

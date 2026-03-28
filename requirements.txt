@@ -1,0 +1,5 @@
+jieba>=0.42.1
+rank-bm25>=0.2.2
+rapidfuzz>=3.0.0
+scikit-learn>=1.4
+sentence-transformers>=5.1.2

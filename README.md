@@ -20,7 +20,7 @@
     <img src="https://img.shields.io/badge/Demo-Geno%20Portal-CF9E2A?style=flat-square" alt="Geno Demo">
   </a>
   <a href="https://www.python.org/">
-    <img src="https://img.shields.io/badge/Python-3.10%2B-2F5D50?style=flat-square" alt="Python 3.10+">
+    <img src="https://img.shields.io/badge/Python-3.9%2B-2F5D50?style=flat-square" alt="Python 3.9+">
   </a>
   <a href="skills/synquest/SKILL.md">
     <img src="https://img.shields.io/badge/Codex-SynQuest-1D6A4F?style=flat-square" alt="Codex SynQuest">
@@ -59,11 +59,27 @@
 ## Quick Links
 
 - Demo: [https://starry-49.github.io/SynQuest/](https://starry-49.github.io/SynQuest/)
+- Release: [v0.1.0](https://github.com/Starry-49/SynQuest/releases/tag/v0.1.0)
 - Chinese Docs: [README.zh.md](README.zh.md)
 - English Docs: [README.en.md](README.en.md)
 - Skill: [skills/synquest/SKILL.md](skills/synquest/SKILL.md)
 - Functions: [functions/synquest/](functions/synquest/)
 - Example Portal: [example/](example/)
+
+## Install
+
+Install the Python CLI:
+
+```bash
+pip install "git+https://github.com/Starry-49/SynQuest.git@v0.1.0"
+synquest --help
+```
+
+Install the bundled Codex skill from a downloaded release or local clone:
+
+```bash
+python3 scripts/install_codex_skill.py
+```
 
 ## Current Retrieval Stack
 

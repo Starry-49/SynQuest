@@ -14,6 +14,21 @@
 
 SynQuest is a reusable skill and Python toolkit for turning domain knowledge sources into structured question banks. The repository also includes a Geno example portal that demonstrates knowledge browsing, practice, reading, and question generation on a concrete dataset.
 
+## Install and Deploy
+
+Install the Python CLI (Python 3.9+):
+
+```bash
+pip install "git+https://github.com/Starry-49/SynQuest.git@v0.1.0"
+synquest --help
+```
+
+If you downloaded the release source bundle or cloned the repository locally, install the bundled Codex skill with:
+
+```bash
+python3 scripts/install_codex_skill.py
+```
+
 ## Quick Start
 
 Open the live demo:
@@ -33,17 +48,19 @@ Then open:
 http://localhost:8000/example/
 ```
 
+After installation, you can use the `synquest` command directly. If you are running inside the repository, `python3 functions/synquest/cli.py` still works as a local fallback.
+
 Inspect a knowledge source:
 
 ```bash
-python3 functions/synquest/cli.py inspect \
+synquest inspect \
   --kb example/data/knowledge-base/genome-informatics-core.json
 ```
 
 Extract a reusable knowledge-base JSON:
 
 ```bash
-python3 functions/synquest/cli.py extract \
+synquest extract \
   --source sum.pdf \
   --out example/data/knowledge-base/sum-course-kb.json
 ```
@@ -51,7 +68,7 @@ python3 functions/synquest/cli.py extract \
 Generate questions directly from the knowledge base:
 
 ```bash
-python3 functions/synquest/cli.py synthesize \
+synquest synthesize \
   --kb example/data/knowledge-base/sum-course-kb.json \
   --count 24 \
   --out example/data/generated/synquest-batch.json
@@ -60,7 +77,7 @@ python3 functions/synquest/cli.py synthesize \
 Generate questions that stay closer to an existing question bank:
 
 ```bash
-python3 functions/synquest/cli.py synthesize \
+synquest synthesize \
   --kb example/data/knowledge-base/sum-course-kb.json \
   --style-bank example/data/question-bank.json \
   --semantic-model sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2 \
@@ -72,7 +89,7 @@ python3 functions/synquest/cli.py synthesize \
 Merge generated questions back into the bank:
 
 ```bash
-python3 functions/synquest/cli.py merge \
+synquest merge \
   --bank example/data/question-bank.json \
   --incoming example/data/generated/sum-course-generated.json
 ```
@@ -143,7 +160,7 @@ The current example bank already includes 5 `SynQuest` semantic-retrieval sample
 
 ## Python API
 
-Reusable logic lives in [`functions/synquest/`](functions/synquest/):
+Reusable logic lives in [`functions/synquest/`](functions/synquest/), and the same surface becomes available as the installed `synquest` package.
 
 - [`functions/synquest/knowledge_loader.py`](functions/synquest/knowledge_loader.py)
 - [`functions/synquest/question_engine.py`](functions/synquest/question_engine.py)
@@ -152,7 +169,7 @@ Reusable logic lives in [`functions/synquest/`](functions/synquest/):
 Example usage:
 
 ```python
-from functions.synquest import (
+from synquest import (
     build_knowledge_base,
     inspect_knowledge_source,
     load_knowledge_entries,
@@ -184,6 +201,10 @@ SynQuest is primarily custom repository logic, with these reusable external comp
 - `sentence-transformers`
 - `RapidFuzz`
 - `Poppler` utilities
+
+Release page:
+
+- [v0.1.0](https://github.com/Starry-49/SynQuest/releases/tag/v0.1.0)
 
 ## Repository Structure
 
