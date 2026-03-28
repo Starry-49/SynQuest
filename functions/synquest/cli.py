@@ -5,8 +5,6 @@ from __future__ import annotations
 
 import argparse
 import json
-import random
-import re
 import sys
 from pathlib import Path
 from typing import Any
@@ -18,155 +16,11 @@ if str(FUNCTIONS_ROOT) not in sys.path:
     sys.path.insert(0, str(FUNCTIONS_ROOT))
 
 from synquest.knowledge_loader import build_knowledge_base, inspect_knowledge_source, load_knowledge_entries  # noqa: E402
+from synquest.question_engine import load_question_bank, synthesize_questions  # noqa: E402
 
 
 def load_json(path: Path) -> Any:
     return json.loads(path.read_text(encoding="utf-8"))
-
-
-def slugify(text: str) -> str:
-    slug = re.sub(r"[^a-zA-Z0-9\u4e00-\u9fff]+", "-", text.strip().lower())
-    return slug.strip("-") or "entry"
-
-
-def informative_tokens(text: str) -> set[str]:
-    tokens = set()
-    for token in re.findall(r"[A-Za-z][A-Za-z0-9\-/+.]{1,}", text):
-        tokens.add(token.lower())
-    for token in re.findall(r"[\u4e00-\u9fff]{2,}", text):
-        if len(token) <= 10:
-            tokens.add(token)
-    return tokens
-
-
-def looks_like_low_information_text(text: str) -> bool:
-    lowered = text.lower()
-    if any(marker in lowered for marker in ("email:", "@", "wx:", "qq:", "tel", "phone", "http://", "https://", "www.")):
-        return True
-    org_terms = {"大学", "学院", "系", "学校", "实验室", "department", "faculty", "college", "school", "institute", "university"}
-    tokens = informative_tokens(text)
-    if tokens and tokens.issubset(org_terms):
-        return True
-    return False
-
-
-def is_fact_usable(entry: dict[str, Any], fact: dict[str, Any]) -> bool:
-    answer = str(fact.get("answer", "")).strip()
-    if not answer or len(answer) > 96:
-        return False
-    if looks_like_low_information_text(answer):
-        return False
-    title_terms = informative_tokens(str(entry.get("title", "")))
-    answer_terms = informative_tokens(answer)
-    if title_terms and answer_terms and len(title_terms & answer_terms) / max(1, len(title_terms)) >= 0.8 and len(answer_terms) <= len(title_terms) + 2:
-        return False
-    return True
-
-
-def entry_similarity(source_entry: dict[str, Any], candidate_entry: dict[str, Any]) -> int:
-    score = 0
-    if source_entry.get("module") and source_entry.get("module") == candidate_entry.get("module"):
-        score += 3
-    source_terms = set(source_entry.get("keywords") or []) | informative_tokens(str(source_entry.get("title", "")))
-    candidate_terms = set(candidate_entry.get("keywords") or []) | informative_tokens(str(candidate_entry.get("title", "")))
-    score += len(source_terms & candidate_terms)
-    return score
-
-
-def build_options(
-    correct: str,
-    fact_distractors: list[str],
-    source_entry: dict[str, Any],
-    entries: list[dict[str, Any]],
-    rng: random.Random,
-) -> list[dict[str, str]]:
-    distractors = [item.strip() for item in fact_distractors if item.strip()]
-    if len(distractors) < 3:
-        pool: list[str] = []
-        ranked_entries = [
-            (entry, entry_similarity(source_entry, entry))
-            for entry in entries
-            if entry is not source_entry
-        ]
-        ranked_entries.sort(key=lambda item: item[1], reverse=True)
-        similar_entries = [entry for entry, score in ranked_entries if score > 0][:24]
-        candidate_entries = [source_entry, *similar_entries]
-        for entry in candidate_entries:
-            pool.extend(item.strip() for item in entry.get("distractors", []) if item.strip())
-            for fact in entry.get("facts", []):
-                candidate = str(fact.get("answer", "")).strip()
-                if candidate and candidate != correct and is_fact_usable(entry, fact):
-                    pool.append(candidate)
-        for candidate in pool:
-            if candidate != correct and candidate not in distractors:
-                distractors.append(candidate)
-            if len(distractors) >= 3:
-                break
-    while len(distractors) < 3:
-        distractors.append(f"不正确的备选项{len(distractors) + 1}")
-
-    candidates = [correct, *distractors[:3]]
-    rng.shuffle(candidates)
-    labels = ["A", "B", "C", "D"]
-    return [{"key": labels[idx], "text": text} for idx, text in enumerate(candidates)]
-
-
-def synthesize_questions(entries: list[dict[str, Any]], count: int, seed: int) -> dict[str, Any]:
-    rng = random.Random(seed)
-    flat_facts: list[tuple[dict[str, Any], dict[str, Any]]] = []
-    for entry in entries:
-        for fact in entry.get("facts", []):
-            if is_fact_usable(entry, fact):
-                flat_facts.append((entry, fact))
-
-    if not flat_facts:
-        raise ValueError("No facts found in the knowledge base.")
-
-    rng.shuffle(flat_facts)
-    selected = flat_facts[: min(count, len(flat_facts))]
-    questions: list[dict[str, Any]] = []
-
-    for idx, (entry, fact) in enumerate(selected, start=1):
-        correct = str(fact.get("answer", "")).strip()
-        options = build_options(correct, fact.get("distractors", []), entry, entries, rng)
-        answer_key = next(option["key"] for option in options if option["text"] == correct)
-        topic = slugify(entry.get("id") or entry.get("title", "entry"))
-        questions.append(
-            {
-                "id": f"sq-{topic}-{idx:03d}",
-                "source": "synquest",
-                "origin": "generated",
-                "year": None,
-                "topic": topic,
-                "topicName": entry.get("title", "SynQuest 条目"),
-                "difficulty": int(fact.get("difficulty", 2)),
-                "type": fact.get("type", "single_choice"),
-                "prompt": fact.get("question") or f"下列哪项关于“{entry.get('title', '该主题')}”的说法是正确的？",
-                "options": options,
-                "answer": answer_key,
-                "analysis": fact.get("explanation") or correct,
-                "knowledgeRefs": [entry.get("id", topic)],
-                "tags": sorted(
-                    {
-                        topic,
-                        "synquest",
-                        fact.get("type", "single_choice"),
-                        *(entry.get("keywords") or []),
-                    }
-                ),
-                "images": {"question": "", "note": ""},
-                "pdfPage": None,
-            }
-        )
-
-    return {
-        "meta": {
-            "title": "SynQuest Generated Questions",
-            "count": len(questions),
-            "seed": seed,
-        },
-        "questions": questions,
-    }
 
 
 def merge_bank(bank_path: Path, incoming_path: Path) -> dict[str, Any]:
@@ -211,7 +65,14 @@ def cmd_extract(args: argparse.Namespace) -> None:
 
 def cmd_synthesize(args: argparse.Namespace) -> None:
     entries = load_knowledge_entries(Path(args.kb))
-    payload = synthesize_questions(entries, args.count, args.seed)
+    style_bank_questions = load_question_bank(Path(args.style_bank)) if args.style_bank else None
+    payload = synthesize_questions(
+        entries,
+        args.count,
+        args.seed,
+        style_bank_questions=style_bank_questions,
+        style_top_k=args.style_top_k,
+    )
     out_path = Path(args.out)
     out_path.parent.mkdir(parents=True, exist_ok=True)
     out_path.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
@@ -244,6 +105,8 @@ def build_parser() -> argparse.ArgumentParser:
 
     synth_parser = subparsers.add_parser("synthesize", help="Generate question JSON from a knowledge base")
     synth_parser.add_argument("--kb", required=True, help="Path to a json/md/txt/html/docx/pdf/pptx knowledge base")
+    synth_parser.add_argument("--style-bank", help="Optional existing question-bank JSON used for style retrieval and adaptation")
+    synth_parser.add_argument("--style-top-k", type=int, default=5, help="How many similar old questions to retrieve per fact")
     synth_parser.add_argument("--count", type=int, default=12, help="Number of questions to generate")
     synth_parser.add_argument("--seed", type=int, default=7, help="Random seed")
     synth_parser.add_argument("--out", default=str(ROOT / "example" / "data" / "generated" / "synquest-output.json"))

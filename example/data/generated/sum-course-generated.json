@@ -2,48 +2,1224 @@
   "meta": {
     "title": "SynQuest Generated Questions",
     "count": 24,
-    "seed": 28
+    "seed": 28,
+    "styleBankQuestions": 182,
+    "styleTopK": 5,
+    "algorithms": [
+      "knowledge_fact_filtering",
+      "jieba_tokenization",
+      "bm25_style_retrieval",
+      "tfidf_style_retrieval",
+      "rapidfuzz_prompt_dedup",
+      "style_guided_prompt_adaptation"
+    ]
   },
   "questions": [
     {
-      "id": "sq-sum-p0196-001",
-      "source": "synquest",
+      "id": "sq-sum-p0190-001",
+      "source": "SynQuest",
       "origin": "generated",
       "year": null,
-      "topic": "sum-p0196",
-      "topicName": "输出文档 >> ALN格式（2）",
+      "topic": "sum-p0190",
+      "topicName": "输出文档",
       "difficulty": 2,
       "type": "single_choice",
-      "prompt": "关于“输出文档 >> ALN格式（2）”，下列哪项表述与知识库一致？",
+      "prompt": "关于“输出文档”，下列哪项表述正确？",
       "options": [
         {
           "key": "A",
-          "text": ">NC_001133.9 NC_001133.9-18410/1-1 115073"
+          "text": "模拟数据可用于评估各种NGS数据分析方法和工具"
         },
         {
           "key": "B",
-          "text": "ACCAGTGCTACCTCAGGACTCCCAGATGGGAGCGGCTTCGAAGTATGAGCTCCTTCGCTGGGATCTGAAGGC"
+          "text": "内建多种测序平台的基于大量测序数据构建的经验错误模型"
         },
         {
           "key": "C",
-          "text": "*2.aln"
+          "text": "可以输出FASTQ格式读段（reads）数据"
         },
         {
           "key": "D",
-          "text": "TTGAAAGTAAACCTGCTTCTCAAAGACGCCACACTTGCATCCGGAACTGTTGGACCAGTGCTACCTCAGGACT"
+          "text": "*.fq *.aln"
         }
       ],
       "answer": "D",
-      "analysis": "TTGAAAGTAAACCTGCTTCTCAAAGACGCCACACTTGCATCCGGAACTGTTGGACCAGTGCTACCTCAGGACT",
+      "analysis": "*.fq *.aln",
       "knowledgeRefs": [
-        "sum-p0196"
+        "sum-p0190"
+      ],
+      "styleRefs": [
+        "23_370",
+        "23_335",
+        "23_360"
+      ],
+      "tags": [
+        "aln",
+        "fq",
+        "sequencing-methods",
+        "single_choice",
+        "sum-p0190",
+        "synquest",
+        "出文",
+        "文档",
+        "模拟",
+        "读段",
+        "输出",
+        "输出文档"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    },
+    {
+      "id": "sq-sum-p0681-002",
+      "source": "SynQuest",
+      "origin": "generated",
+      "year": null,
+      "topic": "sum-p0681",
+      "topicName": "HMM发展简介",
+      "difficulty": 3,
+      "type": "single_choice",
+      "prompt": "关于“HMM发展简介”，下列哪项表述正确？",
+      "options": [
+        {
+          "key": "A",
+          "text": "Ø 有效地计算隐马尔可夫模型（HMM）的最有可能的隐状态 u被用作在有噪声数字通信链路上卷积码的解码算法"
+        },
+        {
+          "key": "B",
+          "text": "Forward算法"
+        },
+        {
+          "key": "C",
+          "text": "Viterbi算法"
+        },
+        {
+          "key": "D",
+          "text": "Baum-Welch算法"
+        }
+      ],
+      "answer": "A",
+      "analysis": "Ø 有效地计算隐马尔可夫模型（HMM）的最有可能的隐状态 u被用作在有噪声数字通信链路上卷积码的解码算法。",
+      "knowledgeRefs": [
+        "sum-p0681"
+      ],
+      "styleRefs": [
+        "23_654",
+        "22_90",
+        "23_639"
+      ],
+      "tags": [
+        "HMM",
+        "Viterbi",
+        "hmm-regulation",
+        "single_choice",
+        "sum-p0681",
+        "synquest",
+        "发展",
+        "发展简介",
+        "展简",
+        "简介",
+        "隐马",
+        "马尔"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    },
+    {
+      "id": "sq-sum-p0047-003",
+      "source": "SynQuest",
+      "origin": "generated",
+      "year": null,
+      "topic": "sum-p0047",
+      "topicName": "如何找到更多基因组学方面的知识或",
+      "difficulty": 2,
+      "type": "single_choice",
+      "prompt": "下列哪一项最适合描述“如何找到更多基因组学方面的知识或”？",
+      "options": [
+        {
+          "key": "A",
+          "text": "必应"
+        },
+        {
+          "key": "B",
+          "text": "百度"
+        },
+        {
+          "key": "C",
+          "text": "好搜"
+        },
+        {
+          "key": "D",
+          "text": "最新研究进展？"
+        }
+      ],
+      "answer": "D",
+      "analysis": "最新研究进展？",
+      "knowledgeRefs": [
+        "sum-p0047"
+      ],
+      "styleRefs": [
+        "22_2",
+        "23_243",
+        "22_3"
+      ],
+      "tags": [
+        "genome-databases",
+        "single_choice",
+        "sum-p0047",
+        "synquest",
+        "何找",
+        "到更",
+        "因组",
+        "基因",
+        "多基",
+        "如何",
+        "找到",
+        "更多"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    },
+    {
+      "id": "sq-sum-p0158-004",
+      "source": "SynQuest",
+      "origin": "generated",
+      "year": null,
+      "topic": "sum-p0158",
+      "topicName": "回 顾",
+      "difficulty": 2,
+      "type": "single_choice",
+      "prompt": "关于“回 顾”，下列哪项表述正确？",
+      "options": [
+        {
+          "key": "A",
+          "text": "序列图"
+        },
+        {
+          "key": "B",
+          "text": "物理图"
+        },
+        {
+          "key": "C",
+          "text": "HGP和组学计划的拓展；基因组信息学的主要研究内容"
+        },
+        {
+          "key": "D",
+          "text": "遗传图"
+        }
+      ],
+      "answer": "C",
+      "analysis": "HGP和组学计划的拓展；基因组信息学的主要研究内容",
+      "knowledgeRefs": [
+        "sum-p0158"
+      ],
+      "styleRefs": [
+        "23_133",
+        "22_9",
+        "23_294"
+      ],
+      "tags": [
+        "general",
+        "single_choice",
+        "sum-p0158",
+        "synquest",
+        "作图",
+        "及模",
+        "因组",
+        "基因",
+        "序及",
+        "测序",
+        "组学",
+        "组测"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    },
+    {
+      "id": "sq-sum-p0018-005",
+      "source": "SynQuest",
+      "origin": "generated",
+      "year": null,
+      "topic": "sum-p0018",
+      "topicName": "基因组 ► DNA结构► 双螺旋► 右手B型",
+      "difficulty": 2,
+      "type": "single_choice",
+      "prompt": "关于“基因组 ► DNA结构► 双螺旋► 右手B型”，下列哪一年是正确的？",
+      "options": [
+        {
+          "key": "A",
+          "text": "mRNA"
+        },
+        {
+          "key": "B",
+          "text": "exon"
+        },
+        {
+          "key": "C",
+          "text": "沃森和克里克（1953）"
+        },
+        {
+          "key": "D",
+          "text": "gene"
+        }
+      ],
+      "answer": "C",
+      "analysis": "沃森和克里克（1953）",
+      "knowledgeRefs": [
+        "sum-p0018"
+      ],
+      "styleRefs": [
+        "23_164",
+        "23_133",
+        "22_112"
+      ],
+      "tags": [
+        "DNA",
+        "general",
+        "single_choice",
+        "sum-p0018",
+        "synquest",
+        "双螺",
+        "双螺旋",
+        "因组",
+        "基因",
+        "基因组",
+        "结构",
+        "螺旋"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    },
+    {
+      "id": "sq-sum-p0763-006",
+      "source": "SynQuest",
+      "origin": "generated",
+      "year": null,
+      "topic": "sum-p0763",
+      "topicName": "HMM在CpG岛分析中的应用 ► 最佳状态路径【Viterbi算法】",
+      "difficulty": 3,
+      "type": "single_choice",
+      "prompt": "关于“HMM在CpG岛分析中的应用 ► 最佳状态路径【Viterbi算法】”，下列哪项表述正确？",
+      "options": [
+        {
+          "key": "A",
+          "text": "Baum-Welch算法"
+        },
+        {
+          "key": "B",
+          "text": "Viterbi算法"
+        },
+        {
+          "key": "C",
+          "text": "Forward算法"
+        },
+        {
+          "key": "D",
+          "text": "② P(序列) = 序列的总概率【所有可能的状态路径】 = ( 0.0032 + 0.00021)"
+        }
+      ],
+      "answer": "D",
+      "analysis": "② P(序列) = 序列的总概率【所有可能的状态路径】 = ( 0.0032 + 0.00021)",
+      "knowledgeRefs": [
+        "sum-p0763"
+      ],
+      "styleRefs": [
+        "23_654",
+        "22_82",
+        "22_36"
+      ],
+      "tags": [
+        "CpG",
+        "HMM",
+        "hmm-regulation",
+        "single_choice",
+        "sum-p0763",
+        "synquest",
+        "岛分",
+        "序列",
+        "态路",
+        "析中",
+        "状态",
+        "路径"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    },
+    {
+      "id": "sq-sum-p0242-007",
+      "source": "SynQuest",
+      "origin": "generated",
+      "year": null,
+      "topic": "sum-p0242",
+      "topicName": "回 顾（2）",
+      "difficulty": 2,
+      "type": "single_choice",
+      "prompt": "“数据格式”对应的内容是？",
+      "options": [
+        {
+          "key": "A",
+          "text": "模拟数据无法用于评估变异调用工具"
+        },
+        {
+          "key": "B",
+          "text": "不允许用户自定义的质量谱模型"
+        },
+        {
+          "key": "C",
+          "text": "fastq、aln、sam、stat（偏移）"
+        },
+        {
+          "key": "D",
+          "text": "不支持扩增子测序模拟"
+        }
+      ],
+      "answer": "C",
+      "analysis": " 数据格式：fastq、aln、sam、stat（偏移）",
+      "knowledgeRefs": [
+        "sum-p0242"
+      ],
+      "styleRefs": [
+        "23_370",
+        "23_345",
+        "23_340"
+      ],
+      "tags": [
+        "art",
+        "illumina",
+        "sequencing-methods",
+        "single_choice",
+        "sum-p0242",
+        "synquest",
+        "因组",
+        "基因",
+        "序模",
+        "模拟",
+        "测序",
+        "组测"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    },
+    {
+      "id": "sq-sum-p0938-008",
+      "source": "SynQuest",
+      "origin": "generated",
+      "year": null,
+      "topic": "sum-p0938",
+      "topicName": "下一条组装序列开始",
+      "difficulty": 2,
+      "type": "single_choice",
+      "prompt": "关于“下一条组装序列开始”，下列哪项命令或参数写法是正确的？",
+      "options": [
+        {
+          "key": "A",
+          "text": "/"
+        },
+        {
+          "key": "B",
+          "text": "//db.cngb.org/submission"
+        },
+        {
+          "key": "C",
+          "text": "Fasta格式序列【核酸.fna | 蛋白.faa | 其他.fa.和fasta】"
+        },
+        {
+          "key": "D",
+          "text": "Genbank格式序列【核酸.gbff| 蛋白.gpff| 其他.gbk.和.genbank】"
+        }
+      ],
+      "answer": "D",
+      "analysis": "Genbank格式序列【核酸.gbff| 蛋白.gpff| 其他.gbk.和.genbank】",
+      "knowledgeRefs": [
+        "sum-p0938"
+      ],
+      "styleRefs": [
+        "22_116",
+        "23_492",
+        "23_517"
+      ],
+      "tags": [
+        "genome-assembly",
+        "single_choice",
+        "sum-p0938",
+        "synquest",
+        "一条",
+        "下一",
+        "列开",
+        "序列",
+        "开始",
+        "条组",
+        "组装",
+        "装序"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    },
+    {
+      "id": "sq-sum-p0041-009",
+      "source": "SynQuest",
+      "origin": "generated",
+      "year": null,
+      "topic": "sum-p0041",
+      "topicName": "组学计划的拓展► 更多人类基因组计划",
+      "difficulty": 2,
+      "type": "single_choice",
+      "prompt": "“目标”对应的内容是？",
+      "options": [
+        {
+          "key": "A",
+          "text": "基因的定性和定量"
+        },
+        {
+          "key": "B",
+          "text": "基因组进化"
+        },
+        {
+          "key": "C",
+          "text": "识别人类基因组中的功能元件"
+        },
+        {
+          "key": "D",
+          "text": "基因组的结构和功能"
+        }
+      ],
+      "answer": "C",
+      "analysis": "目标：识别人类基因组中的功能元件。",
+      "knowledgeRefs": [
+        "sum-p0041"
+      ],
+      "styleRefs": [
+        "23_133",
+        "23_201",
+        "22_1"
+      ],
+      "tags": [
+        "general",
+        "single_choice",
+        "sum-p0041",
+        "synquest",
+        "人类",
+        "因组",
+        "基因",
+        "学计",
+        "类基",
+        "组学",
+        "组计",
+        "计划"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    },
+    {
+      "id": "sq-sum-p0201-010",
+      "source": "SynQuest",
+      "origin": "generated",
+      "year": null,
+      "topic": "sum-p0201",
+      "topicName": "输出文档► SAM格式► 比对结果（2）",
+      "difficulty": 2,
+      "type": "single_choice",
+      "prompt": "关于“输出文档► SAM格式► 比对结果（2）”，下列哪项表述正确？",
+      "options": [
+        {
+          "key": "A",
+          "text": "可输出SAM格式的序列比对结果"
+        },
+        {
+          "key": "B",
+          "text": "模拟数据无法用于评估变异调用工具"
+        },
+        {
+          "key": "C",
+          "text": "参考序列编号，如果注释中对SQ-SN进行了定义，这里必须和其保持一致，另"
+        },
+        {
+          "key": "D",
+          "text": "不支持用户自定义的质量谱模型"
+        }
+      ],
+      "answer": "C",
+      "analysis": "参考序列编号，如果注释中对SQ-SN进行了定义，这里必须和其保持一致，另",
+      "knowledgeRefs": [
+        "sum-p0201"
+      ],
+      "styleRefs": [
+        "23_482",
+        "23_370",
+        "23_365"
+      ],
+      "tags": [
+        "SAM",
+        "sequencing-methods",
+        "single_choice",
+        "sum-p0201",
+        "synquest",
+        "出文",
+        "序列",
+        "文档",
+        "格式",
+        "比对",
+        "输出",
+        "输出文档"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    },
+    {
+      "id": "sq-sum-p0060-011",
+      "source": "SynQuest",
+      "origin": "generated",
+      "year": null,
+      "topic": "sum-p0060",
+      "topicName": "拓展阅读和实践练习",
+      "difficulty": 2,
+      "type": "single_choice",
+      "prompt": "关于“拓展阅读和实践练习”，下列哪项表述正确？",
+      "options": [
+        {
+          "key": "A",
+          "text": "拓展阅读和实践练习 检索基因组学方面的最新研究进展"
+        },
+        {
+          "key": "B",
+          "text": "百度"
+        },
+        {
+          "key": "C",
+          "text": "必应"
+        },
+        {
+          "key": "D",
+          "text": "好搜"
+        }
+      ],
+      "answer": "A",
+      "analysis": "拓展阅读和实践练习 检索基因组学方面的最新研究进展",
+      "knowledgeRefs": [
+        "sum-p0060"
+      ],
+      "styleRefs": [
+        "23_243",
+        "22_2",
+        "22_3"
+      ],
+      "tags": [
+        "genome-databases",
+        "single_choice",
+        "sum-p0060",
+        "synquest",
+        "和实",
+        "实践",
+        "展阅",
+        "拓展",
+        "练习",
+        "读和",
+        "践练",
+        "阅读"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    },
+    {
+      "id": "sq-sum-p0078-012",
+      "source": "SynQuest",
+      "origin": "generated",
+      "year": null,
+      "topic": "sum-p0078",
+      "topicName": "物理作图方法",
+      "difficulty": 3,
+      "type": "single_choice",
+      "prompt": "关于“物理作图方法”，下列哪项表述正确？",
+      "options": [
+        {
+          "key": "A",
+          "text": "大规模基因组物理图的主流技术 辐射杂交作图"
+        },
+        {
+          "key": "B",
+          "text": "染色体细胞图"
+        },
+        {
+          "key": "C",
+          "text": "限制性酶切作图"
+        },
+        {
+          "key": "D",
+          "text": "基于克隆和的基因组作图"
+        }
+      ],
+      "answer": "A",
+      "analysis": "大规模基因组物理图的主流技术 辐射杂交作图",
+      "knowledgeRefs": [
+        "sum-p0078"
+      ],
+      "styleRefs": [
+        "22_4",
+        "23_253",
+        "22_14"
+      ],
+      "tags": [
+        "human-genome-project",
+        "mapping",
+        "single_choice",
+        "sum-p0078",
+        "synquest",
+        "作图",
+        "因组",
+        "图方",
+        "基因",
+        "物理",
+        "物理作图方法",
+        "理作"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    },
+    {
+      "id": "sq-sum-p0938-013",
+      "source": "SynQuest",
+      "origin": "generated",
+      "year": null,
+      "topic": "sum-p0938",
+      "topicName": "下一条组装序列开始",
+      "difficulty": 2,
+      "type": "single_choice",
+      "prompt": "关于“下一条组装序列开始”，下列哪项表述正确？",
+      "options": [
+        {
+          "key": "A",
+          "text": "每个文件中仅仅包含一条基因组序列"
+        },
+        {
+          "key": "B",
+          "text": "包含可能存在的序列间隙（gap）信息"
+        },
+        {
+          "key": "C",
+          "text": "向下翻页"
+        },
+        {
+          "key": "D",
+          "text": "包含各种该序列相关的注释信息"
+        }
+      ],
+      "answer": "C",
+      "analysis": "向下翻页",
+      "knowledgeRefs": [
+        "sum-p0938"
+      ],
+      "styleRefs": [
+        "22_116",
+        "23_492",
+        "23_517"
+      ],
+      "tags": [
+        "genome-assembly",
+        "single_choice",
+        "sum-p0938",
+        "synquest",
+        "一条",
+        "下一",
+        "列开",
+        "序列",
+        "开始",
+        "条组",
+        "组装",
+        "装序"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    },
+    {
+      "id": "sq-sum-p0763-014",
+      "source": "SynQuest",
+      "origin": "generated",
+      "year": null,
+      "topic": "sum-p0763",
+      "topicName": "HMM在CpG岛分析中的应用 ► 最佳状态路径【Viterbi算法】",
+      "difficulty": 3,
+      "type": "single_choice",
+      "prompt": "关于“HMM在CpG岛分析中的应用 ► 最佳状态路径【Viterbi算法】”，下列哪项命令或参数写法是正确的？",
+      "options": [
+        {
+          "key": "A",
+          "text": "C+ 0 1/8 = 0.125 0 0.034*1*0.339 = 0.012 0"
+        },
+        {
+          "key": "B",
+          "text": "Obs/Exp CpG = CpG数量 × N /（C数量 × G数量）"
+        },
+        {
+          "key": "C",
+          "text": "C- 0 1/8 = 0.125 0 0.010*1*0.246 = 0.0026 0"
+        },
+        {
+          "key": "D",
+          "text": "P(状态路径 | 序列) = P(序列，状态路径) / P（序列）"
+        }
+      ],
+      "answer": "D",
+      "analysis": "P(状态路径 | 序列) = P(序列，状态路径) / P（序列）",
+      "knowledgeRefs": [
+        "sum-p0763"
+      ],
+      "styleRefs": [
+        "23_654",
+        "22_82",
+        "23_665"
+      ],
+      "tags": [
+        "CpG",
+        "HMM",
+        "hmm-regulation",
+        "single_choice",
+        "sum-p0763",
+        "synquest",
+        "岛分",
+        "序列",
+        "态路",
+        "析中",
+        "状态",
+        "路径"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    },
+    {
+      "id": "sq-sum-p0951-015",
+      "source": "SynQuest",
+      "origin": "generated",
+      "year": null,
+      "topic": "sum-p0951",
+      "topicName": "GFF3 预定义属性",
+      "difficulty": 2,
+      "type": "single_choice",
+      "prompt": "关于“GFF3 预定义属性”，下列哪项表述正确？",
+      "options": [
+        {
+          "key": "A",
+          "text": "exon"
+        },
+        {
+          "key": "B",
+          "text": "否为环形的标记"
+        },
+        {
+          "key": "C",
+          "text": "gene"
+        },
+        {
+          "key": "D",
+          "text": "mRNA"
+        }
+      ],
+      "answer": "B",
+      "analysis": "Is_circular 指示特征是否为环形的标记",
+      "knowledgeRefs": [
+        "sum-p0951"
+      ],
+      "styleRefs": [
+        "22_112",
+        "22_113",
+        "23_482"
+      ],
+      "tags": [
+        "GFF3",
+        "ID",
+        "annotation-prediction",
+        "single_choice",
+        "sum-p0951",
+        "synquest",
+        "义属",
+        "定义",
+        "序列",
+        "格式",
+        "特征",
+        "预定"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    },
+    {
+      "id": "sq-sum-p0697-016",
+      "source": "SynQuest",
+      "origin": "generated",
+      "year": null,
+      "topic": "sum-p0697",
+      "topicName": "HMM应用算法概述",
+      "difficulty": 3,
+      "type": "single_choice",
+      "prompt": "关于“HMM应用算法概述”，下列哪项表述正确？",
+      "options": [
+        {
+          "key": "A",
+          "text": "Baum-Welch算法"
+        },
+        {
+          "key": "B",
+          "text": "输出序列 概率 计算 输出序列 预测 隐藏状态"
+        },
+        {
+          "key": "C",
+          "text": "动态规划算法"
+        },
+        {
+          "key": "D",
+          "text": "Viterbi算法"
+        }
+      ],
+      "answer": "B",
+      "analysis": "输出序列 概率 计算 输出序列 预测 隐藏状态",
+      "knowledgeRefs": [
+        "sum-p0697"
+      ],
+      "styleRefs": [
+        "23_654",
+        "22_82",
+        "22_90"
+      ],
+      "tags": [
+        "HMM",
+        "hmm-regulation",
+        "single_choice",
+        "sum-p0697",
+        "synquest",
+        "序列",
+        "应用",
+        "应用算法概述",
+        "概述",
+        "法概",
+        "用算",
+        "算法"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    },
+    {
+      "id": "sq-sum-p0205-017",
+      "source": "SynQuest",
+      "origin": "generated",
+      "year": null,
+      "topic": "sum-p0205",
+      "topicName": "输出文档► “*.stat”文件（3）",
+      "difficulty": 2,
+      "type": "single_choice",
+      "prompt": "“横坐标”对应的内容是？",
+      "options": [
+        {
+          "key": "A",
+          "text": "不支持扩增子测序模拟"
+        },
+        {
+          "key": "B",
+          "text": "不允许用户自定义的质量谱模型"
+        },
+        {
+          "key": "C",
+          "text": "参考序列位置；纵坐标：覆盖度"
+        },
+        {
+          "key": "D",
+          "text": "模拟数据无法用于评估变异调用工具"
+        }
+      ],
+      "answer": "C",
+      "analysis": "横坐标：参考序列位置；纵坐标：覆盖度。",
+      "knowledgeRefs": [
+        "sum-p0205"
+      ],
+      "styleRefs": [
+        "23_370",
+        "23_482",
+        "23_345"
+      ],
+      "tags": [
+        "sequencing-methods",
+        "single_choice",
+        "stat",
+        "sum-p0205",
+        "synquest",
+        "位置",
+        "出文",
+        "文件",
+        "文档",
+        "覆盖",
+        "输出",
+        "输出文档"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    },
+    {
+      "id": "sq-sum-p0182-018",
+      "source": "SynQuest",
+      "origin": "generated",
+      "year": null,
+      "topic": "sum-p0182",
+      "topicName": "art_illumina► 参数",
+      "difficulty": 2,
+      "type": "single_choice",
+      "prompt": "关于“art_illumina► 参数”，下列哪个时间或数值是正确的？",
+      "options": [
+        {
+          "key": "A",
+          "text": "10%"
+        },
+        {
+          "key": "B",
+          "text": "20个"
+        },
+        {
+          "key": "C",
+          "text": "100bp"
+        },
+        {
+          "key": "D",
+          "text": "150bp"
+        }
+      ],
+      "answer": "C",
+      "analysis": "HS10 - HiSeq 1000 (100bp),",
+      "knowledgeRefs": [
+        "sum-p0182"
+      ],
+      "styleRefs": [
+        "23_370",
+        "23_365",
+        "23_340"
+      ],
+      "tags": [
+        "GenomeAnalyzer",
+        "HiSeq",
+        "HiSeqX",
+        "art",
+        "bp",
+        "illumina",
+        "sequencing-methods",
+        "single_choice",
+        "ss",
+        "sum-p0182",
+        "synquest",
+        "参数"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    },
+    {
+      "id": "sq-sum-p0936-019",
+      "source": "SynQuest",
+      "origin": "generated",
+      "year": null,
+      "topic": "sum-p0936",
+      "topicName": "向下翻页",
+      "difficulty": 2,
+      "type": "single_choice",
+      "prompt": "关于“向下翻页”，下列哪项命令或参数写法是正确的？",
+      "options": [
+        {
+          "key": "A",
+          "text": "//db.cngb.org/submission"
+        },
+        {
+          "key": "B",
+          "text": "//biopython.org/ 向下翻页"
+        },
+        {
+          "key": "C",
+          "text": "Genbank格式序列【核酸.gbff| 蛋白.gpff| 其他.gbk.和.genbank】"
+        },
+        {
+          "key": "D",
+          "text": "Fasta格式序列【核酸.fna | 蛋白.faa | 其他.fa.和fasta】"
+        }
+      ],
+      "answer": "C",
+      "analysis": "Genbank格式序列【核酸.gbff| 蛋白.gpff| 其他.gbk.和.genbank】",
+      "knowledgeRefs": [
+        "sum-p0936"
+      ],
+      "styleRefs": [
+        "22_116",
+        "23_517",
+        "22_117"
+      ],
+      "tags": [
+        "CNGBdb",
+        "Genbank",
+        "gbff",
+        "genome-assembly",
+        "gpff",
+        "single_choice",
+        "sum-p0936",
+        "synquest",
+        "下翻",
+        "向下",
+        "向下翻页",
+        "翻页"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    },
+    {
+      "id": "sq-sum-p0950-020",
+      "source": "SynQuest",
+      "origin": "generated",
+      "year": null,
+      "topic": "sum-p0950",
+      "topicName": "GFF3",
+      "difficulty": 2,
+      "type": "single_choice",
+      "prompt": "关于“GFF3”，下列哪项表述正确？",
+      "options": [
+        {
+          "key": "A",
+          "text": "列 名称 述 3 type 特征类型。这里限定为序列本体（ Sequence Ontology ）术语。 6 score"
+        },
+        {
+          "key": "B",
+          "text": "3 type"
+        },
+        {
+          "key": "C",
+          "text": "1 sequence"
+        },
+        {
+          "key": "D",
+          "text": "2 source"
+        }
+      ],
+      "answer": "A",
+      "analysis": "列 名称 述 3 type 特征类型。这里限定为序列本体（ Sequence Ontology ）术语。 6 score",
+      "knowledgeRefs": [
+        "sum-p0950"
+      ],
+      "styleRefs": [
+        "22_113",
+        "22_112",
+        "23_330"
+      ],
+      "tags": [
+        "GFF3",
+        "annotation-prediction",
+        "single_choice",
+        "sum-p0950",
+        "synquest",
+        "因组",
+        "基因",
+        "格式",
+        "注释",
+        "特征",
+        "组注",
+        "释数"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    },
+    {
+      "id": "sq-sum-p0195-021",
+      "source": "SynQuest",
+      "origin": "generated",
+      "year": null,
+      "topic": "sum-p0195",
+      "topicName": "输出文档► ALN格式（1）",
+      "difficulty": 2,
+      "type": "single_choice",
+      "prompt": "关于“输出文档► ALN格式（1）”，下列哪项表述正确？",
+      "options": [
+        {
+          "key": "A",
+          "text": "不支持扩增子测序模拟"
+        },
+        {
+          "key": "B",
+          "text": "##ART_Illumina read_length 125"
+        },
+        {
+          "key": "C",
+          "text": "模拟数据无法用于评估变异调用工具"
+        },
+        {
+          "key": "D",
+          "text": "不允许用户自定义的质量谱模型"
+        }
+      ],
+      "answer": "B",
+      "analysis": "##ART_Illumina read_length 125",
+      "knowledgeRefs": [
+        "sum-p0195"
+      ],
+      "styleRefs": [
+        "23_370",
+        "23_345",
+        "23_365"
       ],
       "tags": [
         "ALN",
-        "NC",
-        "aln",
+        "ART",
+        "Illumina",
+        "sequencing-methods",
         "single_choice",
-        "sum-p0196",
+        "sum-p0195",
         "synquest",
         "出文",
         "文档",
@@ -58,362 +1234,56 @@
       "pdfPage": null
     },
     {
-      "id": "sq-sum-p0964-002",
-      "source": "synquest",
+      "id": "sq-sum-p0139-022",
+      "source": "SynQuest",
       "origin": "generated",
       "year": null,
-      "topic": "sum-p0964",
-      "topicName": "Datasets ► 命令行工具 ► 简介",
+      "topic": "sum-p0139",
+      "topicName": "全基因组测序需要注意的问题2：序列间隙",
       "difficulty": 2,
       "type": "single_choice",
-      "prompt": "关于“Datasets ► 命令行工具 ► 简介”，下列哪项表述与知识库一致？",
+      "prompt": "关于“全基因组测序需要注意的问题2：序列间隙”，下列哪项表述正确？",
       "options": [
         {
           "key": "A",
-          "text": "The NCBI Datasets command-line tools (CLI) are datasets and dataformat."
+          "text": "无限制的增加测序深度？"
         },
         {
           "key": "B",
-          "text": "Use datasets to download biological sequence data across all domains of life from NCBI."
+          "text": "物理间隙"
         },
         {
           "key": "C",
-          "text": "Download and install the NCBI Datasets command-line tools"
+          "text": "序列间隙"
         },
         {
           "key": "D",
-          "text": "Use dataformat to convert metadata from JSON Lines format to other formats."
-        }
-      ],
-      "answer": "D",
-      "analysis": "Use dataformat to convert metadata from JSON Lines format to other formats.",
-      "knowledgeRefs": [
-        "sum-p0964"
-      ],
-      "tags": [
-        "Datasets",
-        "single_choice",
-        "sum-p0964",
-        "synquest",
-        "tools",
-        "令行",
-        "命令",
-        "命令行工具",
-        "工具",
-        "简介",
-        "行工"
-      ],
-      "images": {
-        "question": "",
-        "note": ""
-      },
-      "pdfPage": null
-    },
-    {
-      "id": "sq-sum-p0543-003",
-      "source": "synquest",
-      "origin": "generated",
-      "year": null,
-      "topic": "sum-p0543",
-      "topicName": "基因预测 ► 从头计算预测基因软件 ► 原核生物 ► 新蛋白功能鉴别",
-      "difficulty": 2,
-      "type": "single_choice",
-      "prompt": "“实验证据”对应的内容是？",
-      "options": [
-        {
-          "key": "A",
-          "text": "目标生物基因组序列 寻找所有ORFs"
-        },
-        {
-          "key": "B",
-          "text": "与功能已知蛋白进行序列比对"
-        },
-        {
-          "key": "C",
-          "text": "突变表型（生长发育、生理生化指标）"
-        },
-        {
-          "key": "D",
-          "text": "1000 bp"
-        }
-      ],
-      "answer": "C",
-      "analysis": "实验证据：突变表型（生长发育、生理生化指标）",
-      "knowledgeRefs": [
-        "sum-p0543"
-      ],
-      "tags": [
-        "single_choice",
-        "sum-p0543",
-        "synquest",
-        "从头",
-        "功能",
-        "因预",
-        "基因",
-        "基因预测",
-        "头计",
-        "蛋白",
-        "预测"
-      ],
-      "images": {
-        "question": "",
-        "note": ""
-      },
-      "pdfPage": null
-    },
-    {
-      "id": "sq-sum-p0564-004",
-      "source": "synquest",
-      "origin": "generated",
-      "year": null,
-      "topic": "sum-p0564",
-      "topicName": "基于同源搜索的基因预测 ► ② 目标物种Ap基因组准备",
-      "difficulty": 2,
-      "type": "single_choice",
-      "prompt": "关于“基于同源搜索的基因预测 ► ② 目标物种Ap基因组准备”，下列哪项表述与知识库一致？",
-      "options": [
-        {
-          "key": "A",
-          "text": "Ap_gDNA3.nin Ap_gDNA3.not Ap_gDNA3.nsq"
-        },
-        {
-          "key": "B",
-          "text": "# 准备好Ap三代测序组装的基因组（Ap_gDNA3.fa），并上传到服务端工作目录（genomics） put Ap_gDNA3.fa"
-        },
-        {
-          "key": "C",
-          "text": "Ap_gDNA3.fa Ap_gDNA3.ndb Ap_gDNA3.nhr"
-        },
-        {
-          "key": "D",
-          "text": "7个"
-        }
-      ],
-      "answer": "B",
-      "analysis": "# 准备好Ap三代测序组装的基因组（Ap_gDNA3.fa），并上传到服务端工作目录（genomics） put Ap_gDNA3.fa",
-      "knowledgeRefs": [
-        "sum-p0564"
-      ],
-      "tags": [
-        "Ap",
-        "pilon",
-        "single_choice",
-        "sum-p0564",
-        "synquest",
-        "于同",
-        "同源",
-        "因组",
-        "基于",
-        "基因",
-        "的基"
-      ],
-      "images": {
-        "question": "",
-        "note": ""
-      },
-      "pdfPage": null
-    },
-    {
-      "id": "sq-sum-p1003-005",
-      "source": "synquest",
-      "origin": "generated",
-      "year": null,
-      "topic": "sum-p1003",
-      "topicName": "R语言 ► rentrez包 ► PubMed文献数据库检索",
-      "difficulty": 2,
-      "type": "single_choice",
-      "prompt": "“retmax”对应的内容是？",
-      "options": [
-        {
-          "key": "A",
-          "text": "一个对象，其中包括如下元素"
-        },
-        {
-          "key": "B",
-          "text": "存放检索结果的总条目数"
-        },
-        {
-          "key": "C",
-          "text": "返回的IDs最大数量，默认为20，此案例设为10"
-        },
-        {
-          "key": "D",
-          "text": "存放当前返回的检索结果PubMed IDs"
-        }
-      ],
-      "answer": "C",
-      "analysis": "Ø $retmax：返回的IDs最大数量，默认为20，此案例设为10",
-      "knowledgeRefs": [
-        "sum-p1003"
-      ],
-      "tags": [
-        "PubMed",
-        "rentrez",
-        "single_choice",
-        "sum-p1003",
-        "synquest",
-        "据库",
-        "文献",
-        "检索",
-        "献数",
-        "结果",
-        "语言"
-      ],
-      "images": {
-        "question": "",
-        "note": ""
-      },
-      "pdfPage": null
-    },
-    {
-      "id": "sq-sum-p0758-006",
-      "source": "synquest",
-      "origin": "generated",
-      "year": null,
-      "topic": "sum-p0758",
-      "topicName": "HMM在CpG岛分析中的应用",
-      "difficulty": 2,
-      "type": "single_choice",
-      "prompt": "关于“HMM在CpG岛分析中的应用”，下列哪项表述与知识库一致？",
-      "options": [
-        {
-          "key": "A",
-          "text": "G 0.161 0.339 0.375 0.125"
-        },
-        {
-          "key": "B",
-          "text": "E[πi][xi] CpG+ A C G T"
-        },
-        {
-          "key": "C",
-          "text": "Ø 一个观察序列x{CGCG}和一个状态序列π{A+,C+,G+,T+,A-,C-,G-,T-}的联合概率"
-        },
-        {
-          "key": "D",
-          "text": "转移概率 a[πi][πi+1] ? 输出概率 ?"
+          "text": "逻辑间隙"
         }
       ],
       "answer": "A",
-      "analysis": "G 0.161 0.339 0.375 0.125",
+      "analysis": "无限制的增加测序深度？",
       "knowledgeRefs": [
-        "sum-p0758"
+        "sum-p0139"
+      ],
+      "styleRefs": [
+        "23_305",
+        "22_15",
+        "23_450"
       ],
       "tags": [
-        "CpG",
-        "HMM",
+        "sequencing-methods",
         "single_choice",
-        "sum-p0758",
-        "synquest",
-        "中的",
-        "岛分",
-        "应用",
-        "析中",
-        "概率",
-        "的应"
-      ],
-      "images": {
-        "question": "",
-        "note": ""
-      },
-      "pdfPage": null
-    },
-    {
-      "id": "sq-sum-p0996-007",
-      "source": "synquest",
-      "origin": "generated",
-      "year": null,
-      "topic": "sum-p0996",
-      "topicName": "NCBI ► E-Utilities ► The Nine E-utilities (fcgi)",
-      "difficulty": 2,
-      "type": "single_choice",
-      "prompt": "关于“NCBI ► E-Utilities ► The Nine E-utilities (fcgi)”，下列哪项表述与知识库一致？",
-      "options": [
-        {
-          "key": "A",
-          "text": "名称 功用 述 EInfo 数据库统计"
-        },
-        {
-          "key": "B",
-          "text": "Ø 供在给定数据库的每个字段中建立索引的记录数、数据库的最后更"
-        },
-        {
-          "key": "C",
-          "text": "//eutils.ncbi.nlm.nih.gov/entrez/eutils/einfo.fcgi"
-        },
-        {
-          "key": "D",
-          "text": "Ø 接受给定数据库的UID列表，将其存储在History Server中，并反馈"
-        }
-      ],
-      "answer": "D",
-      "analysis": "Ø 接受给定数据库的UID列表，将其存储在History Server中，并反馈",
-      "knowledgeRefs": [
-        "sum-p0996"
-      ],
-      "tags": [
-        "E-Utilities",
-        "E-utilities",
-        "NCBI",
-        "Nine",
-        "fcgi",
-        "single_choice",
-        "sum-p0996",
-        "synquest",
-        "库的",
-        "据库",
-        "给定"
-      ],
-      "images": {
-        "question": "",
-        "note": ""
-      },
-      "pdfPage": null
-    },
-    {
-      "id": "sq-sum-p0137-008",
-      "source": "synquest",
-      "origin": "generated",
-      "year": null,
-      "topic": "sum-p0137",
-      "topicName": "全基因组测序需要注意的问题1：覆盖（coverage）",
-      "difficulty": 2,
-      "type": "single_choice",
-      "prompt": "关于“全基因组测序需要注意的问题1：覆盖（coverage）”，下列哪项表述与知识库一致？",
-      "options": [
-        {
-          "key": "A",
-          "text": "63%"
-        },
-        {
-          "key": "B",
-          "text": "37%"
-        },
-        {
-          "key": "C",
-          "text": "自然对数底数 ③ m：测序量为基因组大小的倍数"
-        },
-        {
-          "key": "D",
-          "text": "P0 = e-m ① P0 ：丢失概率"
-        }
-      ],
-      "answer": "D",
-      "analysis": "P0 = e-m ① P0 ：丢失概率",
-      "knowledgeRefs": [
-        "sum-p0137"
-      ],
-      "tags": [
-        "coverage",
-        "single_choice",
-        "sum-p0137",
+        "sum-p0139",
         "synquest",
         "全基",
         "因组",
         "基因",
         "序需",
+        "注意",
         "测序",
         "组测",
-        "覆盖"
+        "要注"
       ],
       "images": {
         "question": "",
@@ -422,94 +1292,48 @@
       "pdfPage": null
     },
     {
-      "id": "sq-sum-p0495-009",
-      "source": "synquest",
-      "origin": "generated",
-      "year": null,
-      "topic": "sum-p0495",
-      "topicName": "Bowtie2► 将下载的实测数据与参考基因组进行比对",
-      "difficulty": 2,
-      "type": "single_choice",
-      "prompt": "根据知识库内容，下列哪个时间或数值是正确的？",
-      "options": [
-        {
-          "key": "A",
-          "text": "100.00%"
-        },
-        {
-          "key": "B",
-          "text": "# 切换到下载的实测数据文件所在目录 cd ~/Downloads/SRR30350748"
-        },
-        {
-          "key": "C",
-          "text": "# 切换到基因组序列文件所在目录 cd ~/Downloads/art_bin_MountRainier/Sc_R64_RefSeq"
-        },
-        {
-          "key": "D",
-          "text": "#使用bowtie2-build创建某物种基因组（gDNA）的索引文件 bowtie2-build gDNA.fna Sc_index"
-        }
-      ],
-      "answer": "A",
-      "analysis": "SRR30350748_1.fastq -2 SRR30350748_2.fastq -S paired2.sam -p 10 > nohup.bowtie2.cpu10 & 7153953 reads; of these 7153953 (100.00%) were paired; of these 2792076 (39.03%) aligned concordantly 0 times 3919196 (54.78%) aligned concordantly exactly 1 time 442681 (6.19%) aligned concordantly >1 times 2792076 pairs aligned concordantly 0 times; of these 882299 (31.60%) aligned discordantly 1 time 1909777 pairs aligned 0 times concordantly or discordantly; of these 3819554 mates make up the pairs; of these 3471126 (90.88%) aligned 0 times 131158 (3.43%) aligned exactly 1 time 217270 (5.69%) aligned >1 times 75.74% overall alignment rate",
-      "knowledgeRefs": [
-        "sum-p0495"
-      ],
-      "tags": [
-        "Bowtie2",
-        "aligned",
-        "concordantly",
-        "of",
-        "single_choice",
-        "sum-p0495",
-        "synquest",
-        "these",
-        "time",
-        "times",
-        "下载"
-      ],
-      "images": {
-        "question": "",
-        "note": ""
-      },
-      "pdfPage": null
-    },
-    {
-      "id": "sq-sum-p0196-010",
-      "source": "synquest",
+      "id": "sq-sum-p0196-023",
+      "source": "SynQuest",
       "origin": "generated",
       "year": null,
       "topic": "sum-p0196",
       "topicName": "输出文档 >> ALN格式（2）",
       "difficulty": 2,
       "type": "single_choice",
-      "prompt": "关于“输出文档 >> ALN格式（2）”，下列哪项表述与知识库一致？",
+      "prompt": "关于“输出文档 >> ALN格式（2）”，下列哪项表述正确？",
       "options": [
         {
           "key": "A",
-          "text": "ACCAGTGCTACCTCAGGACTCCCAGATGGGAGCGGCTTCGAAGTATGAGCTCCTTCGCTGGGATCTGAAGGC"
+          "text": "*2.aln"
         },
         {
           "key": "B",
-          "text": "GTGGTAAGGGTGGCCTGTGTGTGGACTTGAAAGGCAAGTCTGACAACGAGATCAGAAGGATTTGTTATGCGTT"
+          "text": "不支持扩增子测序模拟"
         },
         {
           "key": "C",
-          "text": ">NC_001133.9 NC_001133.9-18410/1-1 115073"
+          "text": "模拟数据无法用于评估变异调用工具"
         },
         {
           "key": "D",
-          "text": "*2.aln"
+          "text": "不支持用户自定义的质量谱模型"
         }
       ],
-      "answer": "B",
-      "analysis": "GTGGTAAGGGTGGCCTGTGTGTGGACTTGAAAGGCAAGTCTGACAACGAGATCAGAAGGATTTGTTATGCGTT",
+      "answer": "A",
+      "analysis": "*2.aln",
       "knowledgeRefs": [
         "sum-p0196"
+      ],
+      "styleRefs": [
+        "23_370",
+        "23_365",
+        "23_345"
       ],
       "tags": [
         "ALN",
         "NC",
         "aln",
+        "sequencing-methods",
         "single_choice",
         "sum-p0196",
         "synquest",
@@ -526,726 +1350,56 @@
       "pdfPage": null
     },
     {
-      "id": "sq-sum-p0689-011",
-      "source": "synquest",
+      "id": "sq-sum-p0640-024",
+      "source": "SynQuest",
       "origin": "generated",
       "year": null,
-      "topic": "sum-p0689",
-      "topicName": "中国古代科学中的气象预测学",
+      "topic": "sum-p0640",
+      "topicName": "UCSC ► BLAT ► 小鼠TP53蛋白 vs hg38",
       "difficulty": 2,
       "type": "single_choice",
-      "prompt": "“清朝”对应的内容是？",
+      "prompt": "关于“UCSC ► BLAT ► 小鼠TP53蛋白 vs hg38”，下列哪项表述正确？",
       "options": [
         {
           "key": "A",
-          "text": "汤若望、南怀仁等，《时宪历》 清末：梁章拒，《农候杂占》"
+          "text": "blastp"
         },
         {
           "key": "B",
-          "text": "王祯，《农书》，有 “授时”篇涉及气象预测"
+          "text": "blastn"
         },
         {
           "key": "C",
-          "text": "郭守敬，《授时历》"
+          "text": "blastx"
         },
         {
           "key": "D",
-          "text": "沈括，《梦溪笔谈》-“中国科学史上的里程碑”（李约瑟）"
-        }
-      ],
-      "answer": "A",
-      "analysis": "清朝：汤若望、南怀仁等，《时宪历》 清末：梁章拒，《农候杂占》",
-      "knowledgeRefs": [
-        "sum-p0689"
-      ],
-      "tags": [
-        "single_choice",
-        "sum-p0689",
-        "synquest",
-        "中国",
-        "代科",
-        "古代",
-        "国古",
-        "气象",
-        "科学",
-        "象预",
-        "预测"
-      ],
-      "images": {
-        "question": "",
-        "note": ""
-      },
-      "pdfPage": null
-    },
-    {
-      "id": "sq-sum-p0960-012",
-      "source": "synquest",
-      "origin": "generated",
-      "year": null,
-      "topic": "sum-p0960",
-      "topicName": "Genbank ► SRA-toolkit ► 使用【Windows11 PowerShell】",
-      "difficulty": 2,
-      "type": "single_choice",
-      "prompt": "“FF”对应的内容是？",
-      "options": [
-        {
-          "key": "A",
-          "text": "PS D:\\sratoolkit.3.1.1-win64\\bin> Get-Content -Path .\\SRR30350748\\SRR30350748_1.fastq -First 10"
-        },
-        {
-          "key": "B",
-          "text": "#屏幕回显"
-        },
-        {
-          "key": "C",
-          "text": "FFFFFF,F,FFF,:F,,F,:FFFF:FFFF:FF:FF"
-        },
-        {
-          "key": "D",
-          "text": "#查看fastq文件前10行"
-        }
-      ],
-      "answer": "C",
-      "analysis": "FFFFFFFFF,FF:FFFFFF,F,FFF,:F,,F,:FFFF:FFFF:FF:FF",
-      "knowledgeRefs": [
-        "sum-p0960"
-      ],
-      "tags": [
-        "FF",
-        "FFFFF",
-        "FFFFFF",
-        "Genbank",
-        "PowerShell",
-        "SRA-toolkit",
-        "Windows11",
-        "single_choice",
-        "sum-p0960",
-        "synquest",
-        "使用"
-      ],
-      "images": {
-        "question": "",
-        "note": ""
-      },
-      "pdfPage": null
-    },
-    {
-      "id": "sq-sum-p0975-013",
-      "source": "synquest",
-      "origin": "generated",
-      "year": null,
-      "topic": "sum-p0975",
-      "topicName": "Datasets ► 下载大规模基因组数据包 ► download（5）",
-      "difficulty": 2,
-      "type": "single_choice",
-      "prompt": "关于“Datasets ► 下载大规模基因组数据包 ► download（5）”，下列哪项表述与知识库一致？",
-      "options": [
-        {
-          "key": "A",
-          "text": "Sc_all_dataset.zip"
-        },
-        {
-          "key": "B",
-          "text": "#下载酿酒酵母所有基因组数据包，无基因组序列数据文件（--dehydrated）"
-        },
-        {
-          "key": "C",
-          "text": "#Saccharomyces cerevisiae S288C Genome assembly R64"
-        },
-        {
-          "key": "D",
-          "text": ".\\datasets download genome taxon 'Saccharomyces cerevisiae' --dehydrated --filename"
-        }
-      ],
-      "answer": "A",
-      "analysis": "Sc_all_dataset.zip",
-      "knowledgeRefs": [
-        "sum-p0975"
-      ],
-      "tags": [
-        "Datasets",
-        "download",
-        "single_choice",
-        "sum-p0975",
-        "synquest",
-        "下载",
-        "因组",
-        "基因",
-        "据包",
-        "组数",
-        "载大"
-      ],
-      "images": {
-        "question": "",
-        "note": ""
-      },
-      "pdfPage": null
-    },
-    {
-      "id": "sq-sum-p0517-014",
-      "source": "synquest",
-      "origin": "generated",
-      "year": null,
-      "topic": "sum-p0517",
-      "topicName": "基因组标准注释过程 ► 原核生物基因组",
-      "difficulty": 2,
-      "type": "single_choice",
-      "prompt": "关于“基因组标准注释过程 ► 原核生物基因组”，下列哪项表述与知识库一致？",
-      "options": [
-        {
-          "key": "A",
-          "text": "域体系 HMMs (TIGRFAM, Pfam,"
-        },
-        {
-          "key": "B",
-          "text": "已知蛋白 +BlastRules 根据HMMs命名"
-        },
-        {
-          "key": "C",
-          "text": "功能注释 根据BlastRules命名"
-        },
-        {
-          "key": "D",
-          "text": "PRK HMMs, NCBIfams)"
-        }
-      ],
-      "answer": "B",
-      "analysis": "已知蛋白 +BlastRules 根据HMMs命名",
-      "knowledgeRefs": [
-        "sum-p0517"
-      ],
-      "tags": [
-        "single_choice",
-        "sum-p0517",
-        "synquest",
-        "准注",
-        "因组",
-        "基因",
-        "标准",
-        "注释",
-        "组标",
-        "过程",
-        "释过"
-      ],
-      "images": {
-        "question": "",
-        "note": ""
-      },
-      "pdfPage": null
-    },
-    {
-      "id": "sq-sum-p0191-015",
-      "source": "synquest",
-      "origin": "generated",
-      "year": null,
-      "topic": "sum-p0191",
-      "topicName": "输出文档► FASTQ格式（1）",
-      "difficulty": 2,
-      "type": "single_choice",
-      "prompt": "关于“输出文档► FASTQ格式（1）”，下列哪项表述与知识库一致？",
-      "options": [
-        {
-          "key": "A",
-          "text": "GGTTTAGCTTGTGTCTTGATAAATGTT +"
-        },
-        {
-          "key": "B",
-          "text": "CGCTACCGCGGCCACCACCACCAAATGCAGCACCAAACAGGTCTTCAAAA"
-        },
-        {
-          "key": "C",
-          "text": "TTTGTAGTAGGAAGCACGTAAGAACAAACATATATCTCTTTCGGCCAGT"
-        },
-        {
-          "key": "D",
-          "text": "ATGTCTGATCAGTAAATCTTTCCTTACAAACGTTTTATTGCAAGGCGCA"
-        }
-      ],
-      "answer": "B",
-      "analysis": "CGCTACCGCGGCCACCACCACCAAATGCAGCACCAAACAGGTCTTCAAAA",
-      "knowledgeRefs": [
-        "sum-p0191"
-      ],
-      "tags": [
-        "ATGTCTGATCAGTAAATCTTTCCTTACAAACGTTTTATTGCAAGGCGCA",
-        "FASTQ",
-        "fq",
-        "single_choice",
-        "sum-p0191",
-        "synquest",
-        "出文",
-        "文档",
-        "格式",
-        "输出",
-        "输出文档"
-      ],
-      "images": {
-        "question": "",
-        "note": ""
-      },
-      "pdfPage": null
-    },
-    {
-      "id": "sq-sum-p0653-016",
-      "source": "synquest",
-      "origin": "generated",
-      "year": null,
-      "topic": "sum-p0653",
-      "topicName": "EMBL-EBI ► GeneWise ► Local模式 ► 结果2",
-      "difficulty": 2,
-      "type": "single_choice",
-      "prompt": "关于“EMBL-EBI ► GeneWise ► Local模式 ► 结果2”，下列哪项表述与知识库一致？",
-      "options": [
-        {
-          "key": "A",
-          "text": "Exon 1564 1127 phase 0 // FT CDS complement(join(2107..1703,1564..1127))"
-        },
-        {
-          "key": "B",
-          "text": "Gene 2107 1127 Exon 2107 1703 phase 0"
-        },
-        {
-          "key": "C",
-          "text": "1125].sp.tr"
-        },
-        {
-          "key": "D",
-          "text": "VFTGDSWRLAIPAMLYTLQNSLQYVAVSNLDAATFQVTYQLKILTTAIFSVTMLGQTLGL"
+          "text": "小鼠（mouse）的TP53蛋白序"
         }
       ],
       "answer": "D",
-      "analysis": "VFTGDSWRLAIPAMLYTLQNSLQYVAVSNLDAATFQVTYQLKILTTAIFSVTMLGQTLGL",
+      "analysis": "这里是小鼠（mouse）的TP53蛋白序",
       "knowledgeRefs": [
-        "sum-p0653"
+        "sum-p0640"
+      ],
+      "styleRefs": [
+        "22_54",
+        "23_517",
+        "23_226"
       ],
       "tags": [
-        "EMBL-EBI",
-        "Exon",
-        "FT",
-        "Gene",
-        "GeneWise",
-        "Local",
+        "BLAT",
+        "TP53",
+        "UCSC",
+        "alignment-homology",
+        "hg38",
         "single_choice",
-        "sum-p0653",
+        "sum-p0640",
         "synquest",
-        "模式",
-        "结果"
-      ],
-      "images": {
-        "question": "",
-        "note": ""
-      },
-      "pdfPage": null
-    },
-    {
-      "id": "sq-sum-p0269-017",
-      "source": "synquest",
-      "origin": "generated",
-      "year": null,
-      "topic": "sum-p0269",
-      "topicName": "组装算法► 贪婪算法（Greedy algorithm）",
-      "difficulty": 2,
-      "type": "single_choice",
-      "prompt": "关于“组装算法► 贪婪算法（Greedy algorithm）”，下列哪项表述与知识库一致？",
-      "options": [
-        {
-          "key": "A",
-          "text": "挑选一个读段作为“种 子”【规则？】"
-        },
-        {
-          "key": "B",
-          "text": "用末端具有相同序列片段且 长度达到阈值的读段来扩展"
-        },
-        {
-          "key": "C",
-          "text": "重复上述过程，直到所有读段被拼接完成"
-        },
-        {
-          "key": "D",
-          "text": "迭代进行，直到 不可继续扩展 给定一组读段"
-        }
-      ],
-      "answer": "A",
-      "analysis": "挑选一个读段作为“种 子”【规则？】",
-      "knowledgeRefs": [
-        "sum-p0269"
-      ],
-      "tags": [
-        "Greedy",
-        "algorithm",
-        "single_choice",
-        "sum-p0269",
-        "synquest",
-        "算法",
-        "组装",
-        "组装算法",
-        "装算",
-        "读段",
-        "贪婪"
-      ],
-      "images": {
-        "question": "",
-        "note": ""
-      },
-      "pdfPage": null
-    },
-    {
-      "id": "sq-sum-p0366-018",
-      "source": "synquest",
-      "origin": "generated",
-      "year": null,
-      "topic": "sum-p0366",
-      "topicName": "碱基（ACGT）打分模型",
-      "difficulty": 2,
-      "type": "single_choice",
-      "prompt": "根据知识库内容，下列哪个时间或数值是正确的？",
-      "options": [
-        {
-          "key": "A",
-          "text": "95%"
-        },
-        {
-          "key": "B",
-          "text": "参考资料"
-        },
-        {
-          "key": "C",
-          "text": "75%"
-        },
-        {
-          "key": "D",
-          "text": "99%"
-        }
-      ],
-      "answer": "C",
-      "analysis": "Ø a ratio of about one (1/-1) is best for sequences that are 75% conserved.",
-      "knowledgeRefs": [
-        "sum-p0366"
-      ],
-      "tags": [
-        "ACGT",
-        "of",
-        "ratio",
-        "single_choice",
-        "sum-p0366",
-        "synquest",
-        "分模",
-        "打分",
-        "打分模型",
-        "模型",
-        "碱基"
-      ],
-      "images": {
-        "question": "",
-        "note": ""
-      },
-      "pdfPage": null
-    },
-    {
-      "id": "sq-sum-p1006-019",
-      "source": "synquest",
-      "origin": "generated",
-      "year": null,
-      "topic": "sum-p1006",
-      "topicName": "R语言 ► rentrez包 ► 数据库交叉检索",
-      "difficulty": 2,
-      "type": "single_choice",
-      "prompt": "关于“R语言 ► rentrez包 ► 数据库交叉检索”，下列哪项表述与知识库一致？",
-      "options": [
-        {
-          "key": "A",
-          "text": "200个"
-        },
-        {
-          "key": "B",
-          "text": "#屏幕回显 elink result with information from 5 databases"
-        },
-        {
-          "key": "C",
-          "text": "[1] gene_nuccore gene_nuccore_mgc gene_nuccore_pos"
-        },
-        {
-          "key": "D",
-          "text": "[4] gene_nuccore_refseqgene gene_nuccore_refseqrna"
-        }
-      ],
-      "answer": "D",
-      "analysis": "[4] gene_nuccore_refseqgene gene_nuccore_refseqrna",
-      "knowledgeRefs": [
-        "sum-p1006"
-      ],
-      "tags": [
-        "gene",
-        "links",
-        "nuccore",
-        "refseqrna",
-        "single_choice",
-        "sum-p1006",
-        "synquest",
-        "序列",
-        "据库",
-        "检索",
-        "语言"
-      ],
-      "images": {
-        "question": "",
-        "note": ""
-      },
-      "pdfPage": null
-    },
-    {
-      "id": "sq-sum-p0847-020",
-      "source": "synquest",
-      "origin": "generated",
-      "year": null,
-      "topic": "sum-p0847",
-      "topicName": "启动子和转录因子分析案例（PNKP）► 引物设计",
-      "difficulty": 2,
-      "type": "single_choice",
-      "prompt": "关于“启动子和转录因子分析案例（PNKP）► 引物设计”，下列哪项表述与知识库一致？",
-      "options": [
-        {
-          "key": "A",
-          "text": "Forward primer AGACCACTACCGAAAGAATGCTAA Plus 24 715 738 59.78 41.67 4.00 1.00"
-        },
-        {
-          "key": "B",
-          "text": "Self complem entarity"
-        },
-        {
-          "key": "C",
-          "text": "Lengt h Start Stop Tm GC%"
-        },
-        {
-          "key": "D",
-          "text": "Sequence (5'->3') Template strand"
-        }
-      ],
-      "answer": "A",
-      "analysis": "Forward primer AGACCACTACCGAAAGAATGCTAA Plus 24 715 738 59.78 41.67 4.00 1.00",
-      "knowledgeRefs": [
-        "sum-p0847"
-      ],
-      "tags": [
-        "PNKP",
-        "single_choice",
-        "sum-p0847",
-        "synquest",
-        "动子",
-        "启动",
-        "和转",
-        "因子",
-        "子和",
-        "录因",
-        "转录"
-      ],
-      "images": {
-        "question": "",
-        "note": ""
-      },
-      "pdfPage": null
-    },
-    {
-      "id": "sq-sum-p0341-021",
-      "source": "synquest",
-      "origin": "generated",
-      "year": null,
-      "topic": "sum-p0341",
-      "topicName": "组装演示► 不同组装软件+不同参数设置► 组装对比► ssh修改脚本权限",
-      "difficulty": 2,
-      "type": "single_choice",
-      "prompt": "关于“组装演示► 不同组装软件+不同参数设置► 组装对比► ssh修改脚本权限”，下列哪项表述与知识库一致？",
-      "options": [
-        {
-          "key": "A",
-          "text": "Sc_R64_RefSeq/paired"
-        },
-        {
-          "key": "B",
-          "text": "切换工到作目录 cd ~/Downloads/art_bin_MountRainier/Sc_R64_RefSeq"
-        },
-        {
-          "key": "C",
-          "text": "# ssh远程登录教学服务器 #修改上传组装软件批处理脚本文件的可执行权限 chmod 755 velvet.sh chmod 755 soapdenovo.sh"
-        },
-        {
-          "key": "D",
-          "text": "paired1.fq paired2.fq"
-        }
-      ],
-      "answer": "C",
-      "analysis": "# ssh远程登录教学服务器 #修改上传组装软件批处理脚本文件的可执行权限 chmod 755 velvet.sh chmod 755 soapdenovo.sh",
-      "knowledgeRefs": [
-        "sum-p0341"
-      ],
-      "tags": [
-        "single_choice",
-        "ssh",
-        "sum-p0341",
-        "synquest",
-        "不同",
-        "演示",
-        "组装",
-        "组装演示",
-        "装演",
-        "装软",
-        "软件"
-      ],
-      "images": {
-        "question": "",
-        "note": ""
-      },
-      "pdfPage": null
-    },
-    {
-      "id": "sq-sum-p1135-022",
-      "source": "synquest",
-      "origin": "generated",
-      "year": null,
-      "topic": "sum-p1135",
-      "topicName": "Ensembl ► BioMart Web",
-      "difficulty": 2,
-      "type": "single_choice",
-      "prompt": "关于“Ensembl ► BioMart Web”，下列哪项表述与知识库一致？",
-      "options": [
-        {
-          "key": "A",
-          "text": "限定基因组|染色体区间 指定基因集合【多种数据来源】"
-        },
-        {
-          "key": "B",
-          "text": "限定或排除变异数据源、变异类型"
-        },
-        {
-          "key": "C",
-          "text": "限定或排除同源基因 限定或排除蛋白质保守域和家族【多种数据来源】"
-        },
-        {
-          "key": "D",
-          "text": "指定疾病表型【如肺癌】 限定GO条目"
-        }
-      ],
-      "answer": "C",
-      "analysis": "限定或排除同源基因 限定或排除蛋白质保守域和家族【多种数据来源】",
-      "knowledgeRefs": [
-        "sum-p1135"
-      ],
-      "tags": [
-        "BioMart",
-        "Ensembl",
-        "Web",
-        "single_choice",
-        "sum-p1135",
-        "synquest",
+        "vs",
         "基因",
-        "定或",
-        "或排",
-        "排除",
-        "限定"
-      ],
-      "images": {
-        "question": "",
-        "note": ""
-      },
-      "pdfPage": null
-    },
-    {
-      "id": "sq-sum-p0369-023",
-      "source": "synquest",
-      "origin": "generated",
-      "year": null,
-      "topic": "sum-p0369",
-      "topicName": "突变数据矩阵(Mutation Data Matrix, MD)",
-      "difficulty": 2,
-      "type": "single_choice",
-      "prompt": "根据知识库内容，下列哪个时间或数值是正确的？",
-      "options": [
-        {
-          "key": "A",
-          "text": "建立在已知同源蛋白质/蛋白质家庭的多序列比对的基础之上（进化）"
-        },
-        {
-          "key": "B",
-          "text": "85%"
-        },
-        {
-          "key": "C",
-          "text": "可接受点突变(Point Accepted Mutation,PAM)矩阵M1的构建"
-        },
-        {
-          "key": "D",
-          "text": "① 统计某位点出现各种氨基酸的比例(%) [Pj, j=1~20（对应20种Aa），伪随机概率]"
-        }
-      ],
-      "answer": "B",
-      "analysis": "Dayhoff’s original PAM250 matrix was calculated based on 1572 observed mutations in 71 families of proteins with alignments that were more than 85% identical (Schwartz and Dayhoff, 1978).",
-      "knowledgeRefs": [
-        "sum-p0369"
-      ],
-      "tags": [
-        "Data",
-        "MD",
-        "Matrix",
-        "Mutation",
-        "single_choice",
-        "sum-p0369",
-        "synquest",
-        "变数",
-        "据矩",
-        "矩阵",
-        "突变"
-      ],
-      "images": {
-        "question": "",
-        "note": ""
-      },
-      "pdfPage": null
-    },
-    {
-      "id": "sq-sum-p0186-024",
-      "source": "synquest",
-      "origin": "generated",
-      "year": null,
-      "topic": "sum-p0186",
-      "topicName": "#配对（mate-pair）测序模拟 HiSeq2500",
-      "difficulty": 2,
-      "type": "single_choice",
-      "prompt": "“frequency”对应的内容是？",
-      "options": [
-        {
-          "key": "A",
-          "text": "./art_illumina -ss HS25 -sam -i ./gDNA.fna -mp -l 125 -f 10 -m 2500 -s 50 -o ./matepair"
-        },
-        {
-          "key": "B",
-          "text": "./matepair1.fq the 2nd reads: ./matepair2.fq"
-        },
-        {
-          "key": "C",
-          "text": "./matepair1.aln the 2nd reads: ./matepair2.aln"
-        },
-        {
-          "key": "D",
-          "text": "1 in 125"
-        }
-      ],
-      "answer": "D",
-      "analysis": "Genome masking 'N' cutoff frequency: 1 in 125",
-      "knowledgeRefs": [
-        "sum-p0186"
-      ],
-      "tags": [
-        "HiSeq2500",
-        "mate-pair",
-        "reads",
-        "single_choice",
-        "sum-p0186",
-        "synquest",
-        "序模",
-        "模拟",
-        "测序",
-        "测序模拟",
-        "配对"
+        "小鼠",
+        "蛋白"
       ],
       "images": {
         "question": "",

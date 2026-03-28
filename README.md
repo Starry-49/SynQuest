@@ -5,12 +5,17 @@
 <h1 align="center">SynQuest</h1>
 
 <p align="center">
-  一个可复用的 skill + Python functions 组合，用来把知识源转换成结构化题库。<br>
-  仓库内同时附带一个 Geno 示例门户网站，用来展示题库浏览、在线答题、知识阅读与新题生成。
+  把知识源转换成结构化题库的可复用 skill 与 Python functions。<br>
+  仓库同时附带 Geno 示例门户，用于演示知识阅读、题库浏览、在线答题与新题生成。
 </p>
 
 <p align="center">
-  在线演示: <a href="https://starry-49.github.io/SynQuest/">https://starry-49.github.io/SynQuest/</a>
+  Live Demo: <a href="https://starry-49.github.io/SynQuest/">https://starry-49.github.io/SynQuest/</a>
+</p>
+
+<p align="center">
+  <a href="#中文"><strong>中文</strong></a> ·
+  <a href="#english"><strong>English</strong></a>
 </p>
 
 <p align="center">
@@ -18,7 +23,7 @@
     <img src="https://img.shields.io/badge/License-MIT-14532D?style=flat-square" alt="MIT License">
   </a>
   <a href="https://starry-49.github.io/SynQuest/">
-    <img src="https://img.shields.io/badge/GitHub%20Pages-ready-CF9E2A?style=flat-square" alt="GitHub Pages Ready">
+    <img src="https://img.shields.io/badge/Demo-Geno%20Portal-CF9E2A?style=flat-square" alt="Geno Demo">
   </a>
   <a href="https://www.python.org/">
     <img src="https://img.shields.io/badge/Python-3.10%2B-2F5D50?style=flat-square" alt="Python 3.10+">
@@ -30,23 +35,24 @@
 
 <p align="center">
   <a href="#快速开始"><strong>快速开始</strong></a> ·
-  <a href="#synquest-总架构"><strong>SynQuest 总架构</strong></a> ·
-  <a href="#geno-example-实例架构"><strong>Geno Example 实例架构</strong></a> ·
-  <a href="#可复用-functions"><strong>可复用 Functions</strong></a> ·
-  <a href="#geno-示例门户"><strong>Geno 示例门户</strong></a> ·
+  <a href="#核心能力"><strong>核心能力</strong></a> ·
+  <a href="#架构"><strong>架构</strong></a> ·
+  <a href="#geno-示例"><strong>Geno 示例</strong></a> ·
+  <a href="#python-接口"><strong>Python 接口</strong></a> ·
+  <a href="#依赖与致谢"><strong>依赖与致谢</strong></a> ·
   <a href="#仓库结构"><strong>仓库结构</strong></a>
 </p>
 
-## 快速开始
+## 中文
 
-### 1. 先打开在线 demo
+### 快速开始
 
-- Live Demo: [https://starry-49.github.io/SynQuest/](https://starry-49.github.io/SynQuest/)
+先体验在线示例：
+
+- Demo: [https://starry-49.github.io/SynQuest/](https://starry-49.github.io/SynQuest/)
 - Repo: [https://github.com/Starry-49/SynQuest](https://github.com/Starry-49/SynQuest)
 
-### 2. 本地预览 Geno 门户
-
-仓库已经带了示例题库和示例知识库，不需要先手动生成题目。
+本地预览 Geno 门户：
 
 ```bash
 python3 -m http.server 8000
@@ -58,16 +64,14 @@ python3 -m http.server 8000
 http://localhost:8000/example/
 ```
 
-### 3. 用 CLI 处理知识源
-
-检查知识源：
+用 CLI 检查知识源：
 
 ```bash
 python3 functions/synquest/cli.py inspect \
   --kb example/data/knowledge-base/genome-informatics-core.json
 ```
 
-把原始知识源先抽成可提交的 SynQuest 知识库 JSON：
+把原始知识源抽取成标准知识库 JSON：
 
 ```bash
 python3 functions/synquest/cli.py extract \
@@ -75,132 +79,143 @@ python3 functions/synquest/cli.py extract \
   --out example/data/knowledge-base/sum-course-kb.json
 ```
 
-生成新题：
+基于知识库生成新题：
 
 ```bash
 python3 functions/synquest/cli.py synthesize \
-  --kb example/data/knowledge-base/genome-informatics-core.json \
-  --count 12 \
+  --kb example/data/knowledge-base/sum-course-kb.json \
+  --count 24 \
   --out example/data/generated/synquest-batch.json
 ```
 
-把新题并回题库：
+如果希望新题更接近现有题库的风格与问法，可以加入旧题检索：
+
+```bash
+python3 functions/synquest/cli.py synthesize \
+  --kb example/data/knowledge-base/sum-course-kb.json \
+  --style-bank example/data/question-bank.json \
+  --style-top-k 5 \
+  --count 24 \
+  --out example/data/generated/sum-course-generated.json
+```
+
+把生成题并回题库：
 
 ```bash
 python3 functions/synquest/cli.py merge \
   --bank example/data/question-bank.json \
-  --incoming example/data/generated/synquest-batch.json
+  --incoming example/data/generated/sum-course-generated.json
 ```
 
-### 4. 可选：重建 Geno 示例题库
+### 核心能力
 
-只有当你想重新从旧版 HTML 素材提取示例题库时，才需要执行：
+SynQuest 面向三类使用场景：
 
-```bash
-python3 functions/build_example_bank.py
-```
+- 多格式知识源接入：支持 `json`、`md`、`txt`、`html`、`docx`、`pdf`、`pptx`
+- 标准知识库生成：统一规整为 `entries[] + facts[]`
+- 新题生成与题库扩展：既可直接从知识库出题，也可参考现有题库风格生成同源新题
 
-## SynQuest 总架构
+在这套仓库里：
+
+- `skills/` 提供 Codex 可直接调用的 skill 定义
+- `functions/` 提供可复用的 Python functions 与 CLI
+- `example/` 提供 Geno 示例门户与示例数据
+
+### 架构
 
 ```mermaid
 flowchart TB
-    A["Domain Knowledge Sources<br/>json / md / txt / html / docx / pdf / pptx"]
-    B["SynQuest Skill Layer<br/>skills/synquest/SKILL.md"]
-    C["Knowledge Loader<br/>functions/synquest/knowledge_loader.py"]
-    D["Normalized Knowledge Base<br/>entries[] + facts[]"]
-    E["Question Generator CLI<br/>functions/synquest/cli.py"]
-    F["Generated Question JSON<br/>same schema as question bank"]
-    G["Example Portal<br/>example/index.html / practice.html / reader.html"]
-    H["Curated Bank Merge<br/>example/data/question-bank.json"]
+    A["知识源 / Knowledge Sources<br/>json / md / txt / html / docx / pdf / pptx"]
+    B["Skill 层 / Skill Layer<br/>skills/synquest/SKILL.md"]
+    C["知识抽取 / Knowledge Loader<br/>functions/synquest/knowledge_loader.py"]
+    D["标准知识库 / Normalized Knowledge Base<br/>entries[] + facts[]"]
+    E["旧题风格索引 / Style Retrieval Index<br/>BM25 + TF-IDF + RapidFuzz"]
+    F["出题引擎 / Question Engine<br/>functions/synquest/question_engine.py"]
+    G["题目 JSON / Generated Question JSON"]
+    H["Geno 示例门户 / Geno Example Portal<br/>example/"]
+    I["正式题库 / Question Bank Merge"]
 
     A --> C
     B --> C
     C --> D
-    D --> E
+    D --> F
+    I --> E
     E --> F
-    D --> G
-    H --> G
     F --> G
-    F --> H
+    D --> H
+    G --> H
+    I --> H
 ```
 
-SynQuest 的核心不是某一门课，而是一条可复用的数据链路：
+#### 架构单元与字段 / Architecture Units and Fields
 
-- 上游接各种知识源
-- 中间把知识源统一规整成 `entries[].facts[]`
-- 下游再把知识点转换成题目 JSON
-- `example/` 只是把这条链路放到 Geno 门户里做展示
+| 中文 | English | 作用 |
+| --- | --- | --- |
+| 知识源 | Knowledge Source | 原始课程材料、文档、网页或课件 |
+| 知识条目 | Entry | 一个主题、章节、页面或模块 |
+| 事实单元 | Fact | 可被出题的最小知识片段 |
+| 标准知识库 | Normalized Knowledge Base | 统一后的 `entries[] + facts[]` 数据层 |
+| 现有题库 | Existing Question Bank | 已整理好的正式题目集合 |
+| 风格索引 | Style Retrieval Index | 用于召回相近旧题的检索层 |
+| 生成题 | Generated Questions | 新生成、待预览或待合并的新题 |
 
-## 工作原理
+#### 核心字段 / Core Fields
 
-### 1. 知识库层
+| Field | 中文含义 | English Meaning |
+| --- | --- | --- |
+| `id` | 条目标识 | entry identifier |
+| `module` | 所属模块 | module / chapter |
+| `title` | 条目标题 | entry title |
+| `summary` | 条目摘要 | entry summary |
+| `keywords` | 关键词 | keywords |
+| `facts` | 事实列表 | fact list |
+| `question` | 候选题干 | question prompt |
+| `answer` | 正确答案 | correct answer |
+| `explanation` | 解析或依据 | explanation / rationale |
+| `distractors` | 干扰项 | distractors |
+| `styleRefs` | 参考旧题 | retrieved style exemplars |
 
-SynQuest 先把知识源整理成统一结构：
+### 工作原理
 
-- `entry`: 一个主题、章节、页面或知识模块
-- `fact`: 这个 entry 下可被出题的事实单元
+#### 1. 知识抽取
 
-统一后的知识库对象大致长这样：
+SynQuest 先把不同格式的知识源统一抽成标准知识库。输出的数据结构对前端、CLI 和后续合并流程一致，方便在不同项目里重复使用。
 
-```json
-{
-  "meta": {},
-  "entries": [
-    {
-      "id": "hgp-maps",
-      "module": "基因组学基础",
-      "title": "人类基因组计划与图谱",
-      "summary": "描述 HGP、遗传图与物理图的核心概念。",
-      "keywords": ["HGP", "遗传图", "物理图"],
-      "facts": [
-        {
-          "question": "中国是在哪一年加入人类基因组计划的？",
-          "answer": "1999年",
-          "explanation": "中国于1999年加入 HGP。",
-          "distractors": ["1990年", "2000年", "2001年"]
-        }
-      ]
-    }
-  ]
-}
-```
+#### 2. 新题生成
 
-### 2. 题目生成层
+SynQuest 提供两种生成模式：
 
-当前 SynQuest 的出题机制是 deterministic 的可复用流程，不依赖把 prompt 写死在页面里：
+- 知识库直出：从 `facts` 中选择可出题事实，直接组装题目
+- 风格对齐生成：在已有题库中检索最相近的旧题，再参考其题型、问法、难度和表达风格生成新题
 
-1. 从知识库中筛出可用 `fact`
-2. 把 `fact.answer` 当作正确答案
-3. 优先使用 `fact.distractors` 作为干扰项
-4. 如果本地干扰项不足，就从同模块 / 近关键词 entry 中补充候选
-5. 组装成统一题目 JSON，供 CLI 或前端页面直接使用
+当前风格对齐链路使用：
 
-也就是说：
+- `jieba` 做中文分词
+- `BM25` 做词法召回
+- `TF-IDF + cosine similarity` 做文本相似度补充
+- `RapidFuzz` 做题干近重复过滤
 
-- `knowledge_loader.py` 负责“把知识源变成知识库”
-- `cli.py synthesize` 负责“把知识库变成题目”
-- `merge` 负责“把生成题并回正式题库”
+这意味着 SynQuest 不是把 prompt 写死在页面里，而是通过“知识事实 + 旧题风格检索”来生成更接近现有题库的新题。
 
-### 3. Example 层
+#### 3. 题库合并
 
-Geno 门户并不承担知识抽取本身，它只负责：
+生成题输出为与题库兼容的 JSON。你可以直接：
 
-- 读取现有题库
-- 浏览和答题
-- 读取知识模块
-- 读取或展示新生成题
+- 在 Geno 门户里预览
+- 导出为独立批次
+- 再合并回正式题库
 
-## Geno Example 实例架构
+### Geno 示例
 
 ```mermaid
 flowchart LR
-    A["Example Knowledge Base<br/>example/data/knowledge-base/genome-informatics-core.json"]
-    B["Imported Slide KB<br/>example/data/knowledge-base/sum-course-kb.json"]
-    C["Existing Question Bank<br/>example/data/question-bank.json"]
-    D["Generated Questions<br/>example/data/generated/*.json"]
-    E["Practice Page<br/>example/practice.html"]
-    F["Reader Page<br/>example/reader.html"]
-    G["Portal Entry<br/>example/index.html"]
+    A["示例知识库 / Example Knowledge Base<br/>example/data/knowledge-base/genome-informatics-core.json"]
+    B["PDF 抽取知识库 / Imported Slide KB<br/>example/data/knowledge-base/sum-course-kb.json"]
+    C["现有题库 / Existing Question Bank<br/>example/data/question-bank.json"]
+    D["检索增强生成题 / Style-Aligned Generated Questions<br/>example/data/generated/sum-course-generated.json"]
+    E["答题页 / Practice Page<br/>example/practice.html"]
+    F["阅读页 / Reader Page<br/>example/reader.html"]
+    G["门户页 / Portal Entry<br/>example/index.html"]
 
     A --> D
     B --> D
@@ -212,155 +227,68 @@ flowchart LR
     G --> F
 ```
 
-### 这个 example 里，知识库是什么
+Geno 示例门户展示的是 SynQuest 在《基因组信息学》示例数据上的一个完整落地：
 
-当前 Geno example 里有两类知识库来源：
+- 示例知识库：[`example/data/knowledge-base/genome-informatics-core.json`](example/data/knowledge-base/genome-informatics-core.json)
+- PDF 抽取知识库：[`example/data/knowledge-base/sum-course-kb.json`](example/data/knowledge-base/sum-course-kb.json)
+- 现有题库：[`example/data/question-bank.json`](example/data/question-bank.json)
+- 检索增强生成题：[`example/data/generated/sum-course-generated.json`](example/data/generated/sum-course-generated.json)
 
-- 结构化示例知识库：`example/data/knowledge-base/genome-informatics-core.json`
-  这是一份已经整理好的标准 SynQuest 知识库，适合直接出题
-- 从本地课件抽取出来的知识库：`example/data/knowledge-base/sum-course-kb.json`
-  这是把 `sum.pdf` 处理成可提交 JSON 后得到的结果，原始 PDF 本体不直接进 repo
+在这个 example 中：
 
-### 这个 example 里，现有题库是什么
+- 知识库负责“系统知道什么”
+- 现有题库负责“系统已经整理了哪些题”
+- 生成题负责“系统可以扩展出哪些新题”
 
-现有题库是：
+### Python 接口
 
-- `example/data/question-bank.json`
+可复用能力位于 [`functions/synquest/`](functions/synquest/)：
 
-它的角色不是知识库，而是“已经整理好的题目集合”。它主要来自旧版 HTML 题库素材的结构化迁移，保留了：
-
-- `prompt`
-- `options`
-- `answer`
-- `analysis`
-- `topic`
-- `knowledgeRefs`
-
-也就是说：
-
-- `knowledge base` 回答“知道什么”
-- `question bank` 回答“已经出了哪些题”
-
-### 这个 example 里，新题是怎么生成的
-
-Geno example 的新题生成机制目前是：
-
-```mermaid
-flowchart TB
-    A["Knowledge Base Entries"]
-    B["Filter Usable Facts"]
-    C["Pick Fact.answer as Correct Option"]
-    D["Collect Local Distractors"]
-    E["Fallback to Same-Module / Similar-Keyword Entries"]
-    F["Assemble Standard Question JSON"]
-    G["Preview / Export / Merge"]
-
-    A --> B --> C --> D --> E --> F --> G
-```
-
-具体来说：
-
-- 先从知识库 `entries[].facts[]` 里选出可出题事实
-- 用 `answer` 作为正确答案
-- 用该 fact 自带的 `distractors` 或相邻主题事实补齐选项
-- 输出到 `example/data/generated/*.json`
-- 如有需要，再合并回 `example/data/question-bank.json`
-
-这套机制是 reusable 的，因为它依赖的是：
-
-- 统一知识库 schema
-- 通用抽取函数
-- 通用题目 JSON schema
-
-而不是依赖《基因组信息学》这一门课本身
-
-## 自动算法
-
-SynQuest 当前在知识库处理层已经用了可泛化的自动算法，而不是只盯着某一份课件写死规则：
-
-- `JSON passthrough`: 已经结构化的知识库直接读取
-- `Text section segmentation`: 对 `md/txt/html/docx` 按标题和段落分段
-- `PDF raw-order extraction`: 用 `pdftotext -raw` 提取页面正文顺序
-- `Layout-preserving title detection`: 用 `pdftotext -layout` 做标题候选检测
-- `Repeated header/footer suppression`: 用跨页重复行频次自动去头尾
-- `Duplicate slide fingerprint deduplication`: 用页面文本指纹去重
-- `Keyword weighting`: 用关键词频次和位置权重生成 `keywords`
-- `Fact segmentation`: 把页面/段落拆成可出题 `fact`
-- `PPTX OOXML parsing`: 对 `pptx` 直接解析 slide XML、title placeholder 和 notes
-
-如果后面继续增强，也最自然的是往这条通用链路上加：
-
-- BM25 / lexical retrieval
-- embedding 检索
-- 多事实组装
-- 基于旧题的改编策略
-
-而不是继续往某一个 example 页面里塞特化逻辑
-
-## 可复用 Functions
-
-仓库里最核心的 Python 能力位于 [`functions/synquest/`](functions/synquest/)。
-
-目前提供的可复用入口包括：
-
-- [`functions/synquest/knowledge_loader.py`](functions/synquest/knowledge_loader.py): 统一读取知识源
+- [`functions/synquest/knowledge_loader.py`](functions/synquest/knowledge_loader.py): 多格式知识源接入与标准化
+- [`functions/synquest/question_engine.py`](functions/synquest/question_engine.py): 新题生成、旧题检索、风格对齐
 - [`functions/synquest/cli.py`](functions/synquest/cli.py): inspect / extract / synthesize / merge
-- [`functions/build_example_bank.py`](functions/build_example_bank.py): 从旧版 HTML 重建 Geno 示例题库
 
-支持的知识源格式：
-
-- `json`
-- `md`
-- `txt`
-- `html`
-- `docx`
-- `pdf`
-- `pptx`
-
-如果你想在自己的脚本里直接复用：
+可以直接在自己的脚本里调用：
 
 ```python
 from functions.synquest import (
-  SUPPORTED_SUFFIXES,
-  build_knowledge_base,
-  inspect_knowledge_source,
-  load_knowledge_entries,
-  read_knowledge_text,
+    build_knowledge_base,
+    inspect_knowledge_source,
+    load_knowledge_entries,
+    load_question_bank,
+    synthesize_questions,
 )
 
-report = inspect_knowledge_source("notes.docx")
-entries = load_knowledge_entries("notes.docx")
-payload = build_knowledge_base("slides.pdf")
+report = inspect_knowledge_source("slides.pdf")
+kb = build_knowledge_base("slides.pdf")
+entries = load_knowledge_entries("slides.pdf")
+style_bank = load_question_bank("example/data/question-bank.json")
+
+generated = synthesize_questions(
+    entries,
+    count=12,
+    seed=28,
+    style_bank_questions=style_bank,
+    style_top_k=5,
+)
 ```
 
-## Geno 示例门户
+### 依赖与致谢
 
-门户页面位于 [`example/`](example/)。
+SynQuest 的核心流程以自编脚本为主，同时明确复用了以下通用算法与工具：
 
-它负责展示三类能力：
+- `jieba`: 中文分词
+- `rank-bm25`: BM25 词法检索
+- `scikit-learn`: TF-IDF 与 cosine similarity
+- `RapidFuzz`: 字符串相似度与近重复过滤
+- `Poppler` 工具链：`pdftotext`、`pdfinfo`、`pdfimages`，用于 PDF 文本与页面信息抽取
 
-- 题库浏览与在线答题：[`example/practice.html`](example/practice.html)
-- 知识阅读与题目映射：[`example/reader.html`](example/reader.html)
-- 统一入口首页：[`example/index.html`](example/index.html)
+这些组件主要用于两类能力：
 
-示例数据也全部集中在 `example/` 内：
+- 多格式知识源抽取与标准化
+- 基于已有题库的风格检索与新题生成
 
-- 示例题库：[`example/data/question-bank.json`](example/data/question-bank.json)
-- 示例知识库：[`example/data/knowledge-base/genome-informatics-core.json`](example/data/knowledge-base/genome-informatics-core.json)
-- PDF 抽取知识库：[`example/data/knowledge-base/sum-course-kb.json`](example/data/knowledge-base/sum-course-kb.json)
-- 新题样例：[`example/data/generated/sum-course-generated.json`](example/data/generated/sum-course-generated.json)
-- 示例图片：[`example/images/`](example/images/)
-- 历史旧页面：[`example/legacy/`](example/legacy/)
-- 原始答案与截图：[`example/user_data/`](example/user_data/)
-
-也就是说：
-
-- `SynQuest` 负责 skill 和 functions
-- `Geno` 负责 example 门户和示例数据
-
-## 仓库结构
-
-现在仓库主目录收成三层：
+### 仓库结构
 
 ```text
 .
@@ -374,7 +302,8 @@ payload = build_knowledge_base("slides.pdf")
 │   └── synquest/
 │       ├── __init__.py
 │       ├── cli.py
-│       └── knowledge_loader.py
+│       ├── knowledge_loader.py
+│       └── question_engine.py
 ├── example/
 │   ├── assets/
 │   ├── data/
@@ -392,15 +321,96 @@ payload = build_knowledge_base("slides.pdf")
 
 目录职责：
 
-- `skills/`: SynQuest 的 skill 定义与参考说明
-- `functions/`: 可复用 Python functions 与 CLI
-- `example/`: Geno 示例门户、示例题库、旧版素材与图像资源
+- `skills/`: SynQuest 的 skill 定义、agent 配置与参考说明
+- `functions/`: 知识抽取、题目生成、题库合并等可复用 Python 能力
+- `example/`: Geno 示例门户、示例题库、示例知识库与前端页面
 
-## 相关入口
+## English
 
-- Skill: [`skills/synquest/SKILL.md`](skills/synquest/SKILL.md)
-- Formats: [`skills/synquest/references/knowledge_base_formats.md`](skills/synquest/references/knowledge_base_formats.md)
-- Schema: [`skills/synquest/references/question_schema.md`](skills/synquest/references/question_schema.md)
+### Overview
+
+SynQuest is a reusable skill and Python toolkit for turning domain knowledge sources into structured question banks. This repository also ships with a Geno example portal that demonstrates knowledge browsing, practice, reading, and question generation on a real example dataset.
+
+### Quick Start
+
+Open the live demo:
+
+- Demo: [https://starry-49.github.io/SynQuest/](https://starry-49.github.io/SynQuest/)
+- Repo: [https://github.com/Starry-49/SynQuest](https://github.com/Starry-49/SynQuest)
+
+Preview locally:
+
+```bash
+python3 -m http.server 8000
+```
+
+Then open:
+
+```text
+http://localhost:8000/example/
+```
+
+Inspect a knowledge source:
+
+```bash
+python3 functions/synquest/cli.py inspect \
+  --kb example/data/knowledge-base/genome-informatics-core.json
+```
+
+Extract a reusable knowledge-base JSON:
+
+```bash
+python3 functions/synquest/cli.py extract \
+  --source sum.pdf \
+  --out example/data/knowledge-base/sum-course-kb.json
+```
+
+Generate questions directly from the knowledge base:
+
+```bash
+python3 functions/synquest/cli.py synthesize \
+  --kb example/data/knowledge-base/sum-course-kb.json \
+  --count 24 \
+  --out example/data/generated/synquest-batch.json
+```
+
+Generate questions that stay closer to an existing bank:
+
+```bash
+python3 functions/synquest/cli.py synthesize \
+  --kb example/data/knowledge-base/sum-course-kb.json \
+  --style-bank example/data/question-bank.json \
+  --style-top-k 5 \
+  --count 24 \
+  --out example/data/generated/sum-course-generated.json
+```
+
+### Pipeline
+
+SynQuest separates the workflow into three reusable layers:
+
+- `skills/` for orchestration and agent usage
+- `functions/` for extraction, normalization, style retrieval, generation, and merge logic
+- `example/` for the Geno demo portal and demo datasets
+
+The current generation engine combines:
+
+- multi-format knowledge extraction
+- normalized `entries[] + facts[]` storage
+- BM25 retrieval over existing questions
+- TF-IDF similarity scoring
+- RapidFuzz prompt deduplication
+- style-guided question synthesis
+
+### References and Acknowledgements
+
+SynQuest is built mainly as custom repository logic, with these external algorithms and tools used as reusable building blocks:
+
+- `jieba`
+- `rank-bm25`
+- `scikit-learn`
+- `RapidFuzz`
+- `Poppler` utilities
 
 ## License
 

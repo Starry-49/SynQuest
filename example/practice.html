@@ -64,7 +64,7 @@
       <div class="stats-grid stats-grid-wide">
         <div class="stat-tile"><span class="value" id="statQuestionCount">--</span><span class="label">示例题量</span></div>
         <div class="stat-tile"><span class="value" id="statKnowledgeCount">--</span><span class="label">知识模块</span></div>
-        <div class="stat-tile"><span class="value" id="statGeneratedCount">--</span><span class="label">本地生成题</span></div>
+        <div class="stat-tile"><span class="value" id="statGeneratedCount">--</span><span class="label">生成题总量</span></div>
         <div class="stat-tile"><span class="value" id="statFilteredCount">--</span><span class="label">当前筛选</span></div>
         <div class="stat-tile"><span class="value" id="statAnsweredCount">--</span><span class="label">已作答</span></div>
         <div class="stat-tile"><span class="value" id="statCorrectCount">--</span><span class="label">答对数</span></div>
@@ -176,11 +176,11 @@
           <div class="section-title section-title-stack">
             <div>
               <h2 id="resultHeadline">题库浏览</h2>
-              <p class="panel-subtitle">标准题库与浏览器内本地生成题目会在这里统一呈现。</p>
+              <p class="panel-subtitle">标准题库、仓库内生成题与浏览器本地生成题会在这里统一呈现。</p>
             </div>
             <div class="badge-row">
               <span class="tag tag-brand">Answerable</span>
-              <span class="tag tag-accent">Generated Locally</span>
+              <span class="tag tag-accent">Generated</span>
             </div>
           </div>
           <div id="questionList" class="question-list"></div>
@@ -190,7 +190,7 @@
   </main>
 
   <script src="assets/synquest-browser.js?v=20260328d"></script>
-  <script src="assets/app.js?v=20260328d"></script>
+  <script src="assets/app.js?v=20260328g"></script>
   <script>
     document.getElementById("startQuizButtonAside").addEventListener("click", () => {
       document.getElementById("startQuizButton").click();

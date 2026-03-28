@@ -1,11 +1,13 @@
 const BANK_PATH = "./data/question-bank.json";
 const KB_PATH = "./data/knowledge-base/genome-informatics-core.json";
+const GENERATED_PATH = "./data/generated/sum-course-generated.json";
 const GENERATED_STORAGE_KEY = "synquest-generated-bank";
 const ANSWER_STORAGE_KEY = "synquest-answer-records";
 
 const state = {
   bank: null,
   kb: null,
+  backendGeneratedQuestions: [],
   generatedQuestions: [],
   answers: {},
   filters: {
@@ -29,8 +31,12 @@ function $(selector) {
   return document.querySelector(selector);
 }
 
+function getGeneratedQuestions() {
+  return [...state.backendGeneratedQuestions, ...state.generatedQuestions];
+}
+
 function getAllQuestions() {
-  return [...(state.bank?.questions || []), ...state.generatedQuestions];
+  return [...(state.bank?.questions || []), ...getGeneratedQuestions()];
 }
 
 function getTopicName(topicId) {
@@ -70,6 +76,10 @@ function loadGeneratedQuestions() {
 
 function persistGeneratedQuestions() {
   window.localStorage.setItem(GENERATED_STORAGE_KEY, JSON.stringify(state.generatedQuestions));
+}
+
+function loadBackendGeneratedQuestions(payload) {
+  state.backendGeneratedQuestions = payload?.questions || [];
 }
 
 function loadAnswerRecords() {
@@ -122,7 +132,7 @@ function populateSelects() {
     name: topic.name
   }));
   const allTopics = [...topics];
-  state.generatedQuestions.forEach((question) => {
+  getGeneratedQuestions().forEach((question) => {
     if (!allTopics.some((topic) => topic.id === question.topic)) {
       allTopics.push({ id: question.topic, name: question.topicName || question.topic });
     }
@@ -183,7 +193,7 @@ function sampleQuestions(pool, count) {
 function updateStats(filteredQuestions) {
   $("#statQuestionCount").textContent = getAllQuestions().length;
   $("#statKnowledgeCount").textContent = state.kb?.entries?.length || 0;
-  $("#statGeneratedCount").textContent = state.generatedQuestions.length;
+  $("#statGeneratedCount").textContent = getGeneratedQuestions().length;
   $("#statFilteredCount").textContent = filteredQuestions.length;
   $("#statImageCount").textContent = getAllQuestions().filter((question) => question.images?.question).length;
   const records = Object.values(state.answers);
@@ -754,9 +764,14 @@ function render() {
 
 async function init() {
   try {
-    const [bank, kb] = await Promise.all([loadJson(BANK_PATH), loadJson(KB_PATH)]);
+    const [bank, kb, generated] = await Promise.all([
+      loadJson(BANK_PATH),
+      loadJson(KB_PATH),
+      loadJson(GENERATED_PATH).catch(() => ({ questions: [] }))
+    ]);
     state.bank = bank;
     state.kb = kb;
+    loadBackendGeneratedQuestions(generated);
     loadGeneratedQuestions();
     loadAnswerRecords();
     bindStaticEvents();
