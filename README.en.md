@@ -93,64 +93,9 @@ Repository layers:
 
 ## Architecture
 
-```mermaid
-flowchart TB
-    A["Knowledge Sources<br/>json / md / txt / html / docx / pdf / pptx"]
-    B["Skill Layer<br/>skills/synquest/SKILL.md"]
-    C["Knowledge Loader<br/>functions/synquest/knowledge_loader.py"]
-    D["Normalized Knowledge Base<br/>entries[] + facts[]"]
-    E["Lexical Retrieval<br/>BM25 + TF-IDF"]
-    F["Semantic Retrieval<br/>sentence-transformers embeddings"]
-    G["Hybrid Rerank<br/>lexical + semantic + fuzzy"]
-    H["Question Engine<br/>functions/synquest/question_engine.py"]
-    I["Generated Question JSON"]
-    J["Geno Example Portal<br/>example/"]
-    K["Question Bank Merge"]
-
-    A --> C
-    B --> C
-    C --> D
-    D --> H
-    K --> E
-    K --> F
-    E --> G
-    F --> G
-    G --> H
-    H --> I
-    D --> J
-    I --> J
-    K --> J
-```
-
-### Architecture Units
-
-| Unit | Meaning |
-| --- | --- |
-| `Knowledge Source` | raw source files, course material, documents, pages, or slide decks |
-| `Entry` | one topic, section, page, or module |
-| `Fact` | the smallest unit that can be turned into a question |
-| `Knowledge Base` | normalized `entries[] + facts[]` data structure |
-| `Existing Question Bank` | already curated questions |
-| `Lexical Retrieval` | term-based retrieval over older questions |
-| `Semantic Retrieval` | embedding-based retrieval over older questions |
-| `Hybrid Rerank` | unified reranking across lexical, semantic, and fuzzy signals |
-| `Generated Questions` | newly synthesized questions for preview or merge |
-
-### Core Fields
-
-| Field | Meaning |
-| --- | --- |
-| `id` | entry identifier |
-| `module` | module or chapter |
-| `title` | entry title |
-| `summary` | entry summary |
-| `keywords` | keywords |
-| `facts` | fact list |
-| `question` | candidate prompt |
-| `answer` | correct answer |
-| `explanation` | rationale |
-| `distractors` | distractor options |
-| `styleRefs` | retrieved old-question references |
+<p align="center">
+  <img src="structure.png" alt="SynQuest architecture" width="100%">
+</p>
 
 ## How It Works
 
@@ -184,26 +129,6 @@ The repository does not yet include the heavier semantic generation stack such a
 Generated questions are emitted as bank-compatible JSON, so they can be previewed, exported, or merged back into a curated bank.
 
 ## Geno Example
-
-```mermaid
-flowchart LR
-    A["Example Knowledge Base<br/>example/data/knowledge-base/genome-informatics-core.json"]
-    B["Imported Slide KB<br/>example/data/knowledge-base/sum-course-kb.json"]
-    C["Existing Question Bank<br/>example/data/question-bank.json"]
-    D["Style-Aligned Generated Questions<br/>example/data/generated/sum-course-generated.json"]
-    E["Practice Page<br/>example/practice.html"]
-    F["Reader Page<br/>example/reader.html"]
-    G["Portal Entry<br/>example/index.html"]
-
-    A --> D
-    B --> D
-    A --> F
-    B --> F
-    C --> E
-    D --> E
-    G --> E
-    G --> F
-```
 
 In the current Geno example:
 

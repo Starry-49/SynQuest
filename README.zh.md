@@ -89,64 +89,9 @@ SynQuest 面向三类使用场景：
 
 ## 架构
 
-```mermaid
-flowchart TB
-    A["知识源 / Knowledge Sources<br/>json / md / txt / html / docx / pdf / pptx"]
-    B["Skill 层 / Skill Layer<br/>skills/synquest/SKILL.md"]
-    C["知识抽取 / Knowledge Loader<br/>functions/synquest/knowledge_loader.py"]
-    D["标准知识库 / Normalized Knowledge Base<br/>entries[] + facts[]"]
-    E["词法检索 / Lexical Retrieval<br/>BM25 + TF-IDF"]
-    F["语义检索 / Semantic Retrieval<br/>sentence-transformers embeddings"]
-    G["混合重排 / Hybrid Rerank<br/>lexical + semantic + fuzzy"]
-    H["出题引擎 / Question Engine<br/>functions/synquest/question_engine.py"]
-    I["题目 JSON / Generated Question JSON"]
-    J["Geno 示例门户 / Geno Example Portal<br/>example/"]
-    K["正式题库 / Question Bank Merge"]
-
-    A --> C
-    B --> C
-    C --> D
-    D --> H
-    K --> E
-    K --> F
-    E --> G
-    F --> G
-    G --> H
-    H --> I
-    D --> J
-    I --> J
-    K --> J
-```
-
-### 架构单元与字段
-
-| 中文 | English | 作用 |
-| --- | --- | --- |
-| 知识源 | Knowledge Source | 原始课程材料、文档、网页或课件 |
-| 知识条目 | Entry | 一个主题、章节、页面或模块 |
-| 事实单元 | Fact | 可被出题的最小知识片段 |
-| 标准知识库 | Normalized Knowledge Base | 统一后的 `entries[] + facts[]` 数据层 |
-| 现有题库 | Existing Question Bank | 已整理好的正式题目集合 |
-| 词法检索 | Lexical Retrieval | 基于词项匹配召回相近旧题 |
-| 语义检索 | Semantic Retrieval | 基于向量相似度召回相近旧题 |
-| 混合重排 | Hybrid Rerank | 对词法与语义候选做统一重排 |
-| 生成题 | Generated Questions | 新生成、待预览或待合并的新题 |
-
-### 核心字段
-
-| Field | 中文含义 | English Meaning |
-| --- | --- | --- |
-| `id` | 条目标识 | entry identifier |
-| `module` | 所属模块 | module / chapter |
-| `title` | 条目标题 | entry title |
-| `summary` | 条目摘要 | entry summary |
-| `keywords` | 关键词 | keywords |
-| `facts` | 事实列表 | fact list |
-| `question` | 候选题干 | question prompt |
-| `answer` | 正确答案 | correct answer |
-| `explanation` | 解析或依据 | explanation / rationale |
-| `distractors` | 干扰项 | distractors |
-| `styleRefs` | 参考旧题 | retrieved style exemplars |
+<p align="center">
+  <img src="structure.png" alt="SynQuest architecture" width="100%">
+</p>
 
 ## 工作原理
 
@@ -184,26 +129,6 @@ SynQuest 提供两种生成模式：
 - 再合并回正式题库
 
 ## Geno 示例
-
-```mermaid
-flowchart LR
-    A["示例知识库 / Example Knowledge Base<br/>example/data/knowledge-base/genome-informatics-core.json"]
-    B["PDF 抽取知识库 / Imported Slide KB<br/>example/data/knowledge-base/sum-course-kb.json"]
-    C["现有题库 / Existing Question Bank<br/>example/data/question-bank.json"]
-    D["检索增强生成题 / Style-Aligned Generated Questions<br/>example/data/generated/sum-course-generated.json"]
-    E["答题页 / Practice Page<br/>example/practice.html"]
-    F["阅读页 / Reader Page<br/>example/reader.html"]
-    G["门户页 / Portal Entry<br/>example/index.html"]
-
-    A --> D
-    B --> D
-    A --> F
-    B --> F
-    C --> E
-    D --> E
-    G --> E
-    G --> F
-```
 
 Geno 示例门户展示的是 SynQuest 在《基因组信息学》示例数据上的一个完整落地：
 
