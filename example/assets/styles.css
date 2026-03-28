@@ -103,6 +103,12 @@ textarea {
   height: 34px;
   border-radius: 11px;
   flex-shrink: 0;
+  align-self: center;
+}
+
+.nav-brand span,
+.hero-eyebrow span {
+  display: block;
 }
 
 .hero-eyebrow {
@@ -245,6 +251,12 @@ textarea {
   align-items: end;
 }
 
+.hero-home-copy,
+.hero-home-aside {
+  display: flex;
+  flex-direction: column;
+}
+
 .hero-home .hero-grid,
 .hero-practice .hero-grid,
 .hero-reader .hero-grid {
@@ -294,7 +306,9 @@ textarea {
 }
 
 .hero-actions {
-  margin-top: 28px;
+  margin-top: 32px;
+  column-gap: 16px;
+  row-gap: 14px;
 }
 
 .hero-kpi-grid {
@@ -307,6 +321,9 @@ textarea {
 .stage-card {
   border-radius: 24px;
   padding: 22px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
 }
 
 .hero-kpi h3,
@@ -351,6 +368,8 @@ textarea {
   border-radius: 999px;
   border: 1px solid transparent;
   cursor: pointer;
+  line-height: 1.1;
+  white-space: nowrap;
   transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease, background-color 0.18s ease;
 }
 
@@ -428,6 +447,9 @@ textarea {
 .feature-card {
   border-radius: 26px;
   padding: 28px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
 }
 
 .feature-card p {
@@ -459,6 +481,19 @@ textarea {
 
 .section-title-stack {
   align-items: center;
+}
+
+.panel-actions {
+  margin-top: 20px;
+  column-gap: 14px;
+  row-gap: 14px;
+}
+
+.stage-card .panel-actions,
+.feature-card .panel-actions,
+.source-item .panel-actions {
+  margin-top: auto;
+  padding-top: 22px;
 }
 
 .stats-grid {
@@ -690,6 +725,11 @@ textarea {
   border: 1px solid rgba(15, 23, 42, 0.07);
   background: rgba(255, 255, 255, 0.74);
   padding: 18px;
+}
+
+.panel-actions + .callout,
+.field + .panel-actions {
+  margin-top: 18px;
 }
 
 .callout {

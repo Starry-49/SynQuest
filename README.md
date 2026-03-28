@@ -172,7 +172,6 @@ entries = load_knowledge_entries("notes.docx")
 │   ├── practice.html
 │   └── reader.html
 ├── index.html
-├── reader.html
 ├── logo.png
 ├── LICENSE
 └── README.md
