@@ -9,7 +9,7 @@ SynQuest is the reusable skill layer for turning knowledge sources into structur
 
 ## When to use it
 
-- The user provides a knowledge source in `json`, `md`, `txt`, `html`, or `docx` and wants questions.
+- The user provides a knowledge source in `json`, `md`, `txt`, `html`, `docx`, `pdf`, or `pptx` and wants questions.
 - A legacy HTML exam page needs to be normalized into reusable JSON.
 - A static demo site needs to browse, answer, and extend a question bank without a backend.
 - The repo should separate `skills/`, `functions/`, and `example/` cleanly.
@@ -18,9 +18,10 @@ SynQuest is the reusable skill layer for turning knowledge sources into structur
 
 1. Inspect the incoming knowledge source.
    - Prefer `json` with `entries[].facts[]` when available.
-   - For `md`, `txt`, `html`, and `docx`, let the reusable loader normalize it first.
+   - For `md`, `txt`, `html`, `docx`, `pdf`, and `pptx`, let the reusable loader normalize it first.
 2. Use the bundled CLI in `functions/`:
    - `python3 functions/synquest/cli.py inspect --kb <path>`
+   - `python3 functions/synquest/cli.py extract --source <path> --out example/data/knowledge-base/extracted.json`
    - `python3 functions/synquest/cli.py synthesize --kb <path> --count 12 --out example/data/generated/synquest.json`
 3. Validate the generated question shape against [question_schema.md](references/question_schema.md).
 4. Merge curated output back into the example bank or your own bank:
@@ -39,6 +40,8 @@ SynQuest is the reusable skill layer for turning knowledge sources into structur
 - `md` / `txt`: Use headings and short factual lines under each section.
 - `html`: Prefer semantic headings and lists; the loader strips tags into readable text.
 - `docx`: Paragraph text is extracted directly and normalized into entries.
+- `pdf`: The loader extracts page text, removes repeated headers/footers, deduplicates repeated slides, and builds page-level entries.
+- `pptx`: The loader parses slide XML, title placeholders, body text, and speaker notes into slide-level entries.
 
 ## Output expectations
 

@@ -47,3 +47,16 @@ SynQuest keeps the reusable loader in [`functions/synquest/knowledge_loader.py`]
 - Paragraph text will be extracted directly from the Word document.
 - Use headings or clearly separated paragraph groups when possible.
 - Keep one topic per section if you want cleaner entry boundaries.
+
+## PDF
+
+- SynQuest reads PDF text with `pdftotext`.
+- It uses raw-order text for page content and layout-preserving text for title detection.
+- Repeated headers / footers are removed automatically by cross-page repetition detection.
+- Repeated slides can be deduplicated by text fingerprint before becoming `entries`.
+
+## PPTX
+
+- SynQuest parses `pptx` directly as OOXML.
+- It reads slide title placeholders, body text, and notes text.
+- Each slide becomes an `entry`, and each extracted statement can become a `fact`.
