@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Geno题库练习</title>
   <meta name="description" content="Practice page for the Geno example portal. Browse, answer, quiz, and generate questions.">
-  <link rel="stylesheet" href="assets/styles.css?v=20260328d">
+  <link rel="stylesheet" href="assets/styles.css?v=20260328e">
 </head>
 <body>
   <main class="page-shell">
@@ -31,8 +31,7 @@
           </div>
           <h1>Geno题库练习与生成</h1>
           <p class="hero-copy">
-            这一页是 Geno 门户的主工作区。你可以在这里筛题、作答、开始抽题测试，
-            也可以基于知识模块调用 SynQuest 的浏览器生成器，把新题先加入本地会话再导出。
+            在这里可以完成题库筛选、在线作答、抽题测试，以及基于知识模块扩展新题。
           </p>
           <div class="hero-actions">
             <button class="button button-primary" id="startQuizButton">开始测试</button>
@@ -76,8 +75,8 @@
     <section class="section-panel workspace-guide">
       <div class="section-title">
         <div>
-          <h2>操作引导</h2>
-          <p class="panel-subtitle">按步骤进入不同工作区，不必把所有控制面板同时展开。</p>
+          <h2>工作区</h2>
+          <p class="panel-subtitle">按任务切换当前面板，聚焦筛题、测验或生成。</p>
         </div>
       </div>
       <div class="guide-strip">
@@ -165,7 +164,7 @@
           <div class="section-title">
             <div>
               <h2>知识模块</h2>
-              <p class="panel-subtitle">当前聚焦：<strong id="activeModuleLabel">全部知识模块</strong></p>
+              <p class="panel-subtitle">当前模块：<strong id="activeModuleLabel">全部知识模块</strong></p>
             </div>
           </div>
           <div id="knowledgeList" class="knowledge-list knowledge-list-wide"></div>
