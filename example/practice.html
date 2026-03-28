@@ -79,9 +79,25 @@
       </div>
     </section>
 
+    <section class="section-panel workspace-guide">
+      <div class="section-title">
+        <div>
+          <h2>操作引导</h2>
+          <p class="panel-subtitle">按步骤进入不同工作区，不必把所有控制面板同时展开。</p>
+        </div>
+      </div>
+      <div class="guide-strip">
+        <button class="button button-secondary workspace-switch active" data-tab-target="filters" data-scroll-target="workspaceTop">1. 筛题</button>
+        <button class="button button-secondary workspace-switch" data-tab-target="quiz" data-scroll-target="workspaceTop">2. 测验</button>
+        <button class="button button-secondary workspace-switch" data-tab-target="generator" data-scroll-target="workspaceTop">3. 生成</button>
+        <button class="button button-tertiary workspace-jump" data-scroll-target="knowledgeSection">知识模块</button>
+        <button class="button button-tertiary workspace-jump" data-scroll-target="bankSection">题库结果</button>
+      </div>
+    </section>
+
     <section class="workspace-shell">
-      <aside class="workspace-sidebar">
-        <article class="panel">
+      <aside class="workspace-sidebar" id="workspaceTop">
+        <article class="panel tabbed-panel" data-tab-panel="filters" id="filterPanel">
           <div class="panel-title">
             <div>
               <h2>筛选器</h2>
@@ -106,7 +122,7 @@
           </div>
         </article>
 
-        <article class="panel">
+        <article class="panel tabbed-panel hidden" data-tab-panel="quiz" id="quizPanel">
           <div class="panel-title">
             <div>
               <h2>抽题测试</h2>
@@ -126,7 +142,7 @@
           </div>
         </article>
 
-        <article class="panel">
+        <article class="panel tabbed-panel hidden" data-tab-panel="generator" id="generatorPanel">
           <div class="panel-title">
             <div>
               <h2>知识驱动生成</h2>
@@ -151,7 +167,7 @@
       </aside>
 
       <section class="workspace-main">
-        <section class="section-panel">
+        <section class="section-panel" id="knowledgeSection">
           <div class="section-title">
             <div>
               <h2>知识模块</h2>
@@ -163,7 +179,7 @@
 
         <section class="quiz-shell hidden" id="quizShell"></section>
 
-        <section class="section-panel">
+        <section class="section-panel" id="bankSection">
           <div class="section-title section-title-stack">
             <div>
               <h2 id="resultHeadline">题库浏览</h2>
@@ -188,6 +204,34 @@
     });
     document.getElementById("generateButtonAside").addEventListener("click", () => {
       document.getElementById("generateButton").click();
+    });
+
+    const activateWorkspaceTab = (tabName) => {
+      document.querySelectorAll(".workspace-switch").forEach((button) => {
+        button.classList.toggle("active", button.dataset.tabTarget === tabName);
+      });
+      document.querySelectorAll(".tabbed-panel").forEach((panel) => {
+        panel.classList.toggle("hidden", panel.dataset.tabPanel !== tabName);
+      });
+    };
+
+    document.querySelectorAll(".workspace-switch").forEach((button) => {
+      button.addEventListener("click", () => {
+        activateWorkspaceTab(button.dataset.tabTarget);
+        const target = document.getElementById(button.dataset.scrollTarget);
+        if (target) {
+          target.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      });
+    });
+
+    document.querySelectorAll(".workspace-jump").forEach((button) => {
+      button.addEventListener("click", () => {
+        const target = document.getElementById(button.dataset.scrollTarget);
+        if (target) {
+          target.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      });
     });
   </script>
 </body>

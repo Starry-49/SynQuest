@@ -272,27 +272,54 @@ function escapeHtml(text) {
     .replaceAll("'", "&#39;");
 }
 
+function getRecordStatusText(record, questionType) {
+  if (!record.checked) return "未提交";
+  if (record.correct) return "已判定 · 正确";
+  if (questionType === "short_answer" || questionType === "open_ended") {
+    return "已判定 · 已提交";
+  }
+  return "已判定 · 错误";
+}
+
+function renderChoiceInputs(question, storedAnswer, inputName) {
+  const isMultiple = question.type === "multiple_choice";
+  const selectedKeys = isMultiple ? (storedAnswer ? storedAnswer.split("") : []) : [];
+  const optionClass = (question.options || []).length > 4
+    ? "answer-options answer-options-grid"
+    : "answer-options";
+
+  return `
+    <div class="${optionClass}">
+      ${(question.options || []).map((option) => `
+        <label class="answer-option">
+          <input
+            type="${isMultiple ? "checkbox" : "radio"}"
+            ${isMultiple ? "" : `name="${inputName}"`}
+            data-question-id="${question.id}"
+            value="${option.key}"
+            ${isMultiple ? (selectedKeys.includes(option.key) ? "checked" : "") : (storedAnswer === option.key ? "checked" : "")}
+          >
+          <span class="answer-option-key">${option.key || "-"}</span>
+          <span class="answer-option-text">${option.text}</span>
+        </label>
+      `).join("")}
+    </div>
+  `;
+}
+
 function renderQuestionAnswerArea(question) {
   const record = getStoredAnswerRecord(question.id);
   const storedAnswer = record.answer || "";
   const inputName = `answer-${question.id}`;
 
   if (question.type === "multiple_choice") {
-    const selectedKeys = storedAnswer ? storedAnswer.split("") : [];
     return `
       <div class="practice-shell">
         <div class="practice-title-row">
-          <strong>作答区</strong>
-          <span class="status-pill">${record.checked ? (record.correct ? "已判定 · 正确" : "已判定 · 错误") : "未提交"}</span>
+          <strong>选项与作答</strong>
+          <span class="status-pill">${getRecordStatusText(record, question.type)}</span>
         </div>
-        <div class="answer-options">
-          ${(question.options || []).map((option) => `
-            <label class="answer-option">
-              <input type="checkbox" data-question-id="${question.id}" value="${option.key}" ${selectedKeys.includes(option.key) ? "checked" : ""}>
-              <span><strong>${option.key}</strong> · ${option.text}</span>
-            </label>
-          `).join("")}
-        </div>
+        ${renderChoiceInputs(question, storedAnswer, inputName)}
       </div>
     `;
   }
@@ -302,7 +329,7 @@ function renderQuestionAnswerArea(question) {
       <div class="practice-shell">
         <div class="practice-title-row">
           <strong>作答区</strong>
-          <span class="status-pill">${record.checked ? (record.correct ? "已判定 · 正确" : "已判定 · 已提交") : "未提交"}</span>
+          <span class="status-pill">${getRecordStatusText(record, question.type)}</span>
         </div>
         <textarea class="textarea-input card-answer-input" data-question-id="${question.id}" rows="4" placeholder="输入你的答案...">${escapeHtml(storedAnswer)}</textarea>
       </div>
@@ -312,17 +339,10 @@ function renderQuestionAnswerArea(question) {
   return `
     <div class="practice-shell">
       <div class="practice-title-row">
-        <strong>作答区</strong>
-        <span class="status-pill">${record.checked ? (record.correct ? "已判定 · 正确" : "已判定 · 错误") : "未提交"}</span>
+        <strong>选项与作答</strong>
+        <span class="status-pill">${getRecordStatusText(record, question.type)}</span>
       </div>
-      <div class="answer-options">
-        ${(question.options || []).map((option) => `
-          <label class="answer-option">
-            <input type="radio" name="${inputName}" data-question-id="${question.id}" value="${option.key}" ${storedAnswer === option.key ? "checked" : ""}>
-            <span><strong>${option.key}</strong> · ${option.text}</span>
-          </label>
-        `).join("")}
-      </div>
+      ${renderChoiceInputs(question, storedAnswer, inputName)}
     </div>
   `;
 }
@@ -344,12 +364,6 @@ function renderAnswerFeedback(question) {
 }
 
 function renderQuestionCard(question) {
-  const options = (question.options || []).map((option) => `
-    <div class="option">
-      <strong>${option.key || "-"}</strong> · ${option.text}
-    </div>
-  `).join("");
-
   const tags = [
     `<span class="tag tag-brand">${question.source || "Unknown"}</span>`,
     `<span class="tag tag-accent">${question.topicName || getTopicName(question.topic)}</span>`,
@@ -372,7 +386,6 @@ function renderQuestionCard(question) {
       </div>
       <h3 class="question-title">${question.prompt}</h3>
       ${questionImage}
-      ${options ? `<div class="question-options">${options}</div>` : ""}
       ${renderQuestionAnswerArea(question)}
       ${renderAnswerFeedback(question)}
       <div class="panel-actions">
@@ -523,29 +536,14 @@ function renderQuiz() {
 
   let answerMarkup = "";
   if (question.type === "multiple_choice") {
-    const selectedKeys = storedAnswer ? storedAnswer.split("") : [];
     answerMarkup = `
-      <div class="answer-options">
-        ${(question.options || []).map((option) => `
-          <label class="answer-option">
-            <input type="checkbox" value="${option.key}" ${selectedKeys.includes(option.key) ? "checked" : ""}>
-            <span><strong>${option.key}</strong> · ${option.text}</span>
-          </label>
-        `).join("")}
-      </div>
+      ${renderChoiceInputs({ ...question, id: "quiz-option" }, storedAnswer, "quizOption")}
     `;
   } else if (question.type === "short_answer" || question.type === "open_ended") {
     answerMarkup = `<textarea id="quizTextAnswer" class="textarea-input" rows="4" placeholder="输入你的答案...">${storedAnswer}</textarea>`;
   } else {
     answerMarkup = `
-      <div class="answer-options">
-        ${(question.options || []).map((option) => `
-          <label class="answer-option">
-            <input type="radio" name="quizOption" value="${option.key}" ${storedAnswer === option.key ? "checked" : ""}>
-            <span><strong>${option.key}</strong> · ${option.text}</span>
-          </label>
-        `).join("")}
-      </div>
+      ${renderChoiceInputs({ ...question, id: "quiz-option" }, storedAnswer, "quizOption")}
     `;
   }
 
