@@ -5,8 +5,12 @@
 <h1 align="center">SynQuest</h1>
 
 <p align="center">
-  面向《基因组信息学》的知识库驱动出题系统。<br>
-  支持题库整理、抽题测试、知识库生成新题，以及 GitHub Pages 静态演示。
+  一个可复用的 skill / toolchain，用来把任意领域知识库转成结构化题库。<br>
+  本仓库中的《基因组信息学》内容只是示例知识库与示例页面，不是 SynQuest 的能力边界。
+</p>
+
+<p align="center">
+  在线演示: <a href="https://starry-49.github.io/SynQuest/">https://starry-49.github.io/SynQuest/</a>
 </p>
 
 <p align="center">
@@ -60,35 +64,47 @@ http://localhost:8000
 
 ## What You Can Do
 
-这个项目不是单纯“放题目的网页”，而是一个完整的小型题库系统。
+SynQuest 的核心不是“这批题”，而是“从知识库稳定地产生题目”的能力。
 
-- 浏览我已经整理好的《基因组信息学》题库
-- 按主题、题型、年份和关键词快速筛题
-- 从当前筛选结果中抽指定数量的题进行测试
-- 基于课程知识库生成新的练习题
-- 把生成的新题先保存在浏览器本地，再导出为 JSON
-- 后续通过仓库内脚本把新题并回正式题库
+- 给定某个领域的知识库，生成结构化题目
+- 让生成结果同时可被 CLI、静态网页和后续脚本复用
+- 先在浏览器里快速验证题目效果，再导出成 JSON
+- 把人工审核后的结果合并回正式题库
+- 用 GitHub Pages 把一个 skill 直接展示成可交互 demo
 
 ## Why SynQuest
 
-我希望把原本散落在 HTML、截图和笔记里的内容整理成一个更清晰、可扩展、可复用的仓库。
+我想做的不是单独整理一门课的题库，而是把“知识库 -> 题目生成 -> 题库扩展 -> 静态展示”抽象成一个可以复用的 skill。
 
 SynQuest 主要解决了这几件事：
 
-- 把原始题目从旧版 HTML 中抽取成结构化 JSON
-- 把课程知识点单独整理成知识库，而不是继续把题目写死在页面里
-- 把“知识库 -> 出题 -> 题库扩充 -> 静态展示”串成一个闭环
-- 保留原始资料，方便回溯和继续修订
+- 把已有题库从页面代码中剥离出来，变成结构化数据
+- 把知识点单独组织成知识库，作为出题来源
+- 提供一个主 skill，让题目生成过程可复用、可组合
+- 给这个 skill 配一套 GitHub Pages 演示前端，方便直接展示
+
+## What Is Example Here
+
+这个仓库里和《基因组信息学》相关的内容，定位是示例：
+
+- 示例知识库：[`data/knowledge-base/genome-informatics-core.json`](data/knowledge-base/genome-informatics-core.json)
+- 示例题库：[`data/question-bank.json`](data/question-bank.json)
+- 示例前端页面：[`index.html`](index.html) 与 [`reader.html`](reader.html)
+
+也就是说：
+
+- `SynQuest` 才是核心
+- 题目与课程内容只是一个 example，方便演示 skill 如何工作
 
 ## GitHub Pages
 
-首页是一个纯静态页面，不依赖后端，适合直接放在 GitHub Pages 上。
+首页是一个纯静态页面，不依赖后端，直接作为 `github.io` 演示站使用。
 
 ### 页面支持
 
-- 题库浏览与筛选
+- 浏览示例题库
 - 抽题测试
-- 基于知识模块生成新题
+- 基于示例知识模块生成新题
 - 本地导出生成题目
 - Study Reader 阅读知识模块与题目详情
 
@@ -101,7 +117,9 @@ SynQuest 主要解决了这几件事：
 
 主 skill 位于 [`synquest/SKILL.md`](synquest/SKILL.md)。
 
-它是这个仓库的核心入口，但内部不是一团混在一起的实现，而是分层组织：
+它才是这个仓库真正的核心入口。页面、示例题库和示例知识库，都是围绕这个 skill 来组织的。
+
+内部不是一团混在一起的实现，而是分层组织：
 
 - `SKILL.md`: 说明什么时候用、怎么触发
 - `references/`: 说明题目 schema 和知识库格式
@@ -142,17 +160,18 @@ python3 synquest/scripts/synquest.py merge \
 
 ## Data Overview
 
-当前仓库里已经整理出的正式题库位于：
+当前仓库中的数据层分成两类：
+
+### 1. skill 的示例输入 / 输出
 
 - [`data/question-bank.json`](data/question-bank.json)
-
-课程知识库位于：
-
 - [`data/knowledge-base/genome-informatics-core.json`](data/knowledge-base/genome-informatics-core.json)
-
-浏览器导出或 CLI 生成的新题样例位于：
-
 - [`data/generated/`](data/generated/)
+
+### 2. 原始历史素材
+
+- [`legacy/`](legacy/)
+- [`user_data/`](user_data/)
 
 ## Project Structure
 
