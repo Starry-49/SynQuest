@@ -463,12 +463,14 @@ textarea {
 .page-switch-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
   max-width: var(--content-width);
+  width: 100%;
   margin: 24px auto 0;
 }
 
 .source-grid {
   grid-template-columns: repeat(4, minmax(0, 1fr));
   max-width: var(--content-width);
+  width: 100%;
   margin: 24px auto 0;
 }
 
@@ -497,7 +499,22 @@ textarea {
 
 .section-panel {
   max-width: var(--content-width);
+  width: 100%;
   margin: 24px auto 0;
+}
+
+.home-section {
+  padding: 0;
+}
+
+.home-section .section-title {
+  padding: 4px 2px 0;
+}
+
+.home-section .page-switch-grid,
+.home-section .source-grid {
+  max-width: none;
+  margin-top: 18px;
 }
 
 .section-title,
