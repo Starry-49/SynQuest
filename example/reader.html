@@ -3,34 +3,61 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SynQuest Reader</title>
-  <meta name="description" content="Reader page for the SynQuest example knowledge base and linked questions.">
+  <title>Geno知识阅读</title>
+  <meta name="description" content="Reader page for the Geno example portal. Read knowledge modules and linked questions.">
   <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
   <main class="page-shell">
     <nav class="page-nav">
       <a class="nav-brand" href="./">
-        <img src="../logo.png" alt="SynQuest logo">
-        <span>SynQuest</span>
+        <img src="../logo.png" alt="Geno logo">
+        <span>Geno</span>
       </a>
       <div class="nav-links">
-        <a href="./">Demo Home</a>
-        <a href="./practice.html">Practice</a>
-        <a href="./reader.html">Reader</a>
+        <a href="./">首页</a>
+        <a href="./practice.html">答题页</a>
+        <a href="./reader.html" aria-current="page">Reader</a>
+        <a href="https://github.com/Starry-49/SynQuest" target="_blank" rel="noreferrer">GitHub</a>
       </div>
     </nav>
 
-    <section class="hero glass reader-hero">
-      <div class="hero-inner">
-        <div class="hero-eyebrow">
-          <img src="../logo.png" alt="SynQuest logo">
-          <span>Study Reader</span>
+    <section class="hero hero-reader reader-hero">
+      <div class="hero-grid">
+        <div class="hero-home-copy">
+          <div class="hero-eyebrow">
+            <img src="../logo.png" alt="Geno logo">
+            <span>Knowledge Reader</span>
+          </div>
+          <h1 id="readerTitle">Geno知识阅读</h1>
+          <p class="hero-copy" id="readerSubtitle">
+            按知识模块阅读事实、查看关联题目与答案解析，作为 Geno 门户的知识阅读层。
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="./practice.html">返回答题页</a>
+            <a class="button button-secondary" href="./">返回首页</a>
+          </div>
         </div>
-        <h1 id="readerTitle">Reader</h1>
-        <p class="hero-copy" id="readerSubtitle">按知识模块阅读事实，再查看它关联的示例题目和答案解析。</p>
-        <div class="hero-actions">
-          <a class="button button-primary" href="./practice.html">返回答题页</a>
+
+        <div class="hero-home-aside hero-kpi-grid">
+          <article class="hero-kpi">
+            <span class="label">Read</span>
+            <span class="value">Module</span>
+            <h3>知识模块阅读</h3>
+            <p class="panel-subtitle">先看概念、事实和关键词，再决定是否继续看题。</p>
+          </article>
+          <article class="hero-kpi">
+            <span class="label">Map</span>
+            <span class="value">Question</span>
+            <h3>题目映射</h3>
+            <p class="panel-subtitle">快速定位该模块对应的示例题、答案解析与相关图像。</p>
+          </article>
+          <article class="hero-kpi">
+            <span class="label">Trace</span>
+            <span class="value">KB</span>
+            <h3>回到知识源</h3>
+            <p class="panel-subtitle">Reader 适合做教学内容校对，也适合检查知识库是否足以支撑题目生成。</p>
+          </article>
         </div>
       </div>
     </section>
@@ -51,7 +78,7 @@
           <div class="panel-title">
             <div>
               <h2>关联题目</h2>
-              <p class="panel-subtitle">定位当前模块下的题目详情。</p>
+              <p class="panel-subtitle">浏览当前模块下的题目详情。</p>
             </div>
           </div>
           <div id="questionTree" class="tree-list"></div>
@@ -59,7 +86,9 @@
       </aside>
 
       <section class="reader-main">
-        <div id="readerContent"></div>
+        <section class="section-panel">
+          <div id="readerContent"></div>
+        </section>
       </section>
     </section>
   </main>

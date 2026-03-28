@@ -13,9 +13,9 @@ from typing import Any
 
 
 ROOT = Path(__file__).resolve().parents[1]
-LEGACY_HTML = ROOT / "legacy" / "index.legacy.html"
-ANSWERS_JSON = ROOT / "user_data" / "answers.json"
-OUTPUT_JSON = ROOT / "data" / "question-bank.json"
+LEGACY_HTML = ROOT / "example" / "legacy" / "index.legacy.html"
+ANSWERS_JSON = ROOT / "example" / "user_data" / "answers.json"
+OUTPUT_JSON = ROOT / "example" / "data" / "question-bank.json"
 
 
 TOPIC_RULES = {

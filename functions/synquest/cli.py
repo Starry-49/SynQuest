@@ -7,12 +7,17 @@ import argparse
 import json
 import random
 import re
-from html import unescape
+import sys
 from pathlib import Path
 from typing import Any
 
 
 ROOT = Path(__file__).resolve().parents[2]
+FUNCTIONS_ROOT = Path(__file__).resolve().parents[1]
+if str(FUNCTIONS_ROOT) not in sys.path:
+    sys.path.insert(0, str(FUNCTIONS_ROOT))
+
+from synquest.knowledge_loader import inspect_knowledge_source, load_knowledge_entries  # noqa: E402
 
 
 def load_json(path: Path) -> Any:
@@ -22,67 +27,6 @@ def load_json(path: Path) -> Any:
 def slugify(text: str) -> str:
     slug = re.sub(r"[^a-zA-Z0-9\u4e00-\u9fff]+", "-", text.strip().lower())
     return slug.strip("-") or "entry"
-
-
-def strip_html(text: str) -> str:
-    return re.sub(r"<[^>]+>", " ", text)
-
-
-def parse_markdown_like(text: str) -> list[dict[str, Any]]:
-    entries: list[dict[str, Any]] = []
-    current: dict[str, Any] | None = None
-
-    for line in text.splitlines():
-        stripped = line.strip()
-        if not stripped:
-            continue
-        if stripped.startswith("## "):
-            if current:
-                entries.append(current)
-            title = stripped[3:].strip()
-            current = {
-                "id": slugify(title),
-                "module": "知识条目",
-                "title": title,
-                "summary": "",
-                "keywords": [],
-                "distractors": [],
-                "facts": [],
-            }
-            continue
-        if current is None:
-            continue
-        if stripped.startswith("- "):
-            current["facts"].append(
-                {
-                    "question": f"下列哪项关于“{current['title']}”的说法是正确的？",
-                    "answer": stripped[2:].strip("。 "),
-                    "explanation": stripped[2:].strip(),
-                    "distractors": [],
-                }
-            )
-        elif not current["summary"]:
-            current["summary"] = stripped
-
-    if current:
-        entries.append(current)
-    return entries
-
-
-def normalize_entries(path: Path) -> list[dict[str, Any]]:
-    suffix = path.suffix.lower()
-    if suffix == ".json":
-        raw = load_json(path)
-        entries = raw["entries"] if isinstance(raw, dict) and "entries" in raw else raw
-        if not isinstance(entries, list):
-            raise ValueError("JSON knowledge base must be a list or contain an `entries` list.")
-        return entries
-    if suffix in {".md", ".txt"}:
-        return parse_markdown_like(path.read_text(encoding="utf-8"))
-    if suffix == ".html":
-        html_text = strip_html(unescape(path.read_text(encoding="utf-8")))
-        return parse_markdown_like(html_text.replace("  ", "\n"))
-    raise ValueError(f"Unsupported knowledge base format: {path.suffix}")
 
 
 def build_options(correct: str, fact_distractors: list[str], entries: list[dict[str, Any]], rng: random.Random) -> list[dict[str, str]]:
@@ -182,14 +126,18 @@ def merge_bank(bank_path: Path, incoming_path: Path) -> dict[str, Any]:
 
 
 def cmd_inspect(args: argparse.Namespace) -> None:
-    entries = normalize_entries(Path(args.kb))
-    print(f"entries: {len(entries)}")
-    for entry in entries[:10]:
-        print(f"- {entry.get('id', 'entry')} :: {entry.get('title', 'Untitled')} :: facts={len(entry.get('facts', []))}")
+    report = inspect_knowledge_source(Path(args.kb))
+    print(f"path: {report['path']}")
+    print(f"suffix: {report['suffix']}")
+    print(f"characters: {report['characters']}")
+    print(f"entries: {report['entries']}")
+    print(f"facts: {report['facts']}")
+    for title in report["titleSamples"]:
+        print(f"- {title}")
 
 
 def cmd_synthesize(args: argparse.Namespace) -> None:
-    entries = normalize_entries(Path(args.kb))
+    entries = load_knowledge_entries(Path(args.kb))
     payload = synthesize_questions(entries, args.count, args.seed)
     out_path = Path(args.out)
     out_path.parent.mkdir(parents=True, exist_ok=True)
@@ -209,14 +157,14 @@ def build_parser() -> argparse.ArgumentParser:
     subparsers = parser.add_subparsers(dest="command", required=True)
 
     inspect_parser = subparsers.add_parser("inspect", help="Inspect a knowledge base")
-    inspect_parser.add_argument("--kb", required=True, help="Path to a json/md/txt/html knowledge base")
+    inspect_parser.add_argument("--kb", required=True, help="Path to a json/md/txt/html/docx knowledge base")
     inspect_parser.set_defaults(func=cmd_inspect)
 
     synth_parser = subparsers.add_parser("synthesize", help="Generate question JSON from a knowledge base")
-    synth_parser.add_argument("--kb", required=True, help="Path to a json/md/txt/html knowledge base")
+    synth_parser.add_argument("--kb", required=True, help="Path to a json/md/txt/html/docx knowledge base")
     synth_parser.add_argument("--count", type=int, default=12, help="Number of questions to generate")
     synth_parser.add_argument("--seed", type=int, default=7, help="Random seed")
-    synth_parser.add_argument("--out", default=str(ROOT / "data" / "generated" / "synquest-output.json"))
+    synth_parser.add_argument("--out", default=str(ROOT / "example" / "data" / "generated" / "synquest-output.json"))
     synth_parser.set_defaults(func=cmd_synthesize)
 
     merge_parser = subparsers.add_parser("merge", help="Merge generated questions into the main bank")

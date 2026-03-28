@@ -1,5 +1,5 @@
-const BANK_PATH = "../data/question-bank.json";
-const KB_PATH = "../data/knowledge-base/genome-informatics-core.json";
+const BANK_PATH = "./data/question-bank.json";
+const KB_PATH = "./data/knowledge-base/genome-informatics-core.json";
 const GENERATED_STORAGE_KEY = "synquest-generated-bank";
 const ANSWER_STORAGE_KEY = "synquest-answer-records";
 
@@ -55,7 +55,7 @@ function normalizeText(text) {
 function resolveAssetPath(path) {
   if (!path) return "";
   if (/^(https?:|data:|\/)/.test(path)) return path;
-  return `../${String(path).replace(/^\.?\//, "")}`;
+  return String(path).replace(/^\.?\//, "");
 }
 
 function loadGeneratedQuestions() {

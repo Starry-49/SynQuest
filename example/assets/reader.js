@@ -1,5 +1,5 @@
-const READER_BANK_PATH = "../data/question-bank.json";
-const READER_KB_PATH = "../data/knowledge-base/genome-informatics-core.json";
+const READER_BANK_PATH = "./data/question-bank.json";
+const READER_KB_PATH = "./data/knowledge-base/genome-informatics-core.json";
 
 const readerState = {
   bank: null,
@@ -15,7 +15,7 @@ function query(name) {
 function resolveAssetPath(path) {
   if (!path) return "";
   if (/^(https?:|data:|\/)/.test(path)) return path;
-  return `../${String(path).replace(/^\.?\//, "")}`;
+  return String(path).replace(/^\.?\//, "");
 }
 
 async function readJson(path) {

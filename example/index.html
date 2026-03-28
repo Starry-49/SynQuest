@@ -3,93 +3,155 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SynQuest Demo</title>
-  <meta name="description" content="SynQuest online demo. Skill-first landing page with practice and reader examples.">
+  <title>Geno生成题库门户网站</title>
+  <meta name="description" content="Geno example portal powered by SynQuest reusable skills and functions.">
   <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
   <main class="page-shell">
     <nav class="page-nav">
       <a class="nav-brand" href="./">
-        <img src="../logo.png" alt="SynQuest logo">
-        <span>SynQuest</span>
+        <img src="../logo.png" alt="Geno logo">
+        <span>Geno</span>
       </a>
       <div class="nav-links">
-        <a href="./practice.html">Practice</a>
+        <a href="./" aria-current="page">首页</a>
+        <a href="./practice.html">答题页</a>
         <a href="./reader.html">Reader</a>
         <a href="https://github.com/Starry-49/SynQuest" target="_blank" rel="noreferrer">GitHub</a>
       </div>
     </nav>
 
-    <section class="hero hero-centered glass">
-      <div class="hero-inner">
-        <div class="hero-eyebrow">
-          <img src="../logo.png" alt="SynQuest logo">
-          <span>Skill-First Knowledge-to-Question Demo</span>
+    <section class="hero hero-home">
+      <div class="hero-grid">
+        <div class="hero-home-copy">
+          <div class="hero-eyebrow">
+            <img src="../logo.png" alt="Geno logo">
+            <span>Genome Informatics Example Portal</span>
+          </div>
+          <h1>Geno生成题库门户网站</h1>
+          <p class="hero-copy">
+            这是一个围绕《基因组信息学》示例数据构建的题库门户站点。
+            你可以在这里浏览题库、在线答题、抽题测试、阅读知识模块，并体验知识驱动的新题生成流程。
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="./practice.html">进入答题页</a>
+            <a class="button button-secondary" href="./reader.html">进入 Reader</a>
+            <a class="button button-tertiary" href="https://starry-49.github.io/SynQuest/" target="_blank" rel="noreferrer">Live Demo</a>
+          </div>
+          <div class="hero-note">
+            门户页面展示的是 Geno 示例站点；底层的可复用 skill 与 Python functions 由 SynQuest 提供，
+            用来把不同格式的知识源整理成结构化题库。
+          </div>
+          <div class="hero-links">
+            <a href="../skills/synquest/SKILL.md">Skill</a>
+            <span>·</span>
+            <a href="../functions/synquest/knowledge_loader.py">Knowledge Loader</a>
+            <span>·</span>
+            <a href="../README.md">README</a>
+          </div>
         </div>
-        <h1>SynQuest</h1>
-        <p class="hero-copy">
-          一个可复用的 skill，用来把领域知识库转成结构化题库。
-          这里展示的是它在《基因组信息学》示例知识库上的网页 demo，而不是能力边界本身。
-        </p>
-        <div class="hero-actions hero-actions-centered">
-          <a class="button button-primary" href="./practice.html">打开答题页</a>
-          <a class="button button-secondary" href="./reader.html">打开 Reader</a>
-        </div>
-        <div class="hero-links">
-          <a href="https://starry-49.github.io/SynQuest/" target="_blank" rel="noreferrer">Live Demo</a>
-          <span>·</span>
-          <a href="https://github.com/Starry-49/SynQuest" target="_blank" rel="noreferrer">Repository</a>
+
+        <div class="hero-home-aside hero-kpi-grid">
+          <article class="hero-kpi">
+            <span class="label">Portal</span>
+            <span class="value">3</span>
+            <h3>三类核心页面</h3>
+            <p class="panel-subtitle">首页负责入口，Practice 负责答题与生成，Reader 负责知识阅读与题目映射。</p>
+          </article>
+          <article class="hero-kpi">
+            <span class="label">Formats</span>
+            <span class="value">JSON+</span>
+            <h3>支持多种知识源</h3>
+            <p class="panel-subtitle">不仅能吃 HTML，也能接入 Markdown、TXT、DOCX 和结构化 JSON。</p>
+          </article>
+          <article class="hero-kpi">
+            <span class="label">Engine</span>
+            <span class="value">SynQuest</span>
+            <h3>可复用生成底座</h3>
+            <p class="panel-subtitle">页面只是 Example，真正可迁移的是 skill、CLI 和 functions 层。</p>
+          </article>
         </div>
       </div>
     </section>
 
     <section class="feature-grid">
       <article class="feature-card">
-        <h3>Knowledge In</h3>
-        <p class="panel-subtitle">把知识点组织成结构化知识库，作为题目生成的来源，而不是把题目写死在页面里。</p>
+        <h3>题库浏览</h3>
+        <p class="panel-subtitle">快速进入现有示例题库，按来源、主题、题型和关键词定位目标题目。</p>
       </article>
       <article class="feature-card">
-        <h3>Questions Out</h3>
-        <p class="panel-subtitle">生成后的题目可被静态网页、CLI 与后续合并流程共同复用。</p>
+        <h3>在线答题</h3>
+        <p class="panel-subtitle">支持卡片式直接作答、抽题测试、即时判分以及浏览器本地答题记录。</p>
       </article>
       <article class="feature-card">
-        <h3>Example Demo</h3>
-        <p class="panel-subtitle">当前网页演示基于《基因组信息学》示例数据，支持作答、抽题与阅读。</p>
+        <h3>知识驱动生成</h3>
+        <p class="panel-subtitle">基于知识模块衍生新题，并把新题先保存在浏览器会话里做预览和导出。</p>
       </article>
     </section>
 
-    <section class="section-panel panel">
+    <section class="section-panel">
       <div class="section-title">
         <div>
-          <h2>Choose a Page</h2>
-          <p class="panel-subtitle">把 demo 拆成多个页面，而不是把所有东西塞进一个拥挤首页。</p>
+          <h2>页面入口</h2>
+          <p class="panel-subtitle">门户只负责清晰分流，不把所有功能堆在一个拥挤首页里。</p>
         </div>
       </div>
-      <div class="feature-grid">
-        <article class="feature-card">
+      <div class="page-switch-grid">
+        <article class="stage-card">
           <h3>Practice</h3>
-          <p class="panel-subtitle">浏览题目、直接作答、即时判分，并在浏览器中保存作答记录。</p>
+          <p class="panel-subtitle">浏览题目、在线作答、抽题测试、导出本地生成题目。</p>
           <div class="panel-actions">
-            <a class="button button-primary" href="./practice.html">进入答题页</a>
+            <a class="button button-primary" href="./practice.html">打开答题页</a>
           </div>
         </article>
-        <article class="feature-card">
+        <article class="stage-card">
           <h3>Reader</h3>
-          <p class="panel-subtitle">按知识模块阅读事实、关联题目与答案解析。</p>
+          <p class="panel-subtitle">围绕知识模块组织阅读，查看事实、答案解析和关联题目。</p>
           <div class="panel-actions">
-            <a class="button button-secondary" href="./reader.html">进入阅读页</a>
+            <a class="button button-secondary" href="./reader.html">打开 Reader</a>
           </div>
         </article>
-        <article class="feature-card">
-          <h3>Skill Source</h3>
-          <p class="panel-subtitle">查看 `synquest/` 中的 skill 说明、schema 与 CLI 入口。</p>
+        <article class="stage-card">
+          <h3>SynQuest Layer</h3>
+          <p class="panel-subtitle">查看 skill、functions 和示例数据结构，迁移到你自己的知识库项目。</p>
           <div class="panel-actions">
-            <a class="button button-tertiary" href="../synquest/SKILL.md">查看 SKILL.md</a>
+            <a class="button button-tertiary" href="https://github.com/Starry-49/SynQuest" target="_blank" rel="noreferrer">打开仓库</a>
           </div>
         </article>
       </div>
     </section>
+
+    <section class="section-panel">
+      <div class="section-title">
+        <div>
+          <h2>支撑层</h2>
+          <p class="panel-subtitle">示例站点背后对应的是更可复用的 skill 与 functions 结构。</p>
+        </div>
+      </div>
+      <div class="source-grid">
+        <article class="source-item">
+          <h3>skills/</h3>
+          <p class="panel-subtitle">放置 `SynQuest` 的 `SKILL.md`、references 与 agent 配置。</p>
+        </article>
+        <article class="source-item">
+          <h3>functions/</h3>
+          <p class="panel-subtitle">放置可复用 Python functions、knowledge loader 与 CLI。</p>
+        </article>
+        <article class="source-item">
+          <h3>example/</h3>
+          <p class="panel-subtitle">放置整个 Geno 门户站点、示例题库、知识库、图片与旧版素材。</p>
+        </article>
+        <article class="source-item">
+          <h3>GitHub Pages</h3>
+          <p class="panel-subtitle">当前门户直接由静态文件组成，方便演示与分发，不依赖后端。</p>
+        </article>
+      </div>
+    </section>
+
+    <p class="footer-note">
+      想迁移到自己的课程或领域知识库时，优先复用 `skills/` 与 `functions/`，`example/` 这一层可以直接替换成新的演示站点。
+    </p>
   </main>
 </body>
 </html>

@@ -1,4 +1,6 @@
-# Supported Knowledge Base Formats
+# Supported Knowledge Source Formats
+
+SynQuest keeps the reusable loader in [`functions/synquest/knowledge_loader.py`](../../../functions/synquest/knowledge_loader.py).
 
 ## Preferred JSON
 
@@ -25,7 +27,7 @@
 }
 ```
 
-## Markdown
+## Markdown / TXT
 
 ```md
 ## 人类基因组计划与图谱
@@ -39,3 +41,9 @@
 - Use headings for modules.
 - Put facts inside `ul > li` lists whenever possible.
 - Avoid deeply nested tables if you want deterministic parsing.
+
+## DOCX
+
+- Paragraph text will be extracted directly from the Word document.
+- Use headings or clearly separated paragraph groups when possible.
+- Keep one topic per section if you want cleaner entry boundaries.

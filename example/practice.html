@@ -3,147 +3,179 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SynQuest Practice</title>
-  <meta name="description" content="Answerable practice page for the SynQuest genome informatics example bank.">
+  <title>Geno题库练习</title>
+  <meta name="description" content="Practice page for the Geno example portal. Browse, answer, quiz, and generate questions.">
   <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
   <main class="page-shell">
     <nav class="page-nav">
       <a class="nav-brand" href="./">
-        <img src="../logo.png" alt="SynQuest logo">
-        <span>SynQuest</span>
+        <img src="../logo.png" alt="Geno logo">
+        <span>Geno</span>
       </a>
       <div class="nav-links">
-        <a href="./">Demo Home</a>
-        <a href="./practice.html">Practice</a>
+        <a href="./">首页</a>
+        <a href="./practice.html" aria-current="page">答题页</a>
         <a href="./reader.html">Reader</a>
+        <a href="https://github.com/Starry-49/SynQuest" target="_blank" rel="noreferrer">GitHub</a>
       </div>
     </nav>
 
-    <section class="hero glass">
-      <div class="hero-inner">
-        <div class="hero-eyebrow">
-          <img src="../logo.png" alt="SynQuest logo">
-          <span>Interactive Practice</span>
+    <section class="hero hero-practice">
+      <div class="hero-grid">
+        <div class="hero-home-copy">
+          <div class="hero-eyebrow">
+            <img src="../logo.png" alt="Geno logo">
+            <span>Practice Workspace</span>
+          </div>
+          <h1>Geno题库练习与生成</h1>
+          <p class="hero-copy">
+            这一页是 Geno 门户的主工作区。你可以在这里筛题、作答、开始抽题测试，
+            也可以基于知识模块调用 SynQuest 的浏览器生成器，把新题先加入本地会话再导出。
+          </p>
+          <div class="hero-actions">
+            <button class="button button-primary" id="startQuizButton">开始测试</button>
+            <button class="button button-secondary" id="generateButton">生成示例新题</button>
+            <a class="button button-tertiary" href="./reader.html">查看 Reader</a>
+          </div>
+          <div class="hero-links">
+            <a href="./">返回首页</a>
+            <span>·</span>
+            <a href="https://starry-49.github.io/SynQuest/" target="_blank" rel="noreferrer">Live Demo</a>
+          </div>
         </div>
-        <h1>示例答题页</h1>
-        <p class="hero-copy">
-          这里展示的是 SynQuest 生成题库后的在线作答形态。你可以筛题、直接提交答案、抽题测试，
-          也可以从示例知识模块再生成一批新题加入当前浏览器会话。
-        </p>
-        <div class="hero-actions">
-          <button class="button button-primary" id="startQuizButton">开始测试</button>
-          <button class="button button-secondary" id="generateButton">生成示例新题</button>
-          <a class="button button-tertiary" href="./reader.html">去 Reader</a>
+
+        <div class="hero-home-aside hero-kpi-grid">
+          <article class="hero-kpi">
+            <span class="label">Answer</span>
+            <span class="value">Local</span>
+            <h3>浏览器内答题</h3>
+            <p class="panel-subtitle">每道题都可以直接作答、提交和查看解析，记录保存在本地浏览器中。</p>
+          </article>
+          <article class="hero-kpi">
+            <span class="label">Quiz</span>
+            <span class="value">Random</span>
+            <h3>抽题连续练习</h3>
+            <p class="panel-subtitle">从当前筛选结果里抽取指定数量题目，进入独立测试模式。</p>
+          </article>
+          <article class="hero-kpi">
+            <span class="label">Generate</span>
+            <span class="value">KB</span>
+            <h3>知识模块扩题</h3>
+            <p class="panel-subtitle">把知识库里的事实转成新题，先在前端验证，再导出为 JSON。</p>
+          </article>
         </div>
-        <div class="stats-grid stats-grid-wide">
-          <div class="stat-tile"><span class="value" id="statQuestionCount">--</span><span class="label">示例题量</span></div>
-          <div class="stat-tile"><span class="value" id="statKnowledgeCount">--</span><span class="label">知识模块</span></div>
-          <div class="stat-tile"><span class="value" id="statGeneratedCount">--</span><span class="label">本地生成题</span></div>
-          <div class="stat-tile"><span class="value" id="statFilteredCount">--</span><span class="label">当前筛选</span></div>
-          <div class="stat-tile"><span class="value" id="statAnsweredCount">--</span><span class="label">已作答</span></div>
-          <div class="stat-tile"><span class="value" id="statCorrectCount">--</span><span class="label">答对数</span></div>
-          <div class="stat-tile"><span class="value" id="statImageCount">--</span><span class="label">图片题</span></div>
-        </div>
+      </div>
+
+      <div class="stats-grid stats-grid-wide">
+        <div class="stat-tile"><span class="value" id="statQuestionCount">--</span><span class="label">示例题量</span></div>
+        <div class="stat-tile"><span class="value" id="statKnowledgeCount">--</span><span class="label">知识模块</span></div>
+        <div class="stat-tile"><span class="value" id="statGeneratedCount">--</span><span class="label">本地生成题</span></div>
+        <div class="stat-tile"><span class="value" id="statFilteredCount">--</span><span class="label">当前筛选</span></div>
+        <div class="stat-tile"><span class="value" id="statAnsweredCount">--</span><span class="label">已作答</span></div>
+        <div class="stat-tile"><span class="value" id="statCorrectCount">--</span><span class="label">答对数</span></div>
+        <div class="stat-tile"><span class="value" id="statImageCount">--</span><span class="label">图片题</span></div>
       </div>
     </section>
 
-    <section class="control-grid">
-      <article class="panel">
-        <div class="panel-title">
-          <div>
-            <h2>筛选</h2>
-            <p class="panel-subtitle">按来源、主题、题型与关键词过滤当前示例题库。</p>
+    <section class="workspace-shell">
+      <aside class="workspace-sidebar">
+        <article class="panel">
+          <div class="panel-title">
+            <div>
+              <h2>筛选器</h2>
+              <p class="panel-subtitle">按来源、主题、题型和关键词快速定位题目。</p>
+            </div>
           </div>
-        </div>
-        <div class="field">
-          <label for="searchInput">关键词</label>
-          <input id="searchInput" class="text-input" type="text" placeholder="例如：HMM、BLAST、组装">
-        </div>
-        <div class="field">
-          <label>来源</label>
-          <div id="sourceFilterList" class="chip-group"></div>
-        </div>
-        <div class="field">
-          <label for="topicSelect">主题</label>
-          <select id="topicSelect" class="select-input"></select>
-        </div>
-        <div class="field">
-          <label for="typeSelect">题型</label>
-          <select id="typeSelect" class="select-input"></select>
-        </div>
-      </article>
-
-      <article class="panel">
-        <div class="panel-title">
-          <div>
-            <h2>抽题测试</h2>
-            <p class="panel-subtitle">从当前筛选结果里抽指定数量的题，进入测试模式。</p>
+          <div class="field">
+            <label for="searchInput">关键词</label>
+            <input id="searchInput" class="text-input" type="text" placeholder="例如：HMM、BLAST、组装">
           </div>
-        </div>
-        <div class="field">
-          <label for="quizCount">抽题数量</label>
-          <input id="quizCount" class="number-input" type="number" min="1" max="30" value="10">
-        </div>
-        <div class="panel-actions">
-          <button class="button button-secondary" id="randomBrowseButton">随机浏览</button>
-          <button class="button button-primary" id="startQuizButtonAside">开始测验</button>
-        </div>
-        <div class="callout">
-          单题卡片也可以直接作答。这里的测试模式适合做一组连续练习。
-        </div>
-      </article>
-
-      <article class="panel">
-        <div class="panel-title">
-          <div>
-            <h2>生成器</h2>
-            <p class="panel-subtitle">从示例知识库调用 SynQuest 生成器，扩展当前浏览器中的题库。</p>
+          <div class="field">
+            <label>来源</label>
+            <div id="sourceFilterList" class="chip-group"></div>
           </div>
-        </div>
-        <div class="field">
-          <label for="generatorModule">知识模块</label>
-          <select id="generatorModule" class="select-input"></select>
-        </div>
-        <div class="field">
-          <label for="generatorCount">生成数量</label>
-          <input id="generatorCount" class="number-input" type="number" min="1" max="12" value="4">
-        </div>
-        <div class="panel-actions">
-          <button class="button button-secondary" id="exportButton">导出新题</button>
-          <button class="button button-secondary" id="clearGeneratedButton">清空生成题</button>
-          <button class="button button-primary" id="generateButtonAside">生成并加入</button>
-          <button class="button button-tertiary" id="clearAnswerButton">清空答题记录</button>
-        </div>
-      </article>
-    </section>
-
-    <section class="section-panel panel">
-      <div class="section-title">
-        <div>
-          <h2>示例知识模块</h2>
-          <p class="panel-subtitle">当前聚焦：<strong id="activeModuleLabel">全部知识模块</strong></p>
-        </div>
-      </div>
-      <div id="knowledgeList" class="knowledge-list knowledge-list-wide"></div>
-    </section>
-
-    <section class="content-stack">
-      <section class="quiz-shell hidden" id="quizShell"></section>
-
-      <section class="reader-card section-panel">
-        <div class="section-title section-title-stack">
-          <div>
-            <h2 id="resultHeadline">示例题库</h2>
-            <p class="panel-subtitle">每道题都支持直接作答、提交、判分与查看解析。</p>
+          <div class="field">
+            <label for="topicSelect">主题</label>
+            <select id="topicSelect" class="select-input"></select>
           </div>
-          <div class="badge-row">
-            <span class="tag tag-brand">Answerable</span>
-            <span class="tag tag-accent">Local Progress</span>
+          <div class="field">
+            <label for="typeSelect">题型</label>
+            <select id="typeSelect" class="select-input"></select>
           </div>
-        </div>
-        <div id="questionList" class="question-list"></div>
+        </article>
+
+        <article class="panel">
+          <div class="panel-title">
+            <div>
+              <h2>抽题测试</h2>
+              <p class="panel-subtitle">从当前筛选结果中抽取一组题目，进入连续测试。</p>
+            </div>
+          </div>
+          <div class="field">
+            <label for="quizCount">抽题数量</label>
+            <input id="quizCount" class="number-input" type="number" min="1" max="30" value="10">
+          </div>
+          <div class="panel-actions">
+            <button class="button button-secondary" id="randomBrowseButton">随机浏览</button>
+            <button class="button button-primary" id="startQuizButtonAside">开始测验</button>
+          </div>
+          <div class="callout">
+            如果你只是想逐题查看，也可以直接在下方题卡内作答，不必进入测验模式。
+          </div>
+        </article>
+
+        <article class="panel">
+          <div class="panel-title">
+            <div>
+              <h2>知识驱动生成</h2>
+              <p class="panel-subtitle">从示例知识模块出题，先扩展当前浏览器会话，再决定是否导出。</p>
+            </div>
+          </div>
+          <div class="field">
+            <label for="generatorModule">知识模块</label>
+            <select id="generatorModule" class="select-input"></select>
+          </div>
+          <div class="field">
+            <label for="generatorCount">生成数量</label>
+            <input id="generatorCount" class="number-input" type="number" min="1" max="12" value="4">
+          </div>
+          <div class="panel-actions">
+            <button class="button button-primary" id="generateButtonAside">生成并加入</button>
+            <button class="button button-secondary" id="exportButton">导出新题</button>
+            <button class="button button-secondary" id="clearGeneratedButton">清空生成题</button>
+            <button class="button button-tertiary" id="clearAnswerButton">清空答题记录</button>
+          </div>
+        </article>
+      </aside>
+
+      <section class="workspace-main">
+        <section class="section-panel">
+          <div class="section-title">
+            <div>
+              <h2>知识模块</h2>
+              <p class="panel-subtitle">当前聚焦：<strong id="activeModuleLabel">全部知识模块</strong></p>
+            </div>
+          </div>
+          <div id="knowledgeList" class="knowledge-list knowledge-list-wide"></div>
+        </section>
+
+        <section class="quiz-shell hidden" id="quizShell"></section>
+
+        <section class="section-panel">
+          <div class="section-title section-title-stack">
+            <div>
+              <h2 id="resultHeadline">题库浏览</h2>
+              <p class="panel-subtitle">标准题库与浏览器内本地生成题目会在这里统一呈现。</p>
+            </div>
+            <div class="badge-row">
+              <span class="tag tag-brand">Answerable</span>
+              <span class="tag tag-accent">Generated Locally</span>
+            </div>
+          </div>
+          <div id="questionList" class="question-list"></div>
+        </section>
       </section>
     </section>
   </main>
