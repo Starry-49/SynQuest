@@ -31,7 +31,7 @@
 <p align="center">
   <a href="#quick-start"><strong>Quick Start</strong></a> ·
   <a href="#what-you-can-do"><strong>What You Can Do</strong></a> ·
-  <a href="#github-pages"><strong>GitHub Pages</strong></a> ·
+  <a href="#live-demo"><strong>Live Demo</strong></a> ·
   <a href="#project-structure"><strong>Project Structure</strong></a>
 </p>
 
@@ -96,11 +96,11 @@ SynQuest 主要解决了这几件事：
 - `SynQuest` 才是核心
 - 题目与课程内容只是一个 example，方便演示 skill 如何工作
 
-## GitHub Pages
+## Live Demo
 
-首页是一个纯静态页面，不依赖后端，直接作为 `github.io` 演示站使用。
+这个仓库带了一个可直接打开的在线 demo，用来展示 SynQuest 生成题目后的实际交互效果。
 
-### 页面支持
+### Demo 能做什么
 
 - 浏览示例题库
 - 抽题测试
@@ -108,10 +108,11 @@ SynQuest 主要解决了这几件事：
 - 本地导出生成题目
 - Study Reader 阅读知识模块与题目详情
 
-### 页面入口
+### Demo 地址
 
-- 首页: [`index.html`](index.html)
-- Reader: [`reader.html`](reader.html)
+- 在线首页: [https://starry-49.github.io/SynQuest/](https://starry-49.github.io/SynQuest/)
+- 本地入口: [`index.html`](index.html)
+- 阅读页: [`reader.html`](reader.html)
 
 ## SynQuest Skill
 
