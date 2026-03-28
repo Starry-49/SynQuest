@@ -6,6 +6,7 @@ from __future__ import annotations
 import argparse
 import json
 import sys
+from collections import Counter
 from pathlib import Path
 from typing import Any
 
@@ -23,6 +24,27 @@ def load_json(path: Path) -> Any:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
+def refresh_bank_meta(bank: dict[str, Any]) -> None:
+    questions = bank.get("questions", [])
+    topic_counter = Counter(question.get("topic", "unknown") for question in questions)
+    type_counter = Counter(question.get("type", "single_choice") for question in questions)
+    topic_names: dict[str, str] = {}
+    for question in questions:
+        topic_id = question.get("topic", "unknown")
+        topic_names.setdefault(topic_id, question.get("topicName") or topic_id)
+
+    meta = bank.setdefault("meta", {})
+    meta["totalQuestions"] = len(questions)
+    meta["sources"] = sorted({question.get("source", "Unknown") for question in questions})
+    meta["topics"] = [
+        {"id": topic_id, "name": topic_names.get(topic_id, topic_id), "count": count}
+        for topic_id, count in sorted(topic_counter.items())
+    ]
+    meta["types"] = dict(sorted(type_counter.items()))
+    meta["imageQuestionCount"] = sum(1 for question in questions if question.get("images", {}).get("question"))
+    meta["noteImageCount"] = sum(1 for question in questions if question.get("images", {}).get("note"))
+
+
 def merge_bank(bank_path: Path, incoming_path: Path) -> dict[str, Any]:
     bank = load_json(bank_path)
     incoming = load_json(incoming_path)
@@ -33,8 +55,7 @@ def merge_bank(bank_path: Path, incoming_path: Path) -> dict[str, Any]:
 
     merged_questions = list(existing.values())
     bank["questions"] = merged_questions
-    bank.setdefault("meta", {})
-    bank["meta"]["totalQuestions"] = len(merged_questions)
+    refresh_bank_meta(bank)
     return bank
 
 
@@ -72,6 +93,7 @@ def cmd_synthesize(args: argparse.Namespace) -> None:
         args.seed,
         style_bank_questions=style_bank_questions,
         style_top_k=args.style_top_k,
+        semantic_model=args.semantic_model,
     )
     out_path = Path(args.out)
     out_path.parent.mkdir(parents=True, exist_ok=True)
@@ -107,6 +129,7 @@ def build_parser() -> argparse.ArgumentParser:
     synth_parser.add_argument("--kb", required=True, help="Path to a json/md/txt/html/docx/pdf/pptx knowledge base")
     synth_parser.add_argument("--style-bank", help="Optional existing question-bank JSON used for style retrieval and adaptation")
     synth_parser.add_argument("--style-top-k", type=int, default=5, help="How many similar old questions to retrieve per fact")
+    synth_parser.add_argument("--semantic-model", help="Optional sentence-transformers model used for semantic style retrieval")
     synth_parser.add_argument("--count", type=int, default=12, help="Number of questions to generate")
     synth_parser.add_argument("--seed", type=int, default=7, help="Random seed")
     synth_parser.add_argument("--out", default=str(ROOT / "example" / "data" / "generated" / "synquest-output.json"))

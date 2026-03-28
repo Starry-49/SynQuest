@@ -6,6 +6,7 @@ import json
 import random
 import re
 from dataclasses import dataclass
+from functools import lru_cache
 from pathlib import Path
 from typing import Any
 
@@ -30,6 +31,11 @@ try:
 except ImportError:  # pragma: no cover - optional dependency for style retrieval
     TfidfVectorizer = None
     cosine_similarity = None
+
+try:
+    from sentence_transformers import SentenceTransformer
+except ImportError:  # pragma: no cover - optional dependency for semantic retrieval
+    SentenceTransformer = None
 
 
 LETTERS = ["A", "B", "C", "D"]
@@ -56,6 +62,20 @@ def ensure_style_packages() -> None:
             "Style retrieval requires external packages. "
             f"Install them first: {joined}"
         )
+
+
+def ensure_semantic_packages() -> None:
+    if SentenceTransformer is None:
+        raise RuntimeError(
+            "Semantic retrieval requires sentence-transformers. "
+            "Install it first: sentence-transformers"
+        )
+
+
+@lru_cache(maxsize=2)
+def load_sentence_model(model_name: str) -> Any:
+    ensure_semantic_packages()
+    return SentenceTransformer(model_name)
 
 
 def load_json(path: Path) -> Any:
@@ -206,10 +226,11 @@ class StyleMatch:
     bm25: float
     tfidf: float
     fuzzy: float
+    semantic: float = 0.0
 
 
 class QuestionStyleIndex:
-    def __init__(self, questions: list[dict[str, Any]]) -> None:
+    def __init__(self, questions: list[dict[str, Any]], *, semantic_model: str | None = None) -> None:
         ensure_style_packages()
         self.questions = questions
         self.documents = [question_to_document(question) for question in questions]
@@ -223,6 +244,17 @@ class QuestionStyleIndex:
             ngram_range=(1, 2),
         )
         self.tfidf_matrix = self.vectorizer.fit_transform(self.documents)
+        self.semantic_model_name = semantic_model
+        self.semantic_model = None
+        self.semantic_matrix = None
+        if semantic_model and self.documents:
+            self.semantic_model = load_sentence_model(semantic_model)
+            self.semantic_matrix = self.semantic_model.encode(
+                self.documents,
+                convert_to_numpy=True,
+                normalize_embeddings=True,
+                show_progress_bar=False,
+            )
 
     def search(self, query_text: str, *, top_k: int = 5, desired_type: str | None = None) -> list[StyleMatch]:
         if not self.questions:
@@ -239,11 +271,30 @@ class QuestionStyleIndex:
         bm25_scores = normalize_scores(bm25_raw)
         tfidf_scores = normalize_scores(tfidf_raw)
         fuzzy_scores = normalize_scores(fuzzy_raw)
+        semantic_scores = [0.0 for _ in self.questions]
+        if self.semantic_model is not None and self.semantic_matrix is not None:
+            query_embedding = self.semantic_model.encode(
+                [query_text],
+                convert_to_numpy=True,
+                normalize_embeddings=True,
+                show_progress_bar=False,
+            )
+            semantic_raw = list(cosine_similarity(query_embedding, self.semantic_matrix)[0])
+            semantic_scores = normalize_scores([float(value) for value in semantic_raw])
 
         matches: list[StyleMatch] = []
         for index, question in enumerate(self.questions):
             type_bonus = 0.08 if desired_type and question.get("type") == desired_type else 0.0
-            score = 0.45 * bm25_scores[index] + 0.35 * tfidf_scores[index] + 0.20 * fuzzy_scores[index] + type_bonus
+            if self.semantic_model is not None:
+                score = (
+                    0.24 * bm25_scores[index]
+                    + 0.18 * tfidf_scores[index]
+                    + 0.12 * fuzzy_scores[index]
+                    + 0.38 * semantic_scores[index]
+                    + type_bonus
+                )
+            else:
+                score = 0.45 * bm25_scores[index] + 0.35 * tfidf_scores[index] + 0.20 * fuzzy_scores[index] + type_bonus
             matches.append(
                 StyleMatch(
                     question=question,
@@ -251,6 +302,7 @@ class QuestionStyleIndex:
                     bm25=bm25_scores[index],
                     tfidf=tfidf_scores[index],
                     fuzzy=fuzzy_scores[index],
+                    semantic=semantic_scores[index],
                 )
             )
 
@@ -382,9 +434,14 @@ def synthesize_questions(
     *,
     style_bank_questions: list[dict[str, Any]] | None = None,
     style_top_k: int = 5,
+    semantic_model: str | None = None,
 ) -> dict[str, Any]:
     rng = random.Random(seed)
-    style_index = QuestionStyleIndex(style_bank_questions or []) if style_bank_questions else None
+    style_index = (
+        QuestionStyleIndex(style_bank_questions or [], semantic_model=semantic_model)
+        if style_bank_questions
+        else None
+    )
 
     candidate_records: list[dict[str, Any]] = []
     for entry in entries:
@@ -434,16 +491,17 @@ def synthesize_questions(
 
         options = build_options(correct, fact.get("distractors", []), entry, entries, matches, rng)
         answer_key = next(option["key"] for option in options if option["text"] == correct)
-        topic = slugify(entry.get("id") or entry.get("title", "entry"))
+        topic = (exemplar.get("topic") if exemplar else None) or slugify(entry.get("id") or entry.get("title", "entry"))
+        topic_name = (exemplar.get("topicName") if exemplar else None) or entry.get("title", "SynQuest 条目")
         difficulty = int(fact.get("difficulty") or (exemplar.get("difficulty") if exemplar else 2) or 2)
         selected_questions.append(
             {
                 "id": f"sq-{topic}-{len(selected_questions) + 1:03d}",
                 "source": "SynQuest",
-                "origin": "generated",
+                "origin": "semantic-generated" if semantic_model else "generated",
                 "year": None,
                 "topic": topic,
-                "topicName": entry.get("title", "SynQuest 条目"),
+                "topicName": topic_name,
                 "difficulty": difficulty,
                 "type": fact.get("type") or (exemplar.get("type") if exemplar else "single_choice") or "single_choice",
                 "prompt": prompt,
@@ -477,11 +535,14 @@ def synthesize_questions(
             "seed": seed,
             "styleBankQuestions": len(style_bank_questions or []),
             "styleTopK": style_top_k if style_bank_questions else 0,
+            "semanticModel": semantic_model or "",
             "algorithms": [
                 "knowledge_fact_filtering",
                 "jieba_tokenization" if jieba is not None else "regex_tokenization",
                 "bm25_style_retrieval" if style_bank_questions else "knowledge_only_sampling",
                 "tfidf_style_retrieval" if style_bank_questions else "none",
+                "semantic_embedding_retrieval" if semantic_model else "none",
+                "hybrid_style_rerank" if semantic_model else "none",
                 "rapidfuzz_prompt_dedup" if style_bank_questions else "none",
                 "style_guided_prompt_adaptation" if style_bank_questions else "generic_prompt_assembly",
             ],

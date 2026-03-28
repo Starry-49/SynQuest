@@ -1,0 +1,290 @@
+{
+  "meta": {
+    "title": "SynQuest Generated Questions",
+    "count": 5,
+    "seed": 31,
+    "styleBankQuestions": 182,
+    "styleTopK": 5,
+    "semanticModel": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+    "algorithms": [
+      "knowledge_fact_filtering",
+      "jieba_tokenization",
+      "bm25_style_retrieval",
+      "tfidf_style_retrieval",
+      "semantic_embedding_retrieval",
+      "hybrid_style_rerank",
+      "rapidfuzz_prompt_dedup",
+      "style_guided_prompt_adaptation"
+    ]
+  },
+  "questions": [
+    {
+      "id": "sq-hmm-regulation-001",
+      "source": "SynQuest",
+      "origin": "semantic-generated",
+      "year": null,
+      "topic": "hmm-regulation",
+      "topicName": "HMM 与顺式调控元件",
+      "difficulty": 3,
+      "type": "single_choice",
+      "prompt": "寻找最可能隐藏状态路径时常用哪种算法？",
+      "options": [
+        {
+          "key": "A",
+          "text": "Forward 算法"
+        },
+        {
+          "key": "B",
+          "text": "k-means 聚类"
+        },
+        {
+          "key": "C",
+          "text": "Viterbi 算法"
+        },
+        {
+          "key": "D",
+          "text": "Floyd 算法"
+        }
+      ],
+      "answer": "C",
+      "analysis": "Viterbi 通过动态规划寻找最大概率路径。",
+      "knowledgeRefs": [
+        "hmm-regulation"
+      ],
+      "styleRefs": [
+        "23_654",
+        "22_82",
+        "22_90"
+      ],
+      "tags": [
+        "CpG",
+        "Forward",
+        "HMM",
+        "Viterbi",
+        "hmm-regulation",
+        "single_choice",
+        "synquest",
+        "启动子"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    },
+    {
+      "id": "sq-sequencing-methods-002",
+      "source": "SynQuest",
+      "origin": "semantic-generated",
+      "year": null,
+      "topic": "sequencing-methods",
+      "topicName": "测序方法与读段模拟",
+      "difficulty": 2,
+      "type": "single_choice",
+      "prompt": "SAM 文件头中用于定义参考序列信息的标记是哪一个？",
+      "options": [
+        {
+          "key": "A",
+          "text": "PG"
+        },
+        {
+          "key": "B",
+          "text": "SQ"
+        },
+        {
+          "key": "C",
+          "text": "CM"
+        },
+        {
+          "key": "D",
+          "text": "HD"
+        }
+      ],
+      "answer": "B",
+      "analysis": "SAM 头部中的 @SQ 记录参考序列名称和长度等信息。",
+      "knowledgeRefs": [
+        "sequencing-tech"
+      ],
+      "styleRefs": [
+        "23_482",
+        "23_370",
+        "23_492"
+      ],
+      "tags": [
+        "ART",
+        "SAM",
+        "Sanger",
+        "sequencing-methods",
+        "single_choice",
+        "synquest",
+        "测序"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    },
+    {
+      "id": "sq-human-genome-project-003",
+      "source": "SynQuest",
+      "origin": "semantic-generated",
+      "year": null,
+      "topic": "human-genome-project",
+      "topicName": "人类基因组计划与图谱",
+      "difficulty": 3,
+      "type": "single_choice",
+      "prompt": "在人类基因组计划早期，大规模物理图构建的主流技术之一是什么？",
+      "options": [
+        {
+          "key": "A",
+          "text": "代谢流分析"
+        },
+        {
+          "key": "B",
+          "text": "Western blot"
+        },
+        {
+          "key": "C",
+          "text": "单细胞转录组聚类"
+        },
+        {
+          "key": "D",
+          "text": "STS 作图"
+        }
+      ],
+      "answer": "D",
+      "analysis": "HGP 早期的物理图构建广泛使用 STS 标记进行克隆定位与连锁。",
+      "knowledgeRefs": [
+        "hgp-maps"
+      ],
+      "styleRefs": [
+        "22_4",
+        "23_253",
+        "22_14"
+      ],
+      "tags": [
+        "HGP",
+        "human-genome-project",
+        "single_choice",
+        "synquest",
+        "图谱",
+        "物理图",
+        "遗传图"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    },
+    {
+      "id": "sq-alignment-homology-004",
+      "source": "SynQuest",
+      "origin": "semantic-generated",
+      "year": null,
+      "topic": "alignment-homology",
+      "topicName": "序列比对与同源推断",
+      "difficulty": 2,
+      "type": "single_choice",
+      "prompt": "BLAST 系列软件采用的核心搜索策略是什么？",
+      "options": [
+        {
+          "key": "A",
+          "text": "纯蒙特卡洛采样"
+        },
+        {
+          "key": "B",
+          "text": "梯度下降优化"
+        },
+        {
+          "key": "C",
+          "text": "启发式搜索"
+        },
+        {
+          "key": "D",
+          "text": "穷举搜索"
+        }
+      ],
+      "answer": "C",
+      "analysis": "BLAST 通过种子和延伸等启发式步骤提高速度，不保证全局最优。",
+      "knowledgeRefs": [
+        "alignment-homology"
+      ],
+      "styleRefs": [
+        "22_39",
+        "23_497",
+        "23_528"
+      ],
+      "tags": [
+        "BLAST",
+        "BLOSUM",
+        "Clustal",
+        "PAM",
+        "alignment-homology",
+        "single_choice",
+        "synquest",
+        "同源"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    },
+    {
+      "id": "sq-genome-databases-005",
+      "source": "SynQuest",
+      "origin": "semantic-generated",
+      "year": null,
+      "topic": "genome-databases",
+      "topicName": "基因组数据库与资源",
+      "difficulty": 1,
+      "type": "single_choice",
+      "prompt": "了解基因组学最新研究进展时，最常用的文献数据库之一是什么？",
+      "options": [
+        {
+          "key": "A",
+          "text": "地理信息系统数据库"
+        },
+        {
+          "key": "B",
+          "text": "Excel 模板库"
+        },
+        {
+          "key": "C",
+          "text": "PubMed"
+        },
+        {
+          "key": "D",
+          "text": "普通图片搜索引擎"
+        }
+      ],
+      "answer": "C",
+      "analysis": "PubMed 收录大量生物医学与基因组学相关文献，是课程中常见的首选入口。",
+      "knowledgeRefs": [
+        "genome-databases"
+      ],
+      "styleRefs": [
+        "22_2",
+        "23_243",
+        "23_686"
+      ],
+      "tags": [
+        "Ensembl",
+        "GenBank",
+        "PubMed",
+        "RefSeq",
+        "UCSC",
+        "genome-databases",
+        "single_choice",
+        "synquest"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    }
+  ]
+}

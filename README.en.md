@@ -63,6 +63,7 @@ Generate questions that stay closer to an existing question bank:
 python3 functions/synquest/cli.py synthesize \
   --kb example/data/knowledge-base/sum-course-kb.json \
   --style-bank example/data/question-bank.json \
+  --semantic-model sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2 \
   --style-top-k 5 \
   --count 24 \
   --out example/data/generated/sum-course-generated.json
@@ -98,22 +99,27 @@ flowchart TB
     B["Skill Layer<br/>skills/synquest/SKILL.md"]
     C["Knowledge Loader<br/>functions/synquest/knowledge_loader.py"]
     D["Normalized Knowledge Base<br/>entries[] + facts[]"]
-    E["Style Retrieval Index<br/>BM25 + TF-IDF + RapidFuzz"]
-    F["Question Engine<br/>functions/synquest/question_engine.py"]
-    G["Generated Question JSON"]
-    H["Geno Example Portal<br/>example/"]
-    I["Question Bank Merge"]
+    E["Lexical Retrieval<br/>BM25 + TF-IDF"]
+    F["Semantic Retrieval<br/>sentence-transformers embeddings"]
+    G["Hybrid Rerank<br/>lexical + semantic + fuzzy"]
+    H["Question Engine<br/>functions/synquest/question_engine.py"]
+    I["Generated Question JSON"]
+    J["Geno Example Portal<br/>example/"]
+    K["Question Bank Merge"]
 
     A --> C
     B --> C
     C --> D
-    D --> F
-    I --> E
-    E --> F
-    F --> G
     D --> H
+    K --> E
+    K --> F
+    E --> G
+    F --> G
     G --> H
-    I --> H
+    H --> I
+    D --> J
+    I --> J
+    K --> J
 ```
 
 ### Architecture Units
@@ -125,7 +131,9 @@ flowchart TB
 | `Fact` | the smallest unit that can be turned into a question |
 | `Knowledge Base` | normalized `entries[] + facts[]` data structure |
 | `Existing Question Bank` | already curated questions |
-| `Style Retrieval Index` | retrieval layer used to find similar older questions |
+| `Lexical Retrieval` | term-based retrieval over older questions |
+| `Semantic Retrieval` | embedding-based retrieval over older questions |
+| `Hybrid Rerank` | unified reranking across lexical, semantic, and fuzzy signals |
 | `Generated Questions` | newly synthesized questions for preview or merge |
 
 ### Core Fields
@@ -162,12 +170,13 @@ The current retrieval stack includes:
 - `jieba` for Chinese tokenization
 - `BM25` for lexical retrieval
 - `TF-IDF + cosine similarity` for similarity scoring
+- `sentence-transformers` for semantic retrieval
+- hybrid reranking across lexical, semantic, and fuzzy signals
 - `RapidFuzz` for prompt deduplication
 
 The repository does not yet include the heavier semantic generation stack such as:
 
-- embedding retrieval
-- rerankers
+- cross-encoder rerankers
 - LLM-based prompt rewriting
 
 ### 3. Bank Merge
@@ -202,8 +211,10 @@ In the current Geno example:
 - imported PDF KB: [`example/data/knowledge-base/sum-course-kb.json`](example/data/knowledge-base/sum-course-kb.json)
 - existing bank: [`example/data/question-bank.json`](example/data/question-bank.json)
 - style-aligned generated questions: [`example/data/generated/sum-course-generated.json`](example/data/generated/sum-course-generated.json)
+- semantic-retrieval sample batch: [`example/data/generated/synquest-semantic-five.json`](example/data/generated/synquest-semantic-five.json)
 
 The knowledge base represents what the system knows. The question bank represents what has already been curated. The generated batch represents what can be added next.
+The current example bank already includes 5 `SynQuest` semantic-retrieval sample questions.
 
 ## Python API
 
@@ -245,6 +256,7 @@ SynQuest is primarily custom repository logic, with these reusable external comp
 - `jieba`
 - `rank-bm25`
 - `scikit-learn`
+- `sentence-transformers`
 - `RapidFuzz`
 - `Poppler` utilities
 

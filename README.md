@@ -72,10 +72,12 @@ The repository currently includes a retrieval-based generation layer built with:
 - `jieba`
 - `rank-bm25`
 - `scikit-learn` TF-IDF
+- `sentence-transformers`
 - `RapidFuzz`
 - `Poppler` PDF utilities
 
-It does not yet include the heavier semantic stack such as embedding retrieval, rerankers, or LLM-based rewrite models.
+The current repository already includes semantic retrieval and hybrid reranking.
+It does not yet include cross-encoder rerankers or LLM-based rewrite models.
 
 ## License
 
