@@ -4,6 +4,16 @@ const GENERATED_PATH = "./data/generated/sum-course-generated.json";
 const GENERATED_STORAGE_KEY = "synquest-generated-bank";
 const ANSWER_STORAGE_KEY = "synquest-answer-records";
 
+const SOURCE_LABELS = {
+  SynQuest: "SynQuest · Semantic",
+  "SynQuest-Figure": "SynQuest · Figure"
+};
+
+const ORIGIN_LABELS = {
+  "semantic-generated": "semantic-retrieval",
+  "figure-context-generated": "figure-context"
+};
+
 const state = {
   bank: null,
   kb: null,
@@ -64,6 +74,40 @@ function resolveAssetPath(path) {
   return String(path).replace(/^\.?\//, "");
 }
 
+function getSourceLabel(source) {
+  return SOURCE_LABELS[source] || source || "Unknown";
+}
+
+function getOriginLabel(origin) {
+  return ORIGIN_LABELS[origin] || origin || "";
+}
+
+function readQueryFilters() {
+  const params = new URLSearchParams(window.location.search);
+  const source = params.get("source");
+  const topic = params.get("topic");
+  const type = params.get("type");
+  const search = params.get("search");
+  const module = params.get("module");
+
+  if (source) state.filters.source = source;
+  if (topic) state.filters.topic = topic;
+  if (type) state.filters.type = type;
+  if (search) state.filters.search = search;
+  if (module) state.filters.module = module;
+}
+
+function syncQueryFilters() {
+  const params = new URLSearchParams();
+  if (state.filters.source !== "all") params.set("source", state.filters.source);
+  if (state.filters.topic !== "all") params.set("topic", state.filters.topic);
+  if (state.filters.type !== "all") params.set("type", state.filters.type);
+  if (state.filters.search) params.set("search", state.filters.search);
+  if (state.filters.module !== "all") params.set("module", state.filters.module);
+  const next = `${window.location.pathname}${params.toString() ? `?${params.toString()}` : ""}`;
+  window.history.replaceState({}, "", next);
+}
+
 function loadGeneratedQuestions() {
   try {
     const raw = window.localStorage.getItem(GENERATED_STORAGE_KEY);
@@ -106,12 +150,18 @@ async function loadJson(path) {
 
 function buildSourceFilters() {
   const container = $("#sourceFilterList");
-  const sources = ["all", ...new Set(getAllQuestions().map((question) => question.source || "Unknown"))];
+  const counts = getAllQuestions().reduce((acc, question) => {
+    const source = question.source || "Unknown";
+    acc[source] = (acc[source] || 0) + 1;
+    return acc;
+  }, {});
+  const sources = ["all", ...Object.keys(counts)];
   container.innerHTML = sources
     .map((source) => {
       const active = source === state.filters.source ? "active" : "";
-      const label = source === "all" ? "全部来源" : source;
-      return `<button class="chip ${active}" data-source="${source}">${label}</button>`;
+      const label = source === "all" ? "全部来源" : getSourceLabel(source);
+      const count = source === "all" ? getAllQuestions().length : counts[source];
+      return `<button class="chip ${active}" data-source="${source}"><span>${label}</span><span class="chip-count">${count}</span></button>`;
     })
     .join("");
 
@@ -126,6 +176,7 @@ function buildSourceFilters() {
 function populateSelects() {
   const topicSelect = $("#topicSelect");
   const typeSelect = $("#typeSelect");
+  const searchInput = $("#searchInput");
 
   const topics = (state.bank?.meta?.topics || []).map((topic) => ({
     id: topic.id,
@@ -148,6 +199,7 @@ function populateSelects() {
     .map((type) => `<option value="${type}">${type === "all" ? "全部题型" : type}</option>`)
     .join("");
   typeSelect.value = state.filters.type;
+  searchInput.value = state.filters.search;
 }
 
 function getFilteredQuestions() {
@@ -375,11 +427,13 @@ function renderAnswerFeedback(question) {
 
 function renderQuestionCard(question) {
   const tags = [
-    `<span class="tag tag-brand">${question.source || "Unknown"}</span>`,
+    `<span class="tag tag-brand">${getSourceLabel(question.source || "Unknown")}</span>`,
+    question.origin ? `<span class="tag tag-origin">${getOriginLabel(question.origin)}</span>` : "",
+    question.images?.question ? `<span class="tag tag-image">图片题</span>` : "",
     `<span class="tag tag-accent">${question.topicName || getTopicName(question.topic)}</span>`,
     `<span class="tag tag-dark">${question.type}</span>`,
     `<span class="tag tag-dark">难度 ${question.difficulty}</span>`
-  ].join("");
+  ].filter(Boolean).join("");
 
   const questionImage = question.images?.question
     ? `<img class="question-image" src="${resolveAssetPath(question.images.question)}" alt="${question.id} question image">`
@@ -752,6 +806,7 @@ function renderGeneratorModuleOptions() {
 }
 
 function render() {
+  syncQueryFilters();
   buildSourceFilters();
   populateSelects();
   renderGeneratorModuleOptions();
@@ -774,6 +829,7 @@ async function init() {
     loadBackendGeneratedQuestions(generated);
     loadGeneratedQuestions();
     loadAnswerRecords();
+    readQueryFilters();
     bindStaticEvents();
     render();
   } catch (error) {

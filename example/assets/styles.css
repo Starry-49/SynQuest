@@ -672,6 +672,20 @@ textarea {
   cursor: pointer;
 }
 
+.chip-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 22px;
+  min-height: 22px;
+  padding: 0 6px;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.06);
+  color: inherit;
+  font-size: 0.82rem;
+  line-height: 1;
+}
+
 .chip.active,
 .tree-item.active {
   background: rgba(10, 132, 255, 0.1);
@@ -693,6 +707,18 @@ textarea {
 .tag-dark {
   background: rgba(110, 110, 115, 0.08);
   color: var(--muted);
+}
+
+.tag-origin {
+  background: rgba(86, 90, 255, 0.08);
+  color: #4a43c5;
+  border-color: rgba(86, 90, 255, 0.12);
+}
+
+.tag-image {
+  background: rgba(31, 143, 82, 0.1);
+  color: var(--success);
+  border-color: rgba(31, 143, 82, 0.16);
 }
 
 .knowledge-list-wide {
