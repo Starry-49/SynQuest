@@ -44,6 +44,13 @@ function getGeneratedQuestions() {
   return [...state.backendGeneratedQuestions, ...state.generatedQuestions];
 }
 
+function getEmbeddedGeneratedQuestions() {
+  return (state.bank?.questions || []).filter((question) => {
+    const source = question.source || "";
+    return source === "SynQuest" || source === "SynQuest-Figure";
+  });
+}
+
 function getAllQuestions() {
   return [...(state.bank?.questions || []), ...getGeneratedQuestions()];
 }
@@ -244,7 +251,7 @@ function sampleQuestions(pool, count) {
 function updateStats(filteredQuestions) {
   $("#statQuestionCount").textContent = getAllQuestions().length;
   $("#statKnowledgeCount").textContent = state.kb?.entries?.length || 0;
-  $("#statGeneratedCount").textContent = getGeneratedQuestions().length;
+  $("#statGeneratedCount").textContent = getEmbeddedGeneratedQuestions().length + getGeneratedQuestions().length;
   $("#statFilteredCount").textContent = filteredQuestions.length;
   $("#statImageCount").textContent = getAllQuestions().filter((question) => question.images?.question).length;
   const records = Object.values(state.answers);
