@@ -2,41 +2,54 @@
   <img src="logo.png" alt="SynQuest Logo" width="120">
 </p>
 
-<h1 align="center">SynQuest English Documentation</h1>
+<h1 align="center">SynQuest</h1>
 
 <p align="center">
-  <a href="README.md"><strong>Back to Home</strong></a> ·
-  <a href="README.zh.md"><strong>中文</strong></a> ·
-  <a href="https://starry-49.github.io/SynQuest/"><strong>Live Demo</strong></a>
+  A reusable skill and Python toolkit for turning heterogeneous knowledge sources into structured knowledge bases and style-aligned question banks.
 </p>
 
-## Overview
+<p align="center">
+  <a href="README.md"><strong>中文</strong></a> ·
+  <a href="https://starry-49.github.io/SynQuest/"><strong>Live Demo</strong></a> ·
+  <a href="https://github.com/Starry-49/SynQuest/releases/tag/v0.2.0"><strong>Release</strong></a>
+</p>
 
-SynQuest is a reusable skill and Python toolkit for turning domain knowledge sources into structured question banks. The repository also includes a Geno example portal that demonstrates knowledge browsing, practice, reading, and question generation on a concrete dataset.
+<p align="center">
+  <a href="LICENSE">
+    <img src="https://img.shields.io/badge/License-MIT-14532D?style=flat-square" alt="MIT License">
+  </a>
+  <a href="https://starry-49.github.io/SynQuest/">
+    <img src="https://img.shields.io/badge/Demo-Geno%20Portal-CF9E2A?style=flat-square" alt="Geno Demo">
+  </a>
+  <a href="https://www.python.org/">
+    <img src="https://img.shields.io/badge/Python-3.9%2B-2F5D50?style=flat-square" alt="Python 3.9+">
+  </a>
+  <a href="skills/synquest/SKILL.md">
+    <img src="https://img.shields.io/badge/Codex-SynQuest-1D6A4F?style=flat-square" alt="Codex SynQuest">
+  </a>
+</p>
 
-## Install and Deploy
+## Quick Start
 
-Install the Python CLI (Python 3.9+):
+Start with the live demo:
+
+- Demo: [https://starry-49.github.io/SynQuest/](https://starry-49.github.io/SynQuest/)
+- Repo: [https://github.com/Starry-49/SynQuest](https://github.com/Starry-49/SynQuest)
+
+Install the Python CLI:
 
 ```bash
 pip install "git+https://github.com/Starry-49/SynQuest.git@v0.2.0"
 synquest --help
 ```
 
-If you downloaded the release source bundle or cloned the repository locally, install the bundled Codex skill with:
+If you downloaded a release bundle or cloned the repository locally, install the bundled Codex skill with:
 
 ```bash
 python3 scripts/install_codex_skill.py
 ```
 
-## Quick Start
-
-Open the live demo:
-
-- Demo: [https://starry-49.github.io/SynQuest/](https://starry-49.github.io/SynQuest/)
-- Repo: [https://github.com/Starry-49/SynQuest](https://github.com/Starry-49/SynQuest)
-
-Preview locally:
+Preview Geno locally:
 
 ```bash
 python3 -m http.server 8000
@@ -48,7 +61,93 @@ Then open:
 http://localhost:8000/example/
 ```
 
-After installation, you can use the `synquest` command directly. If you are running inside the repository, `python3 functions/synquest/cli.py` still works as a local fallback.
+## Core Capabilities
+
+SynQuest is organized around three reusable layers:
+
+- multi-format knowledge ingestion for `json`, `md`, `txt`, `html`, `docx`, `pdf`, and `pptx`
+- normalized knowledge-base construction as `entries[] + facts[] + metadata`
+- retrieval-augmented question generation aligned to an existing curated bank
+
+Repository layers:
+
+- `skills/` for Codex skill orchestration
+- `functions/` for reusable Python logic and CLI tools
+- `example/` for the Geno portal and demo datasets
+
+## Architecture
+
+<p align="center">
+  <img src="structure.png" alt="SynQuest architecture" width="100%">
+</p>
+
+## How It Works
+
+### 1. Knowledge Ingestion
+
+SynQuest normalizes heterogeneous source formats into a common knowledge-base schema. The current repository includes:
+
+- JSON passthrough
+- text section segmentation
+- PDF raw-order extraction
+- layout-preserving title detection
+- repeated header/footer suppression
+- duplicate slide fingerprint deduplication
+- keyword weighting
+- fact segmentation
+- PPTX OOXML parsing
+
+### 2. Semantic Question Generation
+
+The main generation path currently used by Geno is semantic retrieval plus hybrid reranking. The current stack includes:
+
+- `jieba`
+- `BM25`
+- `TF-IDF + cosine similarity`
+- `sentence-transformers`
+- hybrid rerank
+- `RapidFuzz`
+- adaptive similarity fallback
+- rule-based prompt diversification
+- style-guided prompt adaptation
+
+This path combines:
+
+- facts from the knowledge base
+- style cues from an existing question bank
+- filtering and deduplication rules
+
+to produce bank-compatible question batches.
+
+### 3. Figure Track
+
+The repository also retains an independent figure track that can:
+
+- identify image-backed pages
+- render or copy figure assets
+- bind figures to nearby text context
+- generate image-based questions that ask for figure interpretation
+
+The figure track code is retained in the repository, but the live Geno bank currently focuses on curated semantic questions.
+
+## Geno Example
+
+Geno is the example portal, not the reusable engine itself. It demonstrates:
+
+- Home
+- Practice
+- Reader
+
+The live Geno bank currently shows curated example questions together with embedded `SynQuest semantic` questions. Generated figure batches and figure-track code remain available in the repository for local extension.
+
+Main example assets:
+
+- example KB: [`example/data/knowledge-base/genome-informatics-core.json`](example/data/knowledge-base/genome-informatics-core.json)
+- main bank: [`example/data/question-bank.json`](example/data/question-bank.json)
+- generated batches: [`example/data/generated/`](example/data/generated/)
+- portal files: [`example/`](example/)
+
+## CLI Usage
 
 Inspect a knowledge source:
 
@@ -65,16 +164,7 @@ synquest extract \
   --out example/data/knowledge-base/sum-course-kb.json
 ```
 
-Generate questions directly from the knowledge base:
-
-```bash
-synquest synthesize \
-  --kb example/data/knowledge-base/sum-course-kb.json \
-  --count 24 \
-  --out example/data/generated/synquest-batch.json
-```
-
-Generate questions that stay closer to an existing question bank:
+Generate questions:
 
 ```bash
 synquest synthesize \
@@ -83,112 +173,38 @@ synquest synthesize \
   --semantic-model sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2 \
   --style-top-k 5 \
   --count 24 \
-  --out example/data/generated/sum-course-generated.json
+  --out example/data/generated/synquest-batch.json
 ```
 
-Merge generated questions back into the bank:
+Merge generated questions:
 
 ```bash
 synquest merge \
   --bank example/data/question-bank.json \
-  --incoming example/data/generated/sum-course-generated.json
+  --incoming example/data/generated/synquest-batch.json
 ```
 
-## Core Capabilities
-
-SynQuest is designed around three reusable capabilities:
-
-- multi-format knowledge ingestion for `json`, `md`, `txt`, `html`, `docx`, `pdf`, and `pptx`
-- normalized knowledge-base construction as `entries[] + facts[]`
-- question generation that can either work directly from knowledge facts or align to an existing curated bank
-- an independent figure track for screenshot-backed, image-based question generation
-
-Repository layers:
-
-- `skills/` for Codex skill orchestration
-- `functions/` for reusable Python logic and CLI tools
-- `example/` for the Geno demo portal and demo datasets
-
-## Architecture
-
-<p align="center">
-  <img src="structure.png" alt="SynQuest architecture" width="100%">
-</p>
-
-## How It Works
-
-### 1. Knowledge Extraction
-
-SynQuest first normalizes different source formats into a common knowledge-base schema. The output can then be reused by the CLI, the example frontend, or downstream bank merge workflows.
-
-### 2. Question Generation
-
-SynQuest currently supports two generation modes:
-
-- direct knowledge-based generation from extracted facts
-- style-aligned generation using retrieval over an existing question bank
-
-The current retrieval stack includes:
-
-- `jieba` for Chinese tokenization
-- `BM25` for lexical retrieval
-- `TF-IDF + cosine similarity` for similarity scoring
-- `sentence-transformers` for semantic retrieval
-- hybrid reranking across lexical, semantic, and fuzzy signals
-- `RapidFuzz` for prompt deduplication
-
-The repository does not yet include the heavier semantic generation stack such as:
-
-- cross-encoder rerankers
-- LLM-based prompt rewriting
-
-### 3. Bank Merge
-
-Generated questions are emitted as bank-compatible JSON, so they can be previewed, exported, or merged back into a curated bank.
-
-### 4. Figure Track
-
-For image-backed `pdf/png/jpg/jpeg` sources, SynQuest now includes an independent figure track that:
-
-- filters pages or files that contain meaningful figures
-- renders screenshots or copies image assets
-- binds each figure to nearby knowledge text
-- generates image-backed multiple-choice questions asking for figure meaning
-
-Local example:
+Generate figure questions:
 
 ```bash
 synquest synthesize-figure-questions \
   --source sum.pdf \
   --kb example/data/knowledge-base/sum-course-kb.json \
   --count 2 \
-  --asset-dir example/data/generated/figure-assets \
+  --asset-dir example/assets/figures \
   --out example/data/generated/figure-demo-two.json
 ```
 
-## Geno Example
-
-In the current Geno example:
-
-- example KB: [`example/data/knowledge-base/genome-informatics-core.json`](example/data/knowledge-base/genome-informatics-core.json)
-- imported PDF KB: [`example/data/knowledge-base/sum-course-kb.json`](example/data/knowledge-base/sum-course-kb.json)
-- existing bank: [`example/data/question-bank.json`](example/data/question-bank.json)
-- style-aligned generated questions: [`example/data/generated/sum-course-generated.json`](example/data/generated/sum-course-generated.json)
-- semantic-retrieval sample batch: [`example/data/generated/synquest-semantic-thirty.json`](example/data/generated/synquest-semantic-thirty.json)
-
-The knowledge base represents what the system knows. The question bank represents what has already been curated. The generated batch represents what can be added next.
-The current example bank already includes 30 `SynQuest` semantic-retrieval sample questions.
-
 ## Python API
 
-Reusable logic lives in [`functions/synquest/`](functions/synquest/), and the same surface becomes available as the installed `synquest` package.
+Reusable logic lives in [`functions/synquest/`](functions/synquest/):
 
 - [`functions/synquest/knowledge_loader.py`](functions/synquest/knowledge_loader.py)
 - [`functions/synquest/question_engine.py`](functions/synquest/question_engine.py)
 - [`functions/synquest/figure_track.py`](functions/synquest/figure_track.py)
 - [`functions/synquest/cli.py`](functions/synquest/cli.py)
 
-Example usage:
+Example:
 
 ```python
 from synquest import (
@@ -223,11 +239,7 @@ SynQuest is primarily custom repository logic, with these reusable external comp
 - `sentence-transformers`
 - `RapidFuzz`
 - `Poppler` utilities
-- adaptive similarity fallback
-- rule-based prompt diversification
-- `pdftoppm` page screenshot rendering
-- neighbor-text context windows
-- keyword-overlap distractor retrieval for figure questions
+- `pdftoppm`
 
 Release page:
 
@@ -240,11 +252,12 @@ Release page:
 ├── skills/
 ├── functions/
 ├── example/
+├── scripts/
 ├── index.html
 ├── logo.png
+├── structure.png
 ├── LICENSE
 ├── README.md
-├── README.zh.md
 └── README.en.md
 ```
 
