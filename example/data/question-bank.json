@@ -3,11 +3,12 @@
     "title": "Genome Informatics Question Bank",
     "subtitle": "Structured archive extracted from the original local HTML bank",
     "generatedAt": "2026-03-28T10:56:01+00:00",
-    "totalQuestions": 212,
+    "totalQuestions": 214,
     "sources": [
       "2022",
       "2023",
-      "SynQuest"
+      "SynQuest",
+      "SynQuest-Figure"
     ],
     "topics": [
       {
@@ -49,15 +50,25 @@
         "id": "sequencing-methods",
         "name": "测序方法与读段模拟",
         "count": 46
+      },
+      {
+        "id": "启发式搜索算法",
+        "name": "启发式搜索算法► 应用► 序列比对(BLAST)► HSPs",
+        "count": 1
+      },
+      {
+        "id": "第一节-序列比对与同源搜索",
+        "name": "相似性(similarity)和同源性(homology)",
+        "count": 1
       }
     ],
     "types": {
       "multiple_choice": 120,
       "open_ended": 1,
       "short_answer": 21,
-      "single_choice": 70
+      "single_choice": 72
     },
-    "imageQuestionCount": 16,
+    "imageQuestionCount": 18,
     "noteImageCount": 19
   },
   "questions": [
@@ -9719,6 +9730,110 @@
         "note": ""
       },
       "pdfPage": null
+    },
+    {
+      "id": "sqfig-启发式搜索算法-应用-序列比对-blast-hsps-001",
+      "source": "SynQuest-Figure",
+      "origin": "figure-context-generated",
+      "year": null,
+      "topic": "启发式搜索算法",
+      "topicName": "启发式搜索算法► 应用► 序列比对(BLAST)► HSPs",
+      "difficulty": 2,
+      "type": "single_choice",
+      "prompt": "根据图示与相邻知识，下列哪项最能解释这张图的核心含义？",
+      "options": [
+        {
+          "key": "A",
+          "text": "该图主要用于解释“启发式搜索算法► 应用► 序列比对(BLAST)► HSPs”，重点涉及查询序列 目标序列1 目标序列2 目标序列4。"
+        },
+        {
+          "key": "B",
+          "text": "该图主要用于解释“基于转录本序列的新基因|新转录变异体发现 ► 基本思路”，重点涉及? blast命中指导的基因结构建模 ?。"
+        },
+        {
+          "key": "C",
+          "text": "该图主要用于帮助理解“序列组装相关软件► 组装流程与评估”这一知识主题。"
+        },
+        {
+          "key": "D",
+          "text": "该图主要用于帮助理解“相似性(similarity)和同源性(homology)”这一知识主题。"
+        }
+      ],
+      "answer": "A",
+      "analysis": "这张图来自知识源的第 407 页，对应主题“启发式搜索算法► 应用► 序列比对(BLAST)► HSPs”。结合相邻知识文本，图示主要在说明查询序列 目标序列1 目标序列2 目标序列4。相关上下文包括：启发式搜索算法► 应用► 序列比对；启发式搜索算法► 应用► 序列比对 当序列较长，目标序列数据集较；大时，动态规划算法计算量太大 启发式算法。",
+      "knowledgeRefs": [
+        "sum-p0407"
+      ],
+      "styleRefs": [],
+      "tags": [
+        "figure-question",
+        "synquest",
+        "发式",
+        "启发",
+        "启发式搜索算法",
+        "序列",
+        "式搜",
+        "搜索",
+        "算法",
+        "索算"
+      ],
+      "images": {
+        "question": "assets/figures/sum-fig-337.png",
+        "note": ""
+      },
+      "pdfPage": 407
+    },
+    {
+      "id": "sqfig-相似性-similarity-和同源性-homology-002",
+      "source": "SynQuest-Figure",
+      "origin": "figure-context-generated",
+      "year": null,
+      "topic": "第一节-序列比对与同源搜索",
+      "topicName": "相似性(similarity)和同源性(homology)",
+      "difficulty": 2,
+      "type": "single_choice",
+      "prompt": "根据图示与相邻知识，下列哪项最能解释这张图的核心含义？",
+      "options": [
+        {
+          "key": "A",
+          "text": "该图主要用于帮助理解“序列组装相关软件► 组装流程与评估”这一知识主题。"
+        },
+        {
+          "key": "B",
+          "text": "该图主要用于解释“启发式搜索算法► 应用► 序列比对(BLAST)► HSPs”，重点涉及查询序列 目标序列1 目标序列2 目标序列4。"
+        },
+        {
+          "key": "C",
+          "text": "该图主要用于帮助理解“相似性(similarity)和同源性(homology)”这一知识主题。"
+        },
+        {
+          "key": "D",
+          "text": "该图主要用于帮助理解“终止密码子【TAA, TAG,TGA】的HMM转移概率矩阵”这一知识主题。"
+        }
+      ],
+      "answer": "C",
+      "analysis": "这张图来自知识源的第 362 页，对应主题“相似性(similarity)和同源性(homology)”。结合相邻知识文本，这张图主要用于帮助理解该主题。相关上下文包括：相似性(similarity)和同源性(homology)；不能把相似性和同源性混为一谈。；不能把相似性和同源性混为一谈。",
+      "knowledgeRefs": [
+        "sum-p0362"
+      ],
+      "styleRefs": [],
+      "tags": [
+        "figure-question",
+        "homology",
+        "similarity",
+        "synquest",
+        "似性",
+        "同源",
+        "和同",
+        "源性",
+        "相似",
+        "相似性"
+      ],
+      "images": {
+        "question": "assets/figures/sum-fig-293.png",
+        "note": ""
+      },
+      "pdfPage": 362
     }
   ]
 }
