@@ -1,6 +1,5 @@
 const BANK_PATH = "./data/question-bank.json";
 const KB_PATH = "./data/knowledge-base/genome-informatics-core.json";
-const GENERATED_PATH = "./data/generated/sum-course-generated.json";
 const GENERATED_STORAGE_KEY = "synquest-generated-bank";
 const ANSWER_STORAGE_KEY = "synquest-answer-records";
 
@@ -819,14 +818,13 @@ function render() {
 
 async function init() {
   try {
-    const [bank, kb, generated] = await Promise.all([
+    const [bank, kb] = await Promise.all([
       loadJson(BANK_PATH),
-      loadJson(KB_PATH),
-      loadJson(GENERATED_PATH).catch(() => ({ questions: [] }))
+      loadJson(KB_PATH)
     ]);
     state.bank = bank;
     state.kb = kb;
-    loadBackendGeneratedQuestions(generated);
+    loadBackendGeneratedQuestions({ questions: [] });
     loadGeneratedQuestions();
     loadAnswerRecords();
     readQueryFilters();
