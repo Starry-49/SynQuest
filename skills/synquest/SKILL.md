@@ -12,6 +12,7 @@ SynQuest is the reusable skill layer for turning knowledge sources into structur
 - The user provides a knowledge source in `json`, `md`, `txt`, `html`, `docx`, `pdf`, or `pptx` and wants questions.
 - A legacy HTML exam page needs to be normalized into reusable JSON.
 - A static demo site needs to browse, answer, and extend a question bank without a backend.
+- A user wants an independent image/figure track that screenshots visual pages and generates figure-meaning questions.
 - The repo should separate `skills/`, `functions/`, and `example/` cleanly.
 
 ## Workflow
@@ -25,6 +26,7 @@ SynQuest is the reusable skill layer for turning knowledge sources into structur
    - `python3 functions/synquest/cli.py inspect --kb <path>`
    - `python3 functions/synquest/cli.py extract --source <path> --out example/data/knowledge-base/extracted.json`
    - `python3 functions/synquest/cli.py synthesize --kb <path> --count 12 --out example/data/generated/synquest.json`
+   - `python3 functions/synquest/cli.py synthesize-figure-questions --source <pdf/png/jpg/jpeg> --kb <kb.json> --count 2 --out example/data/generated/figure-demo.json`
 3. Validate the generated question shape against [question_schema.md](references/question_schema.md).
 4. Merge curated output back into the example bank or your own bank:
    - `python3 functions/synquest/cli.py merge --bank example/data/question-bank.json --incoming example/data/generated/synquest.json`
@@ -34,6 +36,7 @@ SynQuest is the reusable skill layer for turning knowledge sources into structur
 
 - `skills/synquest/`: skill entry, references, agent config
 - `functions/synquest/`: reusable Python functions and CLI
+- `functions/synquest/figure_track.py`: independent figure-question pipeline
 - `example/`: Geno example portal, example bank, example KB, legacy assets, and images
 
 ## Input guidance

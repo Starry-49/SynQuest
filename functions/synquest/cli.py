@@ -17,6 +17,7 @@ if str(FUNCTIONS_ROOT) not in sys.path:
     sys.path.insert(0, str(FUNCTIONS_ROOT))
 
 from synquest.knowledge_loader import build_knowledge_base, inspect_knowledge_source, load_knowledge_entries  # noqa: E402
+from synquest.figure_track import build_figure_track, load_figure_track, synthesize_figure_questions  # noqa: E402
 
 
 def load_json(path: Path) -> Any:
@@ -109,6 +110,43 @@ def cmd_merge(args: argparse.Namespace) -> None:
     print(f"merged bank written to {out_path}")
 
 
+def cmd_extract_figures(args: argparse.Namespace) -> None:
+    payload = build_figure_track(
+        Path(args.source),
+        knowledge_base_path=Path(args.kb) if args.kb else None,
+        candidate_limit=args.candidate_limit,
+        context_window=args.context_window,
+    )
+    out_path = Path(args.out)
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    out_path.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    print(f"wrote {payload['meta']['candidateCount']} figure candidates to {out_path}")
+
+
+def cmd_synthesize_figure_questions(args: argparse.Namespace) -> None:
+    if args.figure_track:
+        payload = load_figure_track(Path(args.figure_track))
+    else:
+        if not args.source:
+            raise ValueError("Either --figure-track or --source must be provided.")
+        payload = build_figure_track(
+            Path(args.source),
+            knowledge_base_path=Path(args.kb) if args.kb else None,
+            candidate_limit=args.candidate_limit,
+            context_window=args.context_window,
+        )
+    questions = synthesize_figure_questions(
+        payload,
+        count=args.count,
+        seed=args.seed,
+        asset_dir=Path(args.asset_dir),
+    )
+    out_path = Path(args.out)
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    out_path.write_text(json.dumps(questions, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    print(f"wrote {questions['meta']['count']} figure questions to {out_path}")
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="SynQuest knowledge-base question generator")
     subparsers = parser.add_subparsers(dest="command", required=True)
@@ -141,6 +179,30 @@ def build_parser() -> argparse.ArgumentParser:
     merge_parser.add_argument("--incoming", required=True, help="Generated questions JSON path")
     merge_parser.add_argument("--out", help="Optional output path; defaults to overwriting --bank")
     merge_parser.set_defaults(func=cmd_merge)
+
+    extract_figures_parser = subparsers.add_parser("extract-figures", help="Build an independent figure track from an image-backed source")
+    extract_figures_parser.add_argument("--source", required=True, help="Path to a pdf/png/jpg/jpeg source")
+    extract_figures_parser.add_argument("--kb", help="Optional existing SynQuest knowledge-base JSON used for nearby text binding")
+    extract_figures_parser.add_argument("--candidate-limit", type=int, default=24, help="How many figure candidates to keep after scoring")
+    extract_figures_parser.add_argument("--context-window", type=int, default=1, help="How many neighboring entries to use for figure context")
+    extract_figures_parser.add_argument("--out", default=str(ROOT / "example" / "data" / "generated" / "figure-track.json"))
+    extract_figures_parser.set_defaults(func=cmd_extract_figures)
+
+    synth_figure_parser = subparsers.add_parser("synthesize-figure-questions", help="Generate image-backed questions from the independent figure track")
+    synth_figure_parser.add_argument("--figure-track", help="Optional prebuilt figure-track JSON")
+    synth_figure_parser.add_argument("--source", help="Path to a pdf/png/jpg/jpeg source")
+    synth_figure_parser.add_argument("--kb", help="Optional existing SynQuest knowledge-base JSON used for nearby text binding")
+    synth_figure_parser.add_argument("--candidate-limit", type=int, default=24, help="How many figure candidates to keep after scoring")
+    synth_figure_parser.add_argument("--context-window", type=int, default=1, help="How many neighboring entries to use for figure context")
+    synth_figure_parser.add_argument("--count", type=int, default=2, help="Number of figure questions to generate")
+    synth_figure_parser.add_argument("--seed", type=int, default=7, help="Random seed")
+    synth_figure_parser.add_argument(
+        "--asset-dir",
+        default=str(ROOT / "example" / "data" / "generated" / "figure-assets"),
+        help="Directory where rendered figure screenshots will be written",
+    )
+    synth_figure_parser.add_argument("--out", default=str(ROOT / "example" / "data" / "generated" / "figure-questions.json"))
+    synth_figure_parser.set_defaults(func=cmd_synthesize_figure_questions)
 
     return parser
 

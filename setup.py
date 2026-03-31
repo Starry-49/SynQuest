@@ -3,7 +3,7 @@ from setuptools import find_packages, setup
 
 setup(
     name="synquest",
-    version="0.1.1",
+    version="0.2.0",
     description="Reusable toolkit for turning domain knowledge sources into structured question banks.",
     long_description=open("README.en.md", encoding="utf-8").read(),
     long_description_content_type="text/markdown",

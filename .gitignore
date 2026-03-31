@@ -3,4 +3,6 @@ __pycache__/
 *.pyc
 *.egg-info/
 data/generated/*.tmp.json
+example/data/generated/figure-assets/
+example/data/generated/figure-demo-*.json
 sum.pdf

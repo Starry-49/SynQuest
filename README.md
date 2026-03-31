@@ -59,7 +59,7 @@
 ## Quick Links
 
 - Demo: [https://starry-49.github.io/SynQuest/](https://starry-49.github.io/SynQuest/)
-- Release: [v0.1.1](https://github.com/Starry-49/SynQuest/releases/tag/v0.1.1)
+- Release: [v0.2.0](https://github.com/Starry-49/SynQuest/releases/tag/v0.2.0)
 - Chinese Docs: [README.zh.md](README.zh.md)
 - English Docs: [README.en.md](README.en.md)
 - Skill: [skills/synquest/SKILL.md](skills/synquest/SKILL.md)
@@ -71,7 +71,7 @@
 Install the Python CLI:
 
 ```bash
-pip install "git+https://github.com/Starry-49/SynQuest.git@v0.1.1"
+pip install "git+https://github.com/Starry-49/SynQuest.git@v0.2.0"
 synquest --help
 ```
 
@@ -93,6 +93,7 @@ The repository currently includes a retrieval-based generation layer built with:
 - `Poppler` PDF utilities
 - adaptive similarity fallback
 - rule-based prompt diversification
+- independent figure track for screenshot-backed image questions
 
 The current repository already includes semantic retrieval and hybrid reranking.
 It does not yet include cross-encoder rerankers or LLM-based rewrite models.

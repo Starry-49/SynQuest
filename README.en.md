@@ -19,7 +19,7 @@ SynQuest is a reusable skill and Python toolkit for turning domain knowledge sou
 Install the Python CLI (Python 3.9+):
 
 ```bash
-pip install "git+https://github.com/Starry-49/SynQuest.git@v0.1.1"
+pip install "git+https://github.com/Starry-49/SynQuest.git@v0.2.0"
 synquest --help
 ```
 
@@ -101,6 +101,7 @@ SynQuest is designed around three reusable capabilities:
 - multi-format knowledge ingestion for `json`, `md`, `txt`, `html`, `docx`, `pdf`, and `pptx`
 - normalized knowledge-base construction as `entries[] + facts[]`
 - question generation that can either work directly from knowledge facts or align to an existing curated bank
+- an independent figure track for screenshot-backed, image-based question generation
 
 Repository layers:
 
@@ -145,6 +146,26 @@ The repository does not yet include the heavier semantic generation stack such a
 
 Generated questions are emitted as bank-compatible JSON, so they can be previewed, exported, or merged back into a curated bank.
 
+### 4. Figure Track
+
+For image-backed `pdf/png/jpg/jpeg` sources, SynQuest now includes an independent figure track that:
+
+- filters pages or files that contain meaningful figures
+- renders screenshots or copies image assets
+- binds each figure to nearby knowledge text
+- generates image-backed multiple-choice questions asking for figure meaning
+
+Local example:
+
+```bash
+synquest synthesize-figure-questions \
+  --source sum.pdf \
+  --kb example/data/knowledge-base/sum-course-kb.json \
+  --count 2 \
+  --asset-dir example/data/generated/figure-assets \
+  --out example/data/generated/figure-demo-two.json
+```
+
 ## Geno Example
 
 In the current Geno example:
@@ -164,6 +185,7 @@ Reusable logic lives in [`functions/synquest/`](functions/synquest/), and the sa
 
 - [`functions/synquest/knowledge_loader.py`](functions/synquest/knowledge_loader.py)
 - [`functions/synquest/question_engine.py`](functions/synquest/question_engine.py)
+- [`functions/synquest/figure_track.py`](functions/synquest/figure_track.py)
 - [`functions/synquest/cli.py`](functions/synquest/cli.py)
 
 Example usage:
@@ -203,10 +225,13 @@ SynQuest is primarily custom repository logic, with these reusable external comp
 - `Poppler` utilities
 - adaptive similarity fallback
 - rule-based prompt diversification
+- `pdftoppm` page screenshot rendering
+- neighbor-text context windows
+- keyword-overlap distractor retrieval for figure questions
 
 Release page:
 
-- [v0.1.1](https://github.com/Starry-49/SynQuest/releases/tag/v0.1.1)
+- [v0.2.0](https://github.com/Starry-49/SynQuest/releases/tag/v0.2.0)
 
 ## Repository Structure
 
