@@ -158,6 +158,10 @@ TOPIC_RULES: list[tuple[str, tuple[str, ...]]] = [
     ),
 ]
 
+EXCLUDED_TERMS: tuple[str, ...] = (
+    "张高川",
+)
+
 
 def load_json(path: Path) -> Any:
     return json.loads(path.read_text(encoding="utf-8"))
@@ -176,6 +180,23 @@ def slugify(text: str) -> str:
     value = re.sub(r"[^\w\u4e00-\u9fff]+", "-", str(text or "").strip().lower())
     value = re.sub(r"-{2,}", "-", value).strip("-")
     return value or "item"
+
+
+def question_text_blob(question: dict[str, Any]) -> str:
+    return " ".join(
+        [
+            str(question.get("prompt", "")),
+            str(question.get("analysis", "")),
+            str(question.get("topicName", "")),
+            " ".join(str(tag) for tag in question.get("tags") or []),
+            " ".join(str(option.get("text", "")) for option in question.get("options") or []),
+        ]
+    )
+
+
+def should_exclude(question: dict[str, Any]) -> bool:
+    blob = question_text_blob(question)
+    return any(term in blob for term in EXCLUDED_TERMS)
 
 
 def detect_canonical_topic(question: dict[str, Any]) -> str:
@@ -239,6 +260,8 @@ def normalize_semantic_payload(payload: dict[str, Any], existing_questions: list
     counter = next_semantic_index(existing_questions)
     for question in payload.get("questions", []):
         item = json.loads(json.dumps(question, ensure_ascii=False))
+        if should_exclude(item):
+            continue
         topic_id = item.get("topic")
         if topic_id not in CANONICAL_TOPICS:
             topic_id = detect_canonical_topic(item)
