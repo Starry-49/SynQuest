@@ -2,7 +2,7 @@
 
 from typing import Any
 
-__version__ = "0.1.0"
+__version__ = "0.1.1"
 
 from .knowledge_loader import (  # noqa: E402
     SUPPORTED_SUFFIXES,

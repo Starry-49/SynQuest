@@ -3,7 +3,7 @@
     "title": "Genome Informatics Question Bank",
     "subtitle": "Structured archive extracted from the original local HTML bank",
     "generatedAt": "2026-03-28T10:56:01+00:00",
-    "totalQuestions": 187,
+    "totalQuestions": 212,
     "sources": [
       "2022",
       "2023",
@@ -13,49 +13,49 @@
       {
         "id": "alignment-homology",
         "name": "序列比对与同源推断",
-        "count": 26
+        "count": 30
       },
       {
         "id": "annotation-prediction",
         "name": "基因注释与结构建模",
-        "count": 18
+        "count": 21
       },
       {
         "id": "general",
         "name": "综合题",
-        "count": 33
+        "count": 35
       },
       {
         "id": "genome-assembly",
         "name": "基因组组装与图算法",
-        "count": 20
+        "count": 22
       },
       {
         "id": "genome-databases",
         "name": "基因组数据库与资源",
-        "count": 10
+        "count": 13
       },
       {
         "id": "hmm-regulation",
         "name": "HMM 与顺式调控元件",
-        "count": 21
+        "count": 24
       },
       {
         "id": "human-genome-project",
         "name": "人类基因组计划与图谱",
-        "count": 18
+        "count": 21
       },
       {
         "id": "sequencing-methods",
         "name": "测序方法与读段模拟",
-        "count": 41
+        "count": 46
       }
     ],
     "types": {
-      "multiple_choice": 110,
+      "multiple_choice": 120,
       "open_ended": 1,
-      "short_answer": 20,
-      "single_choice": 56
+      "short_answer": 21,
+      "single_choice": 70
     },
     "imageQuestionCount": 16,
     "noteImageCount": 19
@@ -8115,7 +8115,115 @@
       "origin": "legacy-curated"
     },
     {
-      "id": "sq-hmm-regulation-001",
+      "id": "sq-annotation-prediction-001",
+      "source": "SynQuest",
+      "origin": "semantic-generated",
+      "year": null,
+      "topic": "annotation-prediction",
+      "topicName": "基因注释与结构建模",
+      "difficulty": 2,
+      "type": "single_choice",
+      "prompt": "非模式生物基因组注释前常用哪个工具进行重复遮蔽？",
+      "options": [
+        {
+          "key": "A",
+          "text": "BLASTP"
+        },
+        {
+          "key": "B",
+          "text": "FastQC"
+        },
+        {
+          "key": "C",
+          "text": "RepeatMasker"
+        },
+        {
+          "key": "D",
+          "text": "Clustal Omega"
+        }
+      ],
+      "answer": "C",
+      "analysis": "RepeatMasker 是基因组注释前最常见的重复序列识别与遮蔽工具之一。",
+      "knowledgeRefs": [
+        "annotation-pipeline"
+      ],
+      "styleRefs": [
+        "22_60",
+        "23_549",
+        "23_602"
+      ],
+      "tags": [
+        "GeneMarkS",
+        "Gnomon",
+        "RNA-Seq",
+        "RepeatMasker",
+        "annotation-prediction",
+        "single_choice",
+        "synquest",
+        "注释"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    },
+    {
+      "id": "sq-sequencing-methods-002",
+      "source": "SynQuest",
+      "origin": "semantic-generated",
+      "year": null,
+      "topic": "sequencing-methods",
+      "topicName": "测序方法与读段模拟",
+      "difficulty": 2,
+      "type": "single_choice",
+      "prompt": "mate-pair 或 paired-end 信息在组装中最常用于什么环节？",
+      "options": [
+        {
+          "key": "A",
+          "text": "消除所有测序错误"
+        },
+        {
+          "key": "B",
+          "text": "连接 contig 构建 scaffold"
+        },
+        {
+          "key": "C",
+          "text": "计算 BLOSUM 分数"
+        },
+        {
+          "key": "D",
+          "text": "直接替代质控"
+        }
+      ],
+      "answer": "B",
+      "analysis": "成对读段提供跨越重复序列的跨度信息，常用于脚手架构建。",
+      "knowledgeRefs": [
+        "assembly-graphs"
+      ],
+      "styleRefs": [
+        "22_29",
+        "23_450",
+        "23_425"
+      ],
+      "tags": [
+        "OLC",
+        "contig",
+        "de Bruijn",
+        "scaffold",
+        "sequencing-methods",
+        "single_choice",
+        "synquest",
+        "组装"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    },
+    {
+      "id": "sq-hmm-regulation-003",
       "source": "SynQuest",
       "origin": "semantic-generated",
       "year": null,
@@ -8123,34 +8231,34 @@
       "topicName": "HMM 与顺式调控元件",
       "difficulty": 3,
       "type": "single_choice",
-      "prompt": "寻找最可能隐藏状态路径时常用哪种算法？",
+      "prompt": "计算特定观测序列总体概率时，HMM 中常用哪种算法？",
       "options": [
         {
           "key": "A",
-          "text": "Forward 算法"
+          "text": "Baum-Welch 初始化"
         },
         {
           "key": "B",
-          "text": "k-means 聚类"
-        },
-        {
-          "key": "C",
           "text": "Viterbi 算法"
         },
         {
+          "key": "C",
+          "text": "Needleman-Wunsch"
+        },
+        {
           "key": "D",
-          "text": "Floyd 算法"
+          "text": "Forward 算法"
         }
       ],
-      "answer": "C",
-      "analysis": "Viterbi 通过动态规划寻找最大概率路径。",
+      "answer": "D",
+      "analysis": "Forward 算法累计所有可能隐藏状态路径的概率。",
       "knowledgeRefs": [
         "hmm-regulation"
       ],
       "styleRefs": [
         "23_654",
-        "22_82",
-        "22_90"
+        "sq-hmm-regulation-001",
+        "22_82"
       ],
       "tags": [
         "CpG",
@@ -8169,51 +8277,52 @@
       "pdfPage": null
     },
     {
-      "id": "sq-sequencing-methods-002",
+      "id": "sq-genome-databases-004",
       "source": "SynQuest",
       "origin": "semantic-generated",
       "year": null,
-      "topic": "sequencing-methods",
-      "topicName": "测序方法与读段模拟",
+      "topic": "genome-databases",
+      "topicName": "基因组数据库与资源",
       "difficulty": 2,
       "type": "single_choice",
-      "prompt": "SAM 文件头中用于定义参考序列信息的标记是哪一个？",
+      "prompt": "GenBank 最核心的角色之一是什么？",
       "options": [
         {
           "key": "A",
-          "text": "PG"
+          "text": "自动训练隐马尔可夫模型"
         },
         {
           "key": "B",
-          "text": "SQ"
+          "text": "完成临床样本招募"
         },
         {
           "key": "C",
-          "text": "CM"
+          "text": "存储和公开提交的核酸序列数据"
         },
         {
           "key": "D",
-          "text": "HD"
+          "text": "执行 DNA 合成实验"
         }
       ],
-      "answer": "B",
-      "analysis": "SAM 头部中的 @SQ 记录参考序列名称和长度等信息。",
+      "answer": "C",
+      "analysis": "GenBank 是公开核酸序列数据库，也是许多下游资源的基础来源。",
       "knowledgeRefs": [
-        "sequencing-tech"
+        "genome-databases"
       ],
       "styleRefs": [
-        "23_482",
-        "23_370",
-        "23_492"
+        "sq-genome-databases-005",
+        "23_686",
+        "22_119"
       ],
       "tags": [
-        "ART",
-        "SAM",
-        "Sanger",
-        "sequencing-methods",
+        "Ensembl",
+        "GenBank",
+        "PubMed",
+        "RefSeq",
+        "UCSC",
+        "genome-databases",
         "single_choice",
-        "synquest",
-        "测序"
+        "synquest"
       ],
       "images": {
         "question": "",
@@ -8222,51 +8331,49 @@
       "pdfPage": null
     },
     {
-      "id": "sq-human-genome-project-003",
+      "id": "sq-general-005",
       "source": "SynQuest",
       "origin": "semantic-generated",
       "year": null,
-      "topic": "human-genome-project",
-      "topicName": "人类基因组计划与图谱",
-      "difficulty": 3,
+      "topic": "general",
+      "topicName": "综合题",
+      "difficulty": 1,
       "type": "single_choice",
-      "prompt": "在人类基因组计划早期，大规模物理图构建的主流技术之一是什么？",
+      "prompt": "下列哪项最能概括基因组信息学的目标？",
       "options": [
         {
           "key": "A",
-          "text": "代谢流分析"
+          "text": "只进行显微图像标注"
         },
         {
           "key": "B",
-          "text": "Western blot"
+          "text": "只测量蛋白浓度"
         },
         {
           "key": "C",
-          "text": "单细胞转录组聚类"
+          "text": "理解基因组结构、功能与演化规律"
         },
         {
           "key": "D",
-          "text": "STS 作图"
+          "text": "只绘制代谢网络"
         }
       ],
-      "answer": "D",
-      "analysis": "HGP 早期的物理图构建广泛使用 STS 标记进行克隆定位与连锁。",
+      "answer": "C",
+      "analysis": "课程会贯穿结构、功能、变异、注释和进化等多个层面。",
       "knowledgeRefs": [
-        "hgp-maps"
+        "course-overview"
       ],
       "styleRefs": [
-        "22_4",
-        "23_253",
-        "22_14"
+        "23_138",
+        "22_3",
+        "23_133"
       ],
       "tags": [
-        "HGP",
-        "human-genome-project",
+        "general",
         "single_choice",
         "synquest",
-        "图谱",
-        "物理图",
-        "遗传图"
+        "基因组信息学",
+        "课程总览"
       ],
       "images": {
         "question": "",
@@ -8275,7 +8382,7 @@
       "pdfPage": null
     },
     {
-      "id": "sq-alignment-homology-004",
+      "id": "sq-alignment-homology-006",
       "source": "SynQuest",
       "origin": "semantic-generated",
       "year": null,
@@ -8283,34 +8390,34 @@
       "topicName": "序列比对与同源推断",
       "difficulty": 2,
       "type": "single_choice",
-      "prompt": "BLAST 系列软件采用的核心搜索策略是什么？",
+      "prompt": "Clustal 更偏向哪一种序列比对策略？",
       "options": [
         {
           "key": "A",
-          "text": "纯蒙特卡洛采样"
+          "text": "结构折叠预测"
         },
         {
           "key": "B",
-          "text": "梯度下降优化"
+          "text": "全局多序列比对"
         },
         {
           "key": "C",
-          "text": "启发式搜索"
+          "text": "单细胞降维投影"
         },
         {
           "key": "D",
-          "text": "穷举搜索"
+          "text": "局部同源搜索"
         }
       ],
-      "answer": "C",
-      "analysis": "BLAST 通过种子和延伸等启发式步骤提高速度，不保证全局最优。",
+      "answer": "B",
+      "analysis": "Clustal 常用于高相似序列的全局多序列比对。",
       "knowledgeRefs": [
         "alignment-homology"
       ],
       "styleRefs": [
-        "22_39",
-        "23_497",
-        "23_528"
+        "sq-alignment-homology-004",
+        "22_47",
+        "23_559"
       ],
       "tags": [
         "BLAST",
@@ -8329,41 +8436,522 @@
       "pdfPage": null
     },
     {
-      "id": "sq-genome-databases-005",
+      "id": "sq-annotation-prediction-007",
+      "source": "SynQuest",
+      "origin": "semantic-generated",
+      "year": null,
+      "topic": "annotation-prediction",
+      "topicName": "基因注释与结构建模",
+      "difficulty": 3,
+      "type": "single_choice",
+      "prompt": "真核注释中将已知蛋白比对结果整合到基因模型的一类工具是什么？",
+      "options": [
+        {
+          "key": "A",
+          "text": "ProSplign 或 Gnomon"
+        },
+        {
+          "key": "B",
+          "text": "Minimap2 或 Samtools sort"
+        },
+        {
+          "key": "C",
+          "text": "FastTree 或 IQ-TREE"
+        },
+        {
+          "key": "D",
+          "text": "RSEM 或 Salmon"
+        }
+      ],
+      "answer": "A",
+      "analysis": "真核注释常用 ProSplign 进行蛋白比对，再由 Gnomon 等工具完成模型整合。",
+      "knowledgeRefs": [
+        "annotation-pipeline"
+      ],
+      "styleRefs": [
+        "23_549",
+        "22_60",
+        "23_602"
+      ],
+      "tags": [
+        "GeneMarkS",
+        "Gnomon",
+        "RNA-Seq",
+        "RepeatMasker",
+        "annotation-prediction",
+        "single_choice",
+        "synquest",
+        "注释"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    },
+    {
+      "id": "sq-genome-assembly-008",
+      "source": "SynQuest",
+      "origin": "semantic-generated",
+      "year": null,
+      "topic": "genome-assembly",
+      "topicName": "基因组组装与图算法",
+      "difficulty": 3,
+      "type": "multiple_choice",
+      "prompt": "在 de Bruijn 图组装中，测序错误常导致哪类噪声结构？",
+      "options": [
+        {
+          "key": "A",
+          "text": "tip 或 bubble 结构"
+        },
+        {
+          "key": "B",
+          "text": "只会增加测序深度"
+        },
+        {
+          "key": "C",
+          "text": "不会影响图结构"
+        },
+        {
+          "key": "D",
+          "text": "只会降低碱基质量值"
+        }
+      ],
+      "answer": "A",
+      "analysis": "错误 k-mer 会破坏图结构，常表现为末端分支或错误气泡。",
+      "knowledgeRefs": [
+        "assembly-graphs"
+      ],
+      "styleRefs": [
+        "23_420",
+        "23_425",
+        "22_31"
+      ],
+      "tags": [
+        "OLC",
+        "contig",
+        "de Bruijn",
+        "genome-assembly",
+        "scaffold",
+        "single_choice",
+        "synquest",
+        "组装"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    },
+    {
+      "id": "sq-annotation-prediction-009",
+      "source": "SynQuest",
+      "origin": "semantic-generated",
+      "year": null,
+      "topic": "annotation-prediction",
+      "topicName": "基因注释与结构建模",
+      "difficulty": 2,
+      "type": "single_choice",
+      "prompt": "原核生物基因预测中常见的工具是哪一个？",
+      "options": [
+        {
+          "key": "A",
+          "text": "GeneMarkS"
+        },
+        {
+          "key": "B",
+          "text": "Bowtie2"
+        },
+        {
+          "key": "C",
+          "text": "DESeq2"
+        },
+        {
+          "key": "D",
+          "text": "AlphaFold"
+        }
+      ],
+      "answer": "A",
+      "analysis": "GeneMarkS 和 GLIMMER 是原核基因组基因预测的经典工具。",
+      "knowledgeRefs": [
+        "annotation-pipeline"
+      ],
+      "styleRefs": [
+        "23_549",
+        "22_60",
+        "22_66"
+      ],
+      "tags": [
+        "GeneMarkS",
+        "Gnomon",
+        "RNA-Seq",
+        "RepeatMasker",
+        "annotation-prediction",
+        "single_choice",
+        "synquest",
+        "注释"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    },
+    {
+      "id": "sq-human-genome-project-010",
+      "source": "SynQuest",
+      "origin": "semantic-generated",
+      "year": null,
+      "topic": "human-genome-project",
+      "topicName": "人类基因组计划与图谱",
+      "difficulty": 2,
+      "type": "multiple_choice",
+      "prompt": "遗传图常用什么单位表示遗传距离？",
+      "options": [
+        {
+          "key": "A",
+          "text": "kb/s"
+        },
+        {
+          "key": "B",
+          "text": "cM"
+        },
+        {
+          "key": "C",
+          "text": "cR"
+        },
+        {
+          "key": "D",
+          "text": "bp"
+        }
+      ],
+      "answer": "B",
+      "analysis": "遗传图以重组率为基础，距离单位通常为厘摩 cM。",
+      "knowledgeRefs": [
+        "hgp-maps"
+      ],
+      "styleRefs": [
+        "22_9",
+        "23_294",
+        "sq-human-genome-project-003"
+      ],
+      "tags": [
+        "HGP",
+        "human-genome-project",
+        "single_choice",
+        "synquest",
+        "图谱",
+        "物理图",
+        "遗传图"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    },
+    {
+      "id": "sq-sequencing-methods-011",
+      "source": "SynQuest",
+      "origin": "semantic-generated",
+      "year": null,
+      "topic": "sequencing-methods",
+      "topicName": "测序方法与读段模拟",
+      "difficulty": 2,
+      "type": "multiple_choice",
+      "prompt": "二代测序技术按照原理最常见的一大类是什么？",
+      "options": [
+        {
+          "key": "A",
+          "text": "边表达边测序"
+        },
+        {
+          "key": "B",
+          "text": "边翻译边测序"
+        },
+        {
+          "key": "C",
+          "text": "边合成边测序"
+        },
+        {
+          "key": "D",
+          "text": "边折叠边测序"
+        }
+      ],
+      "answer": "C",
+      "analysis": "Illumina 等平台代表的边合成边测序是二代测序的主流路线。",
+      "knowledgeRefs": [
+        "sequencing-tech"
+      ],
+      "styleRefs": [
+        "23_390",
+        "sq-sequencing-methods-002",
+        "23_370"
+      ],
+      "tags": [
+        "ART",
+        "SAM",
+        "Sanger",
+        "sequencing-methods",
+        "single_choice",
+        "synquest",
+        "测序"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    },
+    {
+      "id": "sq-sequencing-methods-012",
+      "source": "SynQuest",
+      "origin": "semantic-generated",
+      "year": null,
+      "topic": "sequencing-methods",
+      "topicName": "测序方法与读段模拟",
+      "difficulty": 2,
+      "type": "multiple_choice",
+      "prompt": "ART 工具集最适合用来做什么？",
+      "options": [
+        {
+          "key": "A",
+          "text": "建立蛋白质三级结构"
+        },
+        {
+          "key": "B",
+          "text": "执行序列组装图可视化"
+        },
+        {
+          "key": "C",
+          "text": "直接预测转录因子结合位点"
+        },
+        {
+          "key": "D",
+          "text": "模拟 NGS 读段并评估分析流程"
+        }
+      ],
+      "answer": "D",
+      "analysis": "ART 能模拟多种测序平台的经验错误模型，常用于方法评估。",
+      "knowledgeRefs": [
+        "sequencing-tech"
+      ],
+      "styleRefs": [
+        "23_360",
+        "23_345",
+        "23_365"
+      ],
+      "tags": [
+        "ART",
+        "SAM",
+        "Sanger",
+        "sequencing-methods",
+        "single_choice",
+        "synquest",
+        "测序"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    },
+    {
+      "id": "sq-sequencing-methods-013",
+      "source": "SynQuest",
+      "origin": "semantic-generated",
+      "year": null,
+      "topic": "sequencing-methods",
+      "topicName": "测序方法与读段模拟",
+      "difficulty": 3,
+      "type": "single_choice",
+      "prompt": "重复序列会给组装带来什么典型问题？",
+      "options": [
+        {
+          "key": "A",
+          "text": "消除插入缺失变异"
+        },
+        {
+          "key": "B",
+          "text": "让所有覆盖度变得完全一致"
+        },
+        {
+          "key": "C",
+          "text": "自动提高组装精度"
+        },
+        {
+          "key": "D",
+          "text": "引入路径歧义并降低 contig 连续性"
+        }
+      ],
+      "answer": "D",
+      "analysis": "重复片段让多个读段共享同样的局部结构，从而造成图分叉或重叠歧义。",
+      "knowledgeRefs": [
+        "assembly-graphs"
+      ],
+      "styleRefs": [
+        "22_29",
+        "23_425",
+        "23_420"
+      ],
+      "tags": [
+        "OLC",
+        "contig",
+        "de Bruijn",
+        "scaffold",
+        "sequencing-methods",
+        "single_choice",
+        "synquest",
+        "组装"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    },
+    {
+      "id": "sq-human-genome-project-014",
+      "source": "SynQuest",
+      "origin": "semantic-generated",
+      "year": null,
+      "topic": "human-genome-project",
+      "topicName": "人类基因组计划与图谱",
+      "difficulty": 2,
+      "type": "multiple_choice",
+      "prompt": "物理图常用哪些单位描述距离？",
+      "options": [
+        {
+          "key": "A",
+          "text": "摄氏度或华氏度"
+        },
+        {
+          "key": "B",
+          "text": "cM 或 mmol"
+        },
+        {
+          "key": "C",
+          "text": "秒或分钟"
+        },
+        {
+          "key": "D",
+          "text": "bp 或 cR"
+        }
+      ],
+      "answer": "D",
+      "analysis": "物理图关注实际 DNA 片段距离，因此常用 bp 或辐射杂交单位 cR。",
+      "knowledgeRefs": [
+        "hgp-maps"
+      ],
+      "styleRefs": [
+        "22_9",
+        "23_294",
+        "22_18"
+      ],
+      "tags": [
+        "HGP",
+        "human-genome-project",
+        "single_choice",
+        "synquest",
+        "图谱",
+        "物理图",
+        "遗传图"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    },
+    {
+      "id": "sq-sequencing-methods-015",
+      "source": "SynQuest",
+      "origin": "semantic-generated",
+      "year": null,
+      "topic": "sequencing-methods",
+      "topicName": "测序方法与读段模拟",
+      "difficulty": 2,
+      "type": "multiple_choice",
+      "prompt": "链终止法由谁提出？",
+      "options": [
+        {
+          "key": "A",
+          "text": "Dayhoff"
+        },
+        {
+          "key": "B",
+          "text": "Frederick Sanger"
+        },
+        {
+          "key": "C",
+          "text": "Walter Gilbert"
+        },
+        {
+          "key": "D",
+          "text": "Henikoff"
+        }
+      ],
+      "answer": "B",
+      "analysis": "Sanger 于 1977 年提出链终止法，成为经典 DNA 测序方法。",
+      "knowledgeRefs": [
+        "sequencing-tech"
+      ],
+      "styleRefs": [
+        "23_385",
+        "sq-sequencing-methods-002",
+        "23_390"
+      ],
+      "tags": [
+        "ART",
+        "SAM",
+        "Sanger",
+        "sequencing-methods",
+        "single_choice",
+        "synquest",
+        "测序"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    },
+    {
+      "id": "sq-genome-databases-016",
       "source": "SynQuest",
       "origin": "semantic-generated",
       "year": null,
       "topic": "genome-databases",
       "topicName": "基因组数据库与资源",
-      "difficulty": 1,
+      "difficulty": 2,
       "type": "single_choice",
-      "prompt": "了解基因组学最新研究进展时，最常用的文献数据库之一是什么？",
+      "prompt": "RefSeq 在基因组分析中的典型价值是什么？",
       "options": [
         {
           "key": "A",
-          "text": "地理信息系统数据库"
+          "text": "只提供药物审批文件"
         },
         {
           "key": "B",
-          "text": "Excel 模板库"
+          "text": "只提供质谱原始数据"
         },
         {
           "key": "C",
-          "text": "PubMed"
+          "text": "只提供显微图片"
         },
         {
           "key": "D",
-          "text": "普通图片搜索引擎"
+          "text": "提供经过整理的参考序列与注释"
         }
       ],
-      "answer": "C",
-      "analysis": "PubMed 收录大量生物医学与基因组学相关文献，是课程中常见的首选入口。",
+      "answer": "D",
+      "analysis": "RefSeq 由 NCBI 维护，常作为标准参考序列和注释来源。",
       "knowledgeRefs": [
         "genome-databases"
       ],
       "styleRefs": [
-        "22_2",
-        "23_243",
+        "sq-genome-databases-005",
+        "22_68",
         "23_686"
       ],
       "tags": [
@@ -8375,6 +8963,756 @@
         "genome-databases",
         "single_choice",
         "synquest"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    },
+    {
+      "id": "sq-hmm-regulation-017",
+      "source": "SynQuest",
+      "origin": "semantic-generated",
+      "year": null,
+      "topic": "hmm-regulation",
+      "topicName": "HMM 与顺式调控元件",
+      "difficulty": 2,
+      "type": "single_choice",
+      "prompt": "在 HMM 中，观测输出通常依赖于什么？",
+      "options": [
+        {
+          "key": "A",
+          "text": "当前隐藏状态"
+        },
+        {
+          "key": "B",
+          "text": "随机初始化种子"
+        },
+        {
+          "key": "C",
+          "text": "未来两个隐藏状态"
+        },
+        {
+          "key": "D",
+          "text": "前一个观测值本身"
+        }
+      ],
+      "answer": "A",
+      "analysis": "HMM 的核心假设是观测变量由当前隐藏状态发射产生。",
+      "knowledgeRefs": [
+        "hmm-regulation"
+      ],
+      "styleRefs": [
+        "23_654",
+        "22_93",
+        "23_639"
+      ],
+      "tags": [
+        "CpG",
+        "Forward",
+        "HMM",
+        "Viterbi",
+        "hmm-regulation",
+        "single_choice",
+        "synquest",
+        "启动子"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    },
+    {
+      "id": "sq-alignment-homology-018",
+      "source": "SynQuest",
+      "origin": "semantic-generated",
+      "year": null,
+      "topic": "alignment-homology",
+      "topicName": "序列比对与同源推断",
+      "difficulty": 1,
+      "type": "multiple_choice",
+      "prompt": "基因组信息学课程通常不会脱离下列哪一类任务？",
+      "options": [
+        {
+          "key": "A",
+          "text": "只研究蛋白质晶体结构"
+        },
+        {
+          "key": "B",
+          "text": "只进行化学反应设计"
+        },
+        {
+          "key": "C",
+          "text": "只关注临床试验统计"
+        },
+        {
+          "key": "D",
+          "text": "对 DNA 或 RNA 序列进行计算分析"
+        }
+      ],
+      "answer": "D",
+      "analysis": "基因组信息学的核心是围绕序列数据进行存储、分析、解释和推断。",
+      "knowledgeRefs": [
+        "course-overview"
+      ],
+      "styleRefs": [
+        "23_674",
+        "sq-genome-databases-005",
+        "23_597"
+      ],
+      "tags": [
+        "alignment-homology",
+        "single_choice",
+        "synquest",
+        "基因组信息学",
+        "课程总览"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    },
+    {
+      "id": "sq-general-019",
+      "source": "SynQuest",
+      "origin": "semantic-generated",
+      "year": null,
+      "topic": "general",
+      "topicName": "综合题",
+      "difficulty": 3,
+      "type": "multiple_choice",
+      "prompt": "下列哪类信息常被用于从头基因预测？",
+      "options": [
+        {
+          "key": "A",
+          "text": "显微镜曝光时间"
+        },
+        {
+          "key": "B",
+          "text": "蛋白质晶体对称性"
+        },
+        {
+          "key": "C",
+          "text": "密码子偏好性和剪接位点信号"
+        },
+        {
+          "key": "D",
+          "text": "培养基成分"
+        }
+      ],
+      "answer": "C",
+      "analysis": "从头预测依赖统计特征，如密码子偏好性、外显子-内含子边界等。",
+      "knowledgeRefs": [
+        "annotation-pipeline"
+      ],
+      "styleRefs": [
+        "22_64",
+        "23_607",
+        "23_549"
+      ],
+      "tags": [
+        "GeneMarkS",
+        "Gnomon",
+        "RNA-Seq",
+        "RepeatMasker",
+        "general",
+        "single_choice",
+        "synquest",
+        "注释"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    },
+    {
+      "id": "sq-genome-assembly-020",
+      "source": "SynQuest",
+      "origin": "semantic-generated",
+      "year": null,
+      "topic": "genome-assembly",
+      "topicName": "基因组组装与图算法",
+      "difficulty": 2,
+      "type": "single_choice",
+      "prompt": "OLC 方法中的 O 指的是什么？",
+      "options": [
+        {
+          "key": "A",
+          "text": "Ontology"
+        },
+        {
+          "key": "B",
+          "text": "Ordering-only"
+        },
+        {
+          "key": "C",
+          "text": "Overlap"
+        },
+        {
+          "key": "D",
+          "text": "Output"
+        }
+      ],
+      "answer": "C",
+      "analysis": "OLC 依次表示 Overlap、Layout、Consensus。",
+      "knowledgeRefs": [
+        "assembly-graphs"
+      ],
+      "styleRefs": [
+        "22_28",
+        "22_117",
+        "22_116"
+      ],
+      "tags": [
+        "OLC",
+        "contig",
+        "de Bruijn",
+        "genome-assembly",
+        "scaffold",
+        "single_choice",
+        "synquest",
+        "组装"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    },
+    {
+      "id": "sq-hmm-regulation-021",
+      "source": "SynQuest",
+      "origin": "semantic-generated",
+      "year": null,
+      "topic": "hmm-regulation",
+      "topicName": "HMM 与顺式调控元件",
+      "difficulty": 3,
+      "type": "short_answer",
+      "prompt": "CpG 岛或启动子模型为什么适合用 HMM 描述？",
+      "options": [
+        {
+          "key": "A",
+          "text": "因为 HMM 只能处理蛋白结构"
+        },
+        {
+          "key": "B",
+          "text": "它们可看作具有局部状态转移规律的序列信号"
+        },
+        {
+          "key": "C",
+          "text": "因为 HMM 不需要训练数据"
+        },
+        {
+          "key": "D",
+          "text": "因为 HMM 只适用于图像分类"
+        }
+      ],
+      "answer": "B",
+      "analysis": "HMM 擅长建模状态转移和发射概率，非常适合序列信号检测。",
+      "knowledgeRefs": [
+        "hmm-regulation"
+      ],
+      "styleRefs": [
+        "22_90",
+        "23_654",
+        "sq-hmm-regulation-001"
+      ],
+      "tags": [
+        "CpG",
+        "Forward",
+        "HMM",
+        "Viterbi",
+        "hmm-regulation",
+        "single_choice",
+        "synquest",
+        "启动子"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    },
+    {
+      "id": "sq-genome-databases-022",
+      "source": "SynQuest",
+      "origin": "semantic-generated",
+      "year": null,
+      "topic": "genome-databases",
+      "topicName": "基因组数据库与资源",
+      "difficulty": 1,
+      "type": "single_choice",
+      "prompt": "下列哪一项是常见的基因组浏览器资源？",
+      "options": [
+        {
+          "key": "A",
+          "text": "Sci-Hub"
+        },
+        {
+          "key": "B",
+          "text": "Mendeley"
+        },
+        {
+          "key": "C",
+          "text": "UCSC"
+        },
+        {
+          "key": "D",
+          "text": "Docker Hub"
+        }
+      ],
+      "answer": "C",
+      "analysis": "UCSC Genome Browser 和 Ensembl 都是常见的基因组浏览器与注释资源。",
+      "knowledgeRefs": [
+        "genome-databases"
+      ],
+      "styleRefs": [
+        "sq-genome-databases-005",
+        "22_119",
+        "23_686"
+      ],
+      "tags": [
+        "Ensembl",
+        "GenBank",
+        "PubMed",
+        "RefSeq",
+        "UCSC",
+        "genome-databases",
+        "single_choice",
+        "synquest"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    },
+    {
+      "id": "sq-alignment-homology-023",
+      "source": "SynQuest",
+      "origin": "semantic-generated",
+      "year": null,
+      "topic": "alignment-homology",
+      "topicName": "序列比对与同源推断",
+      "difficulty": 3,
+      "type": "multiple_choice",
+      "prompt": "相似性与同源性之间最关键的区别是什么？",
+      "options": [
+        {
+          "key": "A",
+          "text": "相似性是可量化指标，同源性是进化关系判断"
+        },
+        {
+          "key": "B",
+          "text": "相似性只能用于蛋白质结构"
+        },
+        {
+          "key": "C",
+          "text": "两者完全同义"
+        },
+        {
+          "key": "D",
+          "text": "同源性只在 DNA 中存在"
+        }
+      ],
+      "answer": "A",
+      "analysis": "相似性可以高低变化，而同源性通常是有或无的进化推断。",
+      "knowledgeRefs": [
+        "alignment-homology"
+      ],
+      "styleRefs": [
+        "22_45",
+        "sq-alignment-homology-004",
+        "23_523"
+      ],
+      "tags": [
+        "BLAST",
+        "BLOSUM",
+        "Clustal",
+        "PAM",
+        "alignment-homology",
+        "single_choice",
+        "synquest",
+        "同源"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    },
+    {
+      "id": "sq-alignment-homology-024",
+      "source": "SynQuest",
+      "origin": "semantic-generated",
+      "year": null,
+      "topic": "alignment-homology",
+      "topicName": "序列比对与同源推断",
+      "difficulty": 3,
+      "type": "multiple_choice",
+      "prompt": "BLOSUM 数值越小通常意味着什么？",
+      "options": [
+        {
+          "key": "A",
+          "text": "不能用于蛋白质比对"
+        },
+        {
+          "key": "B",
+          "text": "更适合超高相似序列"
+        },
+        {
+          "key": "C",
+          "text": "只用于核酸比对"
+        },
+        {
+          "key": "D",
+          "text": "更适合检测远缘同源序列"
+        }
+      ],
+      "answer": "D",
+      "analysis": "较小编号的 BLOSUM 矩阵对低相似度目标更敏感。",
+      "knowledgeRefs": [
+        "alignment-homology"
+      ],
+      "styleRefs": [
+        "22_42",
+        "23_502",
+        "sq-alignment-homology-004"
+      ],
+      "tags": [
+        "BLAST",
+        "BLOSUM",
+        "Clustal",
+        "PAM",
+        "alignment-homology",
+        "single_choice",
+        "synquest",
+        "同源"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    },
+    {
+      "id": "sq-hmm-regulation-025",
+      "source": "SynQuest",
+      "origin": "semantic-generated",
+      "year": null,
+      "topic": "hmm-regulation",
+      "topicName": "HMM 与顺式调控元件",
+      "difficulty": 3,
+      "type": "single_choice",
+      "prompt": "在“隐马尔可夫模型与顺式调控元件”这一主题中，与“寻找最可能隐藏状态路径时常用”直接相关的正确表述是？",
+      "options": [
+        {
+          "key": "A",
+          "text": "Viterbi 算法"
+        },
+        {
+          "key": "B",
+          "text": "k-means 聚类"
+        },
+        {
+          "key": "C",
+          "text": "Floyd 算法"
+        },
+        {
+          "key": "D",
+          "text": "Forward 算法"
+        }
+      ],
+      "answer": "A",
+      "analysis": "Viterbi 通过动态规划寻找最大概率路径。",
+      "knowledgeRefs": [
+        "hmm-regulation"
+      ],
+      "styleRefs": [
+        "sq-hmm-regulation-001",
+        "23_654",
+        "22_82"
+      ],
+      "tags": [
+        "CpG",
+        "Forward",
+        "HMM",
+        "Viterbi",
+        "hmm-regulation",
+        "single_choice",
+        "synquest",
+        "启动子"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    },
+    {
+      "id": "sq-genome-databases-026",
+      "source": "SynQuest",
+      "origin": "semantic-generated",
+      "year": null,
+      "topic": "genome-databases",
+      "topicName": "基因组数据库与资源",
+      "difficulty": 1,
+      "type": "single_choice",
+      "prompt": "在“基因组数据库与公共资源”这一主题中，与“了解基因组学最新研究进展时，最常用的文献数据库之一”对应的术语或缩写是？",
+      "options": [
+        {
+          "key": "A",
+          "text": "地理信息系统数据库"
+        },
+        {
+          "key": "B",
+          "text": "普通图片搜索引擎"
+        },
+        {
+          "key": "C",
+          "text": "Excel 模板库"
+        },
+        {
+          "key": "D",
+          "text": "PubMed"
+        }
+      ],
+      "answer": "D",
+      "analysis": "PubMed 收录大量生物医学与基因组学相关文献，是课程中常见的首选入口。",
+      "knowledgeRefs": [
+        "genome-databases"
+      ],
+      "styleRefs": [
+        "sq-genome-databases-005",
+        "22_2",
+        "23_243"
+      ],
+      "tags": [
+        "Ensembl",
+        "GenBank",
+        "PubMed",
+        "RefSeq",
+        "UCSC",
+        "genome-databases",
+        "single_choice",
+        "synquest"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    },
+    {
+      "id": "sq-alignment-homology-027",
+      "source": "SynQuest",
+      "origin": "semantic-generated",
+      "year": null,
+      "topic": "alignment-homology",
+      "topicName": "序列比对与同源推断",
+      "difficulty": 2,
+      "type": "single_choice",
+      "prompt": "在“序列比对、打分矩阵与同源推断”这一主题中，与“BLAST 系列软件采用的核心搜索策略”直接相关的正确表述是？",
+      "options": [
+        {
+          "key": "A",
+          "text": "纯蒙特卡洛采样"
+        },
+        {
+          "key": "B",
+          "text": "启发式搜索"
+        },
+        {
+          "key": "C",
+          "text": "穷举搜索"
+        },
+        {
+          "key": "D",
+          "text": "梯度下降优化"
+        }
+      ],
+      "answer": "B",
+      "analysis": "BLAST 通过种子和延伸等启发式步骤提高速度，不保证全局最优。",
+      "knowledgeRefs": [
+        "alignment-homology"
+      ],
+      "styleRefs": [
+        "sq-alignment-homology-004",
+        "22_39",
+        "23_497"
+      ],
+      "tags": [
+        "BLAST",
+        "BLOSUM",
+        "Clustal",
+        "PAM",
+        "alignment-homology",
+        "single_choice",
+        "synquest",
+        "同源"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    },
+    {
+      "id": "sq-human-genome-project-028",
+      "source": "SynQuest",
+      "origin": "semantic-generated",
+      "year": null,
+      "topic": "human-genome-project",
+      "topicName": "人类基因组计划与图谱",
+      "difficulty": 2,
+      "type": "single_choice",
+      "prompt": "在“人类基因组计划与图谱”这一主题中，与“中国是在哪一年加入人类基因组计划的”相关的正确时间或数值是？",
+      "options": [
+        {
+          "key": "A",
+          "text": "2000年"
+        },
+        {
+          "key": "B",
+          "text": "1990年"
+        },
+        {
+          "key": "C",
+          "text": "2001年"
+        },
+        {
+          "key": "D",
+          "text": "1999年"
+        }
+      ],
+      "answer": "D",
+      "analysis": "中国于 1999 年加入 HGP，并承担了 1% 左右的人类基因组测序任务。",
+      "knowledgeRefs": [
+        "hgp-maps"
+      ],
+      "styleRefs": [
+        "23_201",
+        "22_1",
+        "22_9"
+      ],
+      "tags": [
+        "HGP",
+        "human-genome-project",
+        "single_choice",
+        "synquest",
+        "图谱",
+        "物理图",
+        "遗传图"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    },
+    {
+      "id": "sq-sequencing-methods-029",
+      "source": "SynQuest",
+      "origin": "semantic-generated",
+      "year": null,
+      "topic": "sequencing-methods",
+      "topicName": "测序方法与读段模拟",
+      "difficulty": 2,
+      "type": "single_choice",
+      "prompt": "在“DNA 测序技术与读段模拟”这一主题中，与“SAM 文件头中用于定义参考序列信息的标记是哪一个”对应的术语或缩写是？",
+      "options": [
+        {
+          "key": "A",
+          "text": "CM"
+        },
+        {
+          "key": "B",
+          "text": "SQ"
+        },
+        {
+          "key": "C",
+          "text": "HD"
+        },
+        {
+          "key": "D",
+          "text": "PG"
+        }
+      ],
+      "answer": "B",
+      "analysis": "SAM 头部中的 @SQ 记录参考序列名称和长度等信息。",
+      "knowledgeRefs": [
+        "sequencing-tech"
+      ],
+      "styleRefs": [
+        "sq-sequencing-methods-002",
+        "23_482",
+        "23_370"
+      ],
+      "tags": [
+        "ART",
+        "SAM",
+        "Sanger",
+        "sequencing-methods",
+        "single_choice",
+        "synquest",
+        "测序"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    },
+    {
+      "id": "sq-human-genome-project-030",
+      "source": "SynQuest",
+      "origin": "semantic-generated",
+      "year": null,
+      "topic": "human-genome-project",
+      "topicName": "人类基因组计划与图谱",
+      "difficulty": 3,
+      "type": "single_choice",
+      "prompt": "在“人类基因组计划与图谱”这一主题中，与“在人类基因组计划早期，大规模物理图构建的主流技术之一”直接相关的正确表述是？",
+      "options": [
+        {
+          "key": "A",
+          "text": "Western blot"
+        },
+        {
+          "key": "B",
+          "text": "单细胞转录组聚类"
+        },
+        {
+          "key": "C",
+          "text": "代谢流分析"
+        },
+        {
+          "key": "D",
+          "text": "STS 作图"
+        }
+      ],
+      "answer": "D",
+      "analysis": "HGP 早期的物理图构建广泛使用 STS 标记进行克隆定位与连锁。",
+      "knowledgeRefs": [
+        "hgp-maps"
+      ],
+      "styleRefs": [
+        "sq-human-genome-project-003",
+        "22_4",
+        "23_253"
+      ],
+      "tags": [
+        "HGP",
+        "human-genome-project",
+        "single_choice",
+        "synquest",
+        "图谱",
+        "物理图",
+        "遗传图"
       ],
       "images": {
         "question": "",

@@ -19,7 +19,7 @@ SynQuest is a reusable skill and Python toolkit for turning domain knowledge sou
 Install the Python CLI (Python 3.9+):
 
 ```bash
-pip install "git+https://github.com/Starry-49/SynQuest.git@v0.1.0"
+pip install "git+https://github.com/Starry-49/SynQuest.git@v0.1.1"
 synquest --help
 ```
 
@@ -153,10 +153,10 @@ In the current Geno example:
 - imported PDF KB: [`example/data/knowledge-base/sum-course-kb.json`](example/data/knowledge-base/sum-course-kb.json)
 - existing bank: [`example/data/question-bank.json`](example/data/question-bank.json)
 - style-aligned generated questions: [`example/data/generated/sum-course-generated.json`](example/data/generated/sum-course-generated.json)
-- semantic-retrieval sample batch: [`example/data/generated/synquest-semantic-five.json`](example/data/generated/synquest-semantic-five.json)
+- semantic-retrieval sample batch: [`example/data/generated/synquest-semantic-thirty.json`](example/data/generated/synquest-semantic-thirty.json)
 
 The knowledge base represents what the system knows. The question bank represents what has already been curated. The generated batch represents what can be added next.
-The current example bank already includes 5 `SynQuest` semantic-retrieval sample questions.
+The current example bank already includes 30 `SynQuest` semantic-retrieval sample questions.
 
 ## Python API
 
@@ -201,10 +201,12 @@ SynQuest is primarily custom repository logic, with these reusable external comp
 - `sentence-transformers`
 - `RapidFuzz`
 - `Poppler` utilities
+- adaptive similarity fallback
+- rule-based prompt diversification
 
 Release page:
 
-- [v0.1.0](https://github.com/Starry-49/SynQuest/releases/tag/v0.1.0)
+- [v0.1.1](https://github.com/Starry-49/SynQuest/releases/tag/v0.1.1)
 
 ## Repository Structure
 

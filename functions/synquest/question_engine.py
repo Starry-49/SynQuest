@@ -44,6 +44,34 @@ GENERIC_PROMPT_PATTERNS = (
     re.compile(r"^下列哪项关于[“\"]?.+[”\"]?"),
     re.compile(r"^根据知识库内容，下列哪个"),
 )
+INTERROGATIVE_CLEANUPS = (
+    re.compile(r"[？?]+$"),
+    re.compile(r"^下列哪项最能概括"),
+    re.compile(r"^下列哪一项最能概括"),
+    re.compile(r"^下列哪项"),
+    re.compile(r"^下列哪一项"),
+    re.compile(r"^关于[“\"]?"),
+    re.compile(r"[”\"]?，下列哪项表述正确$"),
+    re.compile(r"[”\"]?，下列哪个时间或数值是正确的$"),
+    re.compile(r"[”\"]?，下列哪一项术语或缩写是正确的$"),
+    re.compile(r"[”\"]?，下列哪项命令或参数写法是正确的$"),
+    re.compile(r"是哪一年加入"),
+    re.compile(r"由谁提出"),
+    re.compile(r"是什么$"),
+    re.compile(r"是指什么$"),
+    re.compile(r"哪种算法$"),
+    re.compile(r"哪一种序列比对策略$"),
+    re.compile(r"哪类噪声结构$"),
+    re.compile(r"哪一类任务$"),
+    re.compile(r"哪类信息$"),
+    re.compile(r"什么单位表示遗传距离$"),
+    re.compile(r"什么单位描述距离$"),
+    re.compile(r"什么环节$"),
+    re.compile(r"什么典型问题$"),
+    re.compile(r"什么核心搜索策略$"),
+    re.compile(r"什么典型价值$"),
+    re.compile(r"什么工具进行重复遮蔽$"),
+)
 
 
 def ensure_style_packages() -> None:
@@ -354,6 +382,33 @@ def prompt_from_exemplar(entry: dict[str, Any], fact: dict[str, Any], exemplar: 
     return f"关于“{title}”，下列哪项表述正确？"
 
 
+def rewrite_conflicting_prompt(entry: dict[str, Any], fact: dict[str, Any], prompt: str) -> str:
+    title = normalize_text(entry.get("title", "该主题"))
+    seed_text = normalize_text(fact.get("question", "")) or normalize_text(prompt)
+    cue = seed_text
+    for pattern in INTERROGATIVE_CLEANUPS:
+        cue = pattern.sub("", cue)
+    cue = re.sub(r"\s+", " ", cue).strip("，,。:：;；“”\"' ")
+    signature = answer_signature(normalize_text(fact.get("answer", "")))
+
+    if cue and cue != title:
+        if signature == "numeric":
+            return f"在“{title}”这一主题中，与“{cue}”相关的正确时间或数值是？"
+        if signature == "acronym":
+            return f"在“{title}”这一主题中，与“{cue}”对应的术语或缩写是？"
+        if signature == "command":
+            return f"在“{title}”这一主题中，与“{cue}”相关的正确工具或参数写法是？"
+        return f"在“{title}”这一主题中，与“{cue}”直接相关的正确表述是？"
+
+    if signature == "numeric":
+        return f"围绕“{title}”，下列哪个时间或数值最合适？"
+    if signature == "acronym":
+        return f"围绕“{title}”，下列哪个术语或缩写最合适？"
+    if signature == "command":
+        return f"围绕“{title}”，下列哪项工具或参数写法最合适？"
+    return f"围绕“{title}”，下列哪项说法最合适？"
+
+
 def candidate_distractors_from_bank(matches: list[StyleMatch], correct: str) -> list[str]:
     signature = answer_signature(correct)
     candidates: list[str] = []
@@ -471,8 +526,51 @@ def synthesize_questions(
     else:
         rng.shuffle(candidate_records)
 
+    def assemble_question(
+        entry: dict[str, Any],
+        fact: dict[str, Any],
+        matches: list[StyleMatch],
+        prompt: str,
+        index: int,
+    ) -> dict[str, Any]:
+        correct = normalize_text(fact.get("answer", ""))
+        exemplar = matches[0].question if matches else None
+        options = build_options(correct, fact.get("distractors", []), entry, entries, matches, rng)
+        answer_key = next(option["key"] for option in options if option["text"] == correct)
+        topic = (exemplar.get("topic") if exemplar else None) or slugify(entry.get("id") or entry.get("title", "entry"))
+        topic_name = (exemplar.get("topicName") if exemplar else None) or entry.get("title", "SynQuest 条目")
+        difficulty = int(fact.get("difficulty") or (exemplar.get("difficulty") if exemplar else 2) or 2)
+        return {
+            "id": f"sq-{topic}-{index:03d}",
+            "source": "SynQuest",
+            "origin": "semantic-generated" if semantic_model else "generated",
+            "year": None,
+            "topic": topic,
+            "topicName": topic_name,
+            "difficulty": difficulty,
+            "type": fact.get("type") or (exemplar.get("type") if exemplar else "single_choice") or "single_choice",
+            "prompt": prompt,
+            "options": options,
+            "answer": answer_key,
+            "analysis": normalize_text(fact.get("explanation") or correct),
+            "knowledgeRefs": [entry.get("id", topic)],
+            "styleRefs": [match.question.get("id") for match in matches[:3] if match.question.get("id")],
+            "tags": sorted(
+                {
+                    topic,
+                    "synquest",
+                    fact.get("type", "single_choice"),
+                    *(entry.get("keywords") or []),
+                    *([exemplar.get("topic")] if exemplar and exemplar.get("topic") else []),
+                }
+            ),
+            "images": {"question": "", "note": ""},
+            "pdfPage": None,
+        }
+
     selected_questions: list[dict[str, Any]] = []
     seen_prompts: set[str] = set()
+    deferred_records: list[dict[str, Any]] = []
     for record in candidate_records:
         if len(selected_questions) >= count:
             break
@@ -480,50 +578,51 @@ def synthesize_questions(
         entry = record["entry"]
         fact = record["fact"]
         matches = record["matches"]
-        correct = normalize_text(fact.get("answer", ""))
         exemplar = matches[0].question if matches else None
         prompt = prompt_from_exemplar(entry, fact, exemplar)
         normalized_prompt = normalize_text(prompt)
         if normalized_prompt in seen_prompts:
             continue
-        if style_index is not None and style_index.max_prompt_similarity(prompt) >= 96.0:
+
+        style_similarity = style_index.max_prompt_similarity(prompt) if style_index is not None else 0.0
+        if style_index is not None and style_similarity >= 96.0:
+            deferred_records.append(
+                {
+                    "entry": entry,
+                    "fact": fact,
+                    "matches": matches,
+                    "prompt": prompt,
+                    "normalized_prompt": normalized_prompt,
+                    "style_similarity": style_similarity,
+                }
+            )
             continue
 
-        options = build_options(correct, fact.get("distractors", []), entry, entries, matches, rng)
-        answer_key = next(option["key"] for option in options if option["text"] == correct)
-        topic = (exemplar.get("topic") if exemplar else None) or slugify(entry.get("id") or entry.get("title", "entry"))
-        topic_name = (exemplar.get("topicName") if exemplar else None) or entry.get("title", "SynQuest 条目")
-        difficulty = int(fact.get("difficulty") or (exemplar.get("difficulty") if exemplar else 2) or 2)
-        selected_questions.append(
-            {
-                "id": f"sq-{topic}-{len(selected_questions) + 1:03d}",
-                "source": "SynQuest",
-                "origin": "semantic-generated" if semantic_model else "generated",
-                "year": None,
-                "topic": topic,
-                "topicName": topic_name,
-                "difficulty": difficulty,
-                "type": fact.get("type") or (exemplar.get("type") if exemplar else "single_choice") or "single_choice",
-                "prompt": prompt,
-                "options": options,
-                "answer": answer_key,
-                "analysis": normalize_text(fact.get("explanation") or correct),
-                "knowledgeRefs": [entry.get("id", topic)],
-                "styleRefs": [match.question.get("id") for match in matches[:3] if match.question.get("id")],
-                "tags": sorted(
-                    {
-                        topic,
-                        "synquest",
-                        fact.get("type", "single_choice"),
-                        *(entry.get("keywords") or []),
-                        *([exemplar.get("topic")] if exemplar and exemplar.get("topic") else []),
-                    }
-                ),
-                "images": {"question": "", "note": ""},
-                "pdfPage": None,
-            }
-        )
+        selected_questions.append(assemble_question(entry, fact, matches, prompt, len(selected_questions) + 1))
         seen_prompts.add(normalized_prompt)
+
+    if len(selected_questions) < count and deferred_records:
+        deferred_records.sort(key=lambda item: item["style_similarity"])
+        for record in deferred_records:
+            if len(selected_questions) >= count:
+                break
+            rewritten_prompt = rewrite_conflicting_prompt(record["entry"], record["fact"], record["prompt"])
+            rewritten_normalized = normalize_text(rewritten_prompt)
+            if rewritten_normalized in seen_prompts:
+                continue
+            rewritten_similarity = style_index.max_prompt_similarity(rewritten_prompt) if style_index is not None else 0.0
+            if rewritten_similarity >= 99.5:
+                continue
+            selected_questions.append(
+                assemble_question(
+                    record["entry"],
+                    record["fact"],
+                    record["matches"],
+                    rewritten_prompt,
+                    len(selected_questions) + 1,
+                )
+            )
+            seen_prompts.add(rewritten_normalized)
 
     if not selected_questions:
         raise ValueError("No questions survived the style-homology and duplicate filters.")
@@ -544,6 +643,8 @@ def synthesize_questions(
                 "semantic_embedding_retrieval" if semantic_model else "none",
                 "hybrid_style_rerank" if semantic_model else "none",
                 "rapidfuzz_prompt_dedup" if style_bank_questions else "none",
+                "adaptive_similarity_fallback" if style_bank_questions else "none",
+                "rule_based_prompt_diversification" if style_bank_questions else "none",
                 "style_guided_prompt_adaptation" if style_bank_questions else "generic_prompt_assembly",
             ],
         },

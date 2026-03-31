@@ -59,7 +59,7 @@
 ## Quick Links
 
 - Demo: [https://starry-49.github.io/SynQuest/](https://starry-49.github.io/SynQuest/)
-- Release: [v0.1.0](https://github.com/Starry-49/SynQuest/releases/tag/v0.1.0)
+- Release: [v0.1.1](https://github.com/Starry-49/SynQuest/releases/tag/v0.1.1)
 - Chinese Docs: [README.zh.md](README.zh.md)
 - English Docs: [README.en.md](README.en.md)
 - Skill: [skills/synquest/SKILL.md](skills/synquest/SKILL.md)
@@ -71,7 +71,7 @@
 Install the Python CLI:
 
 ```bash
-pip install "git+https://github.com/Starry-49/SynQuest.git@v0.1.0"
+pip install "git+https://github.com/Starry-49/SynQuest.git@v0.1.1"
 synquest --help
 ```
 
@@ -91,6 +91,8 @@ The repository currently includes a retrieval-based generation layer built with:
 - `sentence-transformers`
 - `RapidFuzz`
 - `Poppler` PDF utilities
+- adaptive similarity fallback
+- rule-based prompt diversification
 
 The current repository already includes semantic retrieval and hybrid reranking.
 It does not yet include cross-encoder rerankers or LLM-based rewrite models.
