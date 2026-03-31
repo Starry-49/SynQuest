@@ -1,0 +1,2874 @@
+{
+  "meta": {
+    "title": "SynQuest Generated Questions",
+    "count": 50,
+    "seed": 73,
+    "styleBankQuestions": 214,
+    "styleTopK": 5,
+    "semanticModel": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+    "algorithms": [
+      "knowledge_fact_filtering",
+      "jieba_tokenization",
+      "bm25_style_retrieval",
+      "tfidf_style_retrieval",
+      "semantic_embedding_retrieval",
+      "hybrid_style_rerank",
+      "rapidfuzz_prompt_dedup",
+      "adaptive_similarity_fallback",
+      "rule_based_prompt_diversification",
+      "style_guided_prompt_adaptation"
+    ]
+  },
+  "questions": [
+    {
+      "id": "sq-genome-assembly-031",
+      "source": "SynQuest",
+      "origin": "semantic-generated",
+      "year": null,
+      "topic": "genome-assembly",
+      "topicName": "基因组组装与图算法",
+      "difficulty": 2,
+      "type": "single_choice",
+      "prompt": "关于“下一条组装序列开始”，下列哪项命令或参数写法是正确的？",
+      "options": [
+        {
+          "key": "A",
+          "text": "//db.cngb.org/submission"
+        },
+        {
+          "key": "B",
+          "text": "Genbank格式序列【核酸.gbff| 蛋白.gpff| 其他.gbk.和.genbank】"
+        },
+        {
+          "key": "C",
+          "text": "Fasta格式序列【核酸.fna | 蛋白.faa | 其他.fa.和fasta】"
+        },
+        {
+          "key": "D",
+          "text": "/"
+        }
+      ],
+      "answer": "B",
+      "analysis": "Genbank格式序列【核酸.gbff| 蛋白.gpff| 其他.gbk.和.genbank】",
+      "knowledgeRefs": [
+        "assembly-graphs"
+      ],
+      "styleRefs": [
+        "22_116",
+        "23_492",
+        "sq-genome-databases-004"
+      ],
+      "tags": [
+        "genome-assembly",
+        "single_choice",
+        "synquest",
+        "一条",
+        "下一",
+        "列开",
+        "序列",
+        "开始",
+        "条组",
+        "组装",
+        "装序"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    },
+    {
+      "id": "sq-genome-assembly-032",
+      "source": "SynQuest",
+      "origin": "semantic-generated",
+      "year": null,
+      "topic": "genome-assembly",
+      "topicName": "基因组组装与图算法",
+      "difficulty": 2,
+      "type": "single_choice",
+      "prompt": "关于“下一条组装序列开始”，下列哪项表述正确？",
+      "options": [
+        {
+          "key": "A",
+          "text": "包含可能存在的序列间隙（gap）信息"
+        },
+        {
+          "key": "B",
+          "text": "包含各种该序列相关的注释信息"
+        },
+        {
+          "key": "C",
+          "text": "向下翻页"
+        },
+        {
+          "key": "D",
+          "text": "每个文件中仅仅包含一条基因组序列"
+        }
+      ],
+      "answer": "C",
+      "analysis": "向下翻页",
+      "knowledgeRefs": [
+        "assembly-graphs"
+      ],
+      "styleRefs": [
+        "22_116",
+        "23_492",
+        "sq-genome-databases-004"
+      ],
+      "tags": [
+        "genome-assembly",
+        "single_choice",
+        "synquest",
+        "一条",
+        "下一",
+        "列开",
+        "序列",
+        "开始",
+        "条组",
+        "组装",
+        "装序"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    },
+    {
+      "id": "sq-sequencing-methods-033",
+      "source": "SynQuest",
+      "origin": "semantic-generated",
+      "year": null,
+      "topic": "sequencing-methods",
+      "topicName": "测序方法与读段模拟",
+      "difficulty": 2,
+      "type": "single_choice",
+      "prompt": "关于“输出文档”，下列哪项表述正确？",
+      "options": [
+        {
+          "key": "A",
+          "text": "内建多种测序平台的基于大量测序数据构建的经验错误模型"
+        },
+        {
+          "key": "B",
+          "text": "可以输出FASTQ格式读段（reads）数据"
+        },
+        {
+          "key": "C",
+          "text": "模拟数据可用于评估各种NGS数据分析方法和工具"
+        },
+        {
+          "key": "D",
+          "text": "*.fq *.aln"
+        }
+      ],
+      "answer": "D",
+      "analysis": "*.fq *.aln",
+      "knowledgeRefs": [
+        "sequencing-tech"
+      ],
+      "styleRefs": [
+        "23_370",
+        "23_335",
+        "23_360"
+      ],
+      "tags": [
+        "aln",
+        "fq",
+        "sequencing-methods",
+        "single_choice",
+        "synquest",
+        "出文",
+        "文档",
+        "模拟",
+        "读段",
+        "输出",
+        "输出文档"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    },
+    {
+      "id": "sq-sequencing-methods-034",
+      "source": "SynQuest",
+      "origin": "semantic-generated",
+      "year": null,
+      "topic": "sequencing-methods",
+      "topicName": "测序方法与读段模拟",
+      "difficulty": 2,
+      "type": "single_choice",
+      "prompt": "“数据格式”对应的内容是？",
+      "options": [
+        {
+          "key": "A",
+          "text": "任何组装工具都无法同时使用多种测序平台的数据进行组装"
+        },
+        {
+          "key": "B",
+          "text": "fastq、aln、sam、stat（偏移）"
+        },
+        {
+          "key": "C",
+          "text": "*"
+        },
+        {
+          "key": "D",
+          "text": "#"
+        }
+      ],
+      "answer": "B",
+      "analysis": " 数据格式：fastq、aln、sam、stat（偏移）",
+      "knowledgeRefs": [
+        "sequencing-tech"
+      ],
+      "styleRefs": [
+        "23_370",
+        "sq-sequencing-methods-029",
+        "23_492"
+      ],
+      "tags": [
+        "art",
+        "illumina",
+        "sequencing-methods",
+        "single_choice",
+        "synquest",
+        "因组",
+        "基因",
+        "序模",
+        "模拟",
+        "测序",
+        "组测"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    },
+    {
+      "id": "sq-sequencing-methods-035",
+      "source": "SynQuest",
+      "origin": "semantic-generated",
+      "year": null,
+      "topic": "sequencing-methods",
+      "topicName": "测序方法与读段模拟",
+      "difficulty": 2,
+      "type": "single_choice",
+      "prompt": "关于“输出文档► SAM格式► 比对结果（2）”，下列哪项表述正确？",
+      "options": [
+        {
+          "key": "A",
+          "text": "包含测序读段自身的质量信息"
+        },
+        {
+          "key": "B",
+          "text": "包含测序读段比对上参考基因组序列的映射质量信息"
+        },
+        {
+          "key": "C",
+          "text": "参考序列编号，如果注释中对SQ-SN进行了定义，这里必须和其保持一致，另"
+        },
+        {
+          "key": "D",
+          "text": "使用“=”表示配对读段中的另一个读段也比对上当前参考序列"
+        }
+      ],
+      "answer": "C",
+      "analysis": "参考序列编号，如果注释中对SQ-SN进行了定义，这里必须和其保持一致，另",
+      "knowledgeRefs": [
+        "sequencing-tech"
+      ],
+      "styleRefs": [
+        "23_482",
+        "sq-sequencing-methods-029",
+        "23_370"
+      ],
+      "tags": [
+        "SAM",
+        "sequencing-methods",
+        "single_choice",
+        "synquest",
+        "出文",
+        "序列",
+        "文档",
+        "格式",
+        "比对",
+        "输出",
+        "输出文档"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    },
+    {
+      "id": "sq-annotation-prediction-036",
+      "source": "SynQuest",
+      "origin": "semantic-generated",
+      "year": null,
+      "topic": "annotation-prediction",
+      "topicName": "基因注释与结构建模",
+      "difficulty": 2,
+      "type": "single_choice",
+      "prompt": "关于“GFF3”，下列哪项表述正确？",
+      "options": [
+        {
+          "key": "A",
+          "text": "1 sequence"
+        },
+        {
+          "key": "B",
+          "text": "列 名称 述 3 type 特征类型。这里限定为序列本体（ Sequence Ontology ）术语。 6 score"
+        },
+        {
+          "key": "C",
+          "text": "3 type"
+        },
+        {
+          "key": "D",
+          "text": "2 source"
+        }
+      ],
+      "answer": "B",
+      "analysis": "列 名称 述 3 type 特征类型。这里限定为序列本体（ Sequence Ontology ）术语。 6 score",
+      "knowledgeRefs": [
+        "annotation-pipeline"
+      ],
+      "styleRefs": [
+        "22_113",
+        "22_112",
+        "22_116"
+      ],
+      "tags": [
+        "GFF3",
+        "annotation-prediction",
+        "single_choice",
+        "synquest",
+        "因组",
+        "基因",
+        "格式",
+        "注释",
+        "特征",
+        "组注",
+        "释数"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    },
+    {
+      "id": "sq-annotation-prediction-037",
+      "source": "SynQuest",
+      "origin": "semantic-generated",
+      "year": null,
+      "topic": "annotation-prediction",
+      "topicName": "基因注释与结构建模",
+      "difficulty": 2,
+      "type": "single_choice",
+      "prompt": "关于“GFF3 预定义属性”，下列哪项表述正确？",
+      "options": [
+        {
+          "key": "A",
+          "text": "exon"
+        },
+        {
+          "key": "B",
+          "text": "gene"
+        },
+        {
+          "key": "C",
+          "text": "否为环形的标记"
+        },
+        {
+          "key": "D",
+          "text": "mRNA"
+        }
+      ],
+      "answer": "C",
+      "analysis": "Is_circular 指示特征是否为环形的标记",
+      "knowledgeRefs": [
+        "annotation-pipeline"
+      ],
+      "styleRefs": [
+        "22_112",
+        "22_113",
+        "22_116"
+      ],
+      "tags": [
+        "GFF3",
+        "ID",
+        "annotation-prediction",
+        "single_choice",
+        "synquest",
+        "义属",
+        "定义",
+        "序列",
+        "格式",
+        "特征",
+        "预定"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    },
+    {
+      "id": "sq-sequencing-methods-038",
+      "source": "SynQuest",
+      "origin": "semantic-generated",
+      "year": null,
+      "topic": "sequencing-methods",
+      "topicName": "测序方法与读段模拟",
+      "difficulty": 2,
+      "type": "single_choice",
+      "prompt": "关于“输出文档 >> ALN格式（2）”，下列哪项表述正确？",
+      "options": [
+        {
+          "key": "A",
+          "text": "*2.aln"
+        },
+        {
+          "key": "B",
+          "text": "exon"
+        },
+        {
+          "key": "C",
+          "text": "mRNA"
+        },
+        {
+          "key": "D",
+          "text": "gene"
+        }
+      ],
+      "answer": "A",
+      "analysis": "*2.aln",
+      "knowledgeRefs": [
+        "sequencing-tech"
+      ],
+      "styleRefs": [
+        "23_370",
+        "22_112",
+        "sqfig-启发式搜索算法-应用-序列比对-blast-hsps-001"
+      ],
+      "tags": [
+        "ALN",
+        "NC",
+        "aln",
+        "sequencing-methods",
+        "single_choice",
+        "synquest",
+        "出文",
+        "文档",
+        "格式",
+        "输出",
+        "输出文档"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    },
+    {
+      "id": "sq-general-039",
+      "source": "SynQuest",
+      "origin": "semantic-generated",
+      "year": null,
+      "topic": "general",
+      "topicName": "综合题",
+      "difficulty": 1,
+      "type": "single_choice",
+      "prompt": "关于“第9讲 从头预测与基因结构建模（1）”，下列哪项表述正确？",
+      "options": [
+        {
+          "key": "A",
+          "text": "理解基因组结构、功能与演化规律"
+        },
+        {
+          "key": "B",
+          "text": "只进行显微图像标注"
+        },
+        {
+          "key": "C",
+          "text": "只测量蛋白浓度"
+        },
+        {
+          "key": "D",
+          "text": "张高川 生物信息学系 生命科学学院 苏州大学苏州医学院"
+        }
+      ],
+      "answer": "D",
+      "analysis": "张高川 生物信息学系 生命科学学院 苏州大学苏州医学院",
+      "knowledgeRefs": [
+        "course-overview"
+      ],
+      "styleRefs": [
+        "sq-general-005",
+        "sq-annotation-prediction-009",
+        "22_62"
+      ],
+      "tags": [
+        "general",
+        "single_choice",
+        "synquest",
+        "与基",
+        "从头",
+        "因结",
+        "基因",
+        "头预",
+        "测与",
+        "结构",
+        "预测"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    },
+    {
+      "id": "sq-general-040",
+      "source": "SynQuest",
+      "origin": "semantic-generated",
+      "year": null,
+      "topic": "general",
+      "topicName": "综合题",
+      "difficulty": 1,
+      "type": "single_choice",
+      "prompt": "关于“第10讲 从头预测与基因结构建模（2）”，下列哪项表述正确？",
+      "options": [
+        {
+          "key": "A",
+          "text": "理解基因组结构、功能与演化规律"
+        },
+        {
+          "key": "B",
+          "text": "只测量蛋白浓度"
+        },
+        {
+          "key": "C",
+          "text": "只进行显微图像标注"
+        },
+        {
+          "key": "D",
+          "text": "张高川 生物信息学系 生命科学学院 苏州大学苏州医学院"
+        }
+      ],
+      "answer": "D",
+      "analysis": "张高川 生物信息学系 生命科学学院 苏州大学苏州医学院",
+      "knowledgeRefs": [
+        "course-overview"
+      ],
+      "styleRefs": [
+        "sq-general-005",
+        "sq-annotation-prediction-009",
+        "22_62"
+      ],
+      "tags": [
+        "general",
+        "single_choice",
+        "synquest",
+        "与基",
+        "从头",
+        "因结",
+        "基因",
+        "头预",
+        "测与",
+        "结构",
+        "预测"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    },
+    {
+      "id": "sq-alignment-homology-041",
+      "source": "SynQuest",
+      "origin": "semantic-generated",
+      "year": null,
+      "topic": "alignment-homology",
+      "topicName": "序列比对与同源推断",
+      "difficulty": 2,
+      "type": "single_choice",
+      "prompt": "关于“UCSC ► BLAT ► 小鼠TP53蛋白 vs hg38”，下列哪项表述正确？",
+      "options": [
+        {
+          "key": "A",
+          "text": "小鼠（mouse）的TP53蛋白序"
+        },
+        {
+          "key": "B",
+          "text": "blastn"
+        },
+        {
+          "key": "C",
+          "text": "blastx"
+        },
+        {
+          "key": "D",
+          "text": "blastp"
+        }
+      ],
+      "answer": "A",
+      "analysis": "这里是小鼠（mouse）的TP53蛋白序",
+      "knowledgeRefs": [
+        "alignment-homology"
+      ],
+      "styleRefs": [
+        "22_54",
+        "23_517",
+        "sq-general-005"
+      ],
+      "tags": [
+        "BLAT",
+        "TP53",
+        "UCSC",
+        "alignment-homology",
+        "hg38",
+        "single_choice",
+        "synquest",
+        "vs",
+        "基因",
+        "小鼠",
+        "蛋白"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    },
+    {
+      "id": "sq-annotation-prediction-042",
+      "source": "SynQuest",
+      "origin": "semantic-generated",
+      "year": null,
+      "topic": "annotation-prediction",
+      "topicName": "基因注释与结构建模",
+      "difficulty": 2,
+      "type": "single_choice",
+      "prompt": "“格式”对应的内容是？",
+      "options": [
+        {
+          "key": "A",
+          "text": "1 sequence"
+        },
+        {
+          "key": "B",
+          "text": "tag=value，多个属性使用分号(;)隔开"
+        },
+        {
+          "key": "C",
+          "text": "2 source"
+        },
+        {
+          "key": "D",
+          "text": "3 type"
+        }
+      ],
+      "answer": "B",
+      "analysis": "位置（0-2）。 9 attributes 特征属性列表，格式：tag=value，多个属性使用分号(;)隔开。",
+      "knowledgeRefs": [
+        "annotation-pipeline"
+      ],
+      "styleRefs": [
+        "22_113",
+        "22_112",
+        "22_116"
+      ],
+      "tags": [
+        "GFF3",
+        "annotation-prediction",
+        "single_choice",
+        "synquest",
+        "因组",
+        "基因",
+        "格式",
+        "注释",
+        "特征",
+        "组注",
+        "释数"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    },
+    {
+      "id": "sq-annotation-prediction-043",
+      "source": "SynQuest",
+      "origin": "semantic-generated",
+      "year": null,
+      "topic": "annotation-prediction",
+      "topicName": "基因注释与结构建模",
+      "difficulty": 2,
+      "type": "single_choice",
+      "prompt": "关于“基因组注释数据的存储格式 ► GFF (General Feature Format)”，下列哪项表述正确？",
+      "options": [
+        {
+          "key": "A",
+          "text": "exon"
+        },
+        {
+          "key": "B",
+          "text": "② 述基因组特征 ③ 数据易于共享 参考资料"
+        },
+        {
+          "key": "C",
+          "text": "mRNA"
+        },
+        {
+          "key": "D",
+          "text": "gene"
+        }
+      ],
+      "answer": "B",
+      "analysis": "② 述基因组特征 ③ 数据易于共享 参考资料",
+      "knowledgeRefs": [
+        "annotation-pipeline"
+      ],
+      "styleRefs": [
+        "22_112",
+        "22_113",
+        "22_116"
+      ],
+      "tags": [
+        "annotation-prediction",
+        "single_choice",
+        "synquest",
+        "因组",
+        "基因",
+        "据的",
+        "格式",
+        "注释",
+        "的存",
+        "组注",
+        "释数"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    },
+    {
+      "id": "sq-general-044",
+      "source": "SynQuest",
+      "origin": "semantic-generated",
+      "year": null,
+      "topic": "general",
+      "topicName": "综合题",
+      "difficulty": 2,
+      "type": "single_choice",
+      "prompt": "关于“基因组 ► DNA结构► 双螺旋► 右手B型”，下列哪一年是正确的？",
+      "options": [
+        {
+          "key": "A",
+          "text": "理解基因组结构、功能与演化规律"
+        },
+        {
+          "key": "B",
+          "text": "只进行显微图像标注"
+        },
+        {
+          "key": "C",
+          "text": "只测量蛋白浓度"
+        },
+        {
+          "key": "D",
+          "text": "沃森和克里克（1953）"
+        }
+      ],
+      "answer": "D",
+      "analysis": "沃森和克里克（1953）",
+      "knowledgeRefs": [
+        "course-overview"
+      ],
+      "styleRefs": [
+        "23_164",
+        "sq-general-005",
+        "22_14"
+      ],
+      "tags": [
+        "DNA",
+        "general",
+        "single_choice",
+        "synquest",
+        "双螺",
+        "双螺旋",
+        "因组",
+        "基因",
+        "基因组",
+        "结构",
+        "螺旋"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    },
+    {
+      "id": "sq-general-045",
+      "source": "SynQuest",
+      "origin": "semantic-generated",
+      "year": null,
+      "topic": "general",
+      "topicName": "综合题",
+      "difficulty": 1,
+      "type": "single_choice",
+      "prompt": "关于“拓展阅读、实践练习以及思考题”，下列哪项表述正确？",
+      "options": [
+        {
+          "key": "A",
+          "text": "只测量蛋白浓度"
+        },
+        {
+          "key": "B",
+          "text": "理解基因组结构、功能与演化规律"
+        },
+        {
+          "key": "C",
+          "text": "（分子生物学技术）？试从生物信息学角度来探讨工作思路"
+        },
+        {
+          "key": "D",
+          "text": "只进行显微图像标注"
+        }
+      ],
+      "answer": "C",
+      "analysis": "（分子生物学技术）？试从生物信息学角度来探讨工作思路。",
+      "knowledgeRefs": [
+        "course-overview"
+      ],
+      "styleRefs": [
+        "sq-general-005",
+        "sq-genome-databases-022",
+        "sq-genome-databases-026"
+      ],
+      "tags": [
+        "general",
+        "single_choice",
+        "synquest",
+        "实践",
+        "展阅",
+        "拓展",
+        "拓展阅读",
+        "病毒",
+        "练习",
+        "践练",
+        "阅读"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    },
+    {
+      "id": "sq-general-046",
+      "source": "SynQuest",
+      "origin": "semantic-generated",
+      "year": null,
+      "topic": "general",
+      "topicName": "综合题",
+      "difficulty": 3,
+      "type": "single_choice",
+      "prompt": "关于“遗传作图的缺点”，下列哪项表述正确？",
+      "options": [
+        {
+          "key": "A",
+          "text": "距离单位是染色体的区代"
+        },
+        {
+          "key": "B",
+          "text": "分辨率有限，受到子代数量限制"
+        },
+        {
+          "key": "C",
+          "text": "有多远？"
+        },
+        {
+          "key": "D",
+          "text": "覆盖率较低"
+        }
+      ],
+      "answer": "C",
+      "analysis": "有多远？",
+      "knowledgeRefs": [
+        "course-overview"
+      ],
+      "styleRefs": [
+        "22_6",
+        "23_264",
+        "23_320"
+      ],
+      "tags": [
+        "general",
+        "single_choice",
+        "synquest",
+        "传作",
+        "作图",
+        "图的",
+        "的缺",
+        "缺点",
+        "遗传",
+        "遗传作图的缺点",
+        "随机"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    },
+    {
+      "id": "sq-annotation-prediction-047",
+      "source": "SynQuest",
+      "origin": "semantic-generated",
+      "year": null,
+      "topic": "annotation-prediction",
+      "topicName": "基因注释与结构建模",
+      "difficulty": 2,
+      "type": "single_choice",
+      "prompt": "“截图来自”对应的内容是？",
+      "options": [
+        {
+          "key": "A",
+          "text": "exon"
+        },
+        {
+          "key": "B",
+          "text": "mRNA"
+        },
+        {
+          "key": "C",
+          "text": "gene"
+        },
+        {
+          "key": "D",
+          "text": "GCF_000146045.2_R64_genomic.gff"
+        }
+      ],
+      "answer": "D",
+      "analysis": "截图来自：GCF_000146045.2_R64_genomic.gff",
+      "knowledgeRefs": [
+        "annotation-pipeline"
+      ],
+      "styleRefs": [
+        "22_112",
+        "22_113",
+        "22_116"
+      ],
+      "tags": [
+        "GFF3",
+        "annotation-prediction",
+        "single_choice",
+        "synquest",
+        "因组",
+        "基因",
+        "据的",
+        "注释",
+        "的存",
+        "组注",
+        "释数"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    },
+    {
+      "id": "sq-annotation-prediction-048",
+      "source": "SynQuest",
+      "origin": "semantic-generated",
+      "year": null,
+      "topic": "annotation-prediction",
+      "topicName": "基因注释与结构建模",
+      "difficulty": 2,
+      "type": "single_choice",
+      "prompt": "“其赋值格式为”对应的内容是？",
+      "options": [
+        {
+          "key": "A",
+          "text": "3 type"
+        },
+        {
+          "key": "B",
+          "text": "1 sequence"
+        },
+        {
+          "key": "C",
+          "text": "2 source"
+        },
+        {
+          "key": "D",
+          "text": "target_id start end"
+        }
+      ],
+      "answer": "D",
+      "analysis": "Target 序列比对中的目标序列ID。其赋值格式为：target_id start end",
+      "knowledgeRefs": [
+        "annotation-pipeline"
+      ],
+      "styleRefs": [
+        "22_113",
+        "22_112",
+        "22_116"
+      ],
+      "tags": [
+        "GFF3",
+        "ID",
+        "annotation-prediction",
+        "single_choice",
+        "synquest",
+        "义属",
+        "定义",
+        "序列",
+        "格式",
+        "特征",
+        "预定"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    },
+    {
+      "id": "sq-sequencing-methods-049",
+      "source": "SynQuest",
+      "origin": "semantic-generated",
+      "year": null,
+      "topic": "sequencing-methods",
+      "topicName": "测序方法与读段模拟",
+      "difficulty": 2,
+      "type": "single_choice",
+      "prompt": "关于“输出文档► SAM格式► 规范（2）”，下列哪项表述正确？",
+      "options": [
+        {
+          "key": "A",
+          "text": "*"
+        },
+        {
+          "key": "B",
+          "text": "SAM分为两部分 Ø 注释信息（header section）"
+        },
+        {
+          "key": "C",
+          "text": "包含测序读段自身的质量信息"
+        },
+        {
+          "key": "D",
+          "text": "#"
+        }
+      ],
+      "answer": "B",
+      "analysis": "SAM分为两部分 Ø 注释信息（header section）",
+      "knowledgeRefs": [
+        "sequencing-tech"
+      ],
+      "styleRefs": [
+        "23_482",
+        "23_492",
+        "23_370"
+      ],
+      "tags": [
+        "SAM",
+        "sequencing-methods",
+        "single_choice",
+        "synquest",
+        "出文",
+        "文档",
+        "格式",
+        "比对",
+        "规范",
+        "输出",
+        "输出文档"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    },
+    {
+      "id": "sq-sequencing-methods-050",
+      "source": "SynQuest",
+      "origin": "semantic-generated",
+      "year": null,
+      "topic": "sequencing-methods",
+      "topicName": "测序方法与读段模拟",
+      "difficulty": 2,
+      "type": "single_choice",
+      "prompt": "关于“（1）单末端测序模拟”，下列哪项表述正确？",
+      "options": [
+        {
+          "key": "A",
+          "text": "内建多种测序平台的基于大量测序数据构建的经验错误模型"
+        },
+        {
+          "key": "B",
+          "text": "模拟数据可用于评估各种NGS数据分析方法和工具"
+        },
+        {
+          "key": "C",
+          "text": "支持单末端 （single-end）、双末端（paired-end）、配对（mate-pair）"
+        },
+        {
+          "key": "D",
+          "text": "（1）单末端测序模拟 art_illumina -ss HS25 -sam -i reference.fa -l 150 -f 10 -o single_dat"
+        }
+      ],
+      "answer": "D",
+      "analysis": "（1）单末端测序模拟 art_illumina -ss HS25 -sam -i reference.fa -l 150 -f 10 -o single_dat",
+      "knowledgeRefs": [
+        "sequencing-tech"
+      ],
+      "styleRefs": [
+        "23_370",
+        "sq-sequencing-methods-011",
+        "sq-sequencing-methods-029"
+      ],
+      "tags": [
+        "art",
+        "illumina",
+        "reference.fa",
+        "sequencing-methods",
+        "single_choice",
+        "synquest",
+        "序模",
+        "末端",
+        "模拟",
+        "测序",
+        "端测"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    },
+    {
+      "id": "sq-sequencing-methods-051",
+      "source": "SynQuest",
+      "origin": "semantic-generated",
+      "year": null,
+      "topic": "sequencing-methods",
+      "topicName": "测序方法与读段模拟",
+      "difficulty": 2,
+      "type": "single_choice",
+      "prompt": "关于“输出文档► “*.stat”文件（1）”，下列哪项表述正确？",
+      "options": [
+        {
+          "key": "A",
+          "text": "(1) 参考序列位置； (2) 从该位置起始的读段数量； (3) 覆盖到该位置的读段数量"
+        },
+        {
+          "key": "B",
+          "text": "C"
+        },
+        {
+          "key": "C",
+          "text": "A"
+        },
+        {
+          "key": "D",
+          "text": "T"
+        }
+      ],
+      "answer": "A",
+      "analysis": "(1) 参考序列位置； (2) 从该位置起始的读段数量； (3) 覆盖到该位置的读段数量。",
+      "knowledgeRefs": [
+        "sequencing-tech"
+      ],
+      "styleRefs": [
+        "23_370",
+        "23_482",
+        "sq-sequencing-methods-029"
+      ],
+      "tags": [
+        "sequencing-methods",
+        "single_choice",
+        "stat",
+        "synquest",
+        "位置",
+        "出文",
+        "文件",
+        "文档",
+        "该位",
+        "输出",
+        "输出文档"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    },
+    {
+      "id": "sq-general-052",
+      "source": "SynQuest",
+      "origin": "semantic-generated",
+      "year": null,
+      "topic": "general",
+      "topicName": "综合题",
+      "difficulty": 1,
+      "type": "single_choice",
+      "prompt": "关于“基因组信息学的主要研究内容和方向”，下列哪项表述正确？",
+      "options": [
+        {
+          "key": "A",
+          "text": "理解基因组结构、功能与演化规律"
+        },
+        {
+          "key": "B",
+          "text": "只进行显微图像标注"
+        },
+        {
+          "key": "C",
+          "text": "只测量蛋白浓度"
+        },
+        {
+          "key": "D",
+          "text": "养、癌症、时空、..."
+        }
+      ],
+      "answer": "D",
+      "analysis": "养、癌症、时空、...",
+      "knowledgeRefs": [
+        "course-overview"
+      ],
+      "styleRefs": [
+        "sq-general-005",
+        "sq-alignment-homology-018",
+        "23_133"
+      ],
+      "tags": [
+        "general",
+        "single_choice",
+        "synquest",
+        "信息",
+        "因组",
+        "基因",
+        "学的",
+        "息学",
+        "的主",
+        "组信",
+        "要研"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    },
+    {
+      "id": "sq-general-053",
+      "source": "SynQuest",
+      "origin": "semantic-generated",
+      "year": null,
+      "topic": "general",
+      "topicName": "综合题",
+      "difficulty": 1,
+      "type": "single_choice",
+      "prompt": "关于“第12讲 DNA元件分析和预测(1)”，下列哪项表述正确？",
+      "options": [
+        {
+          "key": "A",
+          "text": "只测量蛋白浓度"
+        },
+        {
+          "key": "B",
+          "text": "只进行显微图像标注"
+        },
+        {
+          "key": "C",
+          "text": "理解基因组结构、功能与演化规律"
+        },
+        {
+          "key": "D",
+          "text": "张高川 生物信息学系 生命科学学院 苏州大学苏州医学院"
+        }
+      ],
+      "answer": "D",
+      "analysis": "张高川 生物信息学系 生命科学学院 苏州大学苏州医学院",
+      "knowledgeRefs": [
+        "course-overview"
+      ],
+      "styleRefs": [
+        "sq-general-005",
+        "sq-alignment-homology-018",
+        "23_554"
+      ],
+      "tags": [
+        "DNA",
+        "general",
+        "single_choice",
+        "synquest",
+        "件分",
+        "信息",
+        "元件",
+        "元件分析和预测",
+        "和预",
+        "析和",
+        "预测"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    },
+    {
+      "id": "sq-general-054",
+      "source": "SynQuest",
+      "origin": "semantic-generated",
+      "year": null,
+      "topic": "general",
+      "topicName": "综合题",
+      "difficulty": 3,
+      "type": "single_choice",
+      "prompt": "关于“遗传作图的缺点”，下列哪项命令或参数写法是正确的？",
+      "options": [
+        {
+          "key": "A",
+          "text": "[A/G]单核苷酸多态性"
+        },
+        {
+          "key": "B",
+          "text": "698-701. doi: 10.1038/366698a0."
+        },
+        {
+          "key": "C",
+          "text": "（千米|米）？"
+        },
+        {
+          "key": "D",
+          "text": "[A/C]单核苷酸多态性"
+        }
+      ],
+      "answer": "C",
+      "analysis": "（千米|米）？",
+      "knowledgeRefs": [
+        "course-overview"
+      ],
+      "styleRefs": [
+        "22_6",
+        "23_264",
+        "23_320"
+      ],
+      "tags": [
+        "general",
+        "single_choice",
+        "synquest",
+        "传作",
+        "作图",
+        "图的",
+        "的缺",
+        "缺点",
+        "遗传",
+        "遗传作图的缺点",
+        "随机"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    },
+    {
+      "id": "sq-human-genome-project-055",
+      "source": "SynQuest",
+      "origin": "semantic-generated",
+      "year": null,
+      "topic": "human-genome-project",
+      "topicName": "人类基因组计划与图谱",
+      "difficulty": 2,
+      "type": "single_choice",
+      "prompt": "关于“人类基因组计划 (Human genome project, HGP)”，下列哪一年是正确的？",
+      "options": [
+        {
+          "key": "A",
+          "text": "1999年"
+        },
+        {
+          "key": "B",
+          "text": "1990年"
+        },
+        {
+          "key": "C",
+          "text": "2001年"
+        },
+        {
+          "key": "D",
+          "text": "2000年"
+        }
+      ],
+      "answer": "A",
+      "analysis": "因组计划徽标 英国、日本、法国、德国、中国、印度 1998 1999 1999年9月，中国正式加入HGP",
+      "knowledgeRefs": [
+        "hgp-maps"
+      ],
+      "styleRefs": [
+        "sq-human-genome-project-028",
+        "23_201",
+        "22_1"
+      ],
+      "tags": [
+        "HGP",
+        "Human",
+        "human-genome-project",
+        "single_choice",
+        "synquest",
+        "人类",
+        "因组",
+        "基因",
+        "类基",
+        "组计",
+        "计划"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    },
+    {
+      "id": "sq-sequencing-methods-056",
+      "source": "SynQuest",
+      "origin": "semantic-generated",
+      "year": null,
+      "topic": "sequencing-methods",
+      "topicName": "测序方法与读段模拟",
+      "difficulty": 2,
+      "type": "single_choice",
+      "prompt": "关于“全基因组测序需要注意的问题2：序列间隙”，下列哪项表述正确？",
+      "options": [
+        {
+          "key": "A",
+          "text": "序列间隙"
+        },
+        {
+          "key": "B",
+          "text": "无限制的增加测序深度？"
+        },
+        {
+          "key": "C",
+          "text": "逻辑间隙"
+        },
+        {
+          "key": "D",
+          "text": "物理间隙"
+        }
+      ],
+      "answer": "B",
+      "analysis": "无限制的增加测序深度？",
+      "knowledgeRefs": [
+        "sequencing-tech"
+      ],
+      "styleRefs": [
+        "23_305",
+        "22_15",
+        "23_450"
+      ],
+      "tags": [
+        "sequencing-methods",
+        "single_choice",
+        "synquest",
+        "全基",
+        "因组",
+        "基因",
+        "序需",
+        "注意",
+        "测序",
+        "组测",
+        "要注"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    },
+    {
+      "id": "sq-general-057",
+      "source": "SynQuest",
+      "origin": "semantic-generated",
+      "year": null,
+      "topic": "general",
+      "topicName": "综合题",
+      "difficulty": 1,
+      "type": "single_choice",
+      "prompt": "关于“第13讲 DNA元件分析和预测(2)”，下列哪项表述正确？",
+      "options": [
+        {
+          "key": "A",
+          "text": "张高川 生物信息学系 生命科学学院 苏州大学苏州医学院"
+        },
+        {
+          "key": "B",
+          "text": "只测量蛋白浓度"
+        },
+        {
+          "key": "C",
+          "text": "理解基因组结构、功能与演化规律"
+        },
+        {
+          "key": "D",
+          "text": "只进行显微图像标注"
+        }
+      ],
+      "answer": "A",
+      "analysis": "张高川 生物信息学系 生命科学学院 苏州大学苏州医学院",
+      "knowledgeRefs": [
+        "course-overview"
+      ],
+      "styleRefs": [
+        "sq-general-005",
+        "sq-alignment-homology-018",
+        "23_554"
+      ],
+      "tags": [
+        "DNA",
+        "general",
+        "single_choice",
+        "synquest",
+        "件分",
+        "信息",
+        "元件",
+        "元件分析和预测",
+        "和预",
+        "析和",
+        "预测"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    },
+    {
+      "id": "sq-sequencing-methods-058",
+      "source": "SynQuest",
+      "origin": "semantic-generated",
+      "year": null,
+      "topic": "sequencing-methods",
+      "topicName": "测序方法与读段模拟",
+      "difficulty": 2,
+      "type": "single_choice",
+      "prompt": "关于“samtools faidx► 创建序列索引文件”，下列哪项表述正确？",
+      "options": [
+        {
+          "key": "A",
+          "text": "# 为FASTA格式的参考序列文件创建索引，或者从其中 取子序列 samtools faidx gDNA.fna #输出 gDNA.fna.fai"
+        },
+        {
+          "key": "B",
+          "text": "*"
+        },
+        {
+          "key": "C",
+          "text": "gene"
+        },
+        {
+          "key": "D",
+          "text": "#"
+        }
+      ],
+      "answer": "A",
+      "analysis": "# 为FASTA格式的参考序列文件创建索引，或者从其中 取子序列 samtools faidx gDNA.fna #输出 gDNA.fna.fai",
+      "knowledgeRefs": [
+        "sequencing-tech"
+      ],
+      "styleRefs": [
+        "23_482",
+        "23_370",
+        "23_492"
+      ],
+      "tags": [
+        "NC",
+        "faidx",
+        "samtools",
+        "sequencing-methods",
+        "single_choice",
+        "synquest",
+        "创建",
+        "序列",
+        "建序",
+        "文件",
+        "索引"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    },
+    {
+      "id": "sq-genome-assembly-059",
+      "source": "SynQuest",
+      "origin": "semantic-generated",
+      "year": null,
+      "topic": "genome-assembly",
+      "topicName": "基因组组装与图算法",
+      "difficulty": 2,
+      "type": "single_choice",
+      "prompt": "关于“间隙（Gap）”，下列哪项命令或参数写法是正确的？",
+      "options": [
+        {
+          "key": "A",
+          "text": "Genbank格式序列【核酸.gbff| 蛋白.gpff| 其他.gbk.和.genbank】"
+        },
+        {
+          "key": "B",
+          "text": "Fasta格式序列【核酸.fna | 蛋白.faa | 其他.fa.和fasta】"
+        },
+        {
+          "key": "C",
+          "text": "//db.cngb.org/submission"
+        },
+        {
+          "key": "D",
+          "text": "v(g) = - d - (g-1)×e d 代表间隙开放罚分 g 代表连续空位数 e 代表间隙延伸罚分 d、g、e > 0"
+        }
+      ],
+      "answer": "A",
+      "analysis": "Genbank格式序列【核酸.gbff| 蛋白.gpff| 其他.gbk.和.genbank】",
+      "knowledgeRefs": [
+        "assembly-graphs"
+      ],
+      "styleRefs": [
+        "22_116",
+        "sq-genome-databases-004",
+        "23_380"
+      ],
+      "tags": [
+        "CNGBdb",
+        "Gap",
+        "Genbank",
+        "gbff",
+        "gbk.",
+        "genbank",
+        "genome-assembly",
+        "gpff",
+        "single_choice",
+        "synquest",
+        "间隙"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    },
+    {
+      "id": "sq-genome-assembly-060",
+      "source": "SynQuest",
+      "origin": "semantic-generated",
+      "year": null,
+      "topic": "genome-assembly",
+      "topicName": "基因组组装与图算法",
+      "difficulty": 2,
+      "type": "single_choice",
+      "prompt": "关于“间隙（Gap）”，下列哪项表述正确？",
+      "options": [
+        {
+          "key": "A",
+          "text": "每个文件中仅仅包含一条基因组序列"
+        },
+        {
+          "key": "B",
+          "text": "包含各种该序列相关的注释信息"
+        },
+        {
+          "key": "C",
+          "text": "向下翻页"
+        },
+        {
+          "key": "D",
+          "text": "包含可能存在的序列间隙（gap）信息"
+        }
+      ],
+      "answer": "C",
+      "analysis": "向下翻页",
+      "knowledgeRefs": [
+        "assembly-graphs"
+      ],
+      "styleRefs": [
+        "22_116",
+        "sq-genome-databases-004",
+        "23_380"
+      ],
+      "tags": [
+        "CNGBdb",
+        "Gap",
+        "Genbank",
+        "gbff",
+        "gbk.",
+        "genbank",
+        "genome-assembly",
+        "gpff",
+        "single_choice",
+        "synquest",
+        "间隙"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    },
+    {
+      "id": "sq-sequencing-methods-061",
+      "source": "SynQuest",
+      "origin": "semantic-generated",
+      "year": null,
+      "topic": "sequencing-methods",
+      "topicName": "测序方法与读段模拟",
+      "difficulty": 3,
+      "type": "single_choice",
+      "prompt": "关于“全基因组测序需要注意的问题1：覆盖（coverage）”，下列哪项表述正确？",
+      "options": [
+        {
+          "key": "A",
+          "text": "不确定"
+        },
+        {
+          "key": "B",
+          "text": "G"
+        },
+        {
+          "key": "C",
+          "text": "P0 = e-m ① P0 ：丢失概率"
+        },
+        {
+          "key": "D",
+          "text": "A"
+        }
+      ],
+      "answer": "C",
+      "analysis": "P0 = e-m ① P0 ：丢失概率",
+      "knowledgeRefs": [
+        "sequencing-tech"
+      ],
+      "styleRefs": [
+        "22_12",
+        "23_310",
+        "23_325"
+      ],
+      "tags": [
+        "coverage",
+        "sequencing-methods",
+        "single_choice",
+        "synquest",
+        "全基",
+        "因组",
+        "基因",
+        "序需",
+        "测序",
+        "组测",
+        "覆盖"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    },
+    {
+      "id": "sq-hmm-regulation-062",
+      "source": "SynQuest",
+      "origin": "semantic-generated",
+      "year": null,
+      "topic": "hmm-regulation",
+      "topicName": "HMM 与顺式调控元件",
+      "difficulty": 2,
+      "type": "single_choice",
+      "prompt": "关于“启动子与转录因子 ► 基本理论知识”，下列哪项表述正确？",
+      "options": [
+        {
+          "key": "A",
+          "text": "DNA聚合酶"
+        },
+        {
+          "key": "B",
+          "text": "RNA聚合酶I"
+        },
+        {
+          "key": "C",
+          "text": "RNA聚合酶III"
+        },
+        {
+          "key": "D",
+          "text": "RNA聚合酶Ⅱ Ⅱ类 合成mRNA前体及大多数 snRNA"
+        }
+      ],
+      "answer": "D",
+      "analysis": "RNA聚合酶Ⅱ Ⅱ类 合成mRNA前体及大多数 snRNA",
+      "knowledgeRefs": [
+        "hmm-regulation"
+      ],
+      "styleRefs": [
+        "23_634",
+        "22_88",
+        "23_644"
+      ],
+      "tags": [
+        "hmm-regulation",
+        "single_choice",
+        "synquest",
+        "与转",
+        "动子",
+        "启动",
+        "启动子与转录因子",
+        "因子",
+        "子与",
+        "录因",
+        "转录"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    },
+    {
+      "id": "sq-alignment-homology-063",
+      "source": "SynQuest",
+      "origin": "semantic-generated",
+      "year": null,
+      "topic": "alignment-homology",
+      "topicName": "序列比对与同源推断",
+      "difficulty": 2,
+      "type": "single_choice",
+      "prompt": "关于“UCSC ► BLAT ► 小鼠TP53蛋白 vs hg38”，下列哪项命令或参数写法是正确的？",
+      "options": [
+        {
+          "key": "A",
+          "text": ">gi|148747262|ref|NP_035770.2| cellular tumor antigen p53 isoform a [Mus musculus]"
+        },
+        {
+          "key": "B",
+          "text": "始区域 基因的终 止区域 blocks /Exons “最"
+        },
+        {
+          "key": "C",
+          "text": "//genome-asia.ucsc.edu/cgi-bin/hgBlat"
+        },
+        {
+          "key": "D",
+          "text": "blocks /Exons"
+        }
+      ],
+      "answer": "A",
+      "analysis": ">gi|148747262|ref|NP_035770.2| cellular tumor antigen p53 isoform a [Mus musculus]",
+      "knowledgeRefs": [
+        "alignment-homology"
+      ],
+      "styleRefs": [
+        "22_54",
+        "23_517",
+        "22_119"
+      ],
+      "tags": [
+        "BLAT",
+        "TP53",
+        "UCSC",
+        "alignment-homology",
+        "gi",
+        "hg38",
+        "single_choice",
+        "synquest",
+        "vs",
+        "小鼠",
+        "蛋白"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    },
+    {
+      "id": "sq-general-064",
+      "source": "SynQuest",
+      "origin": "semantic-generated",
+      "year": null,
+      "topic": "general",
+      "topicName": "综合题",
+      "difficulty": 1,
+      "type": "single_choice",
+      "prompt": "关于“基因组信息学”，下列哪项表述正确？",
+      "options": [
+        {
+          "key": "A",
+          "text": "理解基因组结构、功能与演化规律"
+        },
+        {
+          "key": "B",
+          "text": "只测量蛋白浓度"
+        },
+        {
+          "key": "C",
+          "text": "只进行显微图像标注"
+        },
+        {
+          "key": "D",
+          "text": "张高川 生物信息学系 生命科学学院 苏州大学苏州医学院"
+        }
+      ],
+      "answer": "D",
+      "analysis": "张高川 生物信息学系 生命科学学院 苏州大学苏州医学院",
+      "knowledgeRefs": [
+        "course-overview"
+      ],
+      "styleRefs": [
+        "sq-general-005",
+        "sq-genome-databases-026",
+        "sq-genome-databases-022"
+      ],
+      "tags": [
+        "general",
+        "single_choice",
+        "synquest",
+        "信息",
+        "因组",
+        "基因",
+        "基因组信息学",
+        "学院",
+        "小结",
+        "息学",
+        "组信"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    },
+    {
+      "id": "sq-genome-assembly-065",
+      "source": "SynQuest",
+      "origin": "semantic-generated",
+      "year": null,
+      "topic": "genome-assembly",
+      "topicName": "基因组组装与图算法",
+      "difficulty": 2,
+      "type": "single_choice",
+      "prompt": "关于“向下翻页”，下列哪项命令或参数写法是正确的？",
+      "options": [
+        {
+          "key": "A",
+          "text": "//db.cngb.org/submission"
+        },
+        {
+          "key": "B",
+          "text": "//biopython.org/ 向下翻页"
+        },
+        {
+          "key": "C",
+          "text": "Genbank格式序列【核酸.gbff| 蛋白.gpff| 其他.gbk.和.genbank】"
+        },
+        {
+          "key": "D",
+          "text": "Fasta格式序列【核酸.fna | 蛋白.faa | 其他.fa.和fasta】"
+        }
+      ],
+      "answer": "C",
+      "analysis": "Genbank格式序列【核酸.gbff| 蛋白.gpff| 其他.gbk.和.genbank】",
+      "knowledgeRefs": [
+        "assembly-graphs"
+      ],
+      "styleRefs": [
+        "22_116",
+        "sq-genome-databases-004",
+        "sq-general-005"
+      ],
+      "tags": [
+        "CNGBdb",
+        "Genbank",
+        "gbff",
+        "genome-assembly",
+        "gpff",
+        "single_choice",
+        "synquest",
+        "下翻",
+        "向下",
+        "向下翻页",
+        "翻页"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    },
+    {
+      "id": "sq-general-066",
+      "source": "SynQuest",
+      "origin": "semantic-generated",
+      "year": null,
+      "topic": "general",
+      "topicName": "综合题",
+      "difficulty": 2,
+      "type": "single_choice",
+      "prompt": "“目标”对应的内容是？",
+      "options": [
+        {
+          "key": "A",
+          "text": "发现儿童癌症的起源并寻求新的治疗方法"
+        },
+        {
+          "key": "B",
+          "text": "基于克隆的基因组作图"
+        },
+        {
+          "key": "C",
+          "text": "染色体细胞图"
+        },
+        {
+          "key": "D",
+          "text": "限制性酶切作图"
+        }
+      ],
+      "answer": "A",
+      "analysis": "目标：发现儿童癌症的起源并寻求新的治疗方法。",
+      "knowledgeRefs": [
+        "course-overview"
+      ],
+      "styleRefs": [
+        "23_133",
+        "22_14",
+        "sq-human-genome-project-030"
+      ],
+      "tags": [
+        "general",
+        "single_choice",
+        "synquest",
+        "划的",
+        "学计",
+        "拓展",
+        "癌症",
+        "的拓",
+        "组学",
+        "组学计划的拓展",
+        "计划"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    },
+    {
+      "id": "sq-sequencing-methods-067",
+      "source": "SynQuest",
+      "origin": "semantic-generated",
+      "year": null,
+      "topic": "sequencing-methods",
+      "topicName": "测序方法与读段模拟",
+      "difficulty": 3,
+      "type": "single_choice",
+      "prompt": "关于“全基因组测序需要注意的问题1：覆盖（coverage）”，下列哪个时间或数值是正确的？",
+      "options": [
+        {
+          "key": "A",
+          "text": "33%"
+        },
+        {
+          "key": "B",
+          "text": "67%"
+        },
+        {
+          "key": "C",
+          "text": "50%"
+        },
+        {
+          "key": "D",
+          "text": "37%"
+        }
+      ],
+      "answer": "D",
+      "analysis": "丢失率P0 37% 14% 5% 1.8% 0.7% 0.25% 0.09% 0.03% 0.012% 0.005%",
+      "knowledgeRefs": [
+        "sequencing-tech"
+      ],
+      "styleRefs": [
+        "22_12",
+        "23_310",
+        "23_325"
+      ],
+      "tags": [
+        "coverage",
+        "sequencing-methods",
+        "single_choice",
+        "synquest",
+        "全基",
+        "因组",
+        "基因",
+        "序需",
+        "测序",
+        "组测",
+        "覆盖"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    },
+    {
+      "id": "sq-sequencing-methods-068",
+      "source": "SynQuest",
+      "origin": "semantic-generated",
+      "year": null,
+      "topic": "sequencing-methods",
+      "topicName": "测序方法与读段模拟",
+      "difficulty": 2,
+      "type": "single_choice",
+      "prompt": "关于“输出文档 >> ALN格式（2）”，下列哪项命令或参数写法是正确的？",
+      "options": [
+        {
+          "key": "A",
+          "text": "/"
+        },
+        {
+          "key": "B",
+          "text": "GGFGGGGGFGGG>/GBGGGGGBGDGGGGGGGGF1FGGGGGGEGGEGGGGEG"
+        },
+        {
+          "key": "C",
+          "text": "该图主要用于解释“基于转录本序列的新基因|新转录变异体发现 ► 基本思路”，重点涉及? blast命中指导的基因结构建模 ?。"
+        },
+        {
+          "key": "D",
+          "text": ">NC_001133.9 NC_001133.9-18406/1-1 66322"
+        }
+      ],
+      "answer": "D",
+      "analysis": ">NC_001133.9 NC_001133.9-18406/1-1 66322",
+      "knowledgeRefs": [
+        "sequencing-tech"
+      ],
+      "styleRefs": [
+        "23_370",
+        "22_112",
+        "sqfig-启发式搜索算法-应用-序列比对-blast-hsps-001"
+      ],
+      "tags": [
+        "ALN",
+        "NC",
+        "aln",
+        "sequencing-methods",
+        "single_choice",
+        "synquest",
+        "出文",
+        "文档",
+        "格式",
+        "输出",
+        "输出文档"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    },
+    {
+      "id": "sq-sequencing-methods-069",
+      "source": "SynQuest",
+      "origin": "semantic-generated",
+      "year": null,
+      "topic": "sequencing-methods",
+      "topicName": "测序方法与读段模拟",
+      "difficulty": 2,
+      "type": "single_choice",
+      "prompt": "关于“#单末端测序模拟”，下列哪一项术语或缩写是正确的？",
+      "options": [
+        {
+          "key": "A",
+          "text": "CM"
+        },
+        {
+          "key": "B",
+          "text": "SQ"
+        },
+        {
+          "key": "C",
+          "text": "SAM Alignment File"
+        },
+        {
+          "key": "D",
+          "text": "HD"
+        }
+      ],
+      "answer": "C",
+      "analysis": "SAM Alignment File",
+      "knowledgeRefs": [
+        "sequencing-tech"
+      ],
+      "styleRefs": [
+        "23_370",
+        "sq-sequencing-methods-029",
+        "23_492"
+      ],
+      "tags": [
+        "art",
+        "sequencing-methods",
+        "single_choice",
+        "synquest",
+        "单末",
+        "单末端测序模拟",
+        "序模",
+        "末端",
+        "模拟",
+        "测序",
+        "端测"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    },
+    {
+      "id": "sq-annotation-prediction-070",
+      "source": "SynQuest",
+      "origin": "semantic-generated",
+      "year": null,
+      "topic": "annotation-prediction",
+      "topicName": "基因注释与结构建模",
+      "difficulty": 2,
+      "type": "single_choice",
+      "prompt": "关于“基因组注释数据的存储格式 ► GFF (General Feature Format)”，下列哪项命令或参数写法是正确的？",
+      "options": [
+        {
+          "key": "A",
+          "text": "//genometools.org/cgi-bin/gff3validator.cgi"
+        },
+        {
+          "key": "B",
+          "text": "//bioperl.org/formats/sequence_formats/GFF_sequence_format.html"
+        },
+        {
+          "key": "C",
+          "text": "Genbank Fasta GFF | GTF | ..."
+        },
+        {
+          "key": "D",
+          "text": "GFF1 GFF2 GFF3 GTF1/2"
+        }
+      ],
+      "answer": "D",
+      "analysis": "GFF1 GFF2 GFF3 GTF1/2",
+      "knowledgeRefs": [
+        "annotation-pipeline"
+      ],
+      "styleRefs": [
+        "22_112",
+        "22_113",
+        "sq-general-005"
+      ],
+      "tags": [
+        "annotation-prediction",
+        "single_choice",
+        "synquest",
+        "因组",
+        "基因",
+        "据的",
+        "格式",
+        "注释",
+        "的存",
+        "组注",
+        "释数"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    },
+    {
+      "id": "sq-sequencing-methods-071",
+      "source": "SynQuest",
+      "origin": "semantic-generated",
+      "year": null,
+      "topic": "sequencing-methods",
+      "topicName": "测序方法与读段模拟",
+      "difficulty": 3,
+      "type": "single_choice",
+      "prompt": "关于“输出文档► FASTQ”，下列哪项表述正确？",
+      "options": [
+        {
+          "key": "A",
+          "text": "不确定"
+        },
+        {
+          "key": "B",
+          "text": "A"
+        },
+        {
+          "key": "C",
+          "text": "C"
+        },
+        {
+          "key": "D",
+          "text": "ASCII码 (字符) = Q.S. value + 33"
+        }
+      ],
+      "answer": "D",
+      "analysis": "ASCII码 (字符) = Q.S. value + 33",
+      "knowledgeRefs": [
+        "sequencing-tech"
+      ],
+      "styleRefs": [
+        "23_330",
+        "23_335",
+        "23_320"
+      ],
+      "tags": [
+        "FASTQ",
+        "call",
+        "in",
+        "log",
+        "sequencing-methods",
+        "single_choice",
+        "synquest",
+        "出文",
+        "文档",
+        "输出",
+        "输出文档"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    },
+    {
+      "id": "sq-general-072",
+      "source": "SynQuest",
+      "origin": "semantic-generated",
+      "year": null,
+      "topic": "general",
+      "topicName": "综合题",
+      "difficulty": 2,
+      "type": "single_choice",
+      "prompt": "关于“组学计划的拓展► 人类癌症基因组计划”，下列哪项表述正确？",
+      "options": [
+        {
+          "key": "A",
+          "text": "STS作图"
+        },
+        {
+          "key": "B",
+          "text": "STS 作图"
+        },
+        {
+          "key": "C",
+          "text": "研究所（National Cancer Institute，NCI）和国家人类基因组研究所（National"
+        },
+        {
+          "key": "D",
+          "text": "The Pediatric Cancer Genome Project"
+        }
+      ],
+      "answer": "C",
+      "analysis": "研究所（National Cancer Institute，NCI）和国家人类基因组研究所（National",
+      "knowledgeRefs": [
+        "course-overview"
+      ],
+      "styleRefs": [
+        "23_133",
+        "sq-human-genome-project-030",
+        "22_14"
+      ],
+      "tags": [
+        "general",
+        "single_choice",
+        "synquest",
+        "划的",
+        "学计",
+        "拓展",
+        "癌症",
+        "的拓",
+        "组学",
+        "组学计划的拓展",
+        "计划"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    },
+    {
+      "id": "sq-sequencing-methods-073",
+      "source": "SynQuest",
+      "origin": "semantic-generated",
+      "year": null,
+      "topic": "sequencing-methods",
+      "topicName": "测序方法与读段模拟",
+      "difficulty": 3,
+      "type": "single_choice",
+      "prompt": "“e”对应的内容是？",
+      "options": [
+        {
+          "key": "A",
+          "text": "自然对数底数 ③ m：测序量为基因组大小的倍数"
+        },
+        {
+          "key": "B",
+          "text": "序列间隙"
+        },
+        {
+          "key": "C",
+          "text": "物理间隙"
+        },
+        {
+          "key": "D",
+          "text": "逻辑间隙"
+        }
+      ],
+      "answer": "A",
+      "analysis": "② e：自然对数底数 ③ m：测序量为基因组大小的倍数",
+      "knowledgeRefs": [
+        "sequencing-tech"
+      ],
+      "styleRefs": [
+        "22_12",
+        "23_310",
+        "23_325"
+      ],
+      "tags": [
+        "coverage",
+        "sequencing-methods",
+        "single_choice",
+        "synquest",
+        "全基",
+        "因组",
+        "基因",
+        "序需",
+        "测序",
+        "组测",
+        "覆盖"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    },
+    {
+      "id": "sq-sequencing-methods-074",
+      "source": "SynQuest",
+      "origin": "semantic-generated",
+      "year": null,
+      "topic": "sequencing-methods",
+      "topicName": "测序方法与读段模拟",
+      "difficulty": 2,
+      "type": "single_choice",
+      "prompt": "“第二列”对应的内容是？",
+      "options": [
+        {
+          "key": "A",
+          "text": "从该位置起始的读段数量"
+        },
+        {
+          "key": "B",
+          "text": "C"
+        },
+        {
+          "key": "C",
+          "text": "不确定"
+        },
+        {
+          "key": "D",
+          "text": "T"
+        }
+      ],
+      "answer": "A",
+      "analysis": "第二列：从该位置起始的读段数量。",
+      "knowledgeRefs": [
+        "sequencing-tech"
+      ],
+      "styleRefs": [
+        "23_370",
+        "sq-sequencing-methods-029",
+        "23_482"
+      ],
+      "tags": [
+        "sequencing-methods",
+        "single_choice",
+        "stat",
+        "synquest",
+        "位置",
+        "出文",
+        "文件",
+        "文档",
+        "覆盖",
+        "输出",
+        "输出文档"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    },
+    {
+      "id": "sq-sequencing-methods-075",
+      "source": "SynQuest",
+      "origin": "semantic-generated",
+      "year": null,
+      "topic": "sequencing-methods",
+      "topicName": "测序方法与读段模拟",
+      "difficulty": 2,
+      "type": "single_choice",
+      "prompt": "“横坐标”对应的内容是？",
+      "options": [
+        {
+          "key": "A",
+          "text": "参考序列位置；纵坐标：覆盖度"
+        },
+        {
+          "key": "B",
+          "text": "T"
+        },
+        {
+          "key": "C",
+          "text": "C"
+        },
+        {
+          "key": "D",
+          "text": "不确定"
+        }
+      ],
+      "answer": "A",
+      "analysis": "横坐标：参考序列位置；纵坐标：覆盖度。",
+      "knowledgeRefs": [
+        "sequencing-tech"
+      ],
+      "styleRefs": [
+        "23_370",
+        "sq-sequencing-methods-029",
+        "23_482"
+      ],
+      "tags": [
+        "sequencing-methods",
+        "single_choice",
+        "stat",
+        "synquest",
+        "位置",
+        "出文",
+        "文件",
+        "文档",
+        "覆盖",
+        "输出",
+        "输出文档"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    },
+    {
+      "id": "sq-sequencing-methods-076",
+      "source": "SynQuest",
+      "origin": "semantic-generated",
+      "year": null,
+      "topic": "sequencing-methods",
+      "topicName": "测序方法与读段模拟",
+      "difficulty": 2,
+      "type": "single_choice",
+      "prompt": "关于“（1）单末端测序模拟”，下列哪个时间或数值是正确的？",
+      "options": [
+        {
+          "key": "A",
+          "text": "1567842380"
+        },
+        {
+          "key": "B",
+          "text": "91.13"
+        },
+        {
+          "key": "C",
+          "text": "70.78"
+        },
+        {
+          "key": "D",
+          "text": "150bp"
+        }
+      ],
+      "answer": "D",
+      "analysis": "（10）屏蔽在150bp读长中出现>=5个'N'的基因组区间 art_illumina -ss HSXt -nf 5 -sam -i reference.fa -p -l 150 -f 20 -m 200 -s 10 -o paired_maskN5",
+      "knowledgeRefs": [
+        "sequencing-tech"
+      ],
+      "styleRefs": [
+        "23_370",
+        "22_21",
+        "23_360"
+      ],
+      "tags": [
+        "art",
+        "illumina",
+        "reference.fa",
+        "sequencing-methods",
+        "single_choice",
+        "synquest",
+        "序模",
+        "末端",
+        "模拟",
+        "测序",
+        "端测"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    },
+    {
+      "id": "sq-general-077",
+      "source": "SynQuest",
+      "origin": "semantic-generated",
+      "year": null,
+      "topic": "general",
+      "topicName": "综合题",
+      "difficulty": 1,
+      "type": "single_choice",
+      "prompt": "关于“第1讲（1） 绪论”，下列哪项表述正确？",
+      "options": [
+        {
+          "key": "A",
+          "text": "只测量蛋白浓度"
+        },
+        {
+          "key": "B",
+          "text": "理解基因组结构、功能与演化规律"
+        },
+        {
+          "key": "C",
+          "text": "只进行显微图像标注"
+        },
+        {
+          "key": "D",
+          "text": "生物信息学系 苏州大学苏州医学院 生命科学学院"
+        }
+      ],
+      "answer": "D",
+      "analysis": "生物信息学系 苏州大学苏州医学院 生命科学学院",
+      "knowledgeRefs": [
+        "course-overview"
+      ],
+      "styleRefs": [
+        "sq-general-005",
+        "sq-alignment-homology-018",
+        "sq-genome-databases-026"
+      ],
+      "tags": [
+        "general",
+        "single_choice",
+        "synquest",
+        "信息",
+        "因组",
+        "基因",
+        "学院",
+        "息学",
+        "组信",
+        "绪论",
+        "苏州"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    },
+    {
+      "id": "sq-general-078",
+      "source": "SynQuest",
+      "origin": "semantic-generated",
+      "year": null,
+      "topic": "general",
+      "topicName": "综合题",
+      "difficulty": 1,
+      "type": "single_choice",
+      "prompt": "关于“第11讲 隐马尔可夫模型”，下列哪项表述正确？",
+      "options": [
+        {
+          "key": "A",
+          "text": "只进行显微图像标注"
+        },
+        {
+          "key": "B",
+          "text": "理解基因组结构、功能与演化规律"
+        },
+        {
+          "key": "C",
+          "text": "张高川 生物信息学系 生命科学学院 苏州大学苏州医学院"
+        },
+        {
+          "key": "D",
+          "text": "只测量蛋白浓度"
+        }
+      ],
+      "answer": "C",
+      "analysis": "张高川 生物信息学系 生命科学学院 苏州大学苏州医学院",
+      "knowledgeRefs": [
+        "course-overview"
+      ],
+      "styleRefs": [
+        "sq-general-005",
+        "sq-hmm-regulation-025",
+        "22_89"
+      ],
+      "tags": [
+        "general",
+        "single_choice",
+        "synquest",
+        "信息",
+        "可夫",
+        "夫模",
+        "尔可",
+        "模型",
+        "隐马",
+        "隐马尔可夫模型",
+        "马尔"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    },
+    {
+      "id": "sq-general-079",
+      "source": "SynQuest",
+      "origin": "semantic-generated",
+      "year": null,
+      "topic": "general",
+      "topicName": "综合题",
+      "difficulty": 1,
+      "type": "single_choice",
+      "prompt": "关于“第1讲（2） 遗传图与物理图绘制”，下列哪项表述正确？",
+      "options": [
+        {
+          "key": "A",
+          "text": "理解基因组结构、功能与演化规律"
+        },
+        {
+          "key": "B",
+          "text": "张高川 生物信息学系 苏州大学苏州医学院 生命科学学院"
+        },
+        {
+          "key": "C",
+          "text": "只测量蛋白浓度"
+        },
+        {
+          "key": "D",
+          "text": "只进行显微图像标注"
+        }
+      ],
+      "answer": "B",
+      "analysis": "张高川 生物信息学系 苏州大学苏州医学院 生命科学学院",
+      "knowledgeRefs": [
+        "course-overview"
+      ],
+      "styleRefs": [
+        "sq-general-005",
+        "22_9",
+        "sq-alignment-homology-018"
+      ],
+      "tags": [
+        "general",
+        "single_choice",
+        "synquest",
+        "与物",
+        "传图",
+        "图与",
+        "图绘",
+        "物理",
+        "理图",
+        "绘制",
+        "遗传"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    },
+    {
+      "id": "sq-general-080",
+      "source": "SynQuest",
+      "origin": "semantic-generated",
+      "year": null,
+      "topic": "general",
+      "topicName": "综合题",
+      "difficulty": 1,
+      "type": "single_choice",
+      "prompt": "关于“基因组信息学的主要研究内容和方向”，下列哪项命令或参数写法是正确的？",
+      "options": [
+        {
+          "key": "A",
+          "text": "核/染色体基因组"
+        },
+        {
+          "key": "B",
+          "text": "单倍体 染色体 基因 DNA （细胞|分子生物学）"
+        },
+        {
+          "key": "C",
+          "text": "宏|元基因组学 metagenomics"
+        },
+        {
+          "key": "D",
+          "text": "//chat.deepseek.com/ (2025.9.1)"
+        }
+      ],
+      "answer": "C",
+      "analysis": "宏|元基因组学 metagenomics",
+      "knowledgeRefs": [
+        "course-overview"
+      ],
+      "styleRefs": [
+        "sq-general-005",
+        "sq-alignment-homology-018",
+        "22_3"
+      ],
+      "tags": [
+        "general",
+        "single_choice",
+        "synquest",
+        "信息",
+        "因组",
+        "基因",
+        "学的",
+        "息学",
+        "的主",
+        "组信",
+        "要研"
+      ],
+      "images": {
+        "question": "",
+        "note": ""
+      },
+      "pdfPage": null
+    }
+  ]
+}
