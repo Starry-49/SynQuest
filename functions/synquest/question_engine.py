@@ -5,6 +5,7 @@ from __future__ import annotations
 import json
 import random
 import re
+from collections import Counter
 from dataclasses import dataclass
 from functools import lru_cache
 from pathlib import Path
@@ -44,6 +45,45 @@ GENERIC_PROMPT_PATTERNS = (
     re.compile(r"^下列哪项关于[“\"]?.+[”\"]?"),
     re.compile(r"^根据知识库内容，下列哪个"),
 )
+PROMPT_FOCUS_PATTERNS = (
+    re.compile(r"^关于[“\"]?(?P<focus>.+?)[”\"]?，下列哪项表述正确[？?]?$"),
+    re.compile(r"^关于[“\"]?(?P<focus>.+?)[”\"]?，下列哪个时间或数值是正确的[？?]?$"),
+    re.compile(r"^关于[“\"]?(?P<focus>.+?)[”\"]?，下列哪一项术语或缩写是正确的[？?]?$"),
+    re.compile(r"^关于[“\"]?(?P<focus>.+?)[”\"]?，下列哪项命令或参数写法是正确的[？?]?$"),
+    re.compile(r"^“(?P<focus>.+?)”对应的内容是[？?]?$"),
+)
+NOISY_FOCUS_PATTERNS = (
+    re.compile(r"^第\d+讲"),
+    re.compile(r"^输出文档"),
+    re.compile(r"^回顾"),
+    re.compile(r"^拓展阅读"),
+    re.compile(r"^实践练习"),
+    re.compile(r"^思考题"),
+    re.compile(r"^截图来自"),
+    re.compile(r"^向下翻页$"),
+    re.compile(r"^下一条"),
+    re.compile(r"^其赋值格式为$"),
+    re.compile(r"^数据格式$"),
+    re.compile(r"^格式$"),
+    re.compile(r"^规范"),
+    re.compile(r"^目标$"),
+    re.compile(r"^横坐标$"),
+    re.compile(r"^纵坐标$"),
+    re.compile(r"^第二列$"),
+    re.compile(r"^第一列$"),
+    re.compile(r"^[a-zA-Z]$"),
+)
+NOISY_TEXT_MARKERS = (
+    "输出文档",
+    "向下翻页",
+    "截图来自",
+    "拓展阅读",
+    "实践练习",
+    "思考题",
+    "回顾",
+)
+BAD_OPTION_TOKENS = {"#", "*", "-", "--", "不确定"}
+ATTRIBUTE_FOCUS_MARKERS = ("属性", "字段", "标签", "attribute", "tag", "参数")
 INTERROGATIVE_CLEANUPS = (
     re.compile(r"[？?]+$"),
     re.compile(r"^下列哪项最能概括"),
@@ -153,13 +193,118 @@ def informative_tokens(text: str) -> set[str]:
 
 def looks_like_low_information_text(text: str) -> bool:
     lowered = normalize_text(text).lower()
-    if any(marker in lowered for marker in ("email:", "@", "wx:", "qq:", "tel", "phone", "http://", "https://", "www.")):
+    if any(marker in lowered for marker in ("email:", "wx:", "qq:", "tel", "phone", "http://", "https://", "www.")):
+        return True
+    if re.search(r"\b[\w.+-]+@[\w-]+\.[\w.-]+\b", lowered):
         return True
     org_terms = {"大学", "学院", "学校", "系", "实验室", "college", "school", "department", "faculty", "university", "institute"}
     tokens = informative_tokens(text)
     if tokens and tokens.issubset(org_terms):
         return True
     return False
+
+
+def contains_ocr_noise(text: str) -> bool:
+    value = str(text or "")
+    return bool(re.search(r"[�]", value))
+
+
+def extract_prompt_focus(prompt: str) -> str:
+    normalized = normalize_text(prompt)
+    for pattern in PROMPT_FOCUS_PATTERNS:
+        match = pattern.match(normalized)
+        if match:
+            return normalize_text(match.group("focus"))
+    return ""
+
+
+def looks_like_noisy_focus(text: str) -> bool:
+    focus = normalize_text(text)
+    if not focus:
+        return True
+    if any(pattern.search(focus) for pattern in NOISY_FOCUS_PATTERNS):
+        return True
+    if any(marker in focus for marker in NOISY_TEXT_MARKERS):
+        return True
+    if len(focus) <= 1:
+        return True
+    return False
+
+
+def bad_option_text(text: str) -> bool:
+    normalized = normalize_text(text)
+    if not normalized:
+        return True
+    if normalized in BAD_OPTION_TOKENS:
+        return True
+    if len(normalized) <= 1:
+        return True
+    if contains_ocr_noise(normalized):
+        return True
+    return False
+
+
+def focus_prefers_uniform_options(text: str) -> bool:
+    lowered = normalize_text(text).lower()
+    return any(marker in lowered for marker in ATTRIBUTE_FOCUS_MARKERS)
+
+
+def option_surface_bucket(text: str) -> str:
+    value = normalize_text(text)
+    signature = answer_signature(value)
+    if signature in {"numeric", "command", "sentence"}:
+        return signature
+    if re.fullmatch(r"[@A-Za-z][A-Za-z0-9_./+\-]{1,31}", value):
+        return "identifier"
+    if re.fullmatch(r"[\u4e00-\u9fff]{2,10}", value):
+        return "cjk-token"
+    return "phrase"
+
+
+def question_quality_issues(question: dict[str, Any]) -> list[str]:
+    issues: list[str] = []
+    prompt = normalize_text(question.get("prompt", ""))
+    analysis = normalize_text(question.get("analysis", ""))
+    options = [normalize_text(option.get("text", "")) for option in question.get("options", [])]
+    correct_text = next(
+        (option["text"] for option in question.get("options", []) if option.get("key") == question.get("answer")),
+        "",
+    )
+    correct_text = normalize_text(correct_text)
+    correct_signature = answer_signature(correct_text) if correct_text else "short_phrase"
+    focus = extract_prompt_focus(prompt)
+
+    if not prompt or len(prompt) < 8:
+        issues.append("prompt-too-short")
+    if contains_ocr_noise(prompt) or contains_ocr_noise(analysis):
+        issues.append("ocr-noise")
+    if focus and looks_like_noisy_focus(focus):
+        issues.append("noisy-focus")
+    if "命令或参数写法" in prompt and correct_signature != "command":
+        issues.append("prompt-answer-mismatch-command")
+    if ("时间或数值" in prompt or "哪一年" in prompt) and correct_signature != "numeric":
+        issues.append("prompt-answer-mismatch-numeric")
+    if "术语或缩写" in prompt and correct_signature not in {"acronym", "short_phrase", "short_cjk"}:
+        issues.append("prompt-answer-mismatch-acronym")
+    if "对应的内容是" in prompt and focus and looks_like_noisy_focus(focus):
+        issues.append("mapping-fragment")
+    if any(bad_option_text(option) for option in options):
+        issues.append("bad-option")
+    compatible_options = sum(1 for option in options if signature_compatible(correct_signature, answer_signature(option)))
+    if options and compatible_options < max(2, len(options) - 1):
+        issues.append("option-signature-mismatch")
+    if focus and focus_prefers_uniform_options(focus) and len(options) >= 4:
+        buckets = Counter(option_surface_bucket(option) for option in options)
+        if len(buckets) >= 2 and max(buckets.values()) == len(options) - 1 and min(buckets.values()) == 1:
+            issues.append("attribute-option-mismatch")
+    if analysis and looks_like_low_information_text(analysis):
+        issues.append("low-information-analysis")
+
+    return issues
+
+
+def question_passes_quality_filter(question: dict[str, Any]) -> bool:
+    return not question_quality_issues(question)
 
 
 def is_fact_usable(entry: dict[str, Any], fact: dict[str, Any]) -> bool:
@@ -205,10 +350,10 @@ def signature_compatible(correct_signature: str, candidate_signature: str) -> bo
     if correct_signature == candidate_signature:
         return True
     compatible = {
-        "short_cjk": {"short_phrase"},
-        "short_phrase": {"short_cjk"},
+        "short_cjk": {"short_phrase", "acronym"},
+        "short_phrase": {"short_cjk", "acronym"},
         "numeric": set(),
-        "acronym": {"short_phrase"},
+        "acronym": {"short_phrase", "short_cjk"},
         "command": set(),
         "sentence": {"short_phrase"},
     }
@@ -598,7 +743,11 @@ def synthesize_questions(
             )
             continue
 
-        selected_questions.append(assemble_question(entry, fact, matches, prompt, len(selected_questions) + 1))
+        candidate_question = assemble_question(entry, fact, matches, prompt, len(selected_questions) + 1)
+        if not question_passes_quality_filter(candidate_question):
+            continue
+
+        selected_questions.append(candidate_question)
         seen_prompts.add(normalized_prompt)
 
     if len(selected_questions) < count and deferred_records:
@@ -613,15 +762,17 @@ def synthesize_questions(
             rewritten_similarity = style_index.max_prompt_similarity(rewritten_prompt) if style_index is not None else 0.0
             if rewritten_similarity >= 99.5:
                 continue
-            selected_questions.append(
-                assemble_question(
-                    record["entry"],
-                    record["fact"],
-                    record["matches"],
-                    rewritten_prompt,
-                    len(selected_questions) + 1,
-                )
+            candidate_question = assemble_question(
+                record["entry"],
+                record["fact"],
+                record["matches"],
+                rewritten_prompt,
+                len(selected_questions) + 1,
             )
+            if not question_passes_quality_filter(candidate_question):
+                continue
+
+            selected_questions.append(candidate_question)
             seen_prompts.add(rewritten_normalized)
 
     if not selected_questions:

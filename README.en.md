@@ -11,7 +11,7 @@
 <p align="center">
   <a href="README.md"><strong>中文</strong></a> ·
   <a href="https://starry-49.github.io/SynQuest/"><strong>Live Demo</strong></a> ·
-  <a href="https://github.com/Starry-49/SynQuest/releases/tag/v0.2.0"><strong>Release</strong></a>
+  <a href="https://github.com/Starry-49/SynQuest/releases/tag/v0.2.1"><strong>Release</strong></a>
 </p>
 
 <p align="center">
@@ -39,7 +39,7 @@ Start with the live demo:
 Install the Python CLI:
 
 ```bash
-pip install "git+https://github.com/Starry-49/SynQuest.git@v0.2.0"
+pip install "git+https://github.com/Starry-49/SynQuest.git@v0.2.1"
 synquest --help
 ```
 
@@ -243,7 +243,7 @@ SynQuest is primarily custom repository logic, with these reusable external comp
 
 Release page:
 
-- [v0.2.0](https://github.com/Starry-49/SynQuest/releases/tag/v0.2.0)
+- [v0.2.1](https://github.com/Starry-49/SynQuest/releases/tag/v0.2.1)
 
 ## Repository Structure
 

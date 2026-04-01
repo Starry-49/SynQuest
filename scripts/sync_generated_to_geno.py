@@ -6,12 +6,17 @@ from __future__ import annotations
 import argparse
 import json
 import re
+import sys
 from collections import Counter
 from pathlib import Path
 from typing import Any
 
 
 ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
+from functions.synquest.question_engine import question_passes_quality_filter
 
 CANONICAL_TOPICS: dict[str, dict[str, str]] = {
     "alignment-homology": {
@@ -269,6 +274,8 @@ def normalize_semantic_payload(payload: dict[str, Any], existing_questions: list
         item["id"] = f"sq-{topic_id}-{counter:03d}"
         item["source"] = "SynQuest"
         item["origin"] = "semantic-generated"
+        if not question_passes_quality_filter(item):
+            continue
         normalized_questions.append(item)
         counter += 1
     payload["questions"] = normalized_questions

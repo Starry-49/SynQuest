@@ -11,7 +11,7 @@
 <p align="center">
   <a href="README.en.md"><strong>English</strong></a> ·
   <a href="https://starry-49.github.io/SynQuest/"><strong>Live Demo</strong></a> ·
-  <a href="https://github.com/Starry-49/SynQuest/releases/tag/v0.2.0"><strong>Release</strong></a>
+  <a href="https://github.com/Starry-49/SynQuest/releases/tag/v0.2.1"><strong>Release</strong></a>
 </p>
 
 <p align="center">
@@ -39,7 +39,7 @@
 安装 Python CLI：
 
 ```bash
-pip install "git+https://github.com/Starry-49/SynQuest.git@v0.2.0"
+pip install "git+https://github.com/Starry-49/SynQuest.git@v0.2.1"
 synquest --help
 ```
 
@@ -243,7 +243,7 @@ SynQuest 的主流程以仓库内自编逻辑为主，同时复用了这些通�
 
 Release 页面：
 
-- [v0.2.0](https://github.com/Starry-49/SynQuest/releases/tag/v0.2.0)
+- [v0.2.1](https://github.com/Starry-49/SynQuest/releases/tag/v0.2.1)
 
 ## 仓库结构
 
